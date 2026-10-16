@@ -1,49 +1,265 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+﻿:root {
+  /* Brand Primary - Heavy Industrial Navy */
+  --color-primary-dark: #0B192C;     /* Deep Navy / Authority / Footer / Hero Dark */
+  --color-primary-navy: #1E3E62;     /* Medium Navy for Cards / Headers */
+  --color-water-blue: #0284C7;       /* Ocean Pure Water Blue / Accents */
+  --color-water-light: #38BDF8;      /* Cyan highlight & link hover */
+
+  /* Eco-Friendly / Altra Care Green Division */
+  --color-bio-green: #10B981;        /* Emerald Green / Eco-safe */
+  --color-bio-dark: #059669;         /* Darker Green for buttons & badges */
+  --color-bio-light: #D1FAE5;        /* Light Green badge tint */
+
+  /* Conversion, Badges & Accents */
+  --color-accent-amber: #F59E0B;     /* Amber Gold for Quote CTAs */
+  --color-accent-hover: #D97706;     /* Darker Amber on Hover */
+
+  /* Neutral Backgrounds & Typography Surfaces */
+  --color-surface-white: #FFFFFF;    /* Clean card surfaces */
+  --color-surface-light: #F8FAFC;    /* Section background tint */
+  --color-surface-alt: #F1F5F9;      /* Alternate spec tables */
+  --color-border-subtle: #E2E8F0;    /* Border lines */
+  --color-border-dark: #1E293B;      /* Dark mode card borders */
+  --color-text-main: #0F172A;        /* High-contrast body text */
+  --color-text-muted: #64748B;       /* Secondary details & specs */
+  --color-text-light: #F8FAFC;       /* Text on dark backgrounds */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 20px rgba(2, 132, 199, 0.25);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Reset & Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  height: 100%;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-html,
 body {
-  max-width: 100vw;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-text-main);
+  background-color: var(--color-surface-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+p {
+  color: var(--color-text-muted);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+code, .font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section-dark {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-light);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: #FFFFFF;
+}
+
+.section-dark p {
+  color: #94A3B8;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-water-blue);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: #0369A1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+}
+
+.btn-accent {
+  background-color: var(--color-accent-amber);
+  color: #0F172A;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.35);
+}
+
+.btn-bio {
+  background-color: var(--color-bio-dark);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+}
+
+.btn-bio:hover {
+  background-color: #047857;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #FFFFFF;
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  border-color: var(--color-border-subtle);
+  color: var(--color-primary-dark);
+}
+
+.btn-outline-dark:hover {
+  border-color: var(--color-primary-dark);
+  background-color: var(--color-surface-alt);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-blue {
+  background-color: #E0F2FE;
+  color: #0369A1;
+  border: 1px solid #BAE6FD;
+}
+
+.badge-green {
+  background-color: #D1FAE5;
+  color: #047857;
+  border: 1px solid #A7F3D0;
+}
+
+.badge-amber {
+  background-color: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+/* Card Surface */
+.card {
+  background-color: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: #CBD5E1;
+}
+
+/* Responsive Header Utilities */
+@media (min-width: 992px) {
+  .desktop-brand-text {
+    display: flex !important;
+  }
+  .desktop-division-pill {
+    display: inline-flex !important;
+  }
+  .desktop-nav {
+    display: flex !important;
+  }
+  #quote-cta-btn {
+    display: inline-flex !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .desktop-only-meta {
+    display: inline-flex !important;
   }
 }
