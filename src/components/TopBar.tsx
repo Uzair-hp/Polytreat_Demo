@@ -10,7 +10,9 @@ export default function TopBar() {
           </span>
           <span className="topbar-units">
             <Factory size={14} aria-hidden="true" />
-            Manufacturing Units: Tarapur MIDC &amp; Goregaon (Mumbai)
+            <span className="topbar-unit-label">
+              Manufacturing Units: Tarapur MIDC &amp; Goregaon (Mumbai)
+            </span>
           </span>
         </div>
 

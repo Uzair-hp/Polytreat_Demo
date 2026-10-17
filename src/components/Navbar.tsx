@@ -85,7 +85,10 @@ const qualityGroups: MenuGroup[] = [
     title: "Quality & Lab Services",
     links: [
       { label: "ISO 9001:2015 quality system", href: "#quality" },
+      { label: "WHO-GMP compliance", href: "#quality" },
+      { label: "US FDA compliance", href: "#quality" },
       { label: "Water sample testing", href: "#quality-service", detail: "Discuss a sample with our technical team" },
+      { label: "Free water audit", href: "#quality-service" },
       { label: "On-site technical support", href: "#quality-service" },
       { label: "Request TDS / COA", href: salesWhatsApp, detail: "Contact the team for product documents" },
     ],
@@ -94,10 +97,10 @@ const qualityGroups: MenuGroup[] = [
 
 const companyGroups: MenuGroup[] = [
   {
-    title: "PolyTreat Chemicals",
+    title: "About PolyTreat",
     links: [
-      { label: "Our heritage", href: "#about", detail: "Established in 1987" },
-      { label: "Manufacturing plants", href: "#manufacturing" },
+      { label: "37+ years of heritage", href: "#about", detail: "Established in 1987" },
+      { label: "Tarapur & Mumbai plants", href: "#manufacturing" },
       { label: "PQRS framework", href: "#pqrs" },
       { label: "Contact the team", href: "#contact" },
     ],
@@ -114,8 +117,8 @@ const menuGroups: Record<MenuKey, MenuGroup[]> = {
 const menuLabels: Record<MenuKey, string> = {
   products: "Products",
   industries: "Industries",
-  quality: "Quality & Lab Services",
-  company: "Company",
+  quality: "Quality & Lab",
+  company: "About Us",
 };
 
 function MenuGroupLinks({ groups, onNavigate }: { groups: MenuGroup[]; onNavigate: () => void }) {
@@ -243,7 +246,7 @@ export default function Navbar() {
     <header className="site-header" ref={headerRef}>
         <div className="navbar-inner">
           <Link className="navbar-brand" href="/" aria-label="PolyTreat Chemicals home" onClick={closeMenus}>
-            <span className="navbar-logo"><Image src="/logo.png" alt="" fill priority sizes="150px" /></span>
+            <span className="navbar-logo"><Image src="/logo.png" alt="" fill priority sizes="(max-width: 430px) 112px, (max-width: 1023px) 126px, 118px" /></span>
             <span className="navbar-brand-copy">
               <strong>PolyTreat Chemicals</strong>
               <small>Water Treatment &amp; Specialty Chemistry</small>
@@ -251,7 +254,12 @@ export default function Navbar() {
           </Link>
 
           <nav className="desktop-nav" aria-label="Main navigation">
-            {(["products", "industries", "quality", "company"] as MenuKey[]).map(renderMenuTrigger)}
+            {renderMenuTrigger("products")}
+            {renderMenuTrigger("industries")}
+            <Link className="nav-direct-link" href="#clients" onClick={closeMenus}>Clients</Link>
+            {renderMenuTrigger("quality")}
+            {renderMenuTrigger("company")}
+            <Link className="nav-direct-link" href="#contact" onClick={closeMenus}>Contact</Link>
           </nav>
 
           <nav className="division-switcher" aria-label="Choose a division">
@@ -326,6 +334,8 @@ export default function Navbar() {
                 </section>
               );
             })}
+            <Link className="mobile-direct-link" href="#clients" onClick={closeMenus}>Clients</Link>
+            <Link className="mobile-direct-link" href="#contact" onClick={closeMenus}>Contact</Link>
             <a className="btn btn-accent mobile-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
               <FileCheck2 size={17} /> Request TDS / Quote
             </a>

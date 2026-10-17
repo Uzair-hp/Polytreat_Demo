@@ -23,11 +23,11 @@ export default function Home() {
             </span>
 
             <h1 className="hero-heading" style={{ marginBottom: "1.25rem", color: "#FFFFFF" }}>
-              Precision Chemistry for <span style={{ color: "var(--color-water-light)" }}>Zero Downtime</span> &amp; Sustainable Water Efficiency
+              Precision Chemistry for <span className="hero-highlight">Zero Downtime</span> &amp; Sustainable Water Efficiency
             </h1>
 
-            <p style={{ fontSize: "1.15rem", lineHeight: 1.7, marginBottom: "2rem", color: "#CBD5E1" }}>
-              Custom-formulated chemical treatments for Boilers, Cooling Towers, RO Membrane Antiscalants, Biocides &amp; Institutional Hygiene. Engineered for chemical engineers, plant managers, and facility executives across India.
+            <p className="hero-description" style={{ fontSize: "1.15rem", lineHeight: 1.7, marginBottom: "2rem", color: "#CBD5E1" }}>
+              Custom-formulated chemical treatments for Boilers, Cooling Towers, RO Membrane Antiscalants, Biocides &amp; Institutional Hygiene. Engineered for chemical engineers, plant managers, and&nbsp;facility executives across India.
             </p>
 
             <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "2.5rem" }}>
@@ -157,7 +157,7 @@ export default function Home() {
       {/* Industries served */}
       <section className="section industries-section" id="industries">
         <div className="container">
-          <div className="industries-heading">
+          <div className="industries-heading" id="clients">
             <span className="badge badge-blue">Industries We Serve</span>
             <h2>Process chemistry for the systems that keep business moving.</h2>
             <p>Explore PolyTreat solutions by the kind of operation and facility you manage.</p>
