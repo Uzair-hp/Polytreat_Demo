@@ -1,353 +1,342 @@
-﻿"use client";
+"use client";
 
-import React, { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Droplets,
-  Sparkles,
   ArrowRight,
-  Menu,
-  X,
-  PhoneCall,
+  Building2,
   ChevronDown,
-  FileCheck,
+  Droplets,
+  Factory,
+  FileCheck2,
+  FlaskConical,
+  Leaf,
+  Menu,
+  ShieldCheck,
+  Sparkles,
+  X,
 } from "lucide-react";
 
+type MenuKey = "products" | "industries" | "quality" | "company";
+type Division = "industrial" | "altra";
+type MenuLink = { label: string; href: string; detail?: string };
+type MenuGroup = { title: string; links: MenuLink[] };
+
+const salesWhatsApp =
+  "https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20request%20product%20TDS%20or%20a%20quote.";
+
+const productGroups: MenuGroup[] = [
+  {
+    title: "Water Treatment",
+    links: [
+      { label: "Boiler water treatment", href: "#boiler-water", detail: "Oxygen scavengers, sludge and scale control" },
+      { label: "Cooling towers & chillers", href: "#cooling-water", detail: "Corrosion, scale and biological control" },
+      { label: "RO & effluent treatment", href: "#ro-etp", detail: "Membrane care and wastewater treatment" },
+    ],
+  },
+  {
+    title: "Specialty Chemistry",
+    links: [
+      { label: "POLYDOR-WS", href: "#specialty-chemicals", detail: "Odor neutralization" },
+      { label: "COROSIL", href: "#specialty-chemicals", detail: "Rust conversion and protection" },
+      { label: "POLYKLIN", href: "#specialty-chemicals", detail: "AHU / FCU coil cleaning" },
+      { label: "Construction chemicals", href: "#specialty-chemicals", detail: "Waterproofing and specialty coatings" },
+    ],
+  },
+  {
+    title: "Altra Care Hygiene",
+    links: [
+      { label: "Surface & floor care", href: "#altra-care" },
+      { label: "Disinfectants & handwash", href: "#altra-care" },
+      { label: "Kitchen & dishwash care", href: "#altra-care" },
+      { label: "Herbal mosquito repellent", href: "#altra-care" },
+    ],
+  },
+];
+
+const industryGroups: MenuGroup[] = [
+  {
+    title: "Heavy Process & Energy",
+    links: [
+      { label: "Power & process plants", href: "#industry-process", detail: "Boiler and cooling water programs" },
+      { label: "Sugar & distilleries", href: "#industry-process", detail: "Process water and specialty chemicals" },
+    ],
+  },
+  {
+    title: "Pharma & Manufacturing",
+    links: [
+      { label: "Pharmaceutical manufacturing", href: "#industry-manufacturing", detail: "Utility water treatment" },
+      { label: "Textile & chemical processing", href: "#industry-manufacturing", detail: "Boiler, cooling and effluent treatment" },
+    ],
+  },
+  {
+    title: "Commercial & Infrastructure",
+    links: [
+      { label: "Commercial HVAC", href: "#industry-commercial", detail: "Cooling water and coil care" },
+      { label: "Hotels, hospitals & institutions", href: "#industry-commercial", detail: "Altra Care facility hygiene" },
+      { label: "Construction & waterproofing", href: "#industry-commercial", detail: "Specialty coatings and protection" },
+    ],
+  },
+];
+
+const qualityGroups: MenuGroup[] = [
+  {
+    title: "Quality & Lab Services",
+    links: [
+      { label: "ISO 9001:2015 quality system", href: "#quality" },
+      { label: "Water sample testing", href: "#quality-service", detail: "Discuss a sample with our technical team" },
+      { label: "On-site technical support", href: "#quality-service" },
+      { label: "Request TDS / COA", href: salesWhatsApp, detail: "Contact the team for product documents" },
+    ],
+  },
+];
+
+const companyGroups: MenuGroup[] = [
+  {
+    title: "PolyTreat Chemicals",
+    links: [
+      { label: "Our heritage", href: "#about", detail: "Established in 1987" },
+      { label: "Manufacturing plants", href: "#manufacturing" },
+      { label: "PQRS framework", href: "#pqrs" },
+      { label: "Contact the team", href: "#contact" },
+    ],
+  },
+];
+
+const menuGroups: Record<MenuKey, MenuGroup[]> = {
+  products: productGroups,
+  industries: industryGroups,
+  quality: qualityGroups,
+  company: companyGroups,
+};
+
+const menuLabels: Record<MenuKey, string> = {
+  products: "Products",
+  industries: "Industries",
+  quality: "Quality & Lab Services",
+  company: "Company",
+};
+
+function MenuGroupLinks({ groups, onNavigate }: { groups: MenuGroup[]; onNavigate: () => void }) {
+  return (
+    <div className="nav-menu-groups">
+      {groups.map((group) => (
+        <section className="nav-menu-group" key={group.title}>
+          <h3>{group.title}</h3>
+          <ul>
+            {group.links.map((link) => {
+              const external = link.href.startsWith("https://");
+              return (
+                <li key={`${group.title}-${link.label}`}>
+                  {external ? (
+                    <a href={link.href} target="_blank" rel="noreferrer" onClick={onNavigate}>
+                      <span>{link.label}</span>
+                      {link.detail && <small>{link.detail}</small>}
+                    </a>
+                  ) : (
+                    <Link href={link.href} onClick={onNavigate}>
+                      <span>{link.label}</span>
+                      {link.detail && <small>{link.detail}</small>}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
+  );
+}
+
 export default function Navbar() {
-  const [activeDivision, setActiveDivision] = useState<"industrial" | "altra">("industrial");
+  const [activeDivision, setActiveDivision] = useState<Division>("industrial");
+  const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
+  const [openMobileGroup, setOpenMobileGroup] = useState<MenuKey | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    function handlePointerDown(event: PointerEvent) {
+      if (!headerRef.current?.contains(event.target as Node)) setOpenMenu(null);
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        const mobileToggle = headerRef.current?.querySelector<HTMLButtonElement>(
+          '.mobile-menu-btn[aria-expanded="true"]',
+        );
+        const menuTrigger = headerRef.current?.querySelector<HTMLButtonElement>(
+          ".nav-item.is-open .nav-trigger",
+        );
+        setOpenMenu(null);
+        setIsMobileMenuOpen(false);
+        setOpenMobileGroup(null);
+        (mobileToggle ?? menuTrigger)?.focus();
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  function closeMenus() {
+    setOpenMenu(null);
+    setOpenMobileGroup(null);
+    setIsMobileMenuOpen(false);
+  }
+
+  function toggleMenu(menu: MenuKey) {
+    setOpenMenu((current) => (current === menu ? null : menu));
+  }
+
+  function renderDropdown(menu: MenuKey) {
+    return (
+      <div
+        className={`nav-dropdown-panel nav-${menu}-panel`}
+        id={`nav-panel-${menu}`}
+        aria-label={`${menuLabels[menu]} links`}
+      >
+        {menu === "products" && (
+          <aside className="nav-feature-card">
+            <span className="nav-feature-eyebrow"><ShieldCheck size={14} /> Since 1987</span>
+            <h2>Specialty chemistry engineered for protection.</h2>
+            <p>Industrial water treatment and institutional hygiene solutions from one experienced manufacturer.</p>
+            <Link className="nav-feature-link" href="#contact" onClick={closeMenus}>
+              Talk to our team <ArrowRight size={16} />
+            </Link>
+            <span className="nav-feature-years">37<span>+</span></span>
+          </aside>
+        )}
+        <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
+      </div>
+    );
+  }
+
+  function renderMenuTrigger(menu: MenuKey) {
+    const isOpen = openMenu === menu;
+    return (
+      <div
+        className={`nav-item${isOpen ? " is-open" : ""}`}
+        key={menu}
+      >
+        <button
+          className="nav-trigger"
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls={`nav-panel-${menu}`}
+          onClick={() => toggleMenu(menu)}
+        >
+          {menuLabels[menu]} <ChevronDown size={15} aria-hidden="true" />
+        </button>
+        {isOpen && renderDropdown(menu)}
+      </div>
+    );
+  }
 
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        backgroundColor: "#FFFFFF",
-        borderBottom: "1px solid var(--color-border-subtle)",
-        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.04)",
-      }}
-    >
-      <div className="container">
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            height: "76px",
-            gap: "1.5rem",
-          }}
-        >
-          {/* Brand Logo & Tagline */}
-          <Link
-            href="/"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.85rem",
-              textDecoration: "none",
-            }}
-          >
-            <div
-              style={{
-                position: "relative",
-                width: "150px",
-                height: "48px",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <Image
-                src="/logo.png"
-                alt="PolyTreat Chemicals Pvt Ltd"
-                fill
-                style={{ objectFit: "contain" }}
-                priority
-              />
-            </div>
-            <div
-              style={{
-                display: "none",
-                flexDirection: "column",
-                borderLeft: "1px solid var(--color-border-subtle)",
-                paddingLeft: "0.75rem",
-              }}
-              className="desktop-brand-text"
-            >
-              <span
-                style={{
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.08em",
-                  color: "var(--color-primary-navy)",
-                  textTransform: "uppercase",
-                }}
-              >
-                PolyTreat Chemicals
-              </span>
-              <span
-                style={{
-                  fontSize: "0.65rem",
-                  color: "var(--color-text-muted)",
-                }}
-              >
-                Est. 1987 &bull; Water &amp; Hygiene
-              </span>
-            </div>
+    <header className="site-header" ref={headerRef}>
+        <div className="navbar-inner">
+          <Link className="navbar-brand" href="/" aria-label="PolyTreat Chemicals home" onClick={closeMenus}>
+            <span className="navbar-logo"><Image src="/logo.png" alt="" fill priority sizes="150px" /></span>
+            <span className="navbar-brand-copy">
+              <strong>PolyTreat Chemicals</strong>
+              <small>Water Treatment &amp; Specialty Chemistry</small>
+            </span>
           </Link>
 
-          {/* Center: Division Switcher Pill (PRD Feature) */}
-          <div
-            style={{
-              display: "none",
-              backgroundColor: "#F1F5F9",
-              padding: "4px",
-              borderRadius: "9999px",
-              border: "1px solid #E2E8F0",
-            }}
-            className="desktop-division-pill"
-          >
-            <button
-              onClick={() => setActiveDivision("industrial")}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                padding: "6px 14px",
-                borderRadius: "9999px",
-                fontSize: "0.82rem",
-                fontWeight: 600,
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.2s ease",
-                backgroundColor: activeDivision === "industrial" ? "var(--color-primary-navy)" : "transparent",
-                color: activeDivision === "industrial" ? "#FFFFFF" : "var(--color-text-muted)",
-                boxShadow: activeDivision === "industrial" ? "0 2px 6px rgba(11, 25, 44, 0.2)" : "none",
-              }}
-            >
-              <Droplets size={14} color={activeDivision === "industrial" ? "var(--color-water-light)" : "#64748B"} />
-              Industrial Water Treatment
-            </button>
-            <button
-              onClick={() => setActiveDivision("altra")}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                padding: "6px 14px",
-                borderRadius: "9999px",
-                fontSize: "0.82rem",
-                fontWeight: 600,
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.2s ease",
-                backgroundColor: activeDivision === "altra" ? "var(--color-bio-dark)" : "transparent",
-                color: activeDivision === "altra" ? "#FFFFFF" : "var(--color-text-muted)",
-                boxShadow: activeDivision === "altra" ? "0 2px 6px rgba(5, 150, 105, 0.25)" : "none",
-              }}
-            >
-              <Sparkles size={14} color={activeDivision === "altra" ? "#A7F3D0" : "#64748B"} />
-              Altra Care Hygiene
-            </button>
-          </div>
+          <nav className="desktop-nav" aria-label="Main navigation">
+            {(["products", "industries", "quality", "company"] as MenuKey[]).map(renderMenuTrigger)}
+          </nav>
 
-          {/* Desktop Navigation Links */}
-          <nav
-            style={{
-              display: "none",
-              alignItems: "center",
-              gap: "1.75rem",
-            }}
-            className="desktop-nav"
-          >
+          <nav className="division-switcher" aria-label="Choose a division">
             <Link
-              href="#products"
-              style={{
-                fontSize: "0.92rem",
-                fontWeight: 600,
-                color: "var(--color-text-main)",
-                transition: "color 0.2s",
-              }}
+              className={activeDivision === "industrial" ? "is-active" : ""}
+              href="#industrial"
+              onClick={() => { setActiveDivision("industrial"); closeMenus(); }}
             >
-              Products &amp; Formulations
+              <Droplets size={14} /> Industrial
             </Link>
             <Link
-              href="#industries"
-              style={{
-                fontSize: "0.92rem",
-                fontWeight: 500,
-                color: "var(--color-text-muted)",
-                transition: "color 0.2s",
-              }}
+              className={activeDivision === "altra" ? "is-active is-altra" : ""}
+              href="#altra-care"
+              onClick={() => { setActiveDivision("altra"); closeMenus(); }}
             >
-              Industries
-            </Link>
-            <Link
-              href="#pqrs"
-              style={{
-                fontSize: "0.92rem",
-                fontWeight: 500,
-                color: "var(--color-text-muted)",
-                transition: "color 0.2s",
-              }}
-            >
-              PQRS Quality
-            </Link>
-            <Link
-              href="#about"
-              style={{
-                fontSize: "0.92rem",
-                fontWeight: 500,
-                color: "var(--color-text-muted)",
-                transition: "color 0.2s",
-              }}
-            >
-              Company
+              <Sparkles size={14} /> Altra Care
             </Link>
           </nav>
 
-          {/* Right Action Buttons */}
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-            <a
-              href="#quote"
-              className="btn btn-accent"
-              style={{
-                fontSize: "0.86rem",
-                padding: "0.55rem 1.15rem",
-                display: "none",
-              }}
-              id="quote-cta-btn"
-            >
-              <FileCheck size={16} /> Request Lab Quote
+          <div className="navbar-actions">
+            <a className="btn btn-accent navbar-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
+              <FileCheck2 size={16} /> <span>Request TDS / Quote</span>
             </a>
 
-            {/* Mobile Hamburger Button */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "8px",
-                borderRadius: "8px",
-                border: "1px solid var(--color-border-subtle)",
-                backgroundColor: "#F8FAFC",
-                color: "var(--color-primary-dark)",
-                cursor: "pointer",
-              }}
               className="mobile-menu-btn"
-              aria-label="Toggle Navigation Menu"
+              type="button"
+              onClick={() => setIsMobileMenuOpen((open) => !open)}
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div
-          style={{
-            backgroundColor: "#FFFFFF",
-            borderTop: "1px solid var(--color-border-subtle)",
-            padding: "1.25rem 1.5rem",
-            boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          {/* Mobile Division Switcher */}
-          <div
-            style={{
-              backgroundColor: "#F1F5F9",
-              padding: "4px",
-              borderRadius: "8px",
-              marginBottom: "1.25rem",
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "4px",
-            }}
-          >
-            <button
-              onClick={() => setActiveDivision("industrial")}
-              style={{
-                padding: "8px 10px",
-                borderRadius: "6px",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                border: "none",
-                cursor: "pointer",
-                backgroundColor: activeDivision === "industrial" ? "var(--color-primary-navy)" : "transparent",
-                color: activeDivision === "industrial" ? "#FFFFFF" : "var(--color-text-muted)",
-              }}
-            >
-              Industrial Water
-            </button>
-            <button
-              onClick={() => setActiveDivision("altra")}
-              style={{
-                padding: "8px 10px",
-                borderRadius: "6px",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                border: "none",
-                cursor: "pointer",
-                backgroundColor: activeDivision === "altra" ? "var(--color-bio-dark)" : "transparent",
-                color: activeDivision === "altra" ? "#FFFFFF" : "var(--color-text-muted)",
-              }}
-            >
-              Altra Care Hygiene
-            </button>
-          </div>
+        <div className="mobile-navigation" id="mobile-navigation">
+          <nav className="mobile-division-switcher" aria-label="Choose a division">
+            <Link href="#industrial" className={activeDivision === "industrial" ? "is-active" : ""} onClick={() => { setActiveDivision("industrial"); closeMenus(); }}>
+              <Droplets size={15} /> Industrial Water
+            </Link>
+            <Link href="#altra-care" className={activeDivision === "altra" ? "is-active is-altra" : ""} onClick={() => { setActiveDivision("altra"); closeMenus(); }}>
+              <Leaf size={15} /> Altra Care
+            </Link>
+          </nav>
 
-          <nav style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <Link
-              href="#products"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ fontSize: "1rem", fontWeight: 600, color: "var(--color-text-main)" }}
-            >
-              Products &amp; Formulations
-            </Link>
-            <Link
-              href="#industries"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ fontSize: "1rem", fontWeight: 500, color: "var(--color-text-muted)" }}
-            >
-              Industries Served
-            </Link>
-            <Link
-              href="#pqrs"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ fontSize: "1rem", fontWeight: 500, color: "var(--color-text-muted)" }}
-            >
-              PQRS Quality Framework
-            </Link>
-            <Link
-              href="#about"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ fontSize: "1rem", fontWeight: 500, color: "var(--color-text-muted)" }}
-            >
-              About PolyTreat (Est. 1987)
-            </Link>
-            <Link
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ fontSize: "1rem", fontWeight: 500, color: "var(--color-text-muted)" }}
-            >
-              Contact &amp; Plant Locations
-            </Link>
-
-            <a
-              href="#quote"
-              className="btn btn-accent"
-              style={{ marginTop: "0.5rem", width: "100%" }}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <FileCheck size={16} /> Request Lab Quote &amp; TDS
+          <nav className="mobile-menu-list" aria-label="Mobile navigation">
+            {(["products", "industries", "quality", "company"] as MenuKey[]).map((menu) => {
+              const expanded = openMobileGroup === menu;
+              return (
+                <section className="mobile-nav-group" key={menu}>
+                  <button
+                    type="button"
+                    aria-expanded={expanded}
+                    aria-controls={`mobile-panel-${menu}`}
+                    onClick={() => setOpenMobileGroup((current) => current === menu ? null : menu)}
+                  >
+                    {menuLabels[menu]} <ChevronDown size={17} />
+                  </button>
+                  {expanded && (
+                    <div id={`mobile-panel-${menu}`} className="mobile-nav-panel">
+                      {menu === "products" && (
+                        <Link className="mobile-feature-link" href="#contact" onClick={closeMenus}>
+                          <Factory size={17} /> Talk to our technical team <ArrowRight size={15} />
+                        </Link>
+                      )}
+                      <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
+                    </div>
+                  )}
+                </section>
+              );
+            })}
+            <a className="btn btn-accent mobile-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
+              <FileCheck2 size={17} /> Request TDS / Quote
             </a>
           </nav>
+
+          <div className="mobile-quick-links">
+            <Link href="#pqrs" onClick={closeMenus}><FlaskConical size={16} /> PQRS quality framework</Link>
+            <Link href="#manufacturing" onClick={closeMenus}><Building2 size={16} /> Manufacturing plants</Link>
+          </div>
         </div>
       )}
     </header>
   );
 }
-
