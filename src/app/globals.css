@@ -752,8 +752,8 @@ code, .font-mono {
   box-shadow: 0 2px 6px rgba(11, 25, 44, 0.14);
 }
 
-.division-switcher a.is-active.is-vklin, .division-switcher a.is-active.is-altra,
-.mobile-division-switcher a.is-active.is-vklin, .mobile-division-switcher a.is-active.is-altra {
+.division-switcher a.is-active.is-vklin,
+.mobile-division-switcher a.is-active.is-vklin {
   background: var(--color-bio-dark);
 }
 
