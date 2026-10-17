@@ -5,7 +5,7 @@
   --color-water-blue: #1769A6;       /* Brand blue for links and actions */
   --color-water-light: #B9D9E8;      /* Pale blue from the card artwork */
 
-  /* Eco-Friendly / Altra Care Green Division */
+  /* Eco-Friendly / V-Klin Green Division */
   --color-bio-green: #10B981;        /* Emerald Green / Eco-safe */
   --color-bio-dark: #059669;         /* Darker Green for buttons & badges */
   --color-bio-light: #D1FAE5;        /* Light Green badge tint */
@@ -752,8 +752,8 @@ code, .font-mono {
   box-shadow: 0 2px 6px rgba(11, 25, 44, 0.14);
 }
 
-.division-switcher a.is-active.is-altra,
-.mobile-division-switcher a.is-active.is-altra {
+.division-switcher a.is-active.is-vklin, .division-switcher a.is-active.is-altra,
+.mobile-division-switcher a.is-active.is-vklin, .mobile-division-switcher a.is-active.is-altra {
   background: var(--color-bio-dark);
 }
 
@@ -1056,3 +1056,4 @@ code, .font-mono {
     transition: none;
   }
 }
+

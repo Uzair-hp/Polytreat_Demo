@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 type MenuKey = "products" | "industries" | "quality" | "company";
-type Division = "industrial" | "altra";
+type Division = "industrial" | "vklin";
 type MenuLink = { label: string; href: string; detail?: string };
 type MenuGroup = { title: string; links: MenuLink[] };
 
@@ -45,12 +45,12 @@ const productGroups: MenuGroup[] = [
     ],
   },
   {
-    title: "Altra Care Hygiene",
+    title: "V-Klin Hygiene",
     links: [
-      { label: "Surface & floor care", href: "#altra-care" },
-      { label: "Disinfectants & handwash", href: "#altra-care" },
-      { label: "Kitchen & dishwash care", href: "#altra-care" },
-      { label: "Herbal mosquito repellent", href: "#altra-care" },
+      { label: "Surface & floor care", href: "#vklin" },
+      { label: "Disinfectants & handwash", href: "#vklin" },
+      { label: "Kitchen & dishwash care", href: "#vklin" },
+      { label: "Herbal mosquito repellent", href: "#vklin" },
     ],
   },
 ];
@@ -74,7 +74,7 @@ const industryGroups: MenuGroup[] = [
     title: "Commercial & Infrastructure",
     links: [
       { label: "Commercial HVAC", href: "#industry-commercial", detail: "Cooling water and coil care" },
-      { label: "Hotels, hospitals & institutions", href: "#industry-commercial", detail: "Altra Care facility hygiene" },
+      { label: "Hotels, hospitals & institutions", href: "#industry-commercial", detail: "V-Klin facility hygiene" },
       { label: "Construction & waterproofing", href: "#industry-commercial", detail: "Specialty coatings and protection" },
     ],
   },
@@ -263,11 +263,11 @@ export default function Navbar() {
               <Droplets size={14} /> Industrial
             </Link>
             <Link
-              className={activeDivision === "altra" ? "is-active is-altra" : ""}
-              href="#altra-care"
-              onClick={() => { setActiveDivision("altra"); closeMenus(); }}
+              className={activeDivision === "vklin" ? "is-active is-vklin" : ""}
+              href="#vklin"
+              onClick={() => { setActiveDivision("vklin"); closeMenus(); }}
             >
-              <Sparkles size={14} /> Altra Care
+              <Sparkles size={14} /> V-Klin
             </Link>
           </nav>
 
@@ -295,8 +295,8 @@ export default function Navbar() {
             <Link href="#industrial" className={activeDivision === "industrial" ? "is-active" : ""} onClick={() => { setActiveDivision("industrial"); closeMenus(); }}>
               <Droplets size={15} /> Industrial Water
             </Link>
-            <Link href="#altra-care" className={activeDivision === "altra" ? "is-active is-altra" : ""} onClick={() => { setActiveDivision("altra"); closeMenus(); }}>
-              <Leaf size={15} /> Altra Care
+            <Link href="#vklin" className={activeDivision === "vklin" ? "is-active is-vklin" : ""} onClick={() => { setActiveDivision("vklin"); closeMenus(); }}>
+              <Leaf size={15} /> V-Klin
             </Link>
           </nav>
 
@@ -340,3 +340,4 @@ export default function Navbar() {
     </header>
   );
 }
+

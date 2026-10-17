@@ -1,4 +1,4 @@
-# 🤖 AI AGENT INSTRUCTION & CONTEXT SPECIFICATION: POLYTREAT CHEMICALS
+﻿# 🤖 AI AGENT INSTRUCTION & CONTEXT SPECIFICATION: POLYTREAT CHEMICALS
 ### File: `agent.md`
 ### Project: PolyTreat Chemicals Corporate & Product Platform
 ### Agency: Brightlant Software Solutions
@@ -44,7 +44,7 @@ The website must cater to two distinct buyer personas through a unified platform
         ┌──────────────────────────────────┴──────────────────────────────────┐
         ▼                                                                     ▼
 [DIVISION 1: INDUSTRIAL SPECIALTY CHEMICALS]               [DIVISION 2: INSTITUTIONAL & GREEN CARE]
-Brand: POLYTREAT™ / POLYCIDE™ / POLYBOND™                   Brand: ALTRA CARE™ (V-KLIN™)
+Brand: POLYTREAT™ / POLYCIDE™ / POLYBOND™                   Brand: V-KLIN (formerly Altra Care - discontinued)™ (V-KLIN™)
 Audience: Plant Heads, ETP Engineers, Civil Contractors     Audience: Facility Managers, Hotels, Hospitals
 - Cooling Water & Boiler Water Solutions                    - Commercial Floor Cleaners & Deodorizers
 - Effluent (ETP) & Sewage (STP) Polymers                    - Liquid Hand Soap (Aloe Vera / 99% Germs)
@@ -92,7 +92,7 @@ Paste and strictly use these CSS custom properties in `globals.css`:
   --color-water-blue: #0284C7;       /* Ocean Pure Water Blue / Accent */
   --color-water-light: #38BDF8;      /* Cyan highlight & link hover */
 
-  /* Eco-Friendly / Altra Care Green Division */
+  /* Eco-Friendly / V-Klin Green Division */
   --color-bio-green: #10B981;        /* Emerald Green / Eco-safe Badge */
   --color-bio-dark: #059669;         /* Darker Green for buttons */
   --color-bio-light: #D1FAE5;        /* Light Green badge background */
@@ -138,7 +138,7 @@ The AI Agent must generate a complete, responsive, and visually stunning **Homep
 * **Navigation Links:**
   * *Industrial Water*
   * *Construction & Epoxy*
-  * *Altra Care Hygiene*
+  * *V-Klin Hygiene*
   * *Specialty Flagships*
   * *About & R&D*
 * **CTA Button:** `[Request a Quote]` (High-contrast amber/blue button that opens the RFQ modal).
@@ -149,10 +149,10 @@ The AI Agent must generate a complete, responsive, and visually stunning **Homep
     * Headline: *"High-Performance Water Treatment & Specialty Chemical Formulations"*
     * Sub-headline: *"Engineered scale inhibitors, boiler scavengers, ETP polymers, and construction coatings trusted by industrial plants since 1987."*
     * CTAs: `[Explore Industrial Catalog]` + `[Download Company Profile]`
-  * Tab B: **"Institutional & Green Care (Altra Care)"**
+  * Tab B: **"Institutional & Green Care (V-Klin)"**
     * Headline: *"Eco-Friendly, Biodegradable Cleaning & Odor Control Systems"*
     * Sub-headline: *"Food-grade formulations, natural herbal mosquito repellents, and heavy-duty institutional disinfectants for hotels, hospitals, and facilities."*
-    * CTAs: `[Explore Altra Care Range]` + `[Request Bulk Pricing]`
+    * CTAs: `[Explore V-Klin Range]` + `[Request Bulk Pricing]`
 * **Trust Badges below Hero:** 37+ Years Track Record • In-House R&D & Pilot Reactor • Zero Toxic Effluent Compliance.
 
 ### 4. Credibility & Milestones Strip (`<TrustStrip />`)
@@ -192,20 +192,20 @@ Highlight PolyTreat's top 3 high-margin differentiators with feature tags & acti
 4. *Civil Infrastructure & Waterproofing* (Elastomeric Acrylics, Epoxy Mortars, SBR Latex)
 5. *Sugar Mills & Refineries* (BKC-50%, Carbamates, Scale Softeners)
 6. *Paints & Coatings Industry* (CIT/MIT In-Can & Dry-Film Paint Preservatives)
-7. *Hotels, Hospitals & Corporate Facilities* (Altra Care Floor, Restroom, Glass & Air Care)
+7. *Hotels, Hospitals & Corporate Facilities* (V-Klin Floor, Restroom, Glass & Air Care)
 
 ### 8. Global Footprint & Export Map (`<GlobalReach />`)
 * Interactive or visual world map highlighting Mumbai manufacturing hub connected to **Middle East** and **South African** export routes + Pan-India regional distribution network.
 
 ### 9. Quick RFQ Lead Capture Strip (`<QuickRFQ />`)
 * High-contrast CTA section: *"Require a Tailored Chemical Formulation or Bulk Commercial Quote?"*
-* Dropdown selection: Product Category (Cooling Water / Boiler / ETP / Waterproofing / Altra Care / Specialty).
+* Dropdown selection: Product Category (Cooling Water / Boiler / ETP / Waterproofing / V-Klin / Specialty).
 * Instant form: Full Name, Company, Email, Phone, Message + Submit button.
 
 ### 10. Comprehensive Footer (`<Footer />`)
 * **Column 1:** Corporate summary, ISO 9001:2015 badge, 37+ years badge.
 * **Column 2 (Industrial Chemistry):** Cooling Water, Boiler Water, ETP/STP, Construction, Sugar & Paint.
-* **Column 3 (Altra Care Hygiene):** Surface Cleaners, Restroom Care, Glass Cleaner, Herbal Repellent.
+* **Column 3 (V-Klin Hygiene):** Surface Cleaners, Restroom Care, Glass Cleaner, Herbal Repellent.
 * **Column 4 (Contact & Plants):** 
   * Sales: 7-A, Topiwala Bldg., Goregaon (W), Mumbai – 400104
   * Works: 306, Shankhala Ind., Goregaon (E), Mumbai – 400063
@@ -304,9 +304,9 @@ The AI Agent must create and load real data from `data/products.json`. Here is t
   },
   {
     "id": "altra-floor-gold",
-    "name": "Altra Care Golden Floor Cleaner",
+    "name": "V-Klin Golden Floor Cleaner",
     "division": "institutional",
-    "category": "Altra Care Hygiene",
+    "category": "V-Klin Hygiene",
     "subCategory": "Floor & Surface Care",
     "state": "Liquid (Amber)",
     "description": "Heavy-duty floor cleaner and deodorizer with lasting residual pine/floral fragrance. Safe on marble and granite.",
@@ -315,9 +315,9 @@ The AI Agent must create and load real data from `data/products.json`. Here is t
   },
   {
     "id": "altra-handwash",
-    "name": "Altra Care Perfumed Liquid Soap (AQUA)",
+    "name": "V-Klin Perfumed Liquid Soap (AQUA)",
     "division": "institutional",
-    "category": "Altra Care Hygiene",
+    "category": "V-Klin Hygiene",
     "subCategory": "Hand Care & Hygiene",
     "state": "Liquid Gel",
     "description": "Aloe vera enriched gentle handwash gel. 99% germ efficacy, skin-neutral pH, phosphate-free.",
@@ -326,9 +326,9 @@ The AI Agent must create and load real data from `data/products.json`. Here is t
   },
   {
     "id": "altra-mosquito",
-    "name": "Altra Care Herbal Mosquito Repellent",
+    "name": "V-Klin Herbal Mosquito Repellent",
     "division": "institutional",
-    "category": "Altra Care Hygiene",
+    "category": "V-Klin Hygiene",
     "subCategory": "Natural Wellness",
     "state": "Liquid Spray",
     "description": "100% natural water-based repellent spray containing Citronella, Lemongrass, Neem, and Eucalyptus oils.",
@@ -360,3 +360,4 @@ When instructed to generate the project, the AI Agent must:
 
 ---
 *Created by Brightlant Software Solutions for AI-Assisted Development.*
+

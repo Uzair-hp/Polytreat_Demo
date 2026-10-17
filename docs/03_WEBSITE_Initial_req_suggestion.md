@@ -1,4 +1,4 @@
-# 📋 Initial Website Requirements & Technical Specifications
+﻿# 📋 Initial Website Requirements & Technical Specifications
 ### Document Identifier: `BRIGHTLANT-SPEC-POLYTREAT-03`
 ### Target Audience: Brightlant Software Solutions Interns & Developers
 ### Client: PolyTreat Chemicals Pvt. Ltd. / Polytreat Chemical Industries
@@ -26,7 +26,7 @@ To deliver an ultra-fast, SEO-optimized, and enterprise-grade web presence that 
 | **Frontend Framework** | **Next.js (React — App Router)** | Provides Server-Side Rendering (SSR) & Static Site Generation (SSG). Ensures 100/100 Google SEO scores for technical chemical keywords. |
 | **Styling Architecture** | **Modern Vanilla CSS (Design Tokens + CSS Modules)** | Complete creative control without bloated utility classes. Enables clean glassmorphism, smooth CSS keyframe animations, and strict design token consistency. |
 | **Iconography** | **Lucide React (`lucide-react`)** | Ultra-clean, modern, consistent vector SVG icons (e.g., `Droplets`, `ShieldCheck`, `Leaf`, `Factory`, `FileText`, `PhoneCall`). |
-| **Data Storage (Phase 1)** | **Static Local `products.json`** | All 50+ real PolyTreat & Altra Care products will be stored in a typed JSON file. Enables instant zero-latency search and category filtering on the frontend. |
+| **Data Storage (Phase 1)** | **Static Local `products.json`** | All 50+ real PolyTreat & V-Klin products will be stored in a typed JSON file. Enables instant zero-latency search and category filtering on the frontend. |
 | **Lead & RFQ Handling** | **Web3Forms / EmailJS + WhatsApp API** | Allows instant email delivery of quote inquiries directly to client emails (`polyind2@gmail.com`) + instant pre-filled WhatsApp click-to-chat. |
 | **Future Backend Bridge** | **Decoupled Python REST API Ready** | The frontend will be built so that when an admin panel or database (PostgreSQL / Python FastAPI / Django) is added later, it connects via simple `fetch('/api/...')` with zero UI rewrite. |
 
@@ -34,7 +34,7 @@ To deliver an ultra-fast, SEO-optimized, and enterprise-grade web presence that 
 
 ## 🎨 2. Curated Color Palette (Industrial Trust + Eco-Green)
 
-PolyTreat represents two synergistic sectors: **Heavy Industrial Water & Specialty Chemistry** (requires trust, stability, and authority) and **Institutional Eco-Hygiene / Altra Care** (requires freshness, safety, and nature).
+PolyTreat represents two synergistic sectors: **Heavy Industrial Water & Specialty Chemistry** (requires trust, stability, and authority) and **Institutional Eco-Hygiene / V-Klin** (requires freshness, safety, and nature).
 
 Our design tokens merge these two worlds into a sophisticated corporate palette:
 
@@ -44,7 +44,7 @@ Our design tokens merge these two worlds into a sophisticated corporate palette:
 ├───────────────────────┬────────────────────────┬───────────────────┬───────────────────┤
 │  DEEP INDUSTRIAL NAVY │  OCEAN PURE WATER BLUE │  EMERALD BIO-CARE │  RADIANT GOLD/CTA │
 │  #0B192C              │  #0284C7               │  #10B981          │  #F59E0B          │
-│  Primary Background   │  Primary Brand Accent  │  Altra Care / Bio │  RFQ Buttons /    │
+│  Primary Background   │  Primary Brand Accent  │  V-Klin / Bio │  RFQ Buttons /    │
 │  & Authority Tone     │  & Industrial Water    │  Green Division   │  Conversion Tags  │
 └───────────────────────┴────────────────────────┴───────────────────┴───────────────────┘
 ```
@@ -58,7 +58,7 @@ Our design tokens merge these two worlds into a sophisticated corporate palette:
   --color-water-blue: #0284C7;       /* Ocean Pure Water Blue */
   --color-water-light: #38BDF8;      /* Cyan highlight & link hover */
 
-  /* Eco-Friendly / Altra Care Green Division */
+  /* Eco-Friendly / V-Klin Green Division */
   --color-bio-green: #10B981;        /* Emerald Green / Eco-safe */
   --color-bio-dark: #059669;         /* Darker Green for buttons */
   --color-bio-light: #D1FAE5;        /* Light Green badge tint */
@@ -118,11 +118,11 @@ The team will build the **Homepage** first. The homepage must act as a high-conv
 ┌────────────────────────────────────────────────────────────────────────┐
 │ [TOP BAR] ISO 9001:2015 Verified | +91 9820235995 | polyind2@gmail.com │
 ├────────────────────────────────────────────────────────────────────────┤
-│ [NAVBAR] Logo | Industrial Water | Altra Care | Flagships | About | RFQ│
+│ [NAVBAR] Logo | Industrial Water | V-Klin | Flagships | About | RFQ│
 ├────────────────────────────────────────────────────────────────────────┤
 │ [HERO SECTION]                                                         │
 │   Dynamic Dual Switcher:                                               │
-│   [Tab 1: Industrial Water & Process]  [Tab 2: Altra Care Green Care]  │
+│   [Tab 1: Industrial Water & Process]  [Tab 2: V-Klin Green Care]  │
 │   Headline + Value Prop + CTAs: [Explore Catalog] [Request Quick Quote]│
 ├────────────────────────────────────────────────────────────────────────┤
 │ [CREDENTIALS STRIP]                                                    │
@@ -154,13 +154,13 @@ The team will build the **Homepage** first. The homepage must act as a high-conv
 * **Right:** Quick call `+91 9820235995` / Email `polyind2@gmail.com`.
 * **Main Navigation:**
   * Logo: Modernized `POLYTREAT` logo with droplet emblem.
-  * Nav Items: *Industrial Water Chemicals*, *Altra Care Hygiene*, *Flagships*, *R&D & Quality*, *About Us*.
+  * Nav Items: *Industrial Water Chemicals*, *V-Klin Hygiene*, *Flagships*, *R&D & Quality*, *About Us*.
   * Primary Header Button: **[Request a Quote]** (Opens RFQ Modal).
 
 #### 2. Hero Section with Interactive Dual Switcher
 * **Concept:** Instead of a static banner, user sees a toggle:
   * **Switch A: "Industrial Water & Specialty"** → Shows dark high-tech imagery (cooling towers, power plants, chemical reactors), headline: *"Engineered Chemistry for High-Performance Water & Process Systems"*.
-  * **Switch B: "Institutional & Green Care (Altra Care)"** → Shifts to a fresh, green & sparkling theme, headline: *"Eco-Friendly, Non-Toxic Cleaning & Odor Control Solutions"*.
+  * **Switch B: "Institutional & Green Care (V-Klin)"** → Shifts to a fresh, green & sparkling theme, headline: *"Eco-Friendly, Non-Toxic Cleaning & Odor Control Solutions"*.
 * **CTAs:** `[Browse Product Catalog]` (Primary Button) and `[Download Company Profile / ISO Certificate]` (Secondary Outline Button).
 
 #### 3. Trust & Credibility Metrics Strip (The 4 Anchors)
@@ -202,7 +202,7 @@ The team will build the **Homepage** first. The homepage must act as a high-conv
 
 #### 8. Quick RFQ Lead Capture Strip
 * Simple inline banner: *"Need a Tailored Chemical Solution or Bulk Pricing?"*
-* Form fields: Name, Email, Phone, Chemical Need (Dropdown: Cooling / Boiler / ETP / Waterproofing / Altra Care / Other), Submit button.
+* Form fields: Name, Email, Phone, Chemical Need (Dropdown: Cooling / Boiler / ETP / Waterproofing / V-Klin / Other), Submit button.
 
 #### 9. Persistent Floating Overlays
 * **Floating WhatsApp Button (Bottom-Right):** Direct link to `+91 9820235995` with pre-filled message: *"Hello PolyTreat Team, I am interested in your chemical products..."*
@@ -215,7 +215,7 @@ The team will build the **Homepage** first. The homepage must act as a high-conv
 After the Homepage is designed, coded, and verified by Akash, the following pages will be built sequentially:
 
 1. **Dedicated Product Catalog (`/products`):**
-   * Instant search bar + industry filtering sidebar (Cooling, Boiler, ETP, Construction, Paint, Sugar, Altra Care).
+   * Instant search bar + industry filtering sidebar (Cooling, Boiler, ETP, Construction, Paint, Sugar, V-Klin).
    * Product cards with Technical Specs & Download TDS button.
 2. **Flagship Deep-Dive Pages (`/flagships/polydor`, `/flagships/corosil`, `/flagships/polyklin`):**
    * Detailed application guides, dilution ratios, and case studies.
@@ -242,3 +242,4 @@ In the upcoming team meeting, Akash will review:
 
 ---
 *Created by Brightlant Software Solutions for PolyTreat Chemicals Project Kickoff.*
+

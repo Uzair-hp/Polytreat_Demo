@@ -28,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "PolyTreat Chemicals | Advanced Water Treatment & Industrial Chemical Solutions",
   description: "ISO 9001:2015 certified manufacturer of advanced water treatment, biocides, cooling tower & boiler chemicals, and eco-hygiene solutions in India.",
-  keywords: "water treatment chemicals, RO antiscalant, boiler chemicals, cooling tower chemicals, biocides, BKC 50, PolyTreat Chemicals, Altra Care",
+  keywords: "water treatment chemicals, RO antiscalant, boiler chemicals, cooling tower chemicals, biocides, BKC 50, PolyTreat Chemicals, V-Klin, VKlin",
 };
 
 export const viewport: Viewport = {
@@ -52,3 +52,4 @@ export default function RootLayout({
     </html>
   );
 }
+

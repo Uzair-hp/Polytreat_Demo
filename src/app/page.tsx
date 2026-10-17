@@ -118,14 +118,14 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Division 2: Altra Care Hygiene */}
-            <div className="card" id="altra-care" style={{ borderTop: "4px solid var(--color-bio-dark)" }}>
+            {/* Division 2: V-Klin Hygiene */}
+            <div className="card" id="vklin" style={{ borderTop: "4px solid var(--color-bio-dark)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "1.25rem" }}>
                 <div style={{ background: "#D1FAE5", padding: "0.85rem", borderRadius: "10px", color: "var(--color-bio-dark)" }}>
                   <Sparkles size={28} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "1.35rem" }}>Altra Care Green Division</h3>
+                  <h3 style={{ fontSize: "1.35rem" }}>V-Klin Eco-Hygiene Division</h3>
                   <span style={{ fontSize: "0.8rem", color: "var(--color-text-muted)" }}>Institutional &amp; Consumer Hygiene</span>
                 </div>
               </div>
@@ -146,8 +146,8 @@ export default function Home() {
                   <CheckCircle2 size={15} color="var(--color-bio-dark)" /> Herbal Mosquito Repellents &amp; Air Fresheners
                 </li>
               </ul>
-              <Link href="#altra-care" className="btn btn-outline-dark" style={{ width: "100%" }}>
-                View Altra Care Range &rarr;
+              <Link href="#vklin" className="btn btn-outline-dark" style={{ width: "100%" }}>
+                View V-Klin Range &rarr;
               </Link>
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function Home() {
               <span className="industry-kicker">Commercial &amp; Infrastructure</span>
               <h3>HVAC, institutions &amp; construction</h3>
               <p>Cooling and coil care, facility hygiene, waterproofing and specialty protection.</p>
-              <Link href="#altra-care">Explore facility solutions <ArrowRight size={15} /></Link>
+              <Link href="#vklin">Explore facility solutions <ArrowRight size={15} /></Link>
             </article>
           </div>
         </div>
@@ -272,4 +272,5 @@ export default function Home() {
     </main>
   );
 }
+
 
