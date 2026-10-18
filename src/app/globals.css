@@ -23,6 +23,8 @@
   --color-surface-alt: #F1F5F9;      /* Alternate spec tables */
   --color-border-subtle: #E2E8F0;    /* Border lines */
   --color-border-dark: #1E293B;      /* Dark mode card borders */
+  --color-scroll-track: #EDF4F7;
+  --color-scroll-thumb: #2589B8;
   --color-text-main: #0F172A;        /* High-contrast body text */
   --color-text-muted: #64748B;       /* Secondary details & specs */
   --color-text-light: #F8FAFC;       /* Text on dark backgrounds */
@@ -57,6 +59,55 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scroll-thumb) var(--color-scroll-track);
+}
+
+/* Keep browser and in-panel scrollbars quiet, slim, and on brand. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scroll-thumb) var(--color-scroll-track);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: var(--color-scroll-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  min-height: 36px;
+  border: 2px solid var(--color-scroll-track);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #36A4CE 0%, #1674A8 58%, #128B91 100%);
+  background-clip: padding-box;
+  transition: background var(--transition-fast);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #238CB9 0%, #125F91 58%, #087A78 100%);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--color-scroll-track);
+}
+
+@media (max-width: 760px) {
+  *::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *::-webkit-scrollbar-thumb {
+    transition: none;
+  }
 }
 
 body {
@@ -93,10 +144,10 @@ code, .font-mono {
 
 /* Compact utility and contact bar */
 .topbar {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(23, 105, 166, 0.1);
   padding: 0.22rem 0;
-  background: linear-gradient(90deg, #071320 0%, #0D2137 50%, #153860 100%);
-  color: #CBD5E1;
+  background: linear-gradient(90deg, #E8F4F9 0%, #F6FBFD 54%, #EAF7F1 100%);
+  color: #405D70;
   font-size: 0.72rem;
   letter-spacing: 0.01em;
   line-height: 1.2;
@@ -132,7 +183,7 @@ code, .font-mono {
 }
 
 .topbar-units {
-  color: #CBD5E1;
+  color: #365B70;
 }
 
 .topbar-unit-label {
@@ -165,21 +216,21 @@ code, .font-mono {
 
 .topbar-right a {
   max-width: 100%;
-  color: #CBD5E1;
+  color: #405D70;
   white-space: normal;
 }
 
 .topbar-right a:hover {
-  color: #FFFFFF;
+  color: #145987;
 }
 
 .topbar-right a strong {
-  color: var(--color-water-light);
+  color: #087A78;
   font-weight: 700;
 }
 
 .topbar-divider {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(23, 105, 166, 0.22);
 }
 
 .hero-authority-badge {
@@ -1562,7 +1613,7 @@ code, .font-mono {
 
 .topbar {
   padding: 0.2rem 0;
-  background: linear-gradient(90deg, #071320 0%, #0D2137 52%, #17436A 100%);
+  background: linear-gradient(90deg, #E8F4F9 0%, #F6FBFD 54%, #EAF7F1 100%);
 }
 
 .topbar-inner {
@@ -1586,7 +1637,7 @@ code, .font-mono {
 }
 
 .topbar-label {
-  color: #89A6B9;
+  color: #58798D;
   font-size: 0.64rem;
   font-weight: 600;
   letter-spacing: 0.075em;
@@ -1595,16 +1646,24 @@ code, .font-mono {
 }
 
 .topbar-units {
-  color: #B9D9E8;
+  color: #365B70;
 }
 
 .topbar-separator {
   padding: 0 0.22rem;
-  color: rgba(185, 217, 232, 0.55);
+  color: rgba(23, 105, 166, 0.45);
+}
+
+.topbar-right a {
+  color: #405D70;
+}
+
+.topbar-right a:hover {
+  color: #145987;
 }
 
 .topbar-right a strong {
-  color: #FFFFFF;
+  color: #087A78;
 }
 
 .site-header {
@@ -1655,9 +1714,19 @@ code, .font-mono {
   border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
+.navbar-cta {
+  background: linear-gradient(125deg, #167FAB 0%, #087B78 100%);
+  box-shadow: 0 5px 15px rgba(8, 123, 120, 0.22);
+}
+
 .navbar-cta:hover,
 .btn-accent:hover {
   background: linear-gradient(135deg, #2183C5 0%, #145E91 100%);
+}
+
+.navbar-cta:hover {
+  background: linear-gradient(125deg, #208CB7 0%, #0A8982 100%);
+  box-shadow: 0 7px 18px rgba(8, 123, 120, 0.28);
 }
 
 .home-hero {
