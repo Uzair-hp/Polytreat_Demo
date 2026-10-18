@@ -1,245 +1,88 @@
-﻿# 📋 Initial Website Requirements & Technical Specifications
-### Document Identifier: `BRIGHTLANT-SPEC-POLYTREAT-03`
-### Target Audience: Brightlant Software Solutions Interns & Developers
-### Client: PolyTreat Chemicals Pvt. Ltd. / Polytreat Chemical Industries
-### Project Phase: **Phase 1 — Landing Page / Homepage First**
-### Last Updated: October 2026
+# PolyTreat Website: Current Homepage and Design Direction
 
----
+> **Status:** This document records the homepage as it is currently implemented and sets evidence-aware design guidance for future work. It replaces the older kickoff blueprint, which described many features that were never built.
+>
+> **Business source of truth:** [`polytreat_study.md`](../polytreat_study.md). This design brief is not evidence for company or product claims.
 
-## 📌 Document Overview & Meeting Objective
+## 1. Project scope
 
-This document defines the **initial technical requirements, design system, and component blueprint** for the PolyTreat Chemicals web project. 
+The current project is a responsive PolyTreat homepage. It introduces the company's broad work areas and gives visitors a direct way to contact the team. It is not yet a searchable product database, technical document portal, account system, or online quote-submission backend.
 
-As per our development strategy:
-1. **Immediate Focus (Sprint 1):** We will build, polish, and review the **Landing Page / Homepage** first. Once the design language, responsiveness, and client branding are validated, we will expand to remaining pages.
-2. **Team Meeting Reference:** Akash will use this document along with `01_INTERN_CLIENT_KNOWLEDGE_BASE.md` to conduct the kickoff meeting and assign development tasks to the interns.
+### Implemented homepage structure
 
----
+1. **Navbar:** PolyTreat logo; Solutions, Industries, Quality, About Us, and Contact navigation; grouped dropdowns; Industrial and V-Klin shortcuts; WhatsApp enquiry action; mobile drawer.
+2. **Hero:** Light chemistry-inspired background, animated orbit/molecule illustration, concise company introduction, “Explore solutions” and “Talk to team” CTAs, and direct phone link.
+3. **Three areas of work:** Industrial water treatment; construction and surface protection; V-Klin facility care.
+4. **Applications:** Broad groupings for process/manufacturing, utilities/infrastructure, and facilities/institutions.
+5. **V-Klin overview:** Separate introduction to the cleaning and facility-care range.
+6. **PQRS:** Performance, Quality, Reliability, Service, using the client's corrected meaning.
+7. **Contact panel and footer:** Current email and phone, site navigation, work areas, and locations as currently displayed. The footer's Instagram, LinkedIn, and Facebook glyphs are placeholders, not working social links; add links only after the client supplies official profiles.
 
-## 🛠️ 1. Tech Stack Recommendation
+Implementation references: `src/app/page.tsx`, `src/components/Navbar.tsx`, and `src/app/globals.css`. Re-check these files before changing this status list.
 
-To deliver an ultra-fast, SEO-optimized, and enterprise-grade web presence that easily scales in the future, the team will use the following technology stack:
+## 2. Visual direction
 
-| Layer | Recommended Choice | Rationale & Intern Guidelines |
-| :--- | :--- | :--- |
-| **Frontend Framework** | **Next.js (React — App Router)** | Provides Server-Side Rendering (SSR) & Static Site Generation (SSG). Ensures 100/100 Google SEO scores for technical chemical keywords. |
-| **Styling Architecture** | **Modern Vanilla CSS (Design Tokens + CSS Modules)** | Complete creative control without bloated utility classes. Enables clean glassmorphism, smooth CSS keyframe animations, and strict design token consistency. |
-| **Iconography** | **Lucide React (`lucide-react`)** | Ultra-clean, modern, consistent vector SVG icons (e.g., `Droplets`, `ShieldCheck`, `Leaf`, `Factory`, `FileText`, `PhoneCall`). |
-| **Data Storage (Phase 1)** | **Static Local `products.json`** | All 50+ real PolyTreat & V-Klin products will be stored in a typed JSON file. Enables instant zero-latency search and category filtering on the frontend. |
-| **Lead & RFQ Handling** | **Web3Forms / EmailJS + WhatsApp API** | Allows instant email delivery of quote inquiries directly to client emails (`polyind2@gmail.com`) + instant pre-filled WhatsApp click-to-chat. |
-| **Future Backend Bridge** | **Decoupled Python REST API Ready** | The frontend will be built so that when an admin panel or database (PostgreSQL / Python FastAPI / Django) is added later, it connects via simple `fetch('/api/...')` with zero UI rewrite. |
+The current design should feel clear, modern, approachable, and credible for a specialty-chemicals company. It should remain easy to scan on phones and avoid a crowded enterprise-dashboard feel.
 
----
+- **Surfaces:** Mostly white and pale blue/green section gradients; use dark navy sparingly for contrast and emphasis.
+- **Brand accents:** Industrial blue and V-Klin green distinguish the two routes without making them feel like unrelated businesses.
+- **Typography:** Plus Jakarta Sans for headings, Inter for body/UI, JetBrains Mono only when a technical identifier needs it. These are configured with `next/font` in `src/app/layout.tsx`.
+- **Icons:** Existing `lucide-react` outline icons. Keep icon sizes, stroke weight, and color consistent; decorative icons should be hidden from assistive technology.
+- **Motion:** CSS-based reveal and orbit movement should be subtle, responsive, and disabled/reduced under `prefers-reduced-motion`. Avoid adding animation that delays reading or interaction.
+- **Header:** Compact responsive navigation; desktop dropdowns and mobile drawer should remain usable by keyboard, pointer, and touch.
+- **Footer:** Mobile-first spacing, clear Explore / Our Work / Contact groups, readable contact links, and a visible Brightlant credit. Do not present placeholder social symbols as linked profiles.
+- **CSS policy:** Strict Vanilla CSS and existing tokens in `src/app/globals.css`. No Tailwind.
 
-## 🎨 2. Curated Color Palette (Industrial Trust + Eco-Green)
+The current token values are defined in code and may evolve; do not copy an old palette table as the source of truth. Current anchors include brand blue `#1769A6`, pale blue `#B9D9E8`, navy `#0B192C`, and V-Klin green `#10B981`.
 
-PolyTreat represents two synergistic sectors: **Heavy Industrial Water & Specialty Chemistry** (requires trust, stability, and authority) and **Institutional Eco-Hygiene / V-Klin** (requires freshness, safety, and nature).
+## 3. Content and claims policy
 
-Our design tokens merge these two worlds into a sophisticated corporate palette:
+Use [`polytreat_study.md`](../polytreat_study.md) to check the cited source and uncertainty before adding company-specific copy.
 
-```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                               POLYTREAT DESIGN TOKENS                                  │
-├───────────────────────┬────────────────────────┬───────────────────┬───────────────────┤
-│  DEEP INDUSTRIAL NAVY │  OCEAN PURE WATER BLUE │  EMERALD BIO-CARE │  RADIANT GOLD/CTA │
-│  #0B192C              │  #0284C7               │  #10B981          │  #F59E0B          │
-│  Primary Background   │  Primary Brand Accent  │  V-Klin / Bio │  RFQ Buttons /    │
-│  & Authority Tone     │  & Industrial Water    │  Green Division   │  Conversion Tags  │
-└───────────────────────┴────────────────────────┴───────────────────┴───────────────────┘
-```
+- The client confirmed that PolyTreat is a Pvt. Ltd. and that both “PolyTreat Chemical Industries” and “PolyTreat Chemicals Pvt. Ltd.” may be used publicly.
+- The client believes 1987 is most probably the year the business started. Do not present it as the incorporation year or assert an exact tenure until confirmed.
+- Use **V-Klin** as the current cleaning-range brand. Altra Care is discontinued legacy branding.
+- Use **PQRS = Performance, Quality, Reliability, Service**. Do not reuse the earlier incorrect “Price / Regularity” interpretation.
+- Product catalogues and brochures may be old. Do not imply every listed SKU is active; ask the client for the current list and approved descriptions.
+- Avoid unsupported claims about efficacy, safety, “non-toxic” or “100% eco-friendly” status, guaranteed results, stock guarantees, export markets, laboratory capability, or performance metrics.
+- Certificate images need careful scope and status review. In particular, do not claim “FDA approved”; the reviewed FDA-named certificate is private third-party material and is not an FDA-issued approval. See Study Wiki Sections 13–16.
+- Do not publish formulas, exact dosage, proprietary process steps, or internal technical/safety content.
+- Keep enquiry actions simple and honest. Current CTAs link to page sections, email, phone, or WhatsApp; do not suggest a modal, download, or form exists when it does not.
 
-### CSS Variables Snippet (`globals.css`):
-```css
-:root {
-  /* Brand Primary & Industrial Theme */
-  --color-primary-dark: #0B192C;     /* Deep Navy / Authority */
-  --color-primary-navy: #1E3E62;     /* Medium Navy for Cards */
-  --color-water-blue: #0284C7;       /* Ocean Pure Water Blue */
-  --color-water-light: #38BDF8;      /* Cyan highlight & link hover */
+## 4. Responsive and accessibility expectations
 
-  /* Eco-Friendly / V-Klin Green Division */
-  --color-bio-green: #10B981;        /* Emerald Green / Eco-safe */
-  --color-bio-dark: #059669;         /* Darker Green for buttons */
-  --color-bio-light: #D1FAE5;        /* Light Green badge tint */
+- Design and check narrow phones first, then tablet and desktop; prevent horizontal overflow and clipped navigation/actions.
+- Keep mobile hero copy, illustration, and CTAs in a deliberate reading order. Buttons may sit side-by-side when labels remain legible and touch targets remain comfortable.
+- Use semantic headings, navigation landmarks, descriptive link names, visible focus states, and meaningful image alternatives.
+- Dropdown triggers must expose expanded state and support keyboard dismissal; mobile menu must not trap users or obscure its close action.
+- Respect reduced-motion preferences and retain a usable static presentation.
+- Treat reduced visual clutter as a requirement: avoid duplicate header proof points, redundant CTAs, oversized decorative elements, and unnecessary icon piles.
 
-  /* Conversion, Badges & Accents */
-  --color-accent-amber: #F59E0B;     /* Amber Gold for Quote CTAs */
-  --color-accent-hover: #D97706;     /* Darker Amber on Hover */
+## 5. Ideas not currently implemented (require separate approval and content)
 
-  /* Neutral Backgrounds & Typography Surfaces */
-  --color-surface-white: #FFFFFF;    /* Clean card surfaces */
-  --color-surface-light: #F8FAFC;    /* Section background tint */
-  --color-surface-alt: #F1F5F9;      /* Alternate spec tables */
-  --color-border-subtle: #E2E8F0;    /* Border lines */
-  --color-border-dark: #1E293B;      /* Dark mode card borders */
-  --color-text-main: #0F172A;        /* High-contrast body text */
-  --color-text-muted: #64748B;       /* Secondary details & specs */
-  --color-text-light: #F8FAFC;       /* Text on dark backgrounds */
-}
-```
+These appeared in older AI-generated briefs and are not part of the current homepage unless separately built:
 
----
+- Searchable/filterable product catalogue and downloadable TDS/COA portal.
+- Quote modal, online RFQ form, file uploads, CRM/email service integration.
+- Dosage or water-treatment calculator.
+- Interactive export map or verified export claims.
+- Case studies, customer logos, certificate downloads, or linked social profiles.
+- Product-level technical claims, performance comparisons, or application recipes.
 
-## 🔤 3. Typography Hierarchy (Google Fonts)
+Before planning one of these, confirm the business need, current source material, data handling, and what the client has approved.
 
-Technical data, chemical codes, and corporate storytelling must look sharp and effortless to read. We use a pairing of two modern Google Fonts + Monospace for product codes:
+## 6. Stack and repository conventions
 
-### Font Roles & Pairings:
-1. **Primary Headings Font — `Plus Jakarta Sans`:**
-   * Weights: `600 (SemiBold)`, `700 (Bold)`, `800 (ExtraBold)`.
-   * Usage: Hero headlines, section titles, card headers, trust numbers.
-   * Feel: Modern, geometric, authoritative, high-tech.
-2. **Body & Technical Specs Font — `Inter`:**
-   * Weights: `400 (Regular)`, `500 (Medium)`, `600 (SemiBold)`.
-   * Usage: Paragraphs, feature bullet points, application lists, form inputs.
-   * Feel: Clean, balanced, maximum legibility across mobile and desktop.
-3. **Chemical SKU & Technical Data Font — `JetBrains Mono` / Monospace:**
-   * Weights: `500 (Medium)`.
-   * Usage: Product codes (e.g., `Polytreat-465`, `Polycide-431`, `BKC-50%`), dosage specs.
-   * Feel: Laboratory grade, scientific precision.
+- Next.js 16 App Router, React 19, TypeScript.
+- Vanilla CSS in `src/app/globals.css`; no Tailwind.
+- Existing icons: `lucide-react`.
+- Run the existing `npm run build` when the user requests a build check. Do not report a check that was not run.
+- Read the relevant version-specific Next.js guide under `node_modules/next/dist/docs/` before editing code, as required by the repository's `AGENTS.md`.
 
-### Google Fonts Import Code:
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-```
+## Source map
 
----
-
-## 🏛️ 4. Phase 1 Execution Blueprint: The Homepage / Landing Page
-
-The team will build the **Homepage** first. The homepage must act as a high-converting digital showroom that captures both **Industrial B2B Buyers** and **Commercial Cleaning Clients**.
-
-### Section-by-Section Homepage Architecture:
-
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│ [TOP BAR] ISO 9001:2015 Verified | +91 9820235995 | polyind2@gmail.com │
-├────────────────────────────────────────────────────────────────────────┤
-│ [NAVBAR] Logo | Industrial Water | V-Klin | Flagships | About | RFQ│
-├────────────────────────────────────────────────────────────────────────┤
-│ [HERO SECTION]                                                         │
-│   Dynamic Dual Switcher:                                               │
-│   [Tab 1: Industrial Water & Process]  [Tab 2: V-Klin Green Care]  │
-│   Headline + Value Prop + CTAs: [Explore Catalog] [Request Quick Quote]│
-├────────────────────────────────────────────────────────────────────────┤
-│ [CREDENTIALS STRIP]                                                    │
-│   37+ Yrs Legacy (1987) | ISO 9001:2015 | 2 Plants | Global Exports   │
-├────────────────────────────────────────────────────────────────────────┤
-│ [THE PQRS PRINCIPLES]                                                  │
-│   P - Performance | Q - Quality | R - Reliability | S - Service        │
-├────────────────────────────────────────────────────────────────────────┤
-│ [FEATURED PROBLEM SOLVERS (FLAGSHIPS)]                                 │
-│   • POLYDOR-WS (Odor Neutralizer)                                      │
-│   • COROSIL (Water-Based Rust Converter)                               │
-│   • POLYKLIN (AHU/FCU Coil Cleaner)                                    │
-├────────────────────────────────────────────────────────────────────────┤
-│ [INDUSTRIES SERVED SHOWCASE]                                           │
-│   Cooling Towers | Boilers | ETP/STP | Construction | Sugar | Hotels   │
-├────────────────────────────────────────────────────────────────────────┤
-│ [GLOBAL FOOTPRINT] Exports to Middle East & South Africa               │
-├────────────────────────────────────────────────────────────────────────┤
-│ [QUICK RFQ LEAD CAPTURE] Drop-in Form: Select Product & Inquire Now    │
-├────────────────────────────────────────────────────────────────────────┤
-│ [FOOTER] Corporate Locations, Manufacturing Plants, Compliance & Legal │
-└────────────────────────────────────────────────────────────────────────┘
-```
-
-### Detailed Breakdown of Key Homepage Sections:
-
-#### 1. Top Utility Header & Navbar
-* **Left:** ISO 9001:2015 Certified badge & Make In India mark.
-* **Right:** Quick call `+91 9820235995` / Email `polyind2@gmail.com`.
-* **Main Navigation:**
-  * Logo: Modernized `POLYTREAT` logo with droplet emblem.
-  * Nav Items: *Industrial Water Chemicals*, *V-Klin Hygiene*, *Flagships*, *R&D & Quality*, *About Us*.
-  * Primary Header Button: **[Request a Quote]** (Opens RFQ Modal).
-
-#### 2. Hero Section with Interactive Dual Switcher
-* **Concept:** Instead of a static banner, user sees a toggle:
-  * **Switch A: "Industrial Water & Specialty"** → Shows dark high-tech imagery (cooling towers, power plants, chemical reactors), headline: *"Engineered Chemistry for High-Performance Water & Process Systems"*.
-  * **Switch B: "Institutional & Green Care (V-Klin)"** → Shifts to a fresh, green & sparkling theme, headline: *"Eco-Friendly, Non-Toxic Cleaning & Odor Control Solutions"*.
-* **CTAs:** `[Browse Product Catalog]` (Primary Button) and `[Download Company Profile / ISO Certificate]` (Secondary Outline Button).
-
-#### 3. Trust & Credibility Metrics Strip (The 4 Anchors)
-* **Anchor 1:** `37+ Years` — Founded in 1987, trusted by major industrial units.
-* **Anchor 2:** `ISO 9001:2015` — Certified Quality Management System (SMCS & AIAO-BAR USA).
-* **Anchor 3:** `2 Production Units` — Facilities in Tarapur MIDC & Goregaon.
-* **Anchor 4:** `Global Export Footprint` — Active supply to Middle East & South African markets.
-
-#### 4. The "PQRS" Core Pillars Section
-* Clean interactive 4-card grid highlighting PolyTreat's founding code:
-  * **P (Performance):** Maximum scale/corrosion prevention at lowest operational dosages.
-  * **Q (Quality):** In-house daily testing, raw material inspection, statistical process control.
-  * **R (Reliability):** Dependable supply lines, custom batch manufacturing.
-  * **S (Service):** Dedicated technical consultants, on-site problem diagnostics, pilot reactor simulation.
-
-#### 5. Flagship Innovations Showcase (The 3 Hero Products)
-* **Card 1 — `POLYDOR - WS`:**
-  * Badge: *Broad-Spectrum Odor Neutralizer*.
-  * Highlight: True chemical neutralization for municipal dumps, sewage, poultry, breweries, and HVAC.
-* **Card 2 — `COROSIL`:**
-  * Badge: *Rust Converter cum Primer*.
-  * Highlight: Transforms iron oxide into insoluble metallo-organic protective complex; no sandblasting needed.
-* **Card 3 — `POLYKLIN`:**
-  * Badge: *AHU / FCU Coil Cleaning Compound*.
-  * Highlight: Organic food-grade acid blend; brightens copper/aluminium coils and boosts AC efficiency without corrosion.
-
-#### 6. Industries Served Interactive Grid
-* Visual icon cards representing target sectors:
-  1. *Cooling Towers & Heat Exchangers*
-  2. *Thermal Boilers & Steam Plants*
-  3. *ETP / STP Wastewater Plants*
-  4. *Civil Construction & Waterproofing*
-  5. *Sugar Mills & Refineries*
-  6. *Paint & Coating Manufacturers*
-  7. *Hotels, Hospitals & Institutional Facilities*
-
-#### 7. Global Export & Domestic Reach
-* Map graphic highlighting domestic Indian distribution + direct exports to **Middle East** and **South African** industrial hubs.
-
-#### 8. Quick RFQ Lead Capture Strip
-* Simple inline banner: *"Need a Tailored Chemical Solution or Bulk Pricing?"*
-* Form fields: Name, Email, Phone, Chemical Need (Dropdown: Cooling / Boiler / ETP / Waterproofing / V-Klin / Other), Submit button.
-
-#### 9. Persistent Floating Overlays
-* **Floating WhatsApp Button (Bottom-Right):** Direct link to `+91 9820235995` with pre-filled message: *"Hello PolyTreat Team, I am interested in your chemical products..."*
-* **RFQ Pop-Up Modal:** Accessible from any "Request Quote" button across the page.
-
----
-
-## 🔮 5. Suggested Roadmap for Future Pages (Phase 2 Preview)
-
-After the Homepage is designed, coded, and verified by Akash, the following pages will be built sequentially:
-
-1. **Dedicated Product Catalog (`/products`):**
-   * Instant search bar + industry filtering sidebar (Cooling, Boiler, ETP, Construction, Paint, Sugar, V-Klin).
-   * Product cards with Technical Specs & Download TDS button.
-2. **Flagship Deep-Dive Pages (`/flagships/polydor`, `/flagships/corosil`, `/flagships/polyklin`):**
-   * Detailed application guides, dilution ratios, and case studies.
-3. **About Us & Infrastructure Page (`/about`):**
-   * Detailed company history since 1987.
-   * Tarapur & Goregaon manufacturing capabilities.
-   * Research & Development laboratory with multipurpose pilot reactor.
-   * High-res ISO 9001:2015 Certificate view & download.
-4. **Contact Us & Technical Inquiry (`/contact`):**
-   * Full quote request form with file upload for water test reports.
-   * Office addresses (Goregaon West & East), direct telephone numbers, and embedded map.
-
----
-
-## 🚀 6. Action Items for Intern Kickoff Meeting
-
-In the upcoming team meeting, Akash will review:
-1. `01_INTERN_CLIENT_KNOWLEDGE_BASE.md` — Ensure every intern understands what PolyTreat manufactures and the confidentiality rules.
-2. `03_WEBSITE_Initial_req_suggestion.md` — Walk through the Tech Stack (Next.js), Color Palette tokens, and Homepage Section blueprint.
-3. Assign initial frontend tasks:
-   * Setup Next.js repository with Google Fonts and CSS tokens.
-   * Build the Top Bar, Navbar, and Hero Section with the Dual Switcher.
-   * Prepare `products.json` catalog data file.
-
----
-*Created by Brightlant Software Solutions for PolyTreat Chemicals Project Kickoff.*
-
+- [`polytreat_study.md`](../polytreat_study.md) — evidence, source links, claim limits, glossary, and open questions.
+- [`01_INTERN_CLIENT_KNOWLEDGE_BASE.md`](01_INTERN_CLIENT_KNOWLEDGE_BASE.md) — short internal orientation and confidentiality rules.
+- `src/app/page.tsx` — homepage structure and public copy.
+- `src/components/Navbar.tsx` — responsive navigation.
+- `src/app/globals.css` — design tokens, layout, visual treatment, motion, and responsive rules.

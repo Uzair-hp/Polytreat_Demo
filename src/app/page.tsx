@@ -298,18 +298,23 @@ export default function Home() {
             <p>Performance. Quality. Reliability. Service.</p>
           </div>
           <div className="pqrs-grid">
-            {pqrs.map(({ letter, icon: Icon, title, description }) => (
-              <article className="pqrs-card" key={letter}>
-                <div className="pqrs-card-symbols">
-                  <span className={`pqrs-letter pqrs-letter-${letter.toLowerCase()}`}>{letter}</span>
-                  <span className={`pqrs-card-icon pqrs-card-icon-${letter.toLowerCase()}`}>
-                    <Icon size={16} aria-hidden="true" />
-                  </span>
+            <span className="pqrs-flow-line" aria-hidden="true" />
+            {pqrs.map(({ letter, icon: Icon, title, description }, index) => (
+              <article className={`pqrs-card pqrs-card-${letter.toLowerCase()}`} key={letter}>
+                <div className="pqrs-card-topline">
+                  <div className="pqrs-card-symbols">
+                    <span className={`pqrs-letter pqrs-letter-${letter.toLowerCase()}`}>{letter}</span>
+                    <span className={`pqrs-card-icon pqrs-card-icon-${letter.toLowerCase()}`}>
+                      <Icon size={16} aria-hidden="true" />
+                    </span>
+                  </div>
+                  <span className="pqrs-step">Principle 0{index + 1}</span>
                 </div>
-                <div>
+                <div className="pqrs-card-copy">
                   <h3>{title}</h3>
                   <p>{description}</p>
                 </div>
+                <span className="pqrs-card-watermark" aria-hidden="true">{letter}</span>
               </article>
             ))}
           </div>
