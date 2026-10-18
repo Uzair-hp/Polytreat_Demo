@@ -1,7 +1,6 @@
 ﻿import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -47,7 +46,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${jakarta.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body suppressHydrationWarning>
-        <TopBar />
         <Navbar />
         {children}
       </body>
