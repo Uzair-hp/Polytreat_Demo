@@ -3957,3 +3957,131 @@ code, .font-mono {
   }
 }
 
+@media (max-width: 560px) {
+  .site-footer {
+    position: relative;
+    border-top: 0;
+  }
+
+  .site-footer::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    background: linear-gradient(90deg, #2589B8 0%, #65B9D1 48%, #10A879 100%);
+    content: "";
+  }
+
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 1rem 0.7rem;
+    padding: 1.8rem 0 1.2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: none;
+    border-bottom: 1px solid rgba(23, 105, 166, 0.12);
+    padding-bottom: 1rem;
+  }
+
+  .footer-logo-link {
+    width: min(100%, 170px);
+  }
+
+  .footer-brand > p {
+    max-width: 23rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .footer-social-block {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-items: start;
+    column-gap: 0.75rem;
+    row-gap: 0;
+    margin-top: 0.75rem;
+  }
+
+  .footer-social-label {
+    font-size: 0.7rem;
+  }
+
+  .footer-social-links {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    gap: 0.38rem;
+  }
+
+  .footer-social-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+  }
+
+  .footer-social-note {
+    display: none;
+  }
+
+  .footer-column {
+    min-width: 0;
+    gap: 0.5rem;
+    border: 1px solid rgba(210, 225, 234, 0.88);
+    border-radius: 13px;
+    padding: 0.85rem 0.75rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(244, 249, 252, 0.86));
+    font-size: 0.78rem;
+  }
+
+  .footer-column h2 {
+    margin-bottom: 0.2rem;
+    font-size: 0.69rem;
+    letter-spacing: 0.07em;
+  }
+
+  .footer-column > a,
+  .footer-column > span {
+    gap: 0.38rem;
+    overflow-wrap: anywhere;
+    line-height: 1.45;
+  }
+
+  .footer-contact-column {
+    grid-column: 1 / -1;
+  }
+
+  .footer-contact-column > a,
+  .footer-contact-column > span {
+    align-items: center;
+  }
+
+  .footer-bottom {
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.9rem 0 1.1rem;
+    text-align: center;
+  }
+
+  .footer-copyright,
+  .footer-principles,
+  .footer-credit {
+    justify-content: center;
+    width: 100%;
+    line-height: 1.45;
+  }
+
+  .footer-copyright {
+    font-size: 0.68rem;
+  }
+
+  .footer-principles {
+    font-size: 0.64rem;
+  }
+
+  .footer-credit {
+    font-size: 0.69rem;
+  }
+}
+
