@@ -3219,19 +3219,6 @@ code, .font-mono {
   isolation: isolate;
 }
 
-.pqrs-flow-line {
-  position: absolute;
-  z-index: -1;
-  top: 2.55rem;
-  right: 5%;
-  left: 5%;
-  height: 2px;
-  border-radius: 99px;
-  background: linear-gradient(90deg, rgba(23, 105, 166, 0.12), #76C9D5 48%, rgba(16, 185, 129, 0.35));
-  background-size: 180% 100%;
-  animation: pqrs-track-flow 7s linear infinite;
-}
-
 .pqrs-card {
   position: relative;
   z-index: 1;
@@ -3283,7 +3270,7 @@ code, .font-mono {
   gap: 0.5rem;
 }
 
-.pqrs-card-symbols {
+.pqrs-card-identity {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
@@ -3319,6 +3306,19 @@ code, .font-mono {
   height: 34px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(23, 74, 104, 0.06);
+  animation: pqrs-icon-glow 3.8s ease-in-out infinite;
+}
+
+.pqrs-card-q .pqrs-card-icon {
+  animation: pqrs-icon-glow-green 3.8s ease-in-out -0.9s infinite;
+}
+
+.pqrs-card-r .pqrs-card-icon {
+  animation-delay: -1.8s;
+}
+
+.pqrs-card-s .pqrs-card-icon {
+  animation: pqrs-icon-glow-green 3.8s ease-in-out -2.7s infinite;
 }
 
 .pqrs-step {
@@ -3417,9 +3417,14 @@ code, .font-mono {
   transform: translateX(4px);
 }
 
-@keyframes pqrs-track-flow {
-  from { background-position: 100% 0; }
-  to { background-position: -80% 0; }
+@keyframes pqrs-icon-glow {
+  0%, 100% { box-shadow: 0 4px 12px rgba(23, 74, 104, 0.06); }
+  50% { box-shadow: 0 5px 17px rgba(37, 137, 184, 0.2); }
+}
+
+@keyframes pqrs-icon-glow-green {
+  0%, 100% { box-shadow: 0 4px 12px rgba(5, 150, 105, 0.06); }
+  50% { box-shadow: 0 5px 17px rgba(16, 168, 121, 0.19); }
 }
 
 @media (max-width: 1023px) {
@@ -3428,9 +3433,6 @@ code, .font-mono {
     gap: 0.85rem;
   }
 
-  .pqrs-flow-line {
-    display: none;
-  }
 }
 
 @media (max-width: 760px) {
@@ -3441,19 +3443,6 @@ code, .font-mono {
   .pqrs-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.75rem;
-  }
-
-  .pqrs-flow-line {
-    display: block;
-    top: 2rem;
-    right: auto;
-    bottom: 2rem;
-    left: 2.35rem;
-    width: 2px;
-    height: auto;
-    background: linear-gradient(180deg, rgba(23, 105, 166, 0.12), #76C9D5 48%, rgba(16, 185, 129, 0.35));
-    background-size: 100% 180%;
-    animation-name: pqrs-track-flow-vertical;
   }
 
   .pqrs-card {
@@ -3495,13 +3484,8 @@ code, .font-mono {
   }
 }
 
-@keyframes pqrs-track-flow-vertical {
-  from { background-position: 0 100%; }
-  to { background-position: 0 -80%; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .pqrs-flow-line {
+  .pqrs-card-icon {
     animation: none;
   }
 
@@ -4420,6 +4404,54 @@ code, .font-mono {
 
   .footer-credit {
     font-size: 0.69rem;
+  }
+}
+
+/* Final PQRS icon treatment: static badge with a restrained glow, no orbit graphics. */
+.pqrs-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pqrs-card-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.52rem;
+}
+
+.pqrs-card-icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  animation: pqrs-icon-glow 3.8s ease-in-out infinite;
+}
+
+.pqrs-card-q .pqrs-card-icon {
+  animation: pqrs-icon-glow-green 3.8s ease-in-out -0.9s infinite;
+}
+
+.pqrs-card-r .pqrs-card-icon {
+  animation-delay: -1.8s;
+}
+
+.pqrs-card-s .pqrs-card-icon {
+  animation: pqrs-icon-glow-green 3.8s ease-in-out -2.7s infinite;
+}
+
+@media (max-width: 760px) {
+  .pqrs-card-topline {
+    min-height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pqrs-card-icon {
+    animation: none;
   }
 }
 
