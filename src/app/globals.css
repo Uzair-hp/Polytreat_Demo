@@ -1,4 +1,8 @@
 :root {
+  --font-heading: "Segoe UI", Arial, sans-serif;
+  --font-body: "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+
   /* Brand palette sampled by eye from the PolyTreat business card */
   --color-primary-dark: #0B192C;     /* Deep Navy / Authority / Footer / Hero Dark */
   --color-primary-navy: #1C5F91;     /* Brand blue for cards / headers */
