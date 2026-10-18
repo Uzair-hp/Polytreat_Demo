@@ -26,9 +26,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PolyTreat Chemicals | Advanced Water Treatment & Industrial Chemical Solutions",
-  description: "ISO 9001:2015 certified manufacturer of advanced water treatment, biocides, cooling tower & boiler chemicals, and eco-hygiene solutions in India.",
-  keywords: "water treatment chemicals, RO antiscalant, boiler chemicals, cooling tower chemicals, biocides, BKC 50, PolyTreat Chemicals, V-Klin, VKlin",
+  title: "PolyTreat Chemicals | Industrial Water Treatment & Specialty Chemistry",
+  description:
+    "Explore PolyTreat's industrial water treatment, construction chemistry, and V-Klin facility-care product areas. Contact the team to discuss an application or request current product information.",
+  keywords:
+    "PolyTreat Chemicals, industrial water treatment, boiler water treatment, cooling water, construction chemicals, V-Klin cleaning products",
 };
 
 export const viewport: Viewport = {

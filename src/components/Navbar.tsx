@@ -5,21 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Building2,
   ChevronDown,
-  Droplets,
   Factory,
-  FileCheck2,
-  FlaskConical,
-  Leaf,
   Menu,
   ShieldCheck,
-  Sparkles,
   X,
 } from "lucide-react";
 
 type MenuKey = "products" | "industries" | "quality" | "company";
-type Division = "industrial" | "vklin";
 type MenuLink = { label: string; href: string; detail?: string };
 type MenuGroup = { title: string; links: MenuLink[] };
 
@@ -28,69 +21,60 @@ const salesWhatsApp =
 
 const productGroups: MenuGroup[] = [
   {
-    title: "Water Treatment",
+    title: "Industrial water",
     links: [
-      { label: "Boiler water treatment", href: "#boiler-water", detail: "Oxygen scavengers, sludge and scale control" },
-      { label: "Cooling towers & chillers", href: "#cooling-water", detail: "Corrosion, scale and biological control" },
-      { label: "RO & effluent treatment", href: "#ro-etp", detail: "Membrane care and wastewater treatment" },
+      { label: "Boiler systems", href: "#solution-water", detail: "Water-treatment product categories" },
+      { label: "Cooling-water systems", href: "#solution-water", detail: "Cooling tower and chiller applications" },
+      { label: "RO & effluent", href: "#solution-water", detail: "Membrane and wastewater applications" },
     ],
   },
   {
-    title: "Specialty Chemistry",
+    title: "Construction & specialty",
     links: [
-      { label: "POLYDOR-WS", href: "#specialty-chemicals", detail: "Odor neutralization" },
-      { label: "COROSIL", href: "#specialty-chemicals", detail: "Rust conversion and protection" },
-      { label: "POLYKLIN", href: "#specialty-chemicals", detail: "AHU / FCU coil cleaning" },
-      { label: "Construction chemicals", href: "#specialty-chemicals", detail: "Waterproofing and specialty coatings" },
+      { label: "Waterproofing & coatings", href: "#solution-construction" },
+      { label: "Concrete repair & flooring", href: "#solution-construction" },
+      { label: "Rust treatment", href: "#solution-construction", detail: "Ask about current product documentation" },
     ],
   },
   {
-    title: "V-Klin Hygiene",
+    title: "V-Klin care",
     links: [
-      { label: "Surface & floor care", href: "#vklin" },
-      { label: "Disinfectants & handwash", href: "#vklin" },
-      { label: "Kitchen & dishwash care", href: "#vklin" },
-      { label: "Herbal mosquito repellent", href: "#vklin" },
+      { label: "Floor & surface care", href: "#vklin" },
+      { label: "Handwash & liquid soap", href: "#vklin" },
+      { label: "Dishwashing products", href: "#vklin" },
+      { label: "Glass, kitchen & toilet care", href: "#vklin" },
     ],
   },
 ];
 
 const industryGroups: MenuGroup[] = [
   {
-    title: "Heavy Process & Energy",
+    title: "Process & manufacturing",
     links: [
-      { label: "Power & process plants", href: "#industry-process", detail: "Boiler and cooling water programs" },
-      { label: "Sugar & distilleries", href: "#industry-process", detail: "Process water and specialty chemicals" },
+      { label: "Industrial process operations", href: "#markets", detail: "Boilers, cooling systems, RO and process operations" },
     ],
   },
   {
-    title: "Pharma & Manufacturing",
+    title: "Utilities & infrastructure",
     links: [
-      { label: "Pharmaceutical manufacturing", href: "#industry-manufacturing", detail: "Utility water treatment" },
-      { label: "Textile & chemical processing", href: "#industry-manufacturing", detail: "Boiler, cooling and effluent treatment" },
+      { label: "Water & building utilities", href: "#markets", detail: "Cooling water, effluent and building services" },
     ],
   },
   {
-    title: "Commercial & Infrastructure",
+    title: "Facilities & institutions",
     links: [
-      { label: "Commercial HVAC", href: "#industry-commercial", detail: "Cooling water and coil care" },
-      { label: "Hotels, hospitals & institutions", href: "#industry-commercial", detail: "V-Klin facility hygiene" },
-      { label: "Construction & waterproofing", href: "#industry-commercial", detail: "Specialty coatings and protection" },
+      { label: "Institutional facility care", href: "#markets", detail: "Cleaning and maintenance for shared spaces" },
     ],
   },
 ];
 
 const qualityGroups: MenuGroup[] = [
   {
-    title: "Quality & Lab Services",
+    title: "Quality & product information",
     links: [
-      { label: "ISO 9001:2015 quality system", href: "#quality" },
-      { label: "WHO-GMP compliance", href: "#quality" },
-      { label: "US FDA compliance", href: "#quality" },
-      { label: "Water sample testing", href: "#quality-service", detail: "Discuss a sample with our technical team" },
-      { label: "Free water audit", href: "#quality-service" },
-      { label: "On-site technical support", href: "#quality-service" },
-      { label: "Request TDS / COA", href: salesWhatsApp, detail: "Contact the team for product documents" },
+      { label: "PQRS framework", href: "#pqrs", detail: "Performance · Quality · Reliability · Service" },
+      { label: "Product documents", href: salesWhatsApp, detail: "Ask for current product information" },
+      { label: "Discuss a system", href: "#contact", detail: "Share your application with the team" },
     ],
   },
 ];
@@ -99,10 +83,8 @@ const companyGroups: MenuGroup[] = [
   {
     title: "About PolyTreat",
     links: [
-      { label: "37+ years of heritage", href: "#about", detail: "Established in 1987" },
-      { label: "Tarapur & Mumbai plants", href: "#manufacturing" },
-      { label: "PQRS framework", href: "#pqrs" },
-      { label: "Contact the team", href: "#contact" },
+      { label: "Company overview", href: "#about" },
+      { label: "Tarapur & Mumbai locations", href: "#manufacturing" },
     ],
   },
 ];
@@ -115,9 +97,9 @@ const menuGroups: Record<MenuKey, MenuGroup[]> = {
 };
 
 const menuLabels: Record<MenuKey, string> = {
-  products: "Products",
+  products: "Solutions",
   industries: "Industries",
-  quality: "Quality & Lab",
+  quality: "Quality",
   company: "About Us",
 };
 
@@ -154,7 +136,6 @@ function MenuGroupLinks({ groups, onNavigate }: { groups: MenuGroup[]; onNavigat
 }
 
 export default function Navbar() {
-  const [activeDivision, setActiveDivision] = useState<Division>("industrial");
   const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
   const [openMobileGroup, setOpenMobileGroup] = useState<MenuKey | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -207,13 +188,13 @@ export default function Navbar() {
       >
         {menu === "products" && (
           <aside className="nav-feature-card">
-            <span className="nav-feature-eyebrow"><ShieldCheck size={14} /> Since 1987</span>
-            <h2>Specialty chemistry engineered for protection.</h2>
-            <p>Industrial water treatment and institutional hygiene solutions from one experienced manufacturer.</p>
+            <span className="nav-feature-eyebrow"><ShieldCheck size={14} /> Three areas of work</span>
+            <h2>Find chemistry for your system and site.</h2>
+            <p>Explore industrial water treatment, construction chemistry, and V-Klin care.</p>
             <Link className="nav-feature-link" href="#contact" onClick={closeMenus}>
               Talk to our team <ArrowRight size={16} />
             </Link>
-            <span className="nav-feature-years">37<span>+</span></span>
+            <span className="nav-feature-years">PT<span>.</span></span>
           </aside>
         )}
         <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
@@ -235,7 +216,7 @@ export default function Navbar() {
           aria-controls={`nav-panel-${menu}`}
           onClick={() => toggleMenu(menu)}
         >
-          {menuLabels[menu]} <ChevronDown size={15} aria-hidden="true" />
+          {menuLabels[menu]} <ChevronDown size={14} strokeWidth={1.8} aria-hidden="true" />
         </button>
         {isOpen && renderDropdown(menu)}
       </div>
@@ -256,32 +237,26 @@ export default function Navbar() {
           <nav className="desktop-nav" aria-label="Main navigation">
             {renderMenuTrigger("products")}
             {renderMenuTrigger("industries")}
-            <Link className="nav-direct-link" href="#clients" onClick={closeMenus}>Clients</Link>
             {renderMenuTrigger("quality")}
             {renderMenuTrigger("company")}
             <Link className="nav-direct-link" href="#contact" onClick={closeMenus}>Contact</Link>
           </nav>
 
-          <nav className="division-switcher" aria-label="Choose a division">
-            <Link
-              className={activeDivision === "industrial" ? "is-active" : ""}
-              href="#industrial"
-              onClick={() => { setActiveDivision("industrial"); closeMenus(); }}
-            >
-              <Droplets size={14} /> Industrial
+          <nav className="division-switcher" aria-label="Division shortcuts">
+            <Link className="division-shortcut division-shortcut-industrial" href="#solution-water" onClick={closeMenus}>
+              Industrial
             </Link>
-            <Link
-              className={activeDivision === "vklin" ? "is-active is-vklin" : ""}
-              href="#vklin"
-              onClick={() => { setActiveDivision("vklin"); closeMenus(); }}
-            >
-              <Sparkles size={14} /> V-Klin
+            <Link className="division-shortcut division-shortcut-vklin" href="#vklin" onClick={closeMenus}>
+              V-Klin
             </Link>
           </nav>
 
           <div className="navbar-actions">
             <a className="btn btn-accent navbar-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
-              <FileCheck2 size={16} /> <span>Request TDS / Quote</span>
+              <span>Request TDS / Quote</span>
+              <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16" fill="none">
+                <path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </a>
 
             <button
@@ -299,12 +274,12 @@ export default function Navbar() {
 
       {isMobileMenuOpen && (
         <div className="mobile-navigation" id="mobile-navigation">
-          <nav className="mobile-division-switcher" aria-label="Choose a division">
-            <Link href="#industrial" className={activeDivision === "industrial" ? "is-active" : ""} onClick={() => { setActiveDivision("industrial"); closeMenus(); }}>
-              <Droplets size={15} /> Industrial Water
+          <nav className="mobile-division-switcher" aria-label="Division shortcuts">
+            <Link href="#solution-water" onClick={closeMenus}>
+              Industrial Water
             </Link>
-            <Link href="#vklin" className={activeDivision === "vklin" ? "is-active is-vklin" : ""} onClick={() => { setActiveDivision("vklin"); closeMenus(); }}>
-              <Leaf size={15} /> V-Klin
+            <Link href="#vklin" onClick={closeMenus}>
+              V-Klin
             </Link>
           </nav>
 
@@ -334,17 +309,12 @@ export default function Navbar() {
                 </section>
               );
             })}
-            <Link className="mobile-direct-link" href="#clients" onClick={closeMenus}>Clients</Link>
             <Link className="mobile-direct-link" href="#contact" onClick={closeMenus}>Contact</Link>
             <a className="btn btn-accent mobile-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
-              <FileCheck2 size={17} /> Request TDS / Quote
+              Request TDS / Quote
             </a>
           </nav>
 
-          <div className="mobile-quick-links">
-            <Link href="#pqrs" onClick={closeMenus}><FlaskConical size={16} /> PQRS quality framework</Link>
-            <Link href="#manufacturing" onClick={closeMenus}><Building2 size={16} /> Manufacturing plants</Link>
-          </div>
         </div>
       )}
     </header>
