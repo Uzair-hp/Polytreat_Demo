@@ -227,7 +227,7 @@ export default function Navbar() {
     <header className="site-header" ref={headerRef}>
         <div className="navbar-inner">
           <Link className="navbar-brand" href="/" aria-label="PolyTreat Chemicals home" onClick={closeMenus}>
-            <span className="navbar-logo"><Image src="/logo.png" alt="" fill priority sizes="(max-width: 430px) 112px, (max-width: 1023px) 126px, 118px" /></span>
+            <span className="navbar-logo"><Image src="/logo.png" alt="" fill priority sizes="(max-width: 430px) 132px, (max-width: 1023px) 126px, 118px" /></span>
             <span className="navbar-brand-copy">
               <strong>PolyTreat Chemicals</strong>
               <small>Water Treatment &amp; Specialty Chemistry</small>
