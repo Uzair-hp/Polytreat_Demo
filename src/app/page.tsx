@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import HeroCarousel from "@/components/HeroCarousel";
 import {
   ArrowRight,
   ArrowUpRight,
-  Atom,
   BadgeCheck,
   Building2,
   Check,
@@ -114,73 +114,7 @@ const pqrs = [
 export default function Home() {
   return (
     <main>
-      <section className="home-hero" aria-labelledby="hero-title">
-        <div className="home-hero-glow home-hero-glow-one" aria-hidden="true" />
-        <div className="home-hero-glow home-hero-glow-two" aria-hidden="true" />
-        <div className="container home-hero-grid">
-          <div className="home-hero-copy">
-            <span className="eyebrow eyebrow-light">
-              <span className="eyebrow-dot" aria-hidden="true" />
-              PolyTreat Chemicals · Industrial & institutional
-            </span>
-            <h1 id="hero-title">
-              Chemistry for the systems{" "}
-              <span className="hero-highlight">behind your operation.</span>
-            </h1>
-            <p className="home-hero-description">
-              Industrial water treatment, construction and protective chemistry, and
-              V-Klin facility care—organized around the work your site needs to do.
-            </p>
-            <div className="home-hero-actions">
-              <Link className="btn btn-accent" href="#solutions">
-                Explore solutions <ArrowRight size={17} aria-hidden="true" />
-              </Link>
-              <a
-                className="btn btn-outline"
-                href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
-                target="_blank"
-                rel="noreferrer"
-              >
-                Talk to team <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-            </div>
-            <div className="hero-contact-note">
-              <Phone size={15} aria-hidden="true" />
-              <span>Prefer a direct call?</span>
-              <a href="tel:+919820235995">+91 98202 35995</a>
-            </div>
-          </div>
-
-          <div className="hero-art" aria-hidden="true">
-            <div className="hero-orbit hero-orbit-outer" />
-            <div className="hero-orbit hero-orbit-middle" />
-            <div className="hero-orbit hero-orbit-inner" />
-            <div className="hero-molecule-orbit">
-              <span className="hero-molecule-particle hero-molecule-particle-blue" />
-              <span className="hero-molecule-particle hero-molecule-particle-green" />
-              <span className="hero-molecule-particle hero-molecule-particle-cyan" />
-            </div>
-            <div className="hero-art-core">
-              <div className="hero-core-mark"><Waves size={39} strokeWidth={1.5} /></div>
-              <span>Applied chemistry</span>
-              <strong>Made for real systems</strong>
-            </div>
-            <div className="hero-float-card hero-float-card-top">
-              <Droplets size={17} />
-              <span>Water systems</span>
-            </div>
-            <div className="hero-float-card hero-float-card-bottom">
-              <Leaf size={17} />
-              <span>Facility care</span>
-            </div>
-            <span className="hero-icon-node hero-icon-node-lab"><FlaskConical size={18} /></span>
-            <span className="hero-icon-node hero-icon-node-process"><Factory size={18} /></span>
-            <span className="hero-icon-node hero-icon-node-protection"><ShieldCheck size={18} /></span>
-            <span className="hero-icon-node hero-icon-node-molecule"><Atom size={18} /></span>
-          </div>
-        </div>
-        <div className="hero-bottom-line" aria-hidden="true" />
-      </section>
+      <HeroCarousel />
 
       <section className="discipline-strip" aria-label="PolyTreat's areas of work">
         <div className="container discipline-strip-inner">
