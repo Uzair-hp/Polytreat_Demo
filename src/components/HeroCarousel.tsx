@@ -10,7 +10,6 @@ import {
   FlaskConical,
   Layers3,
   Leaf,
-  Phone,
   ShieldCheck,
   Waves,
 } from "lucide-react";
@@ -18,18 +17,14 @@ import {
 const slides = [
   {
     id: "water",
-    label: "Industrial water",
-    description:
-      "Water-treatment chemistry for boiler, cooling-water, reverse-osmosis, and effluent systems.",
+    label: "Water treatment",
     sceneTitle: "Industrial water",
     sceneNote: "Boiler · Cooling · RO · Effluent",
     icon: Droplets,
   },
   {
     id: "construction",
-    label: "Construction & protection",
-    description:
-      "Construction and surface-protection categories including waterproofing, coatings, repair, and flooring.",
+    label: "Construction",
     sceneTitle: "Construction & protection",
     sceneNote: "Waterproofing · Coatings · Repair",
     icon: Layers3,
@@ -37,8 +32,6 @@ const slides = [
   {
     id: "vklin",
     label: "V-Klin care",
-    description:
-      "V-Klin cleaning categories for floor and surface care, handwashing, dishwashing, and facility upkeep.",
     sceneTitle: "V-Klin care",
     sceneNote: "Surface · Hand · Dish · Facility",
     icon: Leaf,
@@ -136,27 +129,21 @@ export default function HeroCarousel() {
       className="home-hero"
       aria-labelledby="hero-title"
       aria-roledescription="carousel"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onFocusCapture={() => setIsFocused(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsFocused(false);
-      }}
     >
       <div className="home-hero-glow home-hero-glow-one" aria-hidden="true" />
       <div className="home-hero-glow home-hero-glow-two" aria-hidden="true" />
       <div className="container home-hero-grid">
         <div className="home-hero-copy">
-          <span className="eyebrow eyebrow-light hero-carousel-eyebrow" key={activeSlide.id}>
+          <span className="eyebrow eyebrow-light hero-carousel-eyebrow">
             <span className="eyebrow-dot" aria-hidden="true" />
-            PolyTreat Chemicals · {activeSlide.label}
+            Water treatment · Construction chemistry · V-Klin care
           </span>
           <h1 id="hero-title">
-            Chemistry for the systems{" "}
-            <span className="hero-highlight">behind your operation.</span>
+            Water treatment.{" "}
+            <span className="hero-highlight">Construction chemistry. Facility care.</span>
           </h1>
-          <p className="home-hero-description" key={`${activeSlide.id}-description`}>
-            {activeSlide.description}
+          <p className="home-hero-description">
+            Products for industrial water systems, construction applications, and V-Klin institutional care.
           </p>
           <div className="home-hero-actions">
             <Link className="btn btn-accent" href="#solutions">
@@ -168,17 +155,22 @@ export default function HeroCarousel() {
               target="_blank"
               rel="noreferrer"
             >
-              Talk to team <ArrowRight size={16} aria-hidden="true" />
+              Talk to our team <ArrowRight size={16} aria-hidden="true" />
             </a>
-          </div>
-          <div className="hero-contact-note">
-            <Phone size={15} aria-hidden="true" />
-            <span>Prefer a direct call?</span>
-            <a href="tel:+919820235995">+91 98202 35995</a>
           </div>
         </div>
 
-        <div className="hero-carousel-visual" role="group" aria-label={`${activeSlide.label} visual`}>
+        <div
+          className="hero-carousel-visual"
+          role="group"
+          aria-label={`${activeSlide.label} visual`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onFocusCapture={() => setIsFocused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsFocused(false);
+          }}
+        >
           <div className="hero-scene-stage">
             {slides.map((slide, index) => {
               const SlideIcon = slide.icon;
