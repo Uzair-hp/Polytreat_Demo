@@ -17,21 +17,24 @@ import {
 const slides = [
   {
     id: "water",
-    label: "Water treatment",
+    label: "Industrial water treatment",
+    selectorLabel: "Water",
     sceneTitle: "Industrial water",
     sceneNote: "Boiler · Cooling · RO · Effluent",
     icon: Droplets,
   },
   {
     id: "construction",
-    label: "Construction",
+    label: "Construction & protection",
+    selectorLabel: "Construction",
     sceneTitle: "Construction & protection",
     sceneNote: "Waterproofing · Coatings · Repair",
     icon: Layers3,
   },
   {
     id: "vklin",
-    label: "V-Klin care",
+    label: "V-Klin institutional care",
+    selectorLabel: "V-Klin",
     sceneTitle: "V-Klin care",
     sceneNote: "Surface · Hand · Dish · Facility",
     icon: Leaf,
@@ -136,14 +139,18 @@ export default function HeroCarousel() {
         <div className="home-hero-copy">
           <span className="eyebrow eyebrow-light hero-carousel-eyebrow">
             <span className="eyebrow-dot" aria-hidden="true" />
-            Water treatment · Construction chemistry · V-Klin care
+            PolyTreat Chemicals
           </span>
           <h1 id="hero-title">
-            Water treatment.{" "}
-            <span className="hero-highlight">Construction chemistry. Facility care.</span>
+            <span className="hero-title-desktop">
+              Water treatment. <span className="hero-highlight">Construction chemistry. Facility care.</span>
+            </span>
+            <span className="hero-title-mobile">
+              Water treatment, <span className="hero-highlight">construction & V-Klin care.</span>
+            </span>
           </h1>
           <p className="home-hero-description">
-            Products for industrial water systems, construction applications, and V-Klin institutional care.
+            Industrial water-treatment products, construction chemistry, and V-Klin facility-care products.
           </p>
           <div className="home-hero-actions">
             <Link className="btn btn-accent" href="#solutions">
@@ -209,7 +216,7 @@ export default function HeroCarousel() {
                   onClick={() => showSlide(index)}
                 >
                   <span className="hero-carousel-dot-number">{`0${index + 1}`}</span>
-                  <strong>{slide.label}</strong>
+                  <strong>{slide.selectorLabel}</strong>
                 </button>
               ))}
             </div>
