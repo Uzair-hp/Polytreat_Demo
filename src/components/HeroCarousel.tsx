@@ -19,6 +19,10 @@ const slides = [
     id: "water",
     label: "Industrial water treatment",
     selectorLabel: "Water",
+    headlineLead: "Water treatment for",
+    headlineAccent: "critical plant systems.",
+    description:
+      "Treatment options for boiler, cooling-water, reverse-osmosis, and effluent systems.",
     sceneTitle: "Industrial water",
     sceneNote: "Boiler · Cooling · RO · Effluent",
     icon: Droplets,
@@ -27,6 +31,10 @@ const slides = [
     id: "construction",
     label: "Construction & protection",
     selectorLabel: "Construction",
+    headlineLead: "Construction chemistry for",
+    headlineAccent: "demanding applications.",
+    description:
+      "Product categories include waterproofing, coatings, concrete repair, flooring, and surface treatment.",
     sceneTitle: "Construction & protection",
     sceneNote: "Waterproofing · Coatings · Repair",
     icon: Layers3,
@@ -35,6 +43,10 @@ const slides = [
     id: "vklin",
     label: "V-Klin institutional care",
     selectorLabel: "V-Klin",
+    headlineLead: "Hygiene solutions for",
+    headlineAccent: "everyday facility care.",
+    description:
+      "V-Klin cleaning products for floor and surface care, handwashing, dishwashing, and facility upkeep.",
     sceneTitle: "V-Klin care",
     sceneNote: "Surface · Hand · Dish · Facility",
     icon: Leaf,
@@ -141,16 +153,11 @@ export default function HeroCarousel() {
             <span className="eyebrow-dot" aria-hidden="true" />
             PolyTreat Chemicals
           </span>
-          <h1 id="hero-title">
-            <span className="hero-title-desktop">
-              Water treatment. <span className="hero-highlight">Construction chemistry. Facility care.</span>
-            </span>
-            <span className="hero-title-mobile">
-              Water treatment, <span className="hero-highlight">construction & V-Klin care.</span>
-            </span>
+          <h1 id="hero-title" className="hero-copy-slide-in" key={`${activeSlide.id}-headline`}>
+            {activeSlide.headlineLead} <span className="hero-highlight">{activeSlide.headlineAccent}</span>
           </h1>
-          <p className="home-hero-description">
-            Industrial water-treatment products, construction chemistry, and V-Klin facility-care products.
+          <p className="home-hero-description hero-copy-slide-in" key={`${activeSlide.id}-description`}>
+            {activeSlide.description}
           </p>
           <div className="home-hero-actions">
             <Link className="btn btn-accent" href="#solutions">
