@@ -7,12 +7,12 @@ import {
   ArrowRight,
   ChevronDown,
   Factory,
+  Layers3,
   Menu,
-  ShieldCheck,
   X,
 } from "lucide-react";
 
-type MenuKey = "products" | "industries" | "quality" | "company";
+type MenuKey = "products" | "quality" | "company";
 type MenuLink = { label: string; href: string; detail?: string };
 type MenuGroup = { title: string; links: MenuLink[] };
 
@@ -23,47 +23,25 @@ const productGroups: MenuGroup[] = [
   {
     title: "Industrial water",
     links: [
-      { label: "Boiler systems", href: "#portfolio-boiler-cooling", detail: "Water-treatment product categories" },
-      { label: "Cooling-water systems", href: "#portfolio-boiler-cooling", detail: "Cooling tower and chiller applications" },
-      { label: "RO & effluent", href: "#portfolio-ro-effluent", detail: "Membrane and wastewater applications" },
+      { label: "Boiler water", href: "#portfolio-boiler-cooling" },
+      { label: "Cooling water", href: "#portfolio-boiler-cooling" },
+      { label: "RO & effluent", href: "#portfolio-ro-effluent" },
     ],
   },
   {
-    title: "Construction & specialty",
+    title: "Construction & surface protection",
     links: [
       { label: "Waterproofing & coatings", href: "#portfolio-construction" },
-      { label: "Concrete repair & flooring", href: "#portfolio-construction" },
-      { label: "Rust treatment", href: "#portfolio-construction", detail: "Ask about current product documentation" },
+      { label: "Concrete repair", href: "#portfolio-construction" },
+      { label: "Flooring & joint sealing", href: "#portfolio-construction" },
     ],
   },
   {
-    title: "V-Klin care",
+    title: "V-Klin cleaning range",
     links: [
       { label: "Floor & surface care", href: "#portfolio-vklin" },
-      { label: "Handwash & liquid soap", href: "#portfolio-vklin" },
-      { label: "Dishwashing products", href: "#portfolio-vklin" },
-      { label: "Glass, kitchen & toilet care", href: "#portfolio-vklin" },
-    ],
-  },
-];
-
-const industryGroups: MenuGroup[] = [
-  {
-    title: "Process & manufacturing",
-    links: [
-      { label: "Industrial process operations", href: "#markets", detail: "Boilers, cooling systems, RO and process operations" },
-    ],
-  },
-  {
-    title: "Utilities & infrastructure",
-    links: [
-      { label: "Water & building utilities", href: "#markets", detail: "Cooling water, effluent and building services" },
-    ],
-  },
-  {
-    title: "Facilities & institutions",
-    links: [
-      { label: "Institutional facility care", href: "#markets", detail: "Cleaning and maintenance for shared spaces" },
+      { label: "Hand & dish care", href: "#portfolio-vklin" },
+      { label: "Glass & washroom care", href: "#portfolio-vklin" },
     ],
   },
 ];
@@ -73,8 +51,8 @@ const qualityGroups: MenuGroup[] = [
     title: "Quality & product information",
     links: [
       { label: "PQRS framework", href: "#pqrs", detail: "Performance · Quality · Reliability · Service" },
-      { label: "Product documents", href: salesWhatsApp, detail: "Ask for current product information" },
-      { label: "Discuss a system", href: "#contact", detail: "Share your application with the team" },
+      { label: "Product documents", href: salesWhatsApp, detail: "Request product TDS or SDS" },
+      { label: "Technical support", href: "#contact", detail: "Talk with us about your application" },
     ],
   },
 ];
@@ -83,22 +61,20 @@ const companyGroups: MenuGroup[] = [
   {
     title: "About PolyTreat",
     links: [
-      { label: "Company overview", href: "#about" },
-      { label: "Tarapur & Mumbai locations", href: "#manufacturing" },
+      { label: "Company overview", href: "#about", detail: "Industrial water · Construction · V-Klin care" },
+      { label: "Locations", href: "#locations", detail: "Tarapur MIDC · Goregaon, Mumbai" },
     ],
   },
 ];
 
 const menuGroups: Record<MenuKey, MenuGroup[]> = {
   products: productGroups,
-  industries: industryGroups,
   quality: qualityGroups,
   company: companyGroups,
 };
 
 const menuLabels: Record<MenuKey, string> = {
   products: "Solutions",
-  industries: "Industries",
   quality: "Quality",
   company: "About Us",
 };
@@ -179,6 +155,33 @@ export default function Navbar() {
     setOpenMenu((current) => (current === menu ? null : menu));
   }
 
+  function renderMobileMenuGroup(menu: MenuKey) {
+    const expanded = openMobileGroup === menu;
+
+    return (
+      <section className="mobile-nav-group" key={menu}>
+        <button
+          type="button"
+          aria-expanded={expanded}
+          aria-controls={`mobile-panel-${menu}`}
+          onClick={() => setOpenMobileGroup((current) => current === menu ? null : menu)}
+        >
+          {menuLabels[menu]} <ChevronDown size={17} />
+        </button>
+        {expanded && (
+          <div id={`mobile-panel-${menu}`} className="mobile-nav-panel">
+            {menu === "products" && (
+              <Link className="mobile-feature-link" href="#contact" onClick={closeMenus}>
+                <Factory size={17} aria-hidden="true" /> Talk to our team <ArrowRight size={15} aria-hidden="true" />
+              </Link>
+            )}
+            <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
+          </div>
+        )}
+      </section>
+    );
+  }
+
   function renderDropdown(menu: MenuKey) {
     return (
       <div
@@ -188,13 +191,13 @@ export default function Navbar() {
       >
         {menu === "products" && (
           <aside className="nav-feature-card">
-            <span className="nav-feature-eyebrow"><ShieldCheck size={14} /> Three areas of work</span>
-            <h2>Find chemistry for your system and site.</h2>
-            <p>Explore industrial water treatment, construction chemistry, and V-Klin care.</p>
+            <span className="nav-feature-eyebrow"><Layers3 size={14} aria-hidden="true" /> Explore by work area</span>
+            <h2>Find the right area for your work.</h2>
+            <p>Browse industrial water treatment, construction chemistry, and V-Klin home and facility-care products.</p>
             <Link className="nav-feature-link" href="#contact" onClick={closeMenus}>
-              Talk to our team <ArrowRight size={16} />
+              Discuss your requirement <ArrowRight size={16} aria-hidden="true" />
             </Link>
-            <span className="nav-feature-years">PT<span>.</span></span>
+            <span className="nav-feature-years" aria-hidden="true">03</span>
           </aside>
         )}
         <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
@@ -208,6 +211,8 @@ export default function Navbar() {
       <div
         className={`nav-item${isOpen ? " is-open" : ""}`}
         key={menu}
+        onMouseEnter={() => setOpenMenu(menu)}
+        onMouseLeave={() => setOpenMenu((current) => current === menu ? null : current)}
       >
         <button
           className="nav-trigger"
@@ -235,8 +240,9 @@ export default function Navbar() {
           </Link>
 
           <nav className="desktop-nav" aria-label="Main navigation">
+            <Link className="nav-direct-link" href="/" onClick={closeMenus}>Home</Link>
             {renderMenuTrigger("products")}
-            {renderMenuTrigger("industries")}
+            <Link className="nav-direct-link" href="#markets" onClick={closeMenus}>Industries</Link>
             {renderMenuTrigger("quality")}
             {renderMenuTrigger("company")}
             <Link className="nav-direct-link" href="#contact" onClick={closeMenus}>Contact</Link>
@@ -284,31 +290,11 @@ export default function Navbar() {
           </nav>
 
           <nav className="mobile-menu-list" aria-label="Mobile navigation">
-            {(["products", "industries", "quality", "company"] as MenuKey[]).map((menu) => {
-              const expanded = openMobileGroup === menu;
-              return (
-                <section className="mobile-nav-group" key={menu}>
-                  <button
-                    type="button"
-                    aria-expanded={expanded}
-                    aria-controls={`mobile-panel-${menu}`}
-                    onClick={() => setOpenMobileGroup((current) => current === menu ? null : menu)}
-                  >
-                    {menuLabels[menu]} <ChevronDown size={17} />
-                  </button>
-                  {expanded && (
-                    <div id={`mobile-panel-${menu}`} className="mobile-nav-panel">
-                      {menu === "products" && (
-                        <Link className="mobile-feature-link" href="#contact" onClick={closeMenus}>
-                          <Factory size={17} /> Talk to our technical team <ArrowRight size={15} />
-                        </Link>
-                      )}
-                      <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
-                    </div>
-                  )}
-                </section>
-              );
-            })}
+            <Link className="mobile-direct-link" href="/" onClick={closeMenus}>Home</Link>
+            {renderMobileMenuGroup("products")}
+            <Link className="mobile-direct-link" href="#markets" onClick={closeMenus}>Industries</Link>
+            {renderMobileMenuGroup("quality")}
+            {renderMobileMenuGroup("company")}
             <Link className="mobile-direct-link" href="#contact" onClick={closeMenus}>Contact</Link>
             <a className="btn btn-accent mobile-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
               Request TDS / Quote

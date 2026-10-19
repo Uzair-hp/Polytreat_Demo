@@ -58,7 +58,7 @@ const solutions = [
     eyebrow: "V-Klin care",
     title: "Everyday cleaning for homes, institutions, and facilities.",
     description:
-      "The V-Klin range brings PolyTreat's cleaning-product line under its current brand.",
+      "Cleaning products for home and facility care, grouped under PolyTreat's V-Klin brand.",
     tags: ["Floor & surface", "Handwash", "Dishwash", "Glass & toilet"],
     link: "#vklin",
     linkText: "Explore V-Klin",
@@ -129,7 +129,7 @@ const markets = [
     icon: Waves,
     title: "Specialty process applications",
     description:
-      "Product literature includes sugar- and paint-processing categories; ask the team about current availability and fit.",
+      "Treatment categories for sugar processing and paint operations.",
     href: "#portfolio",
   },
   {
@@ -188,8 +188,7 @@ export default function Home() {
               <h2 id="solutions-title">Chemistry for the work you do.</h2>
             </div>
             <p>
-              Explore the three areas PolyTreat serves. Choose the closest fit, then talk
-              with the team about products and technical details for your application.
+              Explore PolyTreat's three solution areas, with product families organized around the systems and tasks they serve.
             </p>
           </div>
 
@@ -224,8 +223,7 @@ export default function Home() {
               <h2 id="portfolio-title">Find products by system or task.</h2>
             </div>
             <p>
-              Browse the main product families across PolyTreat and V-Klin. The team can
-              confirm current product names, availability, and technical information.
+              Explore PolyTreat and V-Klin products by system or task—from industrial water treatment and construction chemistry to everyday cleaning.
             </p>
           </div>
 
@@ -248,9 +246,9 @@ export default function Home() {
           </div>
 
           <div className="portfolio-contact-note">
-            <span>Looking for a particular product or document?</span>
+            <span>Need a product data sheet or quote?</span>
             <Link className="text-link" href="#contact">
-              Ask the PolyTreat team <ArrowRight size={16} aria-hidden="true" />
+              Talk to our team <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -262,8 +260,7 @@ export default function Home() {
             <span className="eyebrow eyebrow-light">Industries & applications</span>
             <h2 id="markets-title">Application expertise across plants, projects, and facilities.</h2>
             <p>
-              Explore the operating contexts connected to PolyTreat's product families.
-              The right fit depends on the system, material, and job.
+              See where PolyTreat's water-treatment, construction, and cleaning ranges are used.
             </p>
             <Link className="market-link" href="#contact">
               Discuss your application <ArrowRight size={16} aria-hidden="true" />
@@ -275,9 +272,6 @@ export default function Home() {
               <span className="market-image-caption">Image placeholder: application photography</span>
               <span className="market-image-label">Application contexts</span>
             </div>
-            <p className="market-qualification">
-              Product fit depends on your application; ask the team about the current range.
-            </p>
           </div>
           <div className="market-list">
             {markets.map(({ icon: Icon, title, description, href }, index) => (
@@ -301,7 +295,7 @@ export default function Home() {
             <span className="eyebrow eyebrow-green"><Leaf size={15} aria-hidden="true" /> A PolyTreat brand</span>
             <h2 id="vklin-title">Meet <span>V-Klin</span>, care for everyday spaces.</h2>
             <p>
-              V-Klin is the current brand for PolyTreat's institutional and home-care cleaning range.
+              V-Klin brings PolyTreat's cleaning range to homes and shared facilities.
             </p>
             <Link className="btn btn-vklin" href="#contact">
               Ask about V-Klin products <ArrowRight size={17} aria-hidden="true" />
@@ -322,7 +316,7 @@ export default function Home() {
               <li><Check size={16} aria-hidden="true" /> Glass, kitchen & toilet care</li>
             </ul>
             <p className="vklin-panel-note">
-              Ask the team for current product names, labels, and technical information.
+              Everyday cleaning for homes, institutions, and facility teams.
             </p>
           </div>
         </div>
@@ -358,8 +352,7 @@ export default function Home() {
           <div className="documentation-note">
             <FlaskConical size={18} aria-hidden="true" />
             <p>
-              Need product details? Ask the team for the current technical or safety
-              documents relevant to your application.
+              Request product TDS and safety documents for application and handling details.
             </p>
             <Link href="#contact">Request documents <ArrowRight size={15} aria-hidden="true" /></Link>
           </div>
@@ -382,8 +375,8 @@ export default function Home() {
               PolyTreat Chemicals Pvt. Ltd. works across industrial water treatment,
               construction chemistry, and cleaning products under the V-Klin brand.
             </p>
-            <div className="company-locations" id="manufacturing">
-              <span className="company-locations-label">Manufacturing locations</span>
+            <div className="company-locations" id="locations">
+              <span className="company-locations-label">Locations</span>
               <div className="company-location-list">
                 <div className="company-location">
                   <MapPin size={17} aria-hidden="true" />
