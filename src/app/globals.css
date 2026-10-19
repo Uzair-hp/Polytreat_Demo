@@ -8165,6 +8165,10 @@ code, .font-mono {
   background: #fff;
 }
 
+.quality-page section[id] {
+  scroll-margin-top: 90px;
+}
+
 .quality-hero {
   position: relative;
   overflow: hidden;

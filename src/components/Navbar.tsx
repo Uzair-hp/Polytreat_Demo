@@ -60,7 +60,6 @@ const qualityGroups: MenuGroup[] = [
       { label: "Quality overview", href: "/quality", detail: "How PolyTreat approaches quality and product information" },
       { label: "PQRS framework", href: "/quality#pqrs", detail: "Performance · Quality · Reliability · Service" },
       { label: "Certifications", href: "/certifications", detail: "Review each certificate's stated scope" },
-      { label: "Product documents", href: "/contact#contact-form", detail: "Request product TDS or SDS" },
     ],
   },
 ];
