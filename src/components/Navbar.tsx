@@ -247,7 +247,7 @@ export default function Navbar() {
           <nav className="desktop-nav" aria-label="Main navigation">
             <Link className="nav-direct-link" href="/" onClick={closeMenus}>Home</Link>
             {renderMenuTrigger("products")}
-            <Link className="nav-direct-link" href="/#markets" onClick={closeMenus}>Industries</Link>
+            <Link className="nav-direct-link" href="/industries" onClick={closeMenus}>Industries</Link>
             {renderMenuTrigger("vklin")}
             {renderMenuTrigger("quality")}
             {renderMenuTrigger("company")}
@@ -278,7 +278,7 @@ export default function Navbar() {
           <nav className="mobile-menu-list" aria-label="Mobile navigation">
             <Link className="mobile-direct-link" href="/" onClick={closeMenus}>Home</Link>
             {renderMobileMenuGroup("products")}
-            <Link className="mobile-direct-link" href="/#markets" onClick={closeMenus}>Industries</Link>
+            <Link className="mobile-direct-link" href="/industries" onClick={closeMenus}>Industries</Link>
             {renderMobileMenuGroup("vklin")}
             {renderMobileMenuGroup("quality")}
             {renderMobileMenuGroup("company")}

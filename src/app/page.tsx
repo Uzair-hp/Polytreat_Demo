@@ -119,31 +119,24 @@ const portfolioFamilies = [
 const markets = [
   {
     icon: Factory,
-    title: "Industrial water systems",
+    title: "Process & manufacturing",
     description:
-      "Boiler, cooling-water, RO, and effluent-treatment categories for industrial operations.",
-    href: "#portfolio-boiler-cooling",
-  },
-  {
-    icon: Waves,
-    title: "Specialty process applications",
-    description:
-      "Treatment categories for sugar processing and paint operations.",
-    href: "#portfolio",
+      "Water-treatment categories for boiler, cooling-water, RO, and effluent systems.",
+    href: "/industries#process-manufacturing",
   },
   {
     icon: Layers3,
-    title: "Construction & built surfaces",
+    title: "Utilities & infrastructure",
     description:
-      "Waterproofing, concrete repair, protective coatings, flooring, and joint-sealing categories.",
-    href: "#portfolio-construction",
+      "Water and building services, alongside construction and surface-protection applications.",
+    href: "/industries#utilities-infrastructure",
   },
   {
     icon: Building2,
     title: "Facilities & institutions",
     description:
       "V-Klin cleaning categories for homes, workplaces, and shared facilities.",
-    href: "#portfolio-vklin",
+    href: "/industries#facilities-institutions",
   },
 ];
 
@@ -261,8 +254,8 @@ export default function Home() {
             <p>
               See where PolyTreat's water-treatment, construction, and cleaning ranges are used.
             </p>
-            <Link className="market-link" href="#contact">
-              Discuss your application <ArrowRight size={16} aria-hidden="true" />
+            <Link className="market-link" href="/industries">
+              Explore industries <ArrowRight size={16} aria-hidden="true" />
             </Link>
             <div className="market-image-placeholder" role="img" aria-label="Image placeholder: industrial plant, construction, and facility applications">
               <span className="market-image-orbit market-image-orbit-outer" />

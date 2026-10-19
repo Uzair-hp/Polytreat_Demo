@@ -37,7 +37,7 @@ export default function SiteFooter() {
           <div className="footer-column">
             <h2>Explore</h2>
             <Link href="/#solutions">Solutions</Link>
-            <Link href="/#markets">Applications</Link>
+            <Link href="/industries">Industries &amp; applications</Link>
             <Link href="/#vklin">V-Klin</Link>
             <Link href="/about">About us</Link>
           </div>

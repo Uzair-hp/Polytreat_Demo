@@ -6,11 +6,11 @@
 
 ## 1. Project scope
 
-The current project is a responsive PolyTreat homepage. It introduces the company's broad work areas and gives visitors a direct way to contact the team. It is not yet a searchable product database, technical document portal, account system, or online quote-submission backend.
+The project is a responsive PolyTreat marketing site. The homepage introduces the company's broad work areas; dedicated pages cover Industries, Quality, About, Contact, and the V-Klin range. It is not a searchable technical document portal, account system, or online quote-submission backend.
 
 ### Implemented homepage structure
 
-1. **Navbar:** PolyTreat logo; Home, Solutions, Industries, Quality, About Us, and Contact in that order; dropdowns for Solutions, Quality, and About Us; Industrial and V-Klin shortcuts; WhatsApp enquiry action; mobile drawer. Industries links directly to the homepage application section.
+1. **Navbar:** PolyTreat logo; Home, Solutions, Industries, V-Klin, Quality, About Us, and Contact in that order; dropdowns for Solutions, V-Klin, Quality, and About Us; Request a Quote action; mobile drawer. Industries opens its dedicated overview page; the homepage keeps a shorter preview.
 2. **Hero:** Light chemistry-inspired background, animated orbit/molecule illustration, concise company introduction, “Explore solutions” and “Talk to team” CTAs, and direct phone link.
 3. **Three areas of work:** Industrial water treatment; construction and surface protection; V-Klin facility care.
 4. **Applications:** Broad groupings for process/manufacturing, utilities/infrastructure, and facilities/institutions.

@@ -38,16 +38,17 @@ Use this high-level picture confidently in general homepage explanations. Do not
 
 ## Website scope and implementation
 
-The current project is a responsive homepage, not a product database or technical document portal. Current section IDs and navigation targets include:
+The project is a responsive marketing site, not a technical document portal. The homepage has a concise Industries preview; the dedicated `/industries` page expands its application contexts. Current section IDs and navigation targets include:
 
 - `#solutions` — broad solution areas.
 - `#portfolio` — product families, with anchors for boiler/cooling water, RO/effluent, construction, and V-Klin.
-- `#markets` — industry/application contexts.
+- `#markets` — homepage preview linking to `/industries`.
+- `/industries#process-manufacturing`, `/industries#utilities-infrastructure`, and `/industries#facilities-institutions` — application contexts on the Industries page.
 - `#vklin` — cleaning and facility-care range.
 - `#pqrs` — Performance, Quality, Reliability, Service.
 - `#about`, `#locations`, and `#contact` — company overview, locations, and contact actions.
 
-Current navbar order is **Home → Solutions → Industries → V-Klin → Quality → About Us → Contact**, followed by a **Request a Quote** action linking to the contact form. Solutions, V-Klin, Quality, and About Us have dropdowns; Industries links directly to its homepage section. The V-Klin dropdown links to its overview, portfolio family, and four category anchors. Quality links to `/quality`, its PQRS section, and certificate scopes; TDS/SDS requests are available from the Quality overview and contact page. About Us links to the company overview and facilities. Re-check `src/components/Navbar.tsx` before relying on this snapshot.
+Current navbar order is **Home → Solutions → Industries → V-Klin → Quality → About Us → Contact**, followed by a **Request a Quote** action linking to the contact form. Solutions, V-Klin, Quality, and About Us have dropdowns; Industries links to `/industries`. The V-Klin dropdown links to its overview, product range, and category anchors. Quality links to `/quality`, its PQRS section, and certificate scopes; TDS/SDS requests are available from the Quality overview and contact page. About Us links to the company overview and facilities. Re-check `src/components/Navbar.tsx` before relying on this snapshot.
 
 - Framework: Next.js 16 App Router, React 19, TypeScript.
 - Styles: **Vanilla CSS only**, chiefly `src/app/globals.css`. Do not add Tailwind.
