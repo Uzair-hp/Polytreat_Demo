@@ -296,8 +296,8 @@ export default function Home() {
             <p>
               V-Klin brings PolyTreat's cleaning range to homes and shared facilities.
             </p>
-            <Link className="btn btn-vklin" href="#contact">
-              Ask about V-Klin products <ArrowRight size={17} aria-hidden="true" />
+            <Link className="btn btn-vklin" href="/vklin">
+              Explore V-Klin <ArrowRight size={17} aria-hidden="true" />
             </Link>
           </div>
           <div className="vklin-category-panel">

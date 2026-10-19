@@ -38,17 +38,18 @@ const vklinGroups: MenuGroup[] = [
   {
     title: "V-Klin range",
     links: [
-      { label: "V-Klin overview", href: "/#vklin" },
-      { label: "Cleaning product range", href: "/#portfolio-vklin" },
+      { label: "V-Klin overview", href: "/vklin" },
+      { label: "Cleaning product range", href: "/vklin/products" },
     ],
   },
   {
     title: "Cleaning categories",
     links: [
-      { label: "Floor & surface care", href: "/#vklin-floor-surface" },
-      { label: "Handwash & liquid soap", href: "/#vklin-handwash" },
-      { label: "Dishwashing products", href: "/#vklin-dishwashing" },
-      { label: "Glass, kitchen & toilet care", href: "/#vklin-glass-kitchen-toilet" },
+      { label: "Floor & surface care", href: "/vklin/products#floor-surface" },
+      { label: "Handwash & liquid soap", href: "/vklin/products#hand-hygiene" },
+      { label: "Dishwashing products", href: "/vklin/products#dishwashing" },
+      { label: "Glass & washroom care", href: "/vklin/products#glass-washroom" },
+      { label: "Specialty care", href: "/vklin/products#specialty-care" },
     ],
   },
 ];
