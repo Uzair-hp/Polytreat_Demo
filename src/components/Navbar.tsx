@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -23,26 +23,26 @@ const productGroups: MenuGroup[] = [
   {
     title: "Industrial water",
     links: [
-      { label: "Boiler systems", href: "#solution-water", detail: "Water-treatment product categories" },
-      { label: "Cooling-water systems", href: "#solution-water", detail: "Cooling tower and chiller applications" },
-      { label: "RO & effluent", href: "#solution-water", detail: "Membrane and wastewater applications" },
+      { label: "Boiler systems", href: "#portfolio-boiler-cooling", detail: "Water-treatment product categories" },
+      { label: "Cooling-water systems", href: "#portfolio-boiler-cooling", detail: "Cooling tower and chiller applications" },
+      { label: "RO & effluent", href: "#portfolio-ro-effluent", detail: "Membrane and wastewater applications" },
     ],
   },
   {
     title: "Construction & specialty",
     links: [
-      { label: "Waterproofing & coatings", href: "#solution-construction" },
-      { label: "Concrete repair & flooring", href: "#solution-construction" },
-      { label: "Rust treatment", href: "#solution-construction", detail: "Ask about current product documentation" },
+      { label: "Waterproofing & coatings", href: "#portfolio-construction" },
+      { label: "Concrete repair & flooring", href: "#portfolio-construction" },
+      { label: "Rust treatment", href: "#portfolio-construction", detail: "Ask about current product documentation" },
     ],
   },
   {
     title: "V-Klin care",
     links: [
-      { label: "Floor & surface care", href: "#vklin" },
-      { label: "Handwash & liquid soap", href: "#vklin" },
-      { label: "Dishwashing products", href: "#vklin" },
-      { label: "Glass, kitchen & toilet care", href: "#vklin" },
+      { label: "Floor & surface care", href: "#portfolio-vklin" },
+      { label: "Handwash & liquid soap", href: "#portfolio-vklin" },
+      { label: "Dishwashing products", href: "#portfolio-vklin" },
+      { label: "Glass, kitchen & toilet care", href: "#portfolio-vklin" },
     ],
   },
 ];

@@ -26,6 +26,7 @@ const solutions = [
     id: "solution-water",
     number: "01",
     icon: Droplets,
+    imageLabel: "Industrial water systems",
     eyebrow: "Industrial water",
     title: "Treatment for the systems that keep your plant running.",
     description:
@@ -39,6 +40,7 @@ const solutions = [
     id: "solution-construction",
     number: "02",
     icon: Layers3,
+    imageLabel: "Construction chemistry application",
     eyebrow: "Construction & protection",
     title: "Surface protection built around the material and the problem.",
     description:
@@ -52,6 +54,7 @@ const solutions = [
     id: "solution-vklin",
     number: "03",
     icon: Leaf,
+    imageLabel: "V-Klin facility care",
     eyebrow: "V-Klin care",
     title: "Everyday cleaning for homes, institutions, and facilities.",
     description:
@@ -63,24 +66,85 @@ const solutions = [
   },
 ];
 
+const portfolioFamilies = [
+  {
+    id: "portfolio-boiler-cooling",
+    icon: Droplets,
+    number: "01",
+    imageLabel: "Industrial boiler and cooling-water systems",
+    eyebrow: "Industrial water",
+    title: "Boiler & cooling-water treatment",
+    description:
+      "Product families for water systems used in steam generation and recirculating cooling.",
+    categories: ["Boiler water", "Cooling water", "Scale & corrosion control"],
+    tone: "blue",
+  },
+  {
+    id: "portfolio-ro-effluent",
+    icon: Waves,
+    number: "02",
+    imageLabel: "Reverse osmosis and effluent treatment systems",
+    eyebrow: "Process water",
+    title: "RO, effluent & process treatment",
+    description:
+      "Categories for membrane-based water systems and industrial wastewater processes.",
+    categories: ["RO systems", "Effluent treatment", "Process applications"],
+    tone: "slate",
+  },
+  {
+    id: "portfolio-construction",
+    icon: Layers3,
+    number: "03",
+    imageLabel: "Construction and surface-protection application",
+    eyebrow: "Construction chemistry",
+    title: "Waterproofing & surface protection",
+    description:
+      "Construction product families spanning water ingress, concrete repair, protective finishes, and joints.",
+    categories: ["Waterproofing", "Concrete repair", "Protective coatings", "Sealants"],
+    tone: "slate",
+  },
+  {
+    id: "portfolio-vklin",
+    icon: Leaf,
+    number: "04",
+    imageLabel: "V-Klin home and facility cleaning products",
+    eyebrow: "V-Klin care",
+    title: "Everyday cleaning & facility care",
+    description:
+      "Cleaning categories for homes and shared spaces, including institutional settings.",
+    categories: ["Floor & surface", "Hand & dish care", "Glass & washroom"],
+    tone: "green",
+  },
+];
+
 const markets = [
   {
     icon: Factory,
-    title: "Process & manufacturing",
+    title: "Industrial water systems",
     description:
-      "Water and specialty-chemical needs around boilers, cooling systems, RO, and process operations.",
+      "Boiler, cooling-water, RO, and effluent-treatment categories for industrial operations.",
+    href: "#portfolio-boiler-cooling",
   },
   {
     icon: Waves,
-    title: "Utilities & infrastructure",
+    title: "Specialty process applications",
     description:
-      "Treatment categories for cooling water, effluent, sewage, and building-service systems.",
+      "Product literature includes sugar- and paint-processing categories; ask the team about current availability and fit.",
+    href: "#portfolio",
+  },
+  {
+    icon: Layers3,
+    title: "Construction & built surfaces",
+    description:
+      "Waterproofing, concrete repair, protective coatings, flooring, and joint-sealing categories.",
+    href: "#portfolio-construction",
   },
   {
     icon: Building2,
     title: "Facilities & institutions",
     description:
-      "Cleaning and maintenance categories for shared spaces, workplaces, and managed facilities.",
+      "V-Klin cleaning categories for homes, workplaces, and shared facilities.",
+    href: "#portfolio-vklin",
   },
 ];
 
@@ -116,33 +180,25 @@ export default function Home() {
     <main>
       <HeroCarousel />
 
-      <section className="discipline-strip" aria-label="PolyTreat's areas of work">
-        <div className="container discipline-strip-inner">
-          <p>Three connected areas of work</p>
-          <div><Droplets size={17} aria-hidden="true" /><span>Water treatment</span></div>
-          <div><Layers3 size={17} aria-hidden="true" /><span>Construction chemistry</span></div>
-          <div><Leaf size={17} aria-hidden="true" /><span>V-Klin facility care</span></div>
-        </div>
-      </section>
-
       <section className="section solutions-section" id="solutions" aria-labelledby="solutions-title">
         <div className="container">
           <div className="section-heading section-heading-split">
             <div>
-              <span className="eyebrow eyebrow-dark">What we work on</span>
-              <h2 id="solutions-title">Find the right starting point.</h2>
+              <span className="eyebrow eyebrow-dark">Our solution areas</span>
+              <h2 id="solutions-title">Chemistry for the work you do.</h2>
             </div>
             <p>
-              PolyTreat's product areas serve different needs. Start with your system or
-              facility, then ask the team about the current product and its documentation.
+              Explore the three areas PolyTreat serves. Choose the closest fit, then talk
+              with the team about products and technical details for your application.
             </p>
           </div>
 
           <div className="solution-grid">
-            {solutions.map(({ id, number, icon: Icon, eyebrow, title, description, tags, link, linkText, tone }) => (
+            {solutions.map(({ id, number, icon: Icon, imageLabel, eyebrow, title, description, tags, link, linkText, tone }) => (
               <article className={`solution-card solution-card-${tone}`} id={id} key={id}>
-                <div className="solution-card-top">
-                  <span className="solution-icon"><Icon size={21} aria-hidden="true" /></span>
+                <div className={`solution-image-placeholder solution-image-${tone}`} role="img" aria-label={`Image placeholder: ${imageLabel}`}>
+                  <span className="solution-image-mark"><Icon size={27} strokeWidth={1.6} aria-hidden="true" /></span>
+                  <span className="solution-image-caption">Image placeholder: {imageLabel}</span>
                   <span className="solution-number">{number}</span>
                 </div>
                 <span className="solution-eyebrow">{eyebrow}</span>
@@ -160,23 +216,72 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
+        <div className="container">
+          <div className="section-heading section-heading-split">
+            <div>
+              <span className="eyebrow eyebrow-dark">Product portfolio</span>
+              <h2 id="portfolio-title">Find products by system or task.</h2>
+            </div>
+            <p>
+              Browse the main product families across PolyTreat and V-Klin. The team can
+              confirm current product names, availability, and technical information.
+            </p>
+          </div>
+
+          <div className="portfolio-grid">
+            {portfolioFamilies.map(({ id, icon: Icon, number, imageLabel, eyebrow, title, description, categories, tone }) => (
+              <article className={`portfolio-card portfolio-card-${tone}`} id={id} key={id}>
+                <div className={`portfolio-image-placeholder portfolio-image-${tone}`} role="img" aria-label={`Image placeholder: ${imageLabel}`}>
+                  <span className="portfolio-image-mark"><Icon size={25} strokeWidth={1.6} aria-hidden="true" /></span>
+                  <span className="portfolio-image-caption">Image placeholder: {imageLabel}</span>
+                  <span className="portfolio-number">{number}</span>
+                </div>
+                <span className="portfolio-eyebrow">{eyebrow}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <ul className="portfolio-categories" aria-label={`${title} categories`}>
+                  {categories.map((category) => <li key={category}>{category}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <div className="portfolio-contact-note">
+            <span>Looking for a particular product or document?</span>
+            <Link className="text-link" href="#contact">
+              Ask the PolyTreat team <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="markets-section" id="markets" aria-labelledby="markets-title">
         <div className="container markets-layout">
           <div className="markets-intro">
-            <span className="eyebrow eyebrow-light">Applications</span>
-            <h2 id="markets-title">Different sites. Different chemistry needs.</h2>
+            <span className="eyebrow eyebrow-light">Industries & applications</span>
+            <h2 id="markets-title">Application expertise across plants, projects, and facilities.</h2>
             <p>
-              The original product literature spans industrial utilities, manufacturing,
-              construction, and facility cleaning. The right product depends on the system
-              and the job.
+              Explore the operating contexts connected to PolyTreat's product families.
+              The right fit depends on the system, material, and job.
             </p>
             <Link className="market-link" href="#contact">
-              Describe your requirement <ArrowRight size={16} aria-hidden="true" />
+              Discuss your application <ArrowRight size={16} aria-hidden="true" />
             </Link>
+            <div className="market-image-placeholder" role="img" aria-label="Image placeholder: industrial plant, construction, and facility applications">
+              <span className="market-image-orbit market-image-orbit-outer" />
+              <span className="market-image-orbit market-image-orbit-inner" />
+              <span className="market-image-icon"><Factory size={28} strokeWidth={1.5} aria-hidden="true" /></span>
+              <span className="market-image-caption">Image placeholder: application photography</span>
+              <span className="market-image-label">Application contexts</span>
+            </div>
+            <p className="market-qualification">
+              Product fit depends on your application; ask the team about the current range.
+            </p>
           </div>
           <div className="market-list">
-            {markets.map(({ icon: Icon, title, description }, index) => (
-              <article className="market-item" key={title}>
+            {markets.map(({ icon: Icon, title, description, href }, index) => (
+              <Link className="market-item" href={href} key={title}>
                 <span className="market-index">0{index + 1}</span>
                 <span className="market-icon"><Icon size={20} aria-hidden="true" /></span>
                 <div>
@@ -184,7 +289,7 @@ export default function Home() {
                   <p>{description}</p>
                 </div>
                 <ArrowUpRight className="market-arrow" size={18} aria-hidden="true" />
-              </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -196,8 +301,7 @@ export default function Home() {
             <span className="eyebrow eyebrow-green"><Leaf size={15} aria-hidden="true" /> A PolyTreat brand</span>
             <h2 id="vklin-title">Meet <span>V-Klin</span>, care for everyday spaces.</h2>
             <p>
-              V-Klin is PolyTreat's institutional and home-care cleaning range. It brings
-              the former Altra Care products under the V-Klin brand.
+              V-Klin is the current brand for PolyTreat's institutional and home-care cleaning range.
             </p>
             <Link className="btn btn-vklin" href="#contact">
               Ask about V-Klin products <ArrowRight size={17} aria-hidden="true" />
@@ -262,25 +366,68 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section company-section" id="about" aria-labelledby="company-title">
+        <div className="container company-layout">
+          <div className="company-image-placeholder" role="img" aria-label="Image placeholder: PolyTreat team or manufacturing facility">
+            <span className="company-image-orbit company-image-orbit-outer" />
+            <span className="company-image-orbit company-image-orbit-inner" />
+            <span className="company-image-mark"><Factory size={32} strokeWidth={1.5} aria-hidden="true" /></span>
+            <span className="company-image-caption">Image placeholder: team or facility</span>
+          </div>
+
+          <div className="company-copy">
+            <span className="eyebrow eyebrow-dark">About PolyTreat</span>
+            <h2 id="company-title">A chemistry partner for plants, projects, and everyday spaces.</h2>
+            <p>
+              PolyTreat Chemicals Pvt. Ltd. works across industrial water treatment,
+              construction chemistry, and cleaning products under the V-Klin brand.
+            </p>
+            <div className="company-locations" id="manufacturing">
+              <span className="company-locations-label">Manufacturing locations</span>
+              <div className="company-location-list">
+                <div className="company-location">
+                  <MapPin size={17} aria-hidden="true" />
+                  <span>Tarapur MIDC</span>
+                </div>
+                <div className="company-location">
+                  <MapPin size={17} aria-hidden="true" />
+                  <span>Goregaon, Mumbai</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="contact-section" id="contact" aria-labelledby="contact-title">
         <div className="container contact-panel">
           <div className="contact-copy">
             <span className="eyebrow eyebrow-light">Start a conversation</span>
-            <h2 id="contact-title">Tell us what your system or site needs.</h2>
-            <p>Share the application and product category. The team can help direct your enquiry.</p>
+            <h2 id="contact-title">Let’s talk about your application.</h2>
+            <p>Tell us about your system or facility, and we’ll direct your enquiry to the right team.</p>
           </div>
           <div className="contact-actions">
-            <a className="btn btn-light" href="mailto:polyind2@gmail.com">
-              <Mail size={17} aria-hidden="true" /> Email PolyTreat
+            <a className="contact-action-card contact-email" href="mailto:polyind2@gmail.com">
+              <span className="contact-action-icon"><Mail size={18} aria-hidden="true" /></span>
+              <span className="contact-action-copy">
+                <span>Email enquiries</span>
+                <strong>polyind2@gmail.com</strong>
+              </span>
+              <ArrowUpRight size={17} aria-hidden="true" />
             </a>
-            <a className="contact-phone" href="tel:+919820235995">
-              <Phone size={16} aria-hidden="true" /> +91 98202 35995
+            <a className="contact-action-card contact-phone" href="tel:+919820235995">
+              <span className="contact-action-icon"><Phone size={18} aria-hidden="true" /></span>
+              <span className="contact-action-copy">
+                <span>Technical &amp; sales</span>
+                <strong>+91 98202 35995</strong>
+              </span>
+              <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           </div>
         </div>
       </section>
 
-      <footer className="site-footer" id="about">
+      <footer className="site-footer">
         <div className="container">
           <div className="footer-main">
             <div className="footer-brand">
@@ -323,7 +470,7 @@ export default function Home() {
               <Link href="#solution-construction">Construction chemistry</Link>
               <Link href="#solution-vklin">Institutional &amp; home care</Link>
             </div>
-            <div className="footer-column footer-contact-column" id="manufacturing">
+            <div className="footer-column footer-contact-column">
               <h2>Contact</h2>
               <a href="mailto:polyind2@gmail.com"><Mail size={15} aria-hidden="true" /> polyind2@gmail.com</a>
               <a href="tel:+919820235995"><Phone size={15} aria-hidden="true" /> +91 98202 35995</a>
