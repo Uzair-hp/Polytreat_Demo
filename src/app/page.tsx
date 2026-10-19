@@ -31,8 +31,8 @@ const solutions = [
     description:
       "Water-treatment chemistry for boiler, cooling-water, reverse-osmosis, and effluent systems.",
     tags: ["Boilers", "Cooling towers", "RO", "Effluent"],
-    link: "#markets",
-    linkText: "Explore applications",
+    link: "/solutions/industrial-water",
+    linkText: "Explore water-treatment solutions",
     tone: "blue",
   },
   {
@@ -45,8 +45,8 @@ const solutions = [
     description:
       "Waterproofing, coatings, concrete repair, flooring, and specialty surface-treatment products.",
     tags: ["Waterproofing", "Coatings", "Flooring", "Rust treatment"],
-    link: "#markets",
-    linkText: "Explore applications",
+    link: "/solutions/construction-chemistry",
+    linkText: "Explore construction solutions",
     tone: "slate",
   },
   {

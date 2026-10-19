@@ -1,0 +1,135 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Layers3,
+  Link2,
+  ShieldCheck,
+} from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Flooring & Joint Sealing | PolyTreat Chemicals",
+  description:
+    "Explore PolyTreat construction categories for protective flooring systems and joint or crack sealants.",
+};
+
+const productAreas = [
+  {
+    number: "01",
+    icon: Layers3,
+    title: "Flooring & surface protection",
+    description:
+      "The supplied profile lists epoxy and polyurethane coating categories, repair mortars, and decorative flooring systems for built surfaces.",
+    examples: "Profile examples: POLYBOND-HB Coating · POLYBOND-HB Mortar",
+    contexts: ["Factory floors", "Floor toppings", "Decorative flooring"],
+  },
+  {
+    number: "02",
+    icon: Link2,
+    title: "Joint & crack sealants",
+    description:
+      "Sealant categories for cracks and joints in concrete, windows, and other listed building-surface applications.",
+    examples: "Profile examples: POLYROOF CRACKSEAL · POLYBOND Silicone Sealant",
+    contexts: ["Concrete cracks", "Expansion joints", "Window frames"],
+  },
+];
+
+export default function FlooringJointSealingPage() {
+  return (
+    <main className="flooring-joint-page">
+      <section className="construction-chemistry-hero" aria-labelledby="flooring-joint-title">
+        <div className="container">
+          <nav className="construction-chemistry-breadcrumbs" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span>Solutions</span>
+            <span aria-hidden="true">/</span>
+            <Link href="/solutions/construction-chemistry">Construction chemistry</Link>
+            <span aria-hidden="true">/</span>
+            <span>Flooring &amp; joint sealing</span>
+          </nav>
+
+          <div className="construction-chemistry-hero-layout">
+            <div className="construction-chemistry-hero-copy">
+              <span className="eyebrow"><ShieldCheck size={15} aria-hidden="true" /> Construction &amp; surface protection</span>
+              <h1 id="flooring-joint-title">Flooring systems and joint sealing.</h1>
+              <p>
+                Explore protective flooring and coating categories alongside sealants
+                for cracks and joints in built surfaces.
+              </p>
+              <div className="construction-chemistry-hero-actions">
+                <Link className="btn btn-accent" href="#product-areas">
+                  Explore product areas <ArrowRight size={17} aria-hidden="true" />
+                </Link>
+                <Link className="construction-chemistry-text-link" href="/contact#contact-form">
+                  Discuss a requirement
+                </Link>
+              </div>
+            </div>
+
+            <div className="construction-chemistry-visual" role="img" aria-label="Image placeholder for flooring and joint-sealing applications">
+              <span className="construction-visual-orbit construction-visual-orbit-outer" />
+              <span className="construction-visual-orbit construction-visual-orbit-inner" />
+              <span className="construction-visual-icon"><Layers3 size={31} strokeWidth={1.5} aria-hidden="true" /></span>
+              <span className="construction-visual-label">Floors &amp; joints</span>
+              <span className="construction-visual-caption">Image placeholder · protective surfaces</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="construction-detail-section" id="product-areas" aria-labelledby="product-areas-title">
+        <div className="container">
+          <div className="construction-areas-heading">
+            <div>
+              <span className="eyebrow">Explore by surface need</span>
+              <h2 id="product-areas-title">Two distinct surface applications.</h2>
+            </div>
+            <p>
+              Flooring systems protect or finish larger surface areas; sealants address
+              gaps and cracks. The right category depends on the surface and project.
+            </p>
+          </div>
+
+          <div className="flooring-joint-grid">
+            {productAreas.map(({ number, icon: Icon, title, description, examples, contexts }) => (
+              <article className="construction-detail-card" key={title}>
+                <div className="construction-card-topline">
+                  <span>{number}</span>
+                  <span className="construction-card-icon"><Icon size={20} aria-hidden="true" /></span>
+                </div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <p className="construction-detail-examples">{examples}</p>
+                <ul className="construction-context-list" aria-label={`${title} applications`}>
+                  {contexts.map((context) => <li key={context}>{context}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <p className="construction-detail-note">
+            Product names are examples from the supplied construction profile. System
+            build-up, specifications, and application instructions should follow current product information.
+          </p>
+          <Link className="construction-detail-back" href="/solutions/construction-chemistry">
+            Back to construction chemistry <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="construction-contact-band" aria-labelledby="flooring-joint-contact-title">
+        <div className="container construction-contact-inner">
+          <div>
+            <span className="eyebrow">Planning a floor or joint application?</span>
+            <h2 id="flooring-joint-contact-title">Share the surface and project context.</h2>
+            <p>That helps the team direct your flooring or sealant enquiry.</p>
+          </div>
+          <Link className="btn btn-accent" href="/contact#contact-form">
+            Discuss your requirement <ArrowRight size={17} aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}

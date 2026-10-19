@@ -19,17 +19,17 @@ const productGroups: MenuGroup[] = [
   {
     title: "Industrial water",
     links: [
-      { label: "Boiler water", href: "/#portfolio-boiler-cooling" },
-      { label: "Cooling water", href: "/#portfolio-boiler-cooling" },
-      { label: "RO & effluent", href: "/#portfolio-ro-effluent" },
+      { label: "Industrial water treatment", href: "/solutions/industrial-water" },
+      { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water" },
+      { label: "RO & effluent", href: "/solutions/ro-effluent" },
     ],
   },
   {
     title: "Construction & surface protection",
     links: [
-      { label: "Waterproofing & coatings", href: "/#portfolio-construction" },
-      { label: "Concrete repair", href: "/#portfolio-construction" },
-      { label: "Flooring & joint sealing", href: "/#portfolio-construction" },
+      { label: "Construction chemistry overview", href: "/solutions/construction-chemistry" },
+      { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
+      { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
     ],
   },
 ];

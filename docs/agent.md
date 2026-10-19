@@ -42,6 +42,12 @@ The project is a responsive marketing site, not a technical document portal. The
 
 - `#solutions` — broad solution areas.
 - `#portfolio` — product families, with anchors for boiler/cooling water, RO/effluent, construction, and V-Klin.
+- `/solutions/industrial-water` — overview of boiler, cooling-water, RO, and effluent treatment categories.
+- `/solutions/boiler-cooling-water` — focused overview of boiler and recirculating cooling-water systems.
+- `/solutions/ro-effluent` — focused overview of reverse-osmosis and effluent-treatment categories.
+- `/solutions/construction-chemistry` — overview of waterproofing, concrete repair, protective surfaces, and sealants.
+- `/solutions/waterproofing-repair-coatings` — focused overview of waterproofing, cement/concrete repair, and building-surface coatings.
+- `/solutions/flooring-joint-sealing` — focused overview of protective flooring and joint/crack sealant categories.
 - `#markets` — homepage preview linking to `/industries`.
 - `/industries#process-manufacturing`, `/industries#utilities-infrastructure`, and `/industries#facilities-institutions` — application contexts on the Industries page.
 - `#vklin` — cleaning and facility-care range.
