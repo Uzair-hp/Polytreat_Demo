@@ -6462,36 +6462,24 @@ code, .font-mono {
   }
 }
 
-/* Let the slide's colored headline phrase arrive with a quiet focus reveal. */
-.home-hero .hero-highlight {
-  background-size: 165% 100%;
-  background-position: 100% 50%;
-  animation: hero-highlight-arrive 620ms cubic-bezier(0.2, 0.7, 0.25, 1) 80ms both;
+/* Reveal each highlighted headline word in a quick, readable sequence. */
+.home-hero .hero-highlight-word {
+  animation: hero-highlight-word-arrive 560ms ease-out both;
 }
 
-@keyframes hero-highlight-arrive {
+@keyframes hero-highlight-word-arrive {
   from {
     opacity: 0;
-    filter: blur(4px);
-    background-position: 100% 50%;
-  }
-
-  58% {
-    opacity: 1;
-    filter: blur(0);
   }
 
   to {
     opacity: 1;
-    filter: blur(0);
-    background-position: 0% 50%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-hero .hero-highlight {
+  .home-hero .hero-highlight-word {
     animation: none;
-    filter: none;
     opacity: 1;
   }
 }

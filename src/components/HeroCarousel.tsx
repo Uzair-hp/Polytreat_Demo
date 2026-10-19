@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -118,6 +118,7 @@ export default function HeroCarousel() {
   const [isFocused, setIsFocused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const activeSlide = slides[activeIndex];
+  const headlineAccentWords = activeSlide.headlineAccent.split(" ");
 
   useEffect(() => {
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -154,7 +155,20 @@ export default function HeroCarousel() {
             PolyTreat Chemicals
           </span>
           <h1 id="hero-title" key={`${activeSlide.id}-headline`}>
-            {activeSlide.headlineLead} <span className="hero-highlight">{activeSlide.headlineAccent}</span>
+            {activeSlide.headlineLead}{" "}
+            <span className="hero-highlight">
+              {headlineAccentWords.map((word, index) => (
+                <Fragment key={`${activeSlide.id}-${word}-${index}`}>
+                  <span
+                    className="hero-highlight-word"
+                    style={{ animationDelay: `${index * 190}ms` }}
+                  >
+                    {word}
+                  </span>
+                  {index < headlineAccentWords.length - 1 ? " " : null}
+                </Fragment>
+              ))}
+            </span>
           </h1>
           <p className="home-hero-description hero-copy-slide-in" key={`${activeSlide.id}-description`}>
             {activeSlide.description}
