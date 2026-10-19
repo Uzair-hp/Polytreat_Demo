@@ -153,7 +153,7 @@ export default function HeroCarousel() {
             <span className="eyebrow-dot" aria-hidden="true" />
             PolyTreat Chemicals
           </span>
-          <h1 id="hero-title" className="hero-copy-slide-in" key={`${activeSlide.id}-headline`}>
+          <h1 id="hero-title" key={`${activeSlide.id}-headline`}>
             {activeSlide.headlineLead} <span className="hero-highlight">{activeSlide.headlineAccent}</span>
           </h1>
           <p className="home-hero-description hero-copy-slide-in" key={`${activeSlide.id}-description`}>
