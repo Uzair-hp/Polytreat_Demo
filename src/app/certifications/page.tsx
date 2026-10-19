@@ -10,69 +10,61 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Certifications | PolyTreat Chemicals Pvt. Ltd.",
+  title: "Quality & Certifications | PolyTreat Chemicals Pvt. Ltd.",
   description:
-    "PolyTreat Chemicals holds ISO 9001:2015, WHO-GMP, US FDA compliance, and UKcert eco-friendly certifications, covering the manufacture of water-treatment and hygiene chemicals at its Tarapur MIDC and Goregaon units.",
+    "Explore PolyTreat's quality management certificate and supplied compliance documents.",
   keywords:
-    "PolyTreat certifications, ISO 9001:2015 certificate, WHO-GMP certificate, US FDA compliance, UKcert eco-friendly certificate, chemical manufacturing certifications",
+    "PolyTreat quality, ISO 9001:2015 certificate, WHO-GMP referenced certificate, FDA-referenced certificate, UKcert Eco-Friendly certificate",
 };
 
 const certificates = [
   {
     name: "ISO 9001:2015",
     title: "Quality Management System",
-    issuer: "SMCS · accredited by AIAO-BAR USA",
-    certificateNumber: "QMS2500904",
-    validity: "Valid through September 2028",
+    issuer: "SM Certification Services (SMCS)",
     image: "/certifications/iso-9001-2015-quality-certificate.jpeg",
     alt: "PolyTreat Chemicals ISO 9001:2015 quality management certificate",
     scope:
-      "Manufacture of water treatment chemicals and homecare, hygienic & industrial cleaning chemicals — covering both divisions.",
+      "The listed manufacturing scope covers water-treatment chemicals and home-care, hygienic, and industrial cleaning chemicals. This is a quality-management-system certificate, not an individual product approval.",
     tone: "blue",
   },
   {
-    name: "WHO-GMP",
-    title: "Good Manufacturing Practice",
-    issuer: "UKcert",
-    certificateNumber: "UQ-2026010927",
-    validity: null,
+    name: "WHO-GMP referenced",
+    title: "Certificate of Compliance — WHO-GMP requirements",
+    issuer: "UK Certification & Inspection Ltd. (UKcert)",
     image: "/certifications/who-gmp-compliance-certificate.jpeg",
-    alt: "PolyTreat Chemicals WHO-GMP certificate of compliance",
+    alt: "UKcert-issued certificate of compliance referencing WHO-GMP requirements",
     scope:
-      "Manufacturing practices assessed against World Health Organization Good Manufacturing Practice guidelines.",
+      "The certificate names a defined non-medicated, non-therapeutic home-care and household-utility product scope. It is issued by UKcert, not by WHO, and excludes medical, disinfectant, pesticidal, and drug claims.",
     tone: "slate",
   },
   {
-    name: "US FDA",
-    title: "FDA Compliance Certificate",
+    name: "FDA-referenced certificate",
+    title: "Private Certificate of Compliance referencing FDA requirements",
     issuer: "UK Certification and Assessment Ltd",
-    certificateNumber: "Q-582609012026",
-    validity: null,
     image: "/certifications/fda-compliance-certificate.jpeg",
-    alt: "PolyTreat Chemicals US FDA compliance certificate",
+    alt: "Certificate of compliance referencing FDA requirements, issued by UK Certification and Assessment Ltd",
     scope:
-      "Compliance documentation supporting products supplied for US-market applications.",
+      "The document records a private assessment against requirements it calls FDA for a listed non-medicated home-care scope. It is issued by a private certification body, not by the U.S. Food and Drug Administration, and is not FDA approval.",
     tone: "slate",
   },
   {
     name: "Eco-Friendly",
-    title: "UKcert Eco-Friendly Quality Compliance",
-    issuer: "UKcert",
-    certificateNumber: "2026010928",
-    validity: null,
+    title: "UKcert Eco-Friendly Certificate",
+    issuer: "UK Certification & Inspection Ltd. (UKcert)",
     image: "/certifications/eco-friendly-compliance-certificate.jpeg",
     alt: "PolyTreat Chemicals UKcert eco-friendly quality compliance certificate",
     scope:
-      "Non-toxic, safe cleaning formulations across the V-Klin institutional and home-care range.",
+      "The certificate applies its 'Eco Friendly' wording to a listed non-medicated home-care and household-product scope. The document does not state environmental test criteria or establish that each product is environmentally safe.",
     tone: "green",
   },
 ];
 
 const facts = [
-  { icon: BadgeCheck, label: "ISO 9001:2015" },
-  { icon: ShieldCheck, label: "WHO-GMP" },
-  { icon: FileCheck2, label: "US FDA compliance" },
-  { icon: Leaf, label: "Eco-friendly certified" },
+  { icon: BadgeCheck, label: "ISO 9001:2015 QMS" },
+  { icon: ShieldCheck, label: "WHO-GMP reference" },
+  { icon: FileCheck2, label: "Private FDA reference" },
+  { icon: Leaf, label: "Eco-Friendly certificate" },
 ];
 
 export default function CertificationsPage() {
@@ -82,10 +74,10 @@ export default function CertificationsPage() {
         <div className="container certs-hero-inner">
           <div>
             <span className="eyebrow eyebrow-dark">Quality &amp; compliance</span>
-            <h1 id="certs-title">Certifications that back every batch.</h1>
+            <h1 id="certs-title">Quality systems and certifications.</h1>
             <p className="certs-hero-lead">
-              PolyTreat&apos;s quality management system and manufacturing practices are certified
-              by independent bodies. Select any certificate to view it in full resolution.
+              Explore the quality-management certificate and other supplied compliance documents.
+              Each document identifies its issuer and the activities or product categories it covers.
             </p>
             <ul className="about-facts">
               {facts.map(({ icon: Icon, label }) => (
@@ -96,12 +88,11 @@ export default function CertificationsPage() {
 
           <aside className="certs-request-card" aria-label="Document requests">
             <span className="certs-request-mark"><FileCheck2 size={19} aria-hidden="true" /></span>
-            <h2>Need a document for your tender or audit?</h2>
+            <h2>Need a certificate copy or product document?</h2>
             <p>
-              Certified copies of these certificates, along with product TDS and SDS sheets, are
-              available on request.
+              Contact the team to request a certificate copy or ask about a product TDS or SDS.
             </p>
-            <Link className="btn btn-primary" href="/contact">
+            <Link className="btn btn-primary" href="/contact#contact-form">
               Request documents <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </aside>
@@ -113,16 +104,16 @@ export default function CertificationsPage() {
           <div className="section-heading section-heading-split">
             <div>
               <span className="eyebrow eyebrow-dark">Certificate library</span>
-              <h2 id="library-title">Four certifications, one quality system.</h2>
+              <h2 id="library-title">Four documents, different scopes.</h2>
             </div>
             <p>
-              All certificates cover the manufacture of PolyTreat&apos;s water-treatment,
-              construction, and V-Klin cleaning chemicals at its Maharashtra units.
+              The scope shown on each certificate applies to that document. These are not blanket
+              approvals for every product or application.
             </p>
           </div>
 
           <div className="certs-grid">
-            {certificates.map(({ name, title, issuer, certificateNumber, validity, image, alt, scope, tone }) => (
+            {certificates.map(({ name, title, issuer, image, alt, scope, tone }) => (
               <article className={`cert-card cert-card-${tone}`} key={name}>
                 <a className="cert-card-figure" href={image} target="_blank" rel="noreferrer">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -133,18 +124,6 @@ export default function CertificationsPage() {
                   <span className="cert-card-eyebrow">{issuer}</span>
                   <h3>{title}</h3>
                   <p>{scope}</p>
-                  <dl className="cert-card-meta">
-                    <div>
-                      <dt>Certificate no.</dt>
-                      <dd>{certificateNumber}</dd>
-                    </div>
-                    {validity && (
-                      <div>
-                        <dt>Validity</dt>
-                        <dd>{validity}</dd>
-                      </div>
-                    )}
-                  </dl>
                 </div>
               </article>
             ))}
@@ -156,19 +135,20 @@ export default function CertificationsPage() {
         <div className="container about-rd-layout">
           <div className="company-copy">
             <span className="eyebrow eyebrow-dark">Standards in practice</span>
-            <h2 id="certs-standard-title">What the certifications mean for buyers.</h2>
+            <h2 id="certs-standard-title">How to read these documents.</h2>
             <p>
-              The ISO 9001:2015 certification sets the framework: documented processes, raw-material
-              inspection, and batch testing before dispatch. WHO-GMP and FDA compliance confirm the
-              same manufacturing discipline against international guidelines, and the UKcert
-              eco-friendly certification covers the safety of V-Klin cleaning formulations.
+              ISO 9001:2015 refers to a quality-management system for the activities listed in its
+              scope. The other documents are issued by private certification bodies and cover their
+              own stated categories. A reference to WHO-GMP or FDA on a private certificate does
+              not mean WHO or the U.S. FDA issued or approved it.
             </p>
             <p>
-              Together they let procurement, QA, and audit teams verify PolyTreat&apos;s claims from
-              a single source before placing an order.
+              Each document applies to its named issuer, stated scope, and listed activities or
+              categories. These documents do not certify every product&apos;s performance, safety,
+              or suitability for a particular use.
             </p>
-            <Link className="text-link" href="/about#quality">
-              Read how quality is maintained <ArrowRight size={16} aria-hidden="true" />
+            <Link className="text-link" href="/quality#pqrs">
+              Explore the PQRS framework <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
 
@@ -177,14 +157,14 @@ export default function CertificationsPage() {
               <span className="about-rd-mark"><ShieldCheck size={19} aria-hidden="true" /></span>
               <div>
                 <span>Covered scope</span>
-                <h3>What each certificate covers</h3>
+                <h3>Scope at a glance</h3>
               </div>
             </div>
             <ul className="about-rd-list">
-              <li><BadgeCheck size={16} aria-hidden="true" /> ISO 9001:2015 — quality management, both divisions</li>
-              <li><ShieldCheck size={16} aria-hidden="true" /> WHO-GMP — manufacturing practice</li>
-              <li><FileCheck2 size={16} aria-hidden="true" /> US FDA — compliance for export applications</li>
-              <li><Leaf size={16} aria-hidden="true" /> UKcert Eco-Friendly — V-Klin cleaning range</li>
+              <li><BadgeCheck size={16} aria-hidden="true" /> ISO 9001:2015 — listed water-treatment and cleaning manufacture</li>
+              <li><ShieldCheck size={16} aria-hidden="true" /> UKcert WHO-GMP reference — listed non-medicated home-care scope</li>
+              <li><FileCheck2 size={16} aria-hidden="true" /> Private FDA-referenced certificate — listed home-care scope</li>
+              <li><Leaf size={16} aria-hidden="true" /> UKcert Eco-Friendly — listed household-product scope</li>
             </ul>
           </div>
         </div>

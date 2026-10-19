@@ -327,7 +327,7 @@ export default function AboutPage() {
               divisions — the framework behind it is the PQRS approach of Performance, Quality,
               Reliability, and Service.
             </p>
-            <Link className="text-link" href="/#pqrs">
+            <Link className="text-link" href="/quality#pqrs">
               Read about the PQRS framework <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>

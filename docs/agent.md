@@ -47,7 +47,7 @@ The current project is a responsive homepage, not a product database or technica
 - `#pqrs` — Performance, Quality, Reliability, Service.
 - `#about`, `#locations`, and `#contact` — company overview, locations, and contact actions.
 
-Current navbar order is **Home → Solutions → Industries → Quality → About Us → Contact**, followed by division shortcuts and a WhatsApp TDS/quote action. Solutions, Quality, and About Us have dropdowns; Industries links directly to its homepage section. Re-check `src/components/Navbar.tsx` before relying on this snapshot.
+Current navbar order is **Home → Solutions → Industries → V-Klin → Quality → About Us → Contact**, followed by a **Request a Quote** action linking to the contact form. Solutions, V-Klin, Quality, and About Us have dropdowns; Industries links directly to its homepage section. The V-Klin dropdown links to its overview, portfolio family, and four category anchors. Quality links to `/quality`, its PQRS section, certificate scopes, and the contact form for product-document requests; About Us links to the company overview and facilities. Re-check `src/components/Navbar.tsx` before relying on this snapshot.
 
 - Framework: Next.js 16 App Router, React 19, TypeScript.
 - Styles: **Vanilla CSS only**, chiefly `src/app/globals.css`. Do not add Tailwind.

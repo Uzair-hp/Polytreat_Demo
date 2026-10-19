@@ -6,18 +6,14 @@ import Link from "next/link";
 import {
   ArrowRight,
   ChevronDown,
-  Factory,
   Layers3,
   Menu,
   X,
 } from "lucide-react";
 
-type MenuKey = "products" | "quality" | "company";
+type MenuKey = "products" | "vklin" | "quality" | "company";
 type MenuLink = { label: string; href: string; detail?: string };
 type MenuGroup = { title: string; links: MenuLink[] };
-
-const salesWhatsApp =
-  "https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20request%20product%20TDS%20or%20a%20quote.";
 
 const productGroups: MenuGroup[] = [
   {
@@ -36,12 +32,23 @@ const productGroups: MenuGroup[] = [
       { label: "Flooring & joint sealing", href: "/#portfolio-construction" },
     ],
   },
+];
+
+const vklinGroups: MenuGroup[] = [
   {
-    title: "V-Klin cleaning range",
+    title: "V-Klin range",
     links: [
-      { label: "Floor & surface care", href: "/#portfolio-vklin" },
-      { label: "Hand & dish care", href: "/#portfolio-vklin" },
-      { label: "Glass & washroom care", href: "/#portfolio-vklin" },
+      { label: "V-Klin overview", href: "/#vklin" },
+      { label: "Cleaning product range", href: "/#portfolio-vklin" },
+    ],
+  },
+  {
+    title: "Cleaning categories",
+    links: [
+      { label: "Floor & surface care", href: "/#vklin-floor-surface" },
+      { label: "Handwash & liquid soap", href: "/#vklin-handwash" },
+      { label: "Dishwashing products", href: "/#vklin-dishwashing" },
+      { label: "Glass, kitchen & toilet care", href: "/#vklin-glass-kitchen-toilet" },
     ],
   },
 ];
@@ -50,9 +57,10 @@ const qualityGroups: MenuGroup[] = [
   {
     title: "Quality & product information",
     links: [
-      { label: "PQRS framework", href: "/#pqrs", detail: "Performance · Quality · Reliability · Service" },
-      { label: "Product documents", href: salesWhatsApp, detail: "Request product TDS or SDS" },
-      { label: "Technical support", href: "/contact", detail: "Talk with us about your application" },
+      { label: "Quality overview", href: "/quality", detail: "How PolyTreat approaches quality and product information" },
+      { label: "PQRS framework", href: "/quality#pqrs", detail: "Performance · Quality · Reliability · Service" },
+      { label: "Certifications", href: "/certifications", detail: "Review each certificate's stated scope" },
+      { label: "Product documents", href: "/contact#contact-form", detail: "Request product TDS or SDS" },
     ],
   },
 ];
@@ -61,21 +69,22 @@ const companyGroups: MenuGroup[] = [
   {
     title: "About PolyTreat",
     links: [
-      { label: "Company overview", href: "/about", detail: "Our story since 1987 · Brands · R&D" },
-      { label: "Infrastructure & R&D", href: "/about#infrastructure", detail: "Tarapur MIDC · Goregaon · Pilot lab" },
-      { label: "Certifications", href: "/certifications", detail: "ISO 9001 · WHO-GMP · FDA · Eco-friendly" },
+      { label: "Company overview", href: "/about", detail: "Company · product ranges · locations" },
+      { label: "Locations & facilities", href: "/about#infrastructure", detail: "Goregaon · Tarapur MIDC" },
     ],
   },
 ];
 
 const menuGroups: Record<MenuKey, MenuGroup[]> = {
   products: productGroups,
+  vklin: vklinGroups,
   quality: qualityGroups,
   company: companyGroups,
 };
 
 const menuLabels: Record<MenuKey, string> = {
   products: "Solutions",
+  vklin: "V-Klin",
   quality: "Quality",
   company: "About Us",
 };
@@ -160,7 +169,7 @@ export default function Navbar() {
     const expanded = openMobileGroup === menu;
 
     return (
-      <section className="mobile-nav-group" key={menu}>
+      <section className={`mobile-nav-group mobile-nav-group-${menu}`} key={menu}>
         <button
           type="button"
           aria-expanded={expanded}
@@ -171,11 +180,6 @@ export default function Navbar() {
         </button>
         {expanded && (
           <div id={`mobile-panel-${menu}`} className="mobile-nav-panel">
-            {menu === "products" && (
-              <Link className="mobile-feature-link" href="/contact" onClick={closeMenus}>
-                <Factory size={17} aria-hidden="true" /> Talk to our team <ArrowRight size={15} aria-hidden="true" />
-              </Link>
-            )}
             <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
           </div>
         )}
@@ -194,11 +198,11 @@ export default function Navbar() {
           <aside className="nav-feature-card">
             <span className="nav-feature-eyebrow"><Layers3 size={14} aria-hidden="true" /> Explore by work area</span>
             <h2>Find the right area for your work.</h2>
-            <p>Browse industrial water treatment, construction chemistry, and V-Klin home and facility-care products.</p>
-            <Link className="nav-feature-link" href="/contact" onClick={closeMenus}>
-              Discuss your requirement <ArrowRight size={16} aria-hidden="true" />
+            <p>Browse industrial water treatment and construction chemistry by application.</p>
+            <Link className="nav-feature-link" href="/#solutions" onClick={closeMenus}>
+              View all solutions <ArrowRight size={16} aria-hidden="true" />
             </Link>
-            <span className="nav-feature-years" aria-hidden="true">03</span>
+            <span className="nav-feature-years" aria-hidden="true">02</span>
           </aside>
         )}
         <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
@@ -210,7 +214,7 @@ export default function Navbar() {
     const isOpen = openMenu === menu;
     return (
       <div
-        className={`nav-item${isOpen ? " is-open" : ""}`}
+        className={`nav-item nav-item-${menu}${isOpen ? " is-open" : ""}`}
         key={menu}
         onMouseEnter={() => setOpenMenu(menu)}
         onMouseLeave={() => setOpenMenu((current) => current === menu ? null : current)}
@@ -244,27 +248,17 @@ export default function Navbar() {
             <Link className="nav-direct-link" href="/" onClick={closeMenus}>Home</Link>
             {renderMenuTrigger("products")}
             <Link className="nav-direct-link" href="/#markets" onClick={closeMenus}>Industries</Link>
+            {renderMenuTrigger("vklin")}
             {renderMenuTrigger("quality")}
             {renderMenuTrigger("company")}
             <Link className="nav-direct-link" href="/contact" onClick={closeMenus}>Contact</Link>
           </nav>
 
-          <nav className="division-switcher" aria-label="Division shortcuts">
-            <Link className="division-shortcut division-shortcut-industrial" href="/#solution-water" onClick={closeMenus}>
-              Industrial
-            </Link>
-            <Link className="division-shortcut division-shortcut-vklin" href="/#vklin" onClick={closeMenus}>
-              V-Klin
-            </Link>
-          </nav>
-
           <div className="navbar-actions">
-            <a className="btn btn-accent navbar-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
-              <span>Request TDS / Quote</span>
-              <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16" fill="none">
-                <path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
+            <Link className="btn btn-accent navbar-cta" href="/contact#contact-form" onClick={closeMenus}>
+              <span>Request a Quote</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
 
             <button
               className="mobile-menu-btn"
@@ -281,25 +275,17 @@ export default function Navbar() {
 
       {isMobileMenuOpen && (
         <div className="mobile-navigation" id="mobile-navigation">
-          <nav className="mobile-division-switcher" aria-label="Division shortcuts">
-            <Link href="/#solution-water" onClick={closeMenus}>
-              Industrial Water
-            </Link>
-            <Link href="/#vklin" onClick={closeMenus}>
-              V-Klin
-            </Link>
-          </nav>
-
           <nav className="mobile-menu-list" aria-label="Mobile navigation">
             <Link className="mobile-direct-link" href="/" onClick={closeMenus}>Home</Link>
             {renderMobileMenuGroup("products")}
             <Link className="mobile-direct-link" href="/#markets" onClick={closeMenus}>Industries</Link>
+            {renderMobileMenuGroup("vklin")}
             {renderMobileMenuGroup("quality")}
             {renderMobileMenuGroup("company")}
             <Link className="mobile-direct-link" href="/contact" onClick={closeMenus}>Contact</Link>
-            <a className="btn btn-accent mobile-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
-              Request TDS / Quote
-            </a>
+            <Link className="btn btn-accent mobile-cta" href="/contact#contact-form" onClick={closeMenus}>
+              Request a Quote
+            </Link>
           </nav>
 
         </div>

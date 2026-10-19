@@ -309,10 +309,10 @@ export default function Home() {
               </div>
             </div>
             <ul className="vklin-category-list">
-              <li><Check size={16} aria-hidden="true" /> Floor & surface care</li>
-              <li><Check size={16} aria-hidden="true" /> Handwash & liquid soap</li>
-              <li><Check size={16} aria-hidden="true" /> Dishwashing products</li>
-              <li><Check size={16} aria-hidden="true" /> Glass, kitchen & toilet care</li>
+              <li id="vklin-floor-surface"><Check size={16} aria-hidden="true" /> Floor & surface care</li>
+              <li id="vklin-handwash"><Check size={16} aria-hidden="true" /> Handwash & liquid soap</li>
+              <li id="vklin-dishwashing"><Check size={16} aria-hidden="true" /> Dishwashing products</li>
+              <li id="vklin-glass-kitchen-toilet"><Check size={16} aria-hidden="true" /> Glass, kitchen & toilet care</li>
             </ul>
             <p className="vklin-panel-note">
               Everyday cleaning for homes, institutions, and facility teams.
