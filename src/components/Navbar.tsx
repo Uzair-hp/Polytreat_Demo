@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   ChevronDown,
-  Layers3,
   Menu,
   X,
 } from "lucide-react";
@@ -126,10 +125,32 @@ export default function Navbar() {
   const [openMobileGroup, setOpenMobileGroup] = useState<MenuKey | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
+  const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearHoverCloseTimer = useCallback(() => {
+    if (hoverCloseTimer.current) clearTimeout(hoverCloseTimer.current);
+    hoverCloseTimer.current = null;
+  }, []);
+
+  function openMenuFromHover(menu: MenuKey) {
+    clearHoverCloseTimer();
+    setOpenMenu(menu);
+  }
+
+  function scheduleMenuClose(menu: MenuKey) {
+    clearHoverCloseTimer();
+    hoverCloseTimer.current = setTimeout(() => {
+      setOpenMenu((current) => current === menu ? null : current);
+      hoverCloseTimer.current = null;
+    }, 180);
+  }
 
   useEffect(() => {
     function handlePointerDown(event: PointerEvent) {
-      if (!headerRef.current?.contains(event.target as Node)) setOpenMenu(null);
+      if (!headerRef.current?.contains(event.target as Node)) {
+        clearHoverCloseTimer();
+        setOpenMenu(null);
+      }
     }
 
     function handleKeyDown(event: KeyboardEvent) {
@@ -140,6 +161,7 @@ export default function Navbar() {
         const menuTrigger = headerRef.current?.querySelector<HTMLButtonElement>(
           ".nav-item.is-open .nav-trigger",
         );
+        clearHoverCloseTimer();
         setOpenMenu(null);
         setIsMobileMenuOpen(false);
         setOpenMobileGroup(null);
@@ -152,17 +174,15 @@ export default function Navbar() {
     return () => {
       document.removeEventListener("pointerdown", handlePointerDown);
       document.removeEventListener("keydown", handleKeyDown);
+      clearHoverCloseTimer();
     };
-  }, []);
+  }, [clearHoverCloseTimer]);
 
   function closeMenus() {
+    clearHoverCloseTimer();
     setOpenMenu(null);
     setOpenMobileGroup(null);
     setIsMobileMenuOpen(false);
-  }
-
-  function toggleMenu(menu: MenuKey) {
-    setOpenMenu((current) => (current === menu ? null : menu));
   }
 
   function renderMobileMenuGroup(menu: MenuKey) {
@@ -194,17 +214,6 @@ export default function Navbar() {
         id={`nav-panel-${menu}`}
         aria-label={`${menuLabels[menu]} links`}
       >
-        {menu === "products" && (
-          <aside className="nav-feature-card">
-            <span className="nav-feature-eyebrow"><Layers3 size={14} aria-hidden="true" /> Explore by work area</span>
-            <h2>Find the right area for your work.</h2>
-            <p>Browse industrial water treatment and construction chemistry by application.</p>
-            <Link className="nav-feature-link" href="/#solutions" onClick={closeMenus}>
-              View all solutions <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-            <span className="nav-feature-years" aria-hidden="true">02</span>
-          </aside>
-        )}
         <MenuGroupLinks groups={menuGroups[menu]} onNavigate={closeMenus} />
       </div>
     );
@@ -216,15 +225,23 @@ export default function Navbar() {
       <div
         className={`nav-item nav-item-${menu}${isOpen ? " is-open" : ""}`}
         key={menu}
-        onMouseEnter={() => setOpenMenu(menu)}
-        onMouseLeave={() => setOpenMenu((current) => current === menu ? null : current)}
+        onMouseEnter={() => openMenuFromHover(menu)}
+        onMouseLeave={() => scheduleMenuClose(menu)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+            setOpenMenu((current) => current === menu ? null : current);
+          }
+        }}
       >
         <button
           className="nav-trigger"
           type="button"
           aria-expanded={isOpen}
           aria-controls={`nav-panel-${menu}`}
-          onClick={() => toggleMenu(menu)}
+          onClick={() => openMenuFromHover(menu)}
+          onFocus={(event) => {
+            if (event.currentTarget.matches(":focus-visible")) openMenuFromHover(menu);
+          }}
         >
           {menuLabels[menu]} <ChevronDown size={14} strokeWidth={1.8} aria-hidden="true" />
         </button>

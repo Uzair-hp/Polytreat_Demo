@@ -7147,8 +7147,12 @@ code, .font-mono {
   line-height: 1.4;
 }
 
-/* Give V-Klin a recognizable green treatment while keeping its menu readable. */
-.nav-item-vklin > .nav-trigger,
+/* Keep V-Klin recognizable without making it look selected on every page. */
+.nav-item-vklin > .nav-trigger {
+  background: transparent;
+  color: #087A58;
+}
+
 .nav-item-vklin.is-open > .nav-trigger,
 .nav-item-vklin > .nav-trigger:hover,
 .nav-item-vklin > .nav-trigger:focus-visible {
@@ -11072,6 +11076,178 @@ code, .font-mono {
 
 @media (prefers-reduced-motion: reduce) {
   .boiler-cooling-overview-link svg {
+    transition: none;
+  }
+}
+
+/* Shared desktop dropdown system: one surface, spacing, and interaction style. */
+.nav-dropdown-panel {
+  top: calc(100% - 8px);
+  gap: 0.9rem;
+  border: 1px solid #DCE8EE;
+  border-top: 1px solid #E8EFF3;
+  border-radius: 0 0 18px 18px;
+  padding: 1rem;
+  background: #FFFFFF;
+  box-shadow: 0 22px 52px rgba(11, 25, 44, 0.14);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.nav-dropdown-panel::before {
+  position: absolute;
+  top: -9px;
+  right: 0;
+  left: 0;
+  height: 10px;
+  content: "";
+}
+
+.nav-products-panel {
+  width: min(820px, calc(100vw - 2rem));
+  grid-template-columns: 1fr;
+}
+
+.nav-vklin-panel {
+  width: min(760px, calc(100vw - 2rem));
+  grid-template-columns: 1fr;
+  border-color: #DCE8EE;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FBFDFC 100%);
+  box-shadow: 0 22px 52px rgba(11, 25, 44, 0.14);
+}
+
+.nav-quality-panel {
+  width: min(740px, calc(100vw - 2rem));
+  grid-template-columns: 1fr;
+}
+
+.nav-company-panel {
+  width: min(640px, calc(100vw - 2rem));
+  grid-template-columns: 1fr;
+}
+
+.nav-products-panel .nav-menu-groups,
+.nav-vklin-panel .nav-menu-groups {
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
+}
+
+.nav-quality-panel .nav-menu-groups,
+.nav-company-panel .nav-menu-groups {
+  grid-template-columns: 1fr;
+}
+
+.nav-dropdown-panel .nav-menu-group {
+  min-width: 0;
+  padding: 0;
+}
+
+.nav-dropdown-panel .nav-menu-group h3 {
+  min-height: 0;
+  margin: 0 0 0.6rem;
+  padding: 0.1rem 0.1rem 0.6rem;
+  border-bottom: 1px solid #DFE9EE;
+  color: #1769A6;
+  font-size: 0.69rem;
+  letter-spacing: 0.07em;
+  line-height: 1.4;
+}
+
+.nav-vklin-panel .nav-menu-group h3 {
+  border-bottom-color: #DDEFE5;
+  color: #087A58;
+}
+
+.nav-dropdown-panel .nav-menu-group ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+}
+
+.nav-products-panel .nav-menu-group a {
+  min-height: 43px;
+  padding: 0.6rem 0.7rem;
+}
+
+.nav-quality-panel .nav-menu-group ul {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nav-company-panel .nav-menu-group ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nav-vklin-panel .nav-menu-group:nth-child(2) ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nav-dropdown-panel .nav-menu-group a,
+.nav-vklin-panel .nav-menu-group a {
+  min-height: 48px;
+  justify-content: center;
+  gap: 0.2rem;
+  border: 1px solid #E3EBF0;
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem;
+  background: #FBFCFD;
+  color: #24394A;
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.35;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.nav-dropdown-panel .nav-menu-group a:hover,
+.nav-dropdown-panel .nav-menu-group a:focus-visible {
+  transform: none;
+  border-color: #C5DDE8;
+  background: #F0F7FA;
+  color: #1769A6;
+  box-shadow: none;
+}
+
+.nav-vklin-panel .nav-menu-group a:hover,
+.nav-vklin-panel .nav-menu-group a:focus-visible {
+  border-color: #C7E5D3;
+  background: #F0F9F3;
+  color: #087A58;
+}
+
+.nav-dropdown-panel .nav-menu-group a small {
+  color: #6A7F8E;
+  font-size: 0.68rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@media (max-width: 1023px) {
+  .nav-dropdown-panel {
+    top: 100%;
+  }
+
+  .nav-dropdown-panel::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-products-panel .nav-menu-groups,
+  .nav-vklin-panel .nav-menu-groups,
+  .nav-quality-panel .nav-menu-group ul,
+  .nav-company-panel .nav-menu-group ul,
+  .nav-vklin-panel .nav-menu-group:nth-child(2) ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-dropdown-panel {
+    animation: none;
+  }
+
+  .nav-dropdown-panel .nav-menu-group a {
     transition: none;
   }
 }
