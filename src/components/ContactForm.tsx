@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { CheckCircle2, MessageCircle, Send } from "lucide-react";
+import { CheckCircle2, Send } from "lucide-react";
 
 const supportEmail = "polyind2@gmail.com";
 const supportPhone = "+91 98202 35995";
-const whatsappNumber = "919820235995";
 
 const divisions = [
   "Industrial water treatment",
@@ -94,10 +93,6 @@ export default function ContactForm() {
     )}&body=${encodeURIComponent(body)}`;
     setDrafted(true);
   }
-
-  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    enquiryText(values),
-  )}`;
 
   return (
     <form className="contact-form-panel contact-redesign-form" onSubmit={handleSubmit} noValidate>
@@ -223,12 +218,9 @@ export default function ContactForm() {
       <div className="contact-form-foot">
         <div className="contact-form-actions">
           <button className="btn btn-primary" type="submit">
-            <span>Open email draft</span>
+            <span>Prepare email draft</span>
             <Send size={16} aria-hidden="true" />
           </button>
-          <a className="contact-form-alt" href={whatsappHref} target="_blank" rel="noreferrer">
-            <MessageCircle size={16} aria-hidden="true" /> or send it on WhatsApp
-          </a>
         </div>
 
         {drafted && (
@@ -236,7 +228,7 @@ export default function ContactForm() {
             <CheckCircle2 size={16} aria-hidden="true" />
             <span>
               Your email app should open with this enquiry addressed to {supportEmail}. Nothing is
-              sent until you choose to send it. If no email app opens, use WhatsApp or call {supportPhone}.
+              sent until you choose to send it. If no email app opens, call {supportPhone}.
             </span>
           </p>
         )}

@@ -34,9 +34,9 @@ export default function LocationMap({ locations }: LocationMapProps) {
   )}`;
 
   return (
-    <div className="contact-redesign-map">
-      <div className="contact-redesign-map-toolbar">
-        <div className="contact-redesign-map-options" role="group" aria-label="Choose a location to view on the map">
+    <div className="contact-reference-map">
+      <div className="contact-reference-map-toolbar">
+        <div className="contact-reference-map-options" role="group" aria-label="Choose a location to view on the map">
           {locations.map(({ id, title }) => (
             <button
               aria-pressed={activeLocation.id === id}
@@ -54,7 +54,7 @@ export default function LocationMap({ locations }: LocationMapProps) {
           Open in Maps <ArrowUpRight size={15} aria-hidden="true" />
         </a>
       </div>
-      <div className="contact-redesign-map-frame">
+      <div className="contact-reference-map-frame">
         <iframe
           key={activeLocation.id}
           src={mapUrl}

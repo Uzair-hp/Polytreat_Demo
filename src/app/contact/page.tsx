@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Building2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import LocationMap from "@/components/LocationMap";
 
@@ -19,136 +19,113 @@ const locations = [
   },
   {
     id: "goregaon-east",
-    title: "Green products facility",
+    title: "Goregaon East location",
     area: "Goregaon East, Mumbai",
     address:
       "306, Shankhala Industrial Premises Co-op Society Ltd., Near Chudiwadi, Gogatewadi, Goregaon (East), Mumbai – 400063, Maharashtra, India.",
   },
   {
     id: "tarapur",
-    title: "Manufacturing unit",
+    title: "Tarapur MIDC location",
     area: "Tarapur MIDC, Palghar",
     address: "Tarapur MIDC, Palghar district, Maharashtra, India.",
   },
 ];
 
-const directContacts = [
-  {
-    label: "Technical & sales",
-    value: "+91 98202 35995",
-    href: "tel:+919820235995",
-    icon: Phone,
-  },
-  {
-    label: "Email",
-    value: "polyind2@gmail.com",
-    href: "mailto:polyind2@gmail.com",
-    icon: Mail,
-  },
-  {
-    label: "WhatsApp",
-    value: "Message our team",
-    href: "https://wa.me/919820235995",
-    icon: MessageCircle,
-  },
-];
-
 export default function ContactPage() {
   return (
-    <main className="contact-page contact-redesign">
-      <section className="contact-redesign-hero" aria-labelledby="contact-title">
-        <div className="container contact-redesign-hero-inner">
-          <div className="contact-redesign-intro">
-            <span className="contact-redesign-eyebrow">Contact PolyTreat</span>
-            <h1 id="contact-title">Talk to us about your requirement.</h1>
-            <p>
-              Connect with our team about industrial water treatment, construction chemistry, or
-              V-Klin cleaning and facility care.
-            </p>
-            <a className="contact-redesign-primary-link" href="#contact-enquiry">
-              Send an enquiry <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
-          </div>
-
-          <aside className="contact-direct-card" aria-label="Contact PolyTreat directly">
-            <div className="contact-direct-heading">
-              <span>Get in touch</span>
-              <h2>Choose a contact method</h2>
-            </div>
-            <ul>
-              {directContacts.map(({ label, value, href, icon: Icon }) => (
-                <li key={label}>
-                  <a href={href} target={href.startsWith("https:") ? "_blank" : undefined} rel="noreferrer">
-                    <span className="contact-direct-icon"><Icon size={17} aria-hidden="true" /></span>
-                    <span className="contact-direct-copy">
-                      <small>{label}</small>
-                      <strong>{value}</strong>
-                    </span>
-                    <ArrowUpRight size={15} aria-hidden="true" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </aside>
+    <main className="contact-page contact-reference-layout">
+      <section className="contact-reference-hero" aria-labelledby="contact-title">
+        <div className="contact-reference-orbit contact-reference-orbit-one" aria-hidden="true" />
+        <div className="contact-reference-orbit contact-reference-orbit-two" aria-hidden="true" />
+        <div className="container contact-reference-hero-inner">
+          <span className="contact-reference-eyebrow">Contact PolyTreat</span>
+          <h1 id="contact-title">Let’s talk about your requirement.</h1>
+          <p>
+            Get in touch about industrial water treatment, construction chemistry, or V-Klin
+            cleaning and facility care.
+          </p>
+          <a href="#contact-form" className="contact-reference-hero-link">
+            Send an enquiry <MessageCircle size={16} aria-hidden="true" />
+          </a>
         </div>
       </section>
 
-      <section className="contact-redesign-enquiry" id="contact-enquiry" aria-labelledby="enquiry-title">
-        <div className="container">
-          <div className="contact-redesign-section-heading">
-            <div>
-              <span className="contact-redesign-eyebrow">Send an enquiry</span>
-              <h2 id="enquiry-title">How can we help?</h2>
-            </div>
-            <p>Share the basics and we’ll help direct your enquiry to the right team.</p>
-          </div>
+      <section className="contact-reference-main" aria-label="Contact details and enquiry form">
+        <div className="container contact-reference-columns">
+          <div className="contact-reference-details">
+            <span className="contact-reference-eyebrow">Contact details</span>
+            <h2>Our information</h2>
 
-          <div className="contact-redesign-enquiry-grid">
-            <ContactForm />
-            <aside className="contact-enquiry-guide">
-              <span className="contact-guide-count">A useful starting point</span>
-              <h3>What should I include?</h3>
-              <p>A short note is enough. If helpful, mention:</p>
-              <ul>
-                <li>The product area or service you’re asking about</li>
-                <li>Your site, system, or project location</li>
-                <li>Whether you need a quote, product document, or application discussion</li>
-              </ul>
-              <div className="contact-guide-note">
-                Need product literature? Choose “Product documents (TDS / SDS)” in the form.
+            <article className="contact-reference-card contact-reference-office">
+              <span className="contact-reference-icon"><MapPin size={19} aria-hidden="true" /></span>
+              <div>
+                <h3>Head office</h3>
+                <address>{locations[0].address}</address>
               </div>
-            </aside>
+            </article>
+
+            <div className="contact-reference-channels">
+              <a className="contact-reference-card" href="mailto:polyind2@gmail.com">
+                <span className="contact-reference-icon"><Mail size={18} aria-hidden="true" /></span>
+                <span>
+                  <strong>Email address</strong>
+                  <span>polyind2@gmail.com</span>
+                </span>
+              </a>
+              <a className="contact-reference-card" href="tel:+919820235995">
+                <span className="contact-reference-icon"><Phone size={18} aria-hidden="true" /></span>
+                <span>
+                  <strong>Technical &amp; sales</strong>
+                  <span>+91 98202 35995</span>
+                </span>
+              </a>
+            </div>
+
+            <div className="contact-reference-branches">
+              <div className="contact-reference-branches-heading">
+                <Building2 size={17} aria-hidden="true" />
+                <h3>Other locations</h3>
+              </div>
+              <div className="contact-reference-branches-grid">
+                {locations.slice(1).map((location) => (
+                  <article className="contact-reference-branch" key={location.id}>
+                    <span className="contact-reference-branch-icon">
+                      <MapPin size={15} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <strong>{location.area}</strong>
+                      <address>{location.address}</address>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-reference-form-wrap" id="contact-form">
+            <div className="contact-reference-form-heading">
+              <span className="contact-reference-eyebrow">Send an enquiry</span>
+              <h2>Leave a message</h2>
+              <p>Include the product area, system, or documents you’re enquiring about.</p>
+            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
 
-      <section className="contact-redesign-locations" id="locations" aria-labelledby="locations-title">
+      <section className="contact-reference-map-section" id="locations" aria-labelledby="locations-title">
         <div className="container">
-          <div className="contact-redesign-section-heading">
+          <div className="contact-reference-map-heading">
             <div>
-              <span className="contact-redesign-eyebrow">Find us</span>
-              <h2 id="locations-title">Our locations</h2>
+              <span className="contact-reference-eyebrow">Visit us</span>
+              <h2 id="locations-title">PolyTreat locations</h2>
             </div>
-            <p>Mumbai offices and a manufacturing unit in Tarapur MIDC.</p>
+            <p>Choose a location to view it on the map.</p>
           </div>
-
-          <div className="contact-redesign-location-grid">
-            <div className="contact-location-list">
-              {locations.map((location) => (
-                <article className="contact-location-card" key={location.id}>
-                  <span className="contact-location-mark"><MapPin size={17} aria-hidden="true" /></span>
-                  <div>
-                    <h3>{location.title}</h3>
-                    <strong>{location.area}</strong>
-                    <address>{location.address}</address>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <LocationMap
-              locations={locations.map(({ id, area, address }) => ({ id, title: area, address }))}
-            />
-          </div>
+          <LocationMap
+            locations={locations.map(({ id, area, address }) => ({ id, title: area, address }))}
+          />
         </div>
       </section>
     </main>
