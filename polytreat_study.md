@@ -3,6 +3,8 @@
 > **Purpose:** A plain-language, source-tracked guide to understanding PolyTreat Chemicals. These notes are for learning and review; they are not approved website copy.
 >
 > **Working rule:** Client-provided original files are the evidence for company-specific facts. AI-written project notes are leads only, not proof. Each note separates what a source explicitly says from interpretation and open questions.
+>
+> **Handoff status (2026-10-19):** Website-first study of the reviewed client materials is complete. Start with Sections 20–21 for direct client clarifications, remaining decisions, and intern/agent guidance. “Complete” means the reviewed assets are documented; it does not mean every historic technical claim or certificate is approved for public use.
 
 ## How to use this wiki
 
@@ -13,6 +15,7 @@
 - Technical explanations from outside sources will be labeled and linked separately from PolyTreat-specific claims.
 - Direct client clarification in this conversation overrides conflicting or outdated wording in older source files; the clarification will be recorded with its date.
 - **Website-first and confidentiality rule (client instruction, 2026-10-18):** learn only what is needed to understand the customer problem, product category, suitable audience, and claims that may be safe to publish. Do not transcribe or publish confidential formulation details, proprietary process information, or detailed dosage/application recipes. Keep sensitive source content out of public-facing copy and notes.
+- **Public-copy rule:** Explain confirmed broad product areas directly; do not repeat internal “confirm with us” caveats beside ordinary homepage categories. Keep unresolved details in this wiki. Use enquiry CTAs for real next steps such as a quote, TDS/SDS, or application support. Exact SKU, performance, safety, regulatory, and certificate claims still need the evidence described in their relevant sections.
 
 ## Learning index
 
@@ -36,6 +39,7 @@
 18. [POLYKLIN AHU/FCU coil cleaner: intended equipment and claim limits](#18-polyklin-ahufcu-coil-cleaner-intended-equipment-and-claim-limits)
 19. [COROSIL presentation: product role and unverified performance claims](#19-corosil-presentation-product-role-and-unverified-performance-claims)
 20. [Client clarifications and remaining questions](#20-client-clarifications-and-remaining-questions)
+21. [Intern and agent handoff: how to use these findings](#21-intern-and-agent-handoff-how-to-use-these-findings)
 
 ---
 
@@ -1220,18 +1224,60 @@ This section records what the client has clarified directly and gathers question
 - **1987:** The client believes this is most probably when the business started. It should not be described as the company's incorporation year without checking.
 - **PQRS:** **Performance, Quality, Reliability, Service.** The old homepage wording “Price, Quality, Regularity, Service” is wrong.
 - **Brand change:** Altra Care has been discontinued. All former Altra Care products moved to V-Klin; the client says only the brand name changed and everything else stayed the same. The old Altra Care label images remain legacy artwork, not current V-Klin packaging.
+- **V-Klin range continuity:** The client says products previously sold as Altra Care continue under V-Klin, with the brand name changed and the products otherwise unchanged. Use V-Klin for this range. The old Altra Care images remain legacy artwork; this clarification does not substantiate germ-kill, pest-control, safety, or environmental claims printed on those labels.
 
 ### Questions still open
 
 1. **Heritage wording:** Can the client confirm the exact 1987 milestone and wording to use (for example, “business began in 1987”), or provide a dated record?
-2. **Current product portfolio:** Which industrial water-treatment, construction, and specialty products are currently active, and which listed systems/applications are current? In particular, what systems and products does the old profile mean by “drinking water treatment”?
+2. **Current industrial/construction portfolio:** Which listed industrial water-treatment, construction, and specialty products/systems are currently active? In particular, what systems and products does the old profile mean by “drinking water treatment”? The client has separately confirmed that former Altra Care products continue under V-Klin as described above.
 3. **Names and product distinctions:** Is the older catalogue's **VKLEEN** simply an earlier spelling of V-Klin? Are **POLYKLIN** coil cleaner and **POLYKLIN-830** descaler separate current products with distinct SKUs?
 4. **POLYDOR-WS uses:** Which uses are currently approved and supplied—industrial odor control, paint-booth wastewater/flotation, or other applications? What current product description and evidence can be used?
-5. **Current technical and safety documents:** Can the client provide current approved TDS/SDS documents for active products, especially COROSIL, POLYKLIN, POLYDOR-WS, and POLYDOR-D MOS? The old COROSIL and POLYKLIN safety sections contain contradictions or unverified claims.
+5. **Technical and safety documents:** Can the client provide approved TDS/SDS documents when detailed application, compatibility, performance, or handling information is needed—especially for COROSIL, POLYKLIN, POLYDOR-WS, and POLYDOR-D MOS? The old COROSIL and POLYKLIN safety sections contain contradictions or unverified claims.
 6. **Claims and test evidence:** Which performance, compatibility, germ-related, mosquito-repellent, environmental, and safety claims are approved for the website, and what current product-specific tests or approvals support them? This is especially relevant to COROSIL's protection/paint-compatibility claims and the old V-Klin labels' germ/pest/environment claims.
 7. **Certificates:** Are the ISO 9001, WHO-GMP, FDA-named, and Eco-Friendly certificates currently active? Which legal entity, site, and product scope do they cover, and what exact wording does the issuer permit on the website?
 8. **Technical review:** Can a qualified chemist confirm the cooling-water biocide classifications in the old product profile? Some entries are difficult to reconcile with the table headings.
 9. **Company capability claims:** Which R&D/laboratory, pilot-reactor, manufacturing-site, and quality-control details from the older company profile are still accurate and approved for public use?
-10. **V-Klin audience:** Who should the website prioritize—institutions/facility managers, distributors, households, or a mix?
+10. **V-Klin audience:** Who should the website prioritize—institutions/facility managers, distributors, households, or a mix? The client has confirmed product-range name continuity; the priority audience remains open.
 
 These questions do not require confidential formulas or detailed dosage recipes. Current client-approved summaries, certificates, and test reports are enough for website planning.
+
+---
+
+## 21. Intern and agent handoff: how to use these findings
+
+### Quick business picture
+
+PolyTreat Chemicals Pvt. Ltd. presents three broad areas of work:
+
+1. **Industrial water treatment** — product categories for systems such as boilers, cooling water, reverse osmosis (RO), and effluent/wastewater.
+2. **Construction and surface-protection chemistry** — categories such as waterproofing, coatings, concrete repair, flooring, joints, and rust treatment.
+3. **Cleaning and facility care under V-Klin** — the client says products formerly sold as Altra Care moved to V-Klin; only the brand name changed and the products otherwise stayed the same.
+
+This is the business map for organizing a homepage, not a promise that every historic industrial/construction SKU is currently offered. Broad areas can be described plainly without placing a warning beside every category. Exact named SKUs, technical specifications, safety statements, regulatory wording, and certificate claims need the evidence identified in the relevant sections.
+
+### Which source answers which question?
+
+| If you need to understand… | Start here | Use it for |
+|---|---|---|
+| The broad business areas | Sections 1–2 | Company identity and high-level product areas, with source age and limitations in mind. |
+| Industrial water product families | Section 3 | Historic catalogue categories and naming; not automatic proof of current stock or performance. |
+| Construction product categories | Sections 4–5 and 19 | Application groupings and COROSIL's described role; avoid unverified test/performance claims. |
+| Specialty odor, HVAC, or mosquito products | Sections 6–10 and 18 | Intended use described in client literature and limits on safety, health, and efficacy claims. |
+| V-Klin and former Altra Care range | Sections 11–12 and 20 | Cleaning categories and client-confirmed brand continuity; old package images are not current V-Klin artwork. |
+| Certificates | Sections 13–16 | Issuer, scope, wording limits, and why a private certificate is not government approval or blanket product certification. |
+| Direct client clarifications and remaining decisions | Section 20 | Facts explicitly clarified by the client and unresolved questions. |
+
+### How an intern or AI agent should use this research
+
+1. Read [`docs/agent.md`](docs/agent.md) and the relevant numbered section here before changing copy, layout, or navigation.
+2. Start with the customer task or setting. Keep **Solutions** focused on what PolyTreat offers and **Industries** focused on where customers use it.
+3. Present the three broad business areas and V-Klin cleaning categories clearly. Do not turn internal research caveats into repeated public-facing disclaimers.
+4. Do not invent SKUs, product functions, guarantees, customers, export claims, technical outcomes, or certifications. If an exact claim lacks support, omit it and keep the question in Section 20 for the client.
+5. Use enquiry CTAs for a genuine next step—such as a quote, product document, or application discussion—not as a substitute for basic website information.
+6. Keep formulas, composition details, dosage/application recipes, internal methods, legacy safety instructions, and private source content out of public copy, screenshots, and code comments.
+7. Before adding an image or certificate, check that the asset is current and approved. The Altra Care package images are legacy references, not V-Klin artwork.
+8. For implementation, follow repository rules in `docs/agent.md`; this research wiki is not itself a software specification or claim approval.
+
+### Plain-language summary
+
+PolyTreat is a specialty-chemicals business working across industrial water, construction/surface protection, and cleaning. V-Klin is the name now used for products formerly sold as Altra Care. Use this wiki to understand what the sources say; use approved product documentation for precise technical or regulated claims. The website should explain the business clearly first, and invite visitors to contact the team when they need a quote, documents, or technical discussion.

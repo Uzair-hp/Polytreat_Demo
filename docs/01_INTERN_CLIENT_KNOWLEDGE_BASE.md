@@ -14,14 +14,14 @@ PolyTreat is a specialty-chemicals business whose client materials cover three b
 2. **Construction and surface-protection chemistry**, including categories such as waterproofing, coatings, repair, flooring, and rust treatment.
 3. **Cleaning and facility-care products**, currently presented under the **V-Klin** brand.
 
-This is a high-level map of the materials reviewed, not a guarantee that every historic item is currently manufactured or sold. The active product list and permitted product claims still need client confirmation. Read the relevant source reviews in the [study wiki](../polytreat_study.md#learning-index), especially Sections 1–4, 5–12, and 18–20.
+This is a high-level map of the reviewed materials. The client has specifically confirmed that products formerly sold as Altra Care continue under V-Klin, with only the brand name changed. Some historic industrial/construction SKUs and technical claims still need evidence; do not turn that internal distinction into repeated public-facing disclaimers. Read the relevant source reviews in the [study wiki](../polytreat_study.md#learning-index), especially Sections 1–4, 5–12, and 18–21.
 
 ## 2. Facts and wording to handle carefully
 
 - **Company identity:** The client confirmed on 2026-10-18 that the company is a Pvt. Ltd. and said both “PolyTreat Chemical Industries” and “PolyTreat Chemicals Pvt. Ltd.” may be used publicly. See [Study Wiki, Section 20](../polytreat_study.md#20-client-clarifications-and-remaining-questions).
 - **1987:** The client believes this is most probably the year the business began. Do not call it the incorporation year or state a precise “37+ years” claim as verified until the milestone is confirmed.
 - **PQRS:** The client corrected the old homepage wording. It means **Performance, Quality, Reliability, Service**. Use careful, modest descriptions; do not invent guarantees or technical outcomes. See [Study Wiki, Section 20](../polytreat_study.md#20-client-clarifications-and-remaining-questions).
-- **V-Klin:** Altra Care has been discontinued; the client says the former range moved to V-Klin and only the brand name changed. Old Altra Care artwork is legacy material, not current packaging. See [Study Wiki, Sections 11–12](../polytreat_study.md#11-v-klin-cleaning-catalogue-product-range-and-audiences).
+- **V-Klin:** Altra Care has been discontinued; the client says all former Altra Care products moved to V-Klin and only the brand name changed. Old Altra Care artwork is legacy material, not current packaging. This confirms brand continuity, not the claims printed on old labels. See [Study Wiki, Sections 11–12 and 20](../polytreat_study.md#11-v-klin-cleaning-catalogue-product-range-and-audiences).
 - **Certifications:** Images exist for ISO 9001, WHO-GMP, an FDA-named third-party certificate, and an Eco-Friendly certificate. Their scope, issuer, current status, and permitted public language differ. Do not use blanket “FDA approved,” disinfectant, medical, pest-control, or environmental claims. Check [Study Wiki, Sections 13–16](../polytreat_study.md#13-iso-9001-certificate-the-companys-quality-management-system) before proposing any certificate copy.
 - **Products and performance:** Old product profiles, labels, and presentations can be outdated or contain unsupported claims. Do not assume every listed SKU is active. Keep dosage, recipes, exact composition, internal methods, and safety instructions out of marketing copy.
 - **Contact details:** The current website uses `polyind2@gmail.com` and `+91 98202 35995`. Confirm with the client before adding other addresses, phone numbers, social profiles, or enquiry integrations.
@@ -74,4 +74,4 @@ The actual source is `src/app/page.tsx`, `src/components/Navbar.tsx`, and `src/a
 
 - [PolyTreat Study Wiki](../polytreat_study.md) — source reviews, plain-language notes, limitations, and open questions.
 - [Website design and implementation brief](03_WEBSITE_Initial_req_suggestion.md) — actual current homepage and design direction.
-- Client originals are stored in `../Client Assets/`; consult [`00_ASSETS_MANIFEST.md`](../Client%20Assets/00_ASSETS_MANIFEST.md) for the asset index when available.
+- Client originals are stored in the sibling `Client Assets` folder; consult [`00_ASSETS_MANIFEST.md`](../../Client%20Assets/00_ASSETS_MANIFEST.md) for the asset index.

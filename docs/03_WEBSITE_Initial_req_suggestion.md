@@ -10,7 +10,7 @@ The current project is a responsive PolyTreat homepage. It introduces the compan
 
 ### Implemented homepage structure
 
-1. **Navbar:** PolyTreat logo; Solutions, Industries, Quality, About Us, and Contact navigation; grouped dropdowns; Industrial and V-Klin shortcuts; WhatsApp enquiry action; mobile drawer.
+1. **Navbar:** PolyTreat logo; Home, Solutions, Industries, Quality, About Us, and Contact in that order; dropdowns for Solutions, Quality, and About Us; Industrial and V-Klin shortcuts; WhatsApp enquiry action; mobile drawer. Industries links directly to the homepage application section.
 2. **Hero:** Light chemistry-inspired background, animated orbit/molecule illustration, concise company introduction, “Explore solutions” and “Talk to team” CTAs, and direct phone link.
 3. **Three areas of work:** Industrial water treatment; construction and surface protection; V-Klin facility care.
 4. **Applications:** Broad groupings for process/manufacturing, utilities/infrastructure, and facilities/institutions.
@@ -43,7 +43,7 @@ Use [`polytreat_study.md`](../polytreat_study.md) to check the cited source and 
 - The client believes 1987 is most probably the year the business started. Do not present it as the incorporation year or assert an exact tenure until confirmed.
 - Use **V-Klin** as the current cleaning-range brand. Altra Care is discontinued legacy branding.
 - Use **PQRS = Performance, Quality, Reliability, Service**. Do not reuse the earlier incorrect “Price / Regularity” interpretation.
-- Product catalogues and brochures may be old. Do not imply every listed SKU is active; ask the client for the current list and approved descriptions.
+- Describe the supported broad solution areas clearly; do not make visitors read internal confirmation caveats throughout the homepage. The client confirmed that the former Altra Care products continue under V-Klin with only the brand name changed. For other historic exact SKUs, technical specifications, safety/performance claims, and certificate wording, follow the evidence limits in the study wiki. Keep those internal uncertainties out of general category copy; use enquiry links for real next steps such as quotes, TDS/SDS, or technical support.
 - Avoid unsupported claims about efficacy, safety, “non-toxic” or “100% eco-friendly” status, guaranteed results, stock guarantees, export markets, laboratory capability, or performance metrics.
 - Certificate images need careful scope and status review. In particular, do not claim “FDA approved”; the reviewed FDA-named certificate is private third-party material and is not an FDA-issued approval. See Study Wiki Sections 13–16.
 - Do not publish formulas, exact dosage, proprietary process steps, or internal technical/safety content.
