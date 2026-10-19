@@ -23,25 +23,25 @@ const productGroups: MenuGroup[] = [
   {
     title: "Industrial water",
     links: [
-      { label: "Boiler water", href: "#portfolio-boiler-cooling" },
-      { label: "Cooling water", href: "#portfolio-boiler-cooling" },
-      { label: "RO & effluent", href: "#portfolio-ro-effluent" },
+      { label: "Boiler water", href: "/#portfolio-boiler-cooling" },
+      { label: "Cooling water", href: "/#portfolio-boiler-cooling" },
+      { label: "RO & effluent", href: "/#portfolio-ro-effluent" },
     ],
   },
   {
     title: "Construction & surface protection",
     links: [
-      { label: "Waterproofing & coatings", href: "#portfolio-construction" },
-      { label: "Concrete repair", href: "#portfolio-construction" },
-      { label: "Flooring & joint sealing", href: "#portfolio-construction" },
+      { label: "Waterproofing & coatings", href: "/#portfolio-construction" },
+      { label: "Concrete repair", href: "/#portfolio-construction" },
+      { label: "Flooring & joint sealing", href: "/#portfolio-construction" },
     ],
   },
   {
     title: "V-Klin cleaning range",
     links: [
-      { label: "Floor & surface care", href: "#portfolio-vklin" },
-      { label: "Hand & dish care", href: "#portfolio-vklin" },
-      { label: "Glass & washroom care", href: "#portfolio-vklin" },
+      { label: "Floor & surface care", href: "/#portfolio-vklin" },
+      { label: "Hand & dish care", href: "/#portfolio-vklin" },
+      { label: "Glass & washroom care", href: "/#portfolio-vklin" },
     ],
   },
 ];
@@ -50,9 +50,9 @@ const qualityGroups: MenuGroup[] = [
   {
     title: "Quality & product information",
     links: [
-      { label: "PQRS framework", href: "#pqrs", detail: "Performance · Quality · Reliability · Service" },
+      { label: "PQRS framework", href: "/#pqrs", detail: "Performance · Quality · Reliability · Service" },
       { label: "Product documents", href: salesWhatsApp, detail: "Request product TDS or SDS" },
-      { label: "Technical support", href: "#contact", detail: "Talk with us about your application" },
+      { label: "Technical support", href: "/contact", detail: "Talk with us about your application" },
     ],
   },
 ];
@@ -61,8 +61,9 @@ const companyGroups: MenuGroup[] = [
   {
     title: "About PolyTreat",
     links: [
-      { label: "Company overview", href: "#about", detail: "Industrial water · Construction · V-Klin care" },
-      { label: "Locations", href: "#locations", detail: "Tarapur MIDC · Goregaon, Mumbai" },
+      { label: "Company overview", href: "/about", detail: "Our story since 1987 · Brands · R&D" },
+      { label: "Infrastructure & R&D", href: "/about#infrastructure", detail: "Tarapur MIDC · Goregaon · Pilot lab" },
+      { label: "Certifications", href: "/certifications", detail: "ISO 9001 · WHO-GMP · FDA · Eco-friendly" },
     ],
   },
 ];
@@ -171,7 +172,7 @@ export default function Navbar() {
         {expanded && (
           <div id={`mobile-panel-${menu}`} className="mobile-nav-panel">
             {menu === "products" && (
-              <Link className="mobile-feature-link" href="#contact" onClick={closeMenus}>
+              <Link className="mobile-feature-link" href="/contact" onClick={closeMenus}>
                 <Factory size={17} aria-hidden="true" /> Talk to our team <ArrowRight size={15} aria-hidden="true" />
               </Link>
             )}
@@ -194,7 +195,7 @@ export default function Navbar() {
             <span className="nav-feature-eyebrow"><Layers3 size={14} aria-hidden="true" /> Explore by work area</span>
             <h2>Find the right area for your work.</h2>
             <p>Browse industrial water treatment, construction chemistry, and V-Klin home and facility-care products.</p>
-            <Link className="nav-feature-link" href="#contact" onClick={closeMenus}>
+            <Link className="nav-feature-link" href="/contact" onClick={closeMenus}>
               Discuss your requirement <ArrowRight size={16} aria-hidden="true" />
             </Link>
             <span className="nav-feature-years" aria-hidden="true">03</span>
@@ -242,17 +243,17 @@ export default function Navbar() {
           <nav className="desktop-nav" aria-label="Main navigation">
             <Link className="nav-direct-link" href="/" onClick={closeMenus}>Home</Link>
             {renderMenuTrigger("products")}
-            <Link className="nav-direct-link" href="#markets" onClick={closeMenus}>Industries</Link>
+            <Link className="nav-direct-link" href="/#markets" onClick={closeMenus}>Industries</Link>
             {renderMenuTrigger("quality")}
             {renderMenuTrigger("company")}
-            <Link className="nav-direct-link" href="#contact" onClick={closeMenus}>Contact</Link>
+            <Link className="nav-direct-link" href="/contact" onClick={closeMenus}>Contact</Link>
           </nav>
 
           <nav className="division-switcher" aria-label="Division shortcuts">
-            <Link className="division-shortcut division-shortcut-industrial" href="#solution-water" onClick={closeMenus}>
+            <Link className="division-shortcut division-shortcut-industrial" href="/#solution-water" onClick={closeMenus}>
               Industrial
             </Link>
-            <Link className="division-shortcut division-shortcut-vklin" href="#vklin" onClick={closeMenus}>
+            <Link className="division-shortcut division-shortcut-vklin" href="/#vklin" onClick={closeMenus}>
               V-Klin
             </Link>
           </nav>
@@ -281,10 +282,10 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="mobile-navigation" id="mobile-navigation">
           <nav className="mobile-division-switcher" aria-label="Division shortcuts">
-            <Link href="#solution-water" onClick={closeMenus}>
+            <Link href="/#solution-water" onClick={closeMenus}>
               Industrial Water
             </Link>
-            <Link href="#vklin" onClick={closeMenus}>
+            <Link href="/#vklin" onClick={closeMenus}>
               V-Klin
             </Link>
           </nav>
@@ -292,10 +293,10 @@ export default function Navbar() {
           <nav className="mobile-menu-list" aria-label="Mobile navigation">
             <Link className="mobile-direct-link" href="/" onClick={closeMenus}>Home</Link>
             {renderMobileMenuGroup("products")}
-            <Link className="mobile-direct-link" href="#markets" onClick={closeMenus}>Industries</Link>
+            <Link className="mobile-direct-link" href="/#markets" onClick={closeMenus}>Industries</Link>
             {renderMobileMenuGroup("quality")}
             {renderMobileMenuGroup("company")}
-            <Link className="mobile-direct-link" href="#contact" onClick={closeMenus}>Contact</Link>
+            <Link className="mobile-direct-link" href="/contact" onClick={closeMenus}>Contact</Link>
             <a className="btn btn-accent mobile-cta" href={salesWhatsApp} target="_blank" rel="noreferrer">
               Request TDS / Quote
             </a>

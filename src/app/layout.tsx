@@ -1,6 +1,7 @@
 ﻿import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "PolyTreat Chemicals | Industrial Water Treatment & Specialty Chemistry",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <Navbar />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
