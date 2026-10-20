@@ -1,3 +1,4 @@
+﻿import Image from "next/image";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import {
@@ -25,6 +26,8 @@ const solutions = [
     id: "solution-water",
     number: "01",
     icon: Droplets,
+    imageSrc: "/images/home/solution-water.jpg",
+    imageAlt: "Industrial water treatment and cooling tower filtration systems",
     imageLabel: "Industrial water systems",
     eyebrow: "Industrial water",
     title: "Treatment for the systems that keep your plant running.",
@@ -39,6 +42,8 @@ const solutions = [
     id: "solution-construction",
     number: "02",
     icon: Layers3,
+    imageSrc: "/images/home/solution-construction.jpg",
+    imageAlt: "Construction chemistry and concrete waterproofing applications",
     imageLabel: "Construction chemistry application",
     eyebrow: "Construction & protection",
     title: "Surface protection built around the material and the problem.",
@@ -53,6 +58,8 @@ const solutions = [
     id: "solution-vklin",
     number: "03",
     icon: Leaf,
+    imageSrc: "/images/home/solution-vklin.jpg",
+    imageAlt: "V-Klin institutional and commercial hygiene facility care",
     imageLabel: "V-Klin facility care",
     eyebrow: "V-Klin care",
     title: "Everyday cleaning for homes, institutions, and facilities.",
@@ -70,7 +77,9 @@ const portfolioFamilies = [
     id: "portfolio-boiler-cooling",
     icon: Droplets,
     number: "01",
-    imageLabel: "Industrial boiler and cooling-water systems",
+    imageSrc: "/images/home/portfolio-boiler-cooling.jpg",
+    imageAlt: "Industrial boiler and cooling-water recirculating treatment",
+    imageLabel: "Industrial boiler & cooling water",
     eyebrow: "Industrial water",
     title: "Boiler & cooling-water treatment",
     description:
@@ -82,7 +91,9 @@ const portfolioFamilies = [
     id: "portfolio-ro-effluent",
     icon: Waves,
     number: "02",
-    imageLabel: "Reverse osmosis and effluent treatment systems",
+    imageSrc: "/images/home/portfolio-ro-effluent.jpg",
+    imageAlt: "Reverse osmosis membranes and industrial effluent wastewater treatment",
+    imageLabel: "RO & effluent systems",
     eyebrow: "Process water",
     title: "RO, effluent & process treatment",
     description:
@@ -94,7 +105,9 @@ const portfolioFamilies = [
     id: "portfolio-construction",
     icon: Layers3,
     number: "03",
-    imageLabel: "Construction and surface-protection application",
+    imageSrc: "/images/home/portfolio-construction.jpg",
+    imageAlt: "Construction chemistry waterproofing and protective surface coatings",
+    imageLabel: "Construction & waterproofing",
     eyebrow: "Construction chemistry",
     title: "Waterproofing & surface protection",
     description:
@@ -106,7 +119,9 @@ const portfolioFamilies = [
     id: "portfolio-vklin",
     icon: Leaf,
     number: "04",
-    imageLabel: "V-Klin home and facility cleaning products",
+    imageSrc: "/images/home/portfolio-vklin.jpg",
+    imageAlt: "Institutional cleaning supplies and V-Klin home care products",
+    imageLabel: "Institutional & facility care",
     eyebrow: "V-Klin care",
     title: "Everyday cleaning & facility care",
     description:
@@ -172,6 +187,42 @@ export default function Home() {
     <main>
       <HeroCarousel />
 
+      {/* Verified Certifications Strip */}
+      <section className="certifications-strip" aria-label="Quality and regulatory credentials">
+        <div className="container certifications-strip-layout">
+          <div className="cert-strip-heading">
+            <span className="cert-strip-icon-box"><ShieldCheck size={20} strokeWidth={2} aria-hidden="true" /></span>
+            <div>
+              <span className="cert-strip-eyebrow">Certified Standards</span>
+              <strong>Formulation &amp; Quality Compliance</strong>
+            </div>
+          </div>
+          <div className="cert-badges-grid">
+            <div className="cert-badge-item">
+              <BadgeCheck size={16} className="cert-badge-icon" aria-hidden="true" />
+              <span>ISO 9001:2015</span>
+            </div>
+            <div className="cert-badge-item">
+              <BadgeCheck size={16} className="cert-badge-icon" aria-hidden="true" />
+              <span>WHO-GMP Compliant</span>
+            </div>
+            <div className="cert-badge-item">
+              <BadgeCheck size={16} className="cert-badge-icon" aria-hidden="true" />
+              <span>US FDA Formulations</span>
+            </div>
+            <div className="cert-badge-item">
+              <Leaf size={16} className="cert-badge-icon cert-badge-leaf" aria-hidden="true" />
+              <span>Eco-Friendly Certified</span>
+            </div>
+          </div>
+          <Link href="/certifications" className="cert-strip-link">
+            <span>View Certifications</span>
+            <ArrowRight size={15} aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
       <section className="section solutions-section" id="solutions" aria-labelledby="solutions-title">
         <div className="container">
           <div className="section-heading section-heading-split">
@@ -185,11 +236,21 @@ export default function Home() {
           </div>
 
           <div className="solution-grid">
-            {solutions.map(({ id, number, icon: Icon, imageLabel, eyebrow, title, description, tags, link, linkText, tone }) => (
+            {solutions.map(({ id, number, icon: Icon, imageSrc, imageAlt, eyebrow, title, description, tags, link, linkText, tone }) => (
               <article className={`solution-card solution-card-${tone}`} id={id} key={id}>
-                <div className={`solution-image-placeholder solution-image-${tone}`} role="img" aria-label={`Image placeholder: ${imageLabel}`}>
-                  <span className="solution-image-mark"><Icon size={27} strokeWidth={1.6} aria-hidden="true" /></span>
-                  <span className="solution-image-caption">Image placeholder: {imageLabel}</span>
+                <div className="solution-image-wrap">
+                  <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="solution-image-img"
+                  />
+                  <div className="solution-image-overlay" />
+                  <span className={`solution-image-badge solution-badge-${tone}`}>
+                    <Icon size={14} strokeWidth={2} aria-hidden="true" />
+                    <span>{eyebrow}</span>
+                  </span>
                   <span className="solution-number">{number}</span>
                 </div>
                 <span className="solution-eyebrow">{eyebrow}</span>
@@ -207,6 +268,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Portfolio Section */}
       <section className="section portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
         <div className="container">
           <div className="section-heading section-heading-split">
@@ -220,11 +282,21 @@ export default function Home() {
           </div>
 
           <div className="portfolio-grid">
-            {portfolioFamilies.map(({ id, icon: Icon, number, imageLabel, eyebrow, title, description, categories, tone }) => (
+            {portfolioFamilies.map(({ id, icon: Icon, number, imageSrc, imageAlt, eyebrow, title, description, categories, tone }) => (
               <article className={`portfolio-card portfolio-card-${tone}`} id={id} key={id}>
-                <div className={`portfolio-image-placeholder portfolio-image-${tone}`} role="img" aria-label={`Image placeholder: ${imageLabel}`}>
-                  <span className="portfolio-image-mark"><Icon size={25} strokeWidth={1.6} aria-hidden="true" /></span>
-                  <span className="portfolio-image-caption">Image placeholder: {imageLabel}</span>
+                <div className="portfolio-image-wrap">
+                  <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    className="portfolio-image-img"
+                  />
+                  <div className="portfolio-image-overlay" />
+                  <span className={`portfolio-image-badge portfolio-badge-${tone}`}>
+                    <Icon size={13} strokeWidth={2} aria-hidden="true" />
+                    <span>{eyebrow}</span>
+                  </span>
                   <span className="portfolio-number">{number}</span>
                 </div>
                 <span className="portfolio-eyebrow">{eyebrow}</span>
@@ -246,23 +318,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Markets Section */}
       <section className="markets-section" id="markets" aria-labelledby="markets-title">
         <div className="container markets-layout">
           <div className="markets-intro">
             <span className="eyebrow eyebrow-light">Industries & applications</span>
             <h2 id="markets-title">Application expertise across plants, projects, and facilities.</h2>
             <p>
-              See where PolyTreat's water-treatment, construction, and cleaning ranges are used.
+              See where PolyTreat's water-treatment, construction, and cleaning ranges are used across diverse operating environments.
             </p>
             <Link className="market-link" href="/industries">
               Explore industries <ArrowRight size={16} aria-hidden="true" />
             </Link>
-            <div className="market-image-placeholder" role="img" aria-label="Image placeholder: industrial plant, construction, and facility applications">
-              <span className="market-image-orbit market-image-orbit-outer" />
-              <span className="market-image-orbit market-image-orbit-inner" />
-              <span className="market-image-icon"><Factory size={28} strokeWidth={1.5} aria-hidden="true" /></span>
-              <span className="market-image-caption">Image placeholder: application photography</span>
-              <span className="market-image-label">Application contexts</span>
+            <div className="market-image-wrap">
+              <Image
+                src="/images/home/market-applications.jpg"
+                alt="Industrial processing facility and chemical engineering infrastructure"
+                fill
+                sizes="(max-width: 900px) 100vw, 45vw"
+                className="market-image-img"
+              />
+              <div className="market-image-overlay" />
+              <div className="market-image-info">
+                <div className="market-image-tag">
+                  <Factory size={15} strokeWidth={2} aria-hidden="true" />
+                  <span>Field-Proven Industrial Chemistry</span>
+                </div>
+                <p className="market-image-note">Deployed across continuous chemical plants, utilities &amp; institutional facilities</p>
+              </div>
             </div>
           </div>
           <div className="market-list">
@@ -281,18 +364,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* V-Klin Brand Section */}
       <section className="section vklin-section" id="vklin" aria-labelledby="vklin-title">
         <div className="container vklin-layout">
           <div className="vklin-copy">
-            <span className="eyebrow eyebrow-green"><Leaf size={15} aria-hidden="true" /> A PolyTreat brand</span>
+            <div className="vklin-brand-identity">
+              <div className="vklin-brand-logo-container">
+                <Image
+                  src="/vklin-logo.webp"
+                  alt="V-Klin Brand Logo"
+                  width={140}
+                  height={48}
+                  className="vklin-logo-image"
+                />
+              </div>
+              <span className="eyebrow eyebrow-green"><Leaf size={15} aria-hidden="true" /> A PolyTreat Brand</span>
+            </div>
             <h2 id="vklin-title">Meet <span>V-Klin</span>, care for everyday spaces.</h2>
             <p>
-              V-Klin brings PolyTreat's cleaning range to homes and shared facilities.
+              V-Klin brings PolyTreat's formulated cleaning and hygiene range to homes, workplaces, and commercial facilities with commercial-grade effectiveness.
             </p>
-            <Link className="btn btn-vklin" href="/vklin">
-              Explore V-Klin <ArrowRight size={17} aria-hidden="true" />
-            </Link>
+            <div className="vklin-actions">
+              <Link className="btn btn-vklin" href="/vklin">
+                Explore V-Klin <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+              <Link className="vklin-products-link" href="/vklin/products">
+                View 10 Packaged Formulations <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
+
           <div className="vklin-category-panel">
             <div className="vklin-panel-heading">
               <span className="vklin-leaf-mark"><Leaf size={19} aria-hidden="true" /></span>
@@ -302,11 +403,55 @@ export default function Home() {
               </div>
             </div>
             <ul className="vklin-category-list">
-              <li id="vklin-floor-surface"><Check size={16} aria-hidden="true" /> Floor & surface care</li>
-              <li id="vklin-handwash"><Check size={16} aria-hidden="true" /> Handwash & liquid soap</li>
+              <li id="vklin-floor-surface"><Check size={16} aria-hidden="true" /> Floor &amp; surface care</li>
+              <li id="vklin-handwash"><Check size={16} aria-hidden="true" /> Handwash &amp; liquid soap</li>
               <li id="vklin-dishwashing"><Check size={16} aria-hidden="true" /> Dishwashing products</li>
-              <li id="vklin-glass-kitchen-toilet"><Check size={16} aria-hidden="true" /> Glass, kitchen & toilet care</li>
+              <li id="vklin-glass-kitchen-toilet"><Check size={16} aria-hidden="true" /> Glass, kitchen &amp; toilet care</li>
             </ul>
+
+            {/* Real Product Packaging Preview Strip */}
+            <div className="vklin-preview-strip">
+              <span className="vklin-preview-heading">Formulated Product Range</span>
+              <div className="vklin-preview-cards">
+                <Link href="/vklin/products/multipurpose-surface-cleaner" className="vklin-preview-card">
+                  <div className="vklin-preview-img-box">
+                    <Image
+                      src="/vklin-products/product-label-vklin-multipurpose-surface-cleaner.jpeg"
+                      alt="V-Klin Multi-Purpose Surface Cleaner"
+                      fill
+                      sizes="100px"
+                      className="vklin-preview-img"
+                    />
+                  </div>
+                  <span className="vklin-preview-title">Surface Cleaner</span>
+                </Link>
+                <Link href="/vklin/products/golden-floor-cleaner" className="vklin-preview-card">
+                  <div className="vklin-preview-img-box">
+                    <Image
+                      src="/vklin-products/product-label-vklin-golden-floor-cleaner-deodoriser.jpeg"
+                      alt="V-Klin Golden Floor Cleaner"
+                      fill
+                      sizes="100px"
+                      className="vklin-preview-img"
+                    />
+                  </div>
+                  <span className="vklin-preview-title">Floor Cleaner</span>
+                </Link>
+                <Link href="/vklin/products/dishwash-liquid-gel-lemon" className="vklin-preview-card">
+                  <div className="vklin-preview-img-box">
+                    <Image
+                      src="/vklin-products/product-label-vklin-dishwash-liquid-gel-lemon.jpeg"
+                      alt="V-Klin Lemon Dishwash Gel"
+                      fill
+                      sizes="100px"
+                      className="vklin-preview-img"
+                    />
+                  </div>
+                  <span className="vklin-preview-title">Dishwash Gel</span>
+                </Link>
+              </div>
+            </div>
+
             <p className="vklin-panel-note">
               Everyday cleaning for homes, institutions, and facility teams.
             </p>
@@ -314,6 +459,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PQRS Section */}
       <section className="section pqrs-section" id="pqrs" aria-labelledby="pqrs-title">
         <div className="container">
           <div className="section-heading section-heading-center">
@@ -351,13 +497,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Company Section */}
       <section className="section company-section" id="about" aria-labelledby="company-title">
         <div className="container company-layout">
-          <div className="company-image-placeholder" role="img" aria-label="Image placeholder: PolyTreat team or manufacturing facility">
-            <span className="company-image-orbit company-image-orbit-outer" />
-            <span className="company-image-orbit company-image-orbit-inner" />
-            <span className="company-image-mark"><Factory size={32} strokeWidth={1.5} aria-hidden="true" /></span>
-            <span className="company-image-caption">Image placeholder: team or facility</span>
+          <div className="company-image-wrap">
+            <Image
+              src="/images/home/company-facility.jpg"
+              alt="PolyTreat chemical formulation and manufacturing facility"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+              className="company-image-img"
+            />
+            <div className="company-image-overlay" />
+            <div className="company-facility-card">
+              <span className="facility-card-icon"><Building2 size={20} strokeWidth={1.8} aria-hidden="true" /></span>
+              <div className="facility-card-text">
+                <strong>Formulation &amp; Manufacturing Facility</strong>
+                <span>MIDC Tarapur • ISO 9001:2015 &amp; WHO-GMP Compliant</span>
+              </div>
+            </div>
           </div>
 
           <div className="company-copy">
@@ -384,12 +542,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact Section */}
       <section className="contact-section" id="contact" aria-labelledby="contact-title">
         <div className="container contact-panel">
           <div className="contact-copy">
             <span className="eyebrow eyebrow-light">Start a conversation</span>
-            <h2 id="contact-title">Let’s talk about your application.</h2>
-            <p>Tell us about your system or facility, and we’ll direct your enquiry to the right team.</p>
+            <h2 id="contact-title">Let's talk about your application.</h2>
+            <p>Tell us about your system or facility, and we'll direct your enquiry to the right team.</p>
           </div>
           <div className="contact-actions">
             <a className="contact-action-card contact-email" href="mailto:polyind2@gmail.com">
