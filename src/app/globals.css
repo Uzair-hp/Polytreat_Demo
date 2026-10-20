@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --font-heading: "Segoe UI", Arial, sans-serif;
   --font-body: "Segoe UI", Roboto, Arial, sans-serif;
   --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
@@ -7019,7 +7019,7 @@ code, .font-mono {
   top: 50%;
   right: 0.45rem;
   color: #91A6B4;
-  content: "↗";
+  content: "â†—";
   font-size: 0.76rem;
   transform: translateY(-50%);
   transition: color var(--transition-fast), transform var(--transition-fast);
@@ -11253,7 +11253,7 @@ code, .font-mono {
 }
 
 /* ==========================================================================
-   HOMEPAGE VISUAL UPGRADE: CERTIFICATIONS STRIP, REAL PHOTOGRAPHY & V-KLIN SHOWCASE
+   HOMEPAGE REFINEMENT: CERTIFICATIONS STRIP & BALANCED SOLUTION CARDS
    ========================================================================== */
 
 /* 1. Verified Certifications Strip */
@@ -11261,21 +11261,21 @@ code, .font-mono {
   border-top: 1px solid rgba(210, 226, 236, 0.85);
   border-bottom: 1px solid rgba(210, 226, 236, 0.85);
   background: linear-gradient(90deg, #F8FAFC 0%, #FFFFFF 50%, #F8FAFC 100%);
-  padding: 1.15rem 0;
+  padding: 0.95rem 0;
 }
 
 .certifications-strip-layout {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.75rem;
-  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .cert-strip-heading {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex: 0 0 auto;
 }
 
 .cert-strip-icon-box {
@@ -11306,15 +11306,16 @@ code, .font-mono {
 .cert-badges-grid {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  flex: 1 1 auto;
 }
 
 .cert-badge-item {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.4rem 0.75rem;
+  padding: 0.38rem 0.75rem;
   border-radius: 999px;
   border: 1px solid rgba(206, 224, 235, 0.9);
   background: #FFFFFF;
@@ -11322,14 +11323,17 @@ code, .font-mono {
   font-size: 0.76rem;
   font-weight: 650;
   color: #244153;
+  white-space: nowrap;
 }
 
 .cert-badge-icon {
   color: #1769A6;
+  flex: 0 0 16px;
 }
 
 .cert-badge-leaf {
   color: #059669;
+  flex: 0 0 16px;
 }
 
 .cert-strip-link {
@@ -11340,6 +11344,7 @@ code, .font-mono {
   font-weight: 750;
   color: #1769A6;
   white-space: nowrap;
+  flex: 0 0 auto;
   transition: color 200ms ease, transform 200ms ease;
 }
 
@@ -11348,16 +11353,47 @@ code, .font-mono {
   transform: translateX(2px);
 }
 
-/* 2. Solutions Section Image Wrapper */
+/* 2. Solutions Section Cards */
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.2rem, 2.5vw, 1.85rem);
+  align-items: stretch;
+}
+
+.solution-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 18px;
+  padding: 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(202, 220, 231, 0.85);
+  box-shadow: 0 8px 24px rgba(23, 74, 104, 0.045);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(23, 105, 166, 0.35);
+  box-shadow: 0 18px 36px rgba(23, 74, 104, 0.1);
+}
+
+.solution-card-green:hover {
+  border-color: rgba(5, 150, 105, 0.4);
+  box-shadow: 0 18px 36px rgba(5, 120, 82, 0.1);
+}
+
 .solution-image-wrap {
   position: relative;
   width: 100%;
-  height: 180px;
+  aspect-ratio: 16 / 10;
+  height: auto;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 12px;
   margin-bottom: 1.15rem;
   border: 1px solid rgba(195, 217, 230, 0.85);
-  background: #E8EFF3;
+  background: linear-gradient(135deg, #EBF3F8 0%, #DFECF3 100%);
   isolation: isolate;
 }
 
@@ -11374,26 +11410,42 @@ code, .font-mono {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(11, 25, 44, 0.05) 0%, rgba(11, 25, 44, 0.15) 40%, rgba(11, 25, 44, 0.65) 100%);
+  background: linear-gradient(180deg, rgba(11, 25, 44, 0.05) 0%, rgba(11, 25, 44, 0.15) 45%, rgba(11, 25, 44, 0.65) 100%);
   pointer-events: none;
+}
+
+.solution-number {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 2;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0B192C;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 0.22rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
 }
 
 .solution-image-badge {
   position: absolute;
   z-index: 2;
-  bottom: 0.75rem;
-  left: 0.75rem;
+  bottom: 0.65rem;
+  left: 0.65rem;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.35rem 0.65rem;
+  padding: 0.32rem 0.65rem;
   border-radius: 999px;
   font-size: 0.68rem;
   font-weight: 750;
   letter-spacing: 0.02em;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
 .solution-badge-blue {
@@ -11414,11 +11466,51 @@ code, .font-mono {
   border: 1px solid rgba(255, 255, 255, 0.9);
 }
 
+.solution-card h3 {
+  font-size: 1.18rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+  color: #0B192C;
+  margin-bottom: 0.55rem;
+  min-height: 48px;
+}
+
+.solution-card > p {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #486581;
+  margin-bottom: 1.1rem;
+}
+
+.solution-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  min-height: 52px;
+  align-content: flex-start;
+}
+
+.solution-card .text-link {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(220, 232, 240, 0.85);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
 /* 3. Portfolio Section Image Wrapper */
 .portfolio-image-wrap {
   position: relative;
   width: 100%;
-  height: 140px;
+  aspect-ratio: 16 / 10;
+  height: auto;
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 0.95rem;
@@ -11483,7 +11575,9 @@ code, .font-mono {
 .market-image-wrap {
   position: relative;
   width: 100%;
-  height: 240px;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  min-height: 220px;
   margin-top: 1.5rem;
   overflow: hidden;
   border-radius: 16px;
@@ -11660,7 +11754,8 @@ code, .font-mono {
 .company-image-wrap {
   position: relative;
   width: 100%;
-  min-height: 330px;
+  aspect-ratio: 16 / 10;
+  min-height: 280px;
   overflow: hidden;
   border-radius: 20px;
   border: 1px solid rgba(191, 218, 232, 0.9);
@@ -11726,70 +11821,455 @@ code, .font-mono {
 }
 
 /* Responsive adjustments */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .certifications-strip-layout {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-
   .cert-badges-grid {
-    width: 100%;
-  }
-
-  .solution-image-wrap {
-    height: 160px;
-  }
-
-  .company-image-wrap {
-    min-height: 260px;
+    flex-wrap: wrap;
   }
 }
 
-@media (max-width: 640px) {
-  .solution-image-wrap {
-    height: 145px;
+@media (max-width: 768px) {
+  .certifications-strip {
+    padding: 0.85rem 0;
   }
-
-  .portfolio-image-wrap {
-    height: 125px;
+  .certifications-strip-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
   }
-
-  .market-image-wrap {
-    height: 200px;
+  .cert-strip-heading {
+    justify-content: center;
+    text-align: center;
   }
-
+  .cert-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem;
+  }
+  .cert-badge-item {
+    justify-content: center;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.5rem;
+  }
+  .cert-strip-link {
+    justify-content: center;
+  }
+  .solution-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .solution-card h3 {
+    min-height: auto;
+  }
+  .solution-tags {
+    min-height: auto;
+  }
   .vklin-preview-cards {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.4rem;
   }
-
   .vklin-preview-img-box {
     height: 65px;
   }
-
   .vklin-preview-title {
     font-size: 0.6rem;
   }
-
   .company-facility-card {
     padding: 0.7rem 0.85rem;
     bottom: 0.85rem;
     left: 0.85rem;
     right: 0.85rem;
   }
+}
 
-  .facility-card-icon {
-    width: 36px;
-    height: 36px;
-    flex: 0 0 36px;
+/* ==========================================================================
+   UI/UX Polish: Dev Indicator Suppression, Typography Balance & Alignment
+   ========================================================================== */
+
+/* Hide Next.js dev issue overlay badge for client presentation */
+nextjs-portal,
+#__next-build-watcher,
+[data-nextjs-toast],
+[data-nextjs-dialog],
+[data-nextjs-dialog-overlay] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Typography Orphan Prevention */
+h1, h2, h3, .section-heading h2, #solutions-title, #portfolio-title {
+  text-wrap: balance;
+}
+
+/* Sticky Header Clean Blur & Opacity */
+.site-header {
+  background: rgba(255, 255, 255, 0.98) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(202, 220, 231, 0.85);
+  box-shadow: 0 4px 16px rgba(11, 25, 44, 0.05);
+}
+
+/* Product Portfolio Equal-Height Alignment */
+.portfolio-grid {
+  align-items: stretch;
+}
+
+.portfolio-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.portfolio-card h3 {
+  min-height: 2.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-card > p {
+  min-height: 4.8rem;
+  margin-bottom: 0.85rem;
+}
+
+.portfolio-categories {
+  margin-top: auto !important;
+  min-height: 2.5rem;
+}
+
+.portfolio-contact-note {
+  margin-top: 1.5rem;
+}
+
+/* Mobile Alignment Fixes */
+@media (max-width: 768px) {
+  .solution-card {
+    height: auto !important;
+    padding: 1.15rem !important;
+  }
+  
+  .solution-card h3 {
+    min-height: auto !important;
+  }
+  
+  .solution-card > p {
+    margin-bottom: 0.85rem !important;
+  }
+  
+  .solution-card .text-link {
+    margin-top: 0.75rem !important;
+    padding-top: 0.75rem !important;
+  }
+  
+  .portfolio-card h3 {
+    min-height: auto !important;
+  }
+  
+  .portfolio-card > p {
+    min-height: auto !important;
+  }
+  
+  .portfolio-categories {
+    min-height: auto !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   Industries & Applications Section: Premium UI/UX Polish & Mobile Fixes
+   ========================================================================== */
+
+.markets-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
+  gap: clamp(2.5rem, 5vw, 4.5rem) !important;
+  align-items: center !important;
+  padding-top: clamp(3.5rem, 6vw, 5rem) !important;
+  padding-bottom: clamp(3.5rem, 6vw, 5rem) !important;
+}
+
+.markets-intro {
+  position: static !important;
+}
+
+.markets-intro h2 {
+  font-size: clamp(2rem, 3.2vw, 2.75rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.035em !important;
+  color: #0B192C !important;
+  margin: 0.85rem 0 1rem !important;
+  text-wrap: balance !important;
+}
+
+.markets-intro > p {
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
+  color: #486581 !important;
+  margin-bottom: 1.35rem !important;
+}
+
+.market-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.65rem 1.35rem !important;
+  border-radius: 999px !important;
+  background: #0B192C !important;
+  color: #FFFFFF !important;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: all 200ms ease !important;
+  box-shadow: 0 4px 14px rgba(11, 25, 44, 0.12) !important;
+}
+
+.market-link:hover {
+  background: #1769A6 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(23, 105, 166, 0.25) !important;
+}
+
+.market-image-wrap {
+  aspect-ratio: 16 / 10 !important;
+  max-height: 290px !important;
+  margin-top: 1.75rem !important;
+  border-radius: 18px !important;
+  box-shadow: 0 14px 34px rgba(11, 25, 44, 0.08) !important;
+}
+
+.market-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.1rem !important;
+  border: none !important;
+}
+
+.market-item {
+  display: grid !important;
+  grid-template-columns: 36px 52px minmax(0, 1fr) 28px !important;
+  align-items: center !important;
+  gap: 1.15rem !important;
+  padding: 1.35rem 1.5rem !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(202, 220, 231, 0.85) !important;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F6FAFC 100%) !important;
+  box-shadow: 0 6px 20px rgba(11, 25, 44, 0.04) !important;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease !important;
+  text-decoration: none !important;
+}
+
+.market-item:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(23, 105, 166, 0.35) !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 14px 32px rgba(23, 74, 104, 0.09) !important;
+}
+
+.market-index {
+  display: inline-grid !important;
+  place-items: center !important;
+  font: 700 0.72rem/1 var(--font-mono), monospace !important;
+  color: #64748B !important;
+  padding: 0.3rem 0.45rem !important;
+  border-radius: 7px !important;
+  background: #F1F5F9 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+.market-icon {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 15px !important;
+  background: linear-gradient(135deg, #EDF6FC 0%, #DFEFF9 100%) !important;
+  border: 1px solid rgba(23, 105, 166, 0.16) !important;
+  color: #1769A6 !important;
+  display: grid !important;
+  place-items: center !important;
+  transition: all 220ms ease !important;
+}
+
+.market-item:hover .market-icon {
+  background: #1769A6 !important;
+  color: #FFFFFF !important;
+  transform: scale(1.05) !important;
+}
+
+.market-item h3 {
+  font-size: 1.15rem !important;
+  font-weight: 750 !important;
+  color: #0B192C !important;
+  margin-bottom: 0.35rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+.market-item p {
+  font-size: 0.88rem !important;
+  color: #486581 !important;
+  line-height: 1.55 !important;
+  margin: 0 !important;
+}
+
+.market-arrow {
+  color: #94A3B8 !important;
+  transition: all 220ms ease !important;
+}
+
+.market-item:hover .market-arrow {
+  color: #1769A6 !important;
+  transform: translate(3px, -3px) !important;
+}
+
+/* Mobile Layout Fixes for Industries & Applications */
+@media (max-width: 768px) {
+  .markets-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+  
+  .markets-intro h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .market-image-wrap {
+    margin-top: 1.25rem !important;
+    max-height: 220px !important;
+  }
+  
+  .market-list {
+    gap: 0.85rem !important;
+  }
+  
+  .market-item {
+    grid-template-columns: 46px 1fr 24px !important;
+    grid-template-areas:
+      "icon title arrow"
+      "desc desc desc" !important;
+    gap: 0.65rem 0.85rem !important;
+    padding: 1.15rem 1rem !important;
+  }
+  
+  .market-index {
+    display: none !important;
+  }
+  
+  .market-icon {
+    grid-area: icon !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+  
+  .market-item > div {
+    grid-area: title !important;
+  }
+  
+  .market-item h3 {
+    font-size: 1.05rem !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .market-item p {
+    grid-area: desc !important;
+    font-size: 0.84rem !important;
+    line-height: 1.5 !important;
+    margin-top: 0.35rem !important;
+  }
+  
+  .market-arrow {
+    grid-area: arrow !important;
+    display: block !important;
+  }
+}
+
+/* ==========================================================================
+   Industries & Applications Section: Fix Mobile Overflow & Brand Button Theme
+   ========================================================================== */
+
+/* Button Theme: Changed from black to official PolyTreat Brand Blue/Teal Gradient */
+.market-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.65rem 1.4rem !important;
+  border-radius: 999px !important;
+  background: var(--gradient-brand, linear-gradient(135deg, #0284C7 0%, #0369A1 100%)) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease !important;
+  box-shadow: 0 4px 14px rgba(23, 105, 166, 0.28) !important;
+}
+
+.market-link:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(18, 86, 130, 0.35) !important;
+}
+
+/* Image Wrap: strictly constrained so it NEVER overflows mobile screens */
+.market-image-wrap {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.markets-intro {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+  .markets-intro {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
   }
 
-  .facility-card-text strong {
-    font-size: 0.78rem;
+  .market-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    margin-top: 1.15rem !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
-  .facility-card-text span {
-    font-size: 0.67rem;
+  .market-image-info {
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    bottom: 0.75rem !important;
+    gap: 0.3rem !important;
+  }
+
+  .market-image-tag {
+    font-size: 0.64rem !important;
+    padding: 0.25rem 0.55rem !important;
+  }
+
+  .market-image-note {
+    font-size: 0.7rem !important;
+    line-height: 1.35 !important;
   }
 }

@@ -52,16 +52,16 @@ export default function PowerPlusToiletCleanerPage() {
             <figure className="vklin-product-detail-visual">
               <div className="vklin-product-detail-image">
                 <Image
-                  src="/vklin-products/product-label-vklin-power-plus-toilet-cleaner.jpeg"
-                  alt="Earlier Altra Care label artwork for Power Plus Toilet Cleaner"
+                  src="/vklin-products/vklin-power-plus-toilet-cleaner.webp"
+                  alt="V-Klin Power Plus Toilet Cleaner Packaged Product"
                   fill
                   priority
                   sizes="(max-width: 760px) 88vw, 480px"
                 />
               </div>
               <figcaption>
-                <span>Earlier Altra Care label artwork</span>
-                <span>The range is now presented under V-Klin.</span>
+                <span>Official V-Klin Packaged Product</span>
+                <span>Formulated &amp; manufactured by PolyTreat Chemicals.</span>
               </figcaption>
             </figure>
           </div>

@@ -52,16 +52,16 @@ export default function GoldenFloorCleanerPage() {
             <figure className="vklin-product-detail-visual">
               <div className="vklin-product-detail-image">
                 <Image
-                  src="/vklin-products/product-label-vklin-golden-floor-cleaner-deodoriser.jpeg"
-                  alt="Earlier Altra Care label artwork for Golden Floor Cleaner"
+                  src="/vklin-products/vklin-golden-floor-cleaner.webp"
+                  alt="V-Klin Golden Floor Cleaner Packaged Product"
                   fill
                   priority
                   sizes="(max-width: 760px) 88vw, 480px"
                 />
               </div>
               <figcaption>
-                <span>Earlier Altra Care label artwork</span>
-                <span>The range is now presented under V-Klin.</span>
+                <span>Official V-Klin Packaged Product</span>
+                <span>Formulated &amp; manufactured by PolyTreat Chemicals.</span>
               </figcaption>
             </figure>
           </div>

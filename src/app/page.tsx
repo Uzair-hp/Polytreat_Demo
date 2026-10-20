@@ -1,6 +1,7 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
+import { homeStockImages } from "@/data/homeImages";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -26,8 +27,8 @@ const solutions = [
     id: "solution-water",
     number: "01",
     icon: Droplets,
-    imageSrc: "/images/home/solution-water.jpg",
-    imageAlt: "Industrial water treatment and cooling tower filtration systems",
+    imageSrc: homeStockImages.solutionWater.activeUrl,
+    imageAlt: homeStockImages.solutionWater.alt,
     imageLabel: "Industrial water systems",
     eyebrow: "Industrial water",
     title: "Treatment for the systems that keep your plant running.",
@@ -42,8 +43,8 @@ const solutions = [
     id: "solution-construction",
     number: "02",
     icon: Layers3,
-    imageSrc: "/images/home/solution-construction.jpg",
-    imageAlt: "Construction chemistry and concrete waterproofing applications",
+    imageSrc: homeStockImages.solutionConstruction.activeUrl,
+    imageAlt: homeStockImages.solutionConstruction.alt,
     imageLabel: "Construction chemistry application",
     eyebrow: "Construction & protection",
     title: "Surface protection built around the material and the problem.",
@@ -58,8 +59,8 @@ const solutions = [
     id: "solution-vklin",
     number: "03",
     icon: Leaf,
-    imageSrc: "/images/home/solution-vklin.jpg",
-    imageAlt: "V-Klin institutional and commercial hygiene facility care",
+    imageSrc: homeStockImages.solutionVklin.activeUrl,
+    imageAlt: homeStockImages.solutionVklin.alt,
     imageLabel: "V-Klin facility care",
     eyebrow: "V-Klin care",
     title: "Everyday cleaning for homes, institutions, and facilities.",
@@ -77,8 +78,8 @@ const portfolioFamilies = [
     id: "portfolio-boiler-cooling",
     icon: Droplets,
     number: "01",
-    imageSrc: "/images/home/portfolio-boiler-cooling.jpg",
-    imageAlt: "Industrial boiler and cooling-water recirculating treatment",
+    imageSrc: homeStockImages.portfolioBoilerCooling.activeUrl,
+    imageAlt: homeStockImages.portfolioBoilerCooling.alt,
     imageLabel: "Industrial boiler & cooling water",
     eyebrow: "Industrial water",
     title: "Boiler & cooling-water treatment",
@@ -91,8 +92,8 @@ const portfolioFamilies = [
     id: "portfolio-ro-effluent",
     icon: Waves,
     number: "02",
-    imageSrc: "/images/home/portfolio-ro-effluent.jpg",
-    imageAlt: "Reverse osmosis membranes and industrial effluent wastewater treatment",
+    imageSrc: homeStockImages.portfolioRoEffluent.activeUrl,
+    imageAlt: homeStockImages.portfolioRoEffluent.alt,
     imageLabel: "RO & effluent systems",
     eyebrow: "Process water",
     title: "RO, effluent & process treatment",
@@ -105,8 +106,8 @@ const portfolioFamilies = [
     id: "portfolio-construction",
     icon: Layers3,
     number: "03",
-    imageSrc: "/images/home/portfolio-construction.jpg",
-    imageAlt: "Construction chemistry waterproofing and protective surface coatings",
+    imageSrc: homeStockImages.portfolioConstruction.activeUrl,
+    imageAlt: homeStockImages.portfolioConstruction.alt,
     imageLabel: "Construction & waterproofing",
     eyebrow: "Construction chemistry",
     title: "Waterproofing & surface protection",
@@ -119,8 +120,8 @@ const portfolioFamilies = [
     id: "portfolio-vklin",
     icon: Leaf,
     number: "04",
-    imageSrc: "/images/home/portfolio-vklin.jpg",
-    imageAlt: "Institutional cleaning supplies and V-Klin home care products",
+    imageSrc: homeStockImages.portfolioVklin.activeUrl,
+    imageAlt: homeStockImages.portfolioVklin.alt,
     imageLabel: "Institutional & facility care",
     eyebrow: "V-Klin care",
     title: "Everyday cleaning & facility care",
@@ -332,8 +333,8 @@ export default function Home() {
             </Link>
             <div className="market-image-wrap">
               <Image
-                src="/images/home/market-applications.jpg"
-                alt="Industrial processing facility and chemical engineering infrastructure"
+                src={homeStockImages.marketApplications.activeUrl}
+                alt={homeStockImages.marketApplications.alt}
                 fill
                 sizes="(max-width: 900px) 100vw, 45vw"
                 className="market-image-img"
@@ -416,7 +417,7 @@ export default function Home() {
                 <Link href="/vklin/products/multipurpose-surface-cleaner" className="vklin-preview-card">
                   <div className="vklin-preview-img-box">
                     <Image
-                      src="/vklin-products/product-label-vklin-multipurpose-surface-cleaner.jpeg"
+                      src="/vklin-products/vklin-multipurpose-surface-cleaner.webp"
                       alt="V-Klin Multi-Purpose Surface Cleaner"
                       fill
                       sizes="100px"
@@ -428,7 +429,7 @@ export default function Home() {
                 <Link href="/vklin/products/golden-floor-cleaner" className="vklin-preview-card">
                   <div className="vklin-preview-img-box">
                     <Image
-                      src="/vklin-products/product-label-vklin-golden-floor-cleaner-deodoriser.jpeg"
+                      src="/vklin-products/vklin-golden-floor-cleaner.webp"
                       alt="V-Klin Golden Floor Cleaner"
                       fill
                       sizes="100px"
@@ -440,7 +441,7 @@ export default function Home() {
                 <Link href="/vklin/products/dishwash-liquid-gel-lemon" className="vklin-preview-card">
                   <div className="vklin-preview-img-box">
                     <Image
-                      src="/vklin-products/product-label-vklin-dishwash-liquid-gel-lemon.jpeg"
+                      src="/vklin-products/vklin-dishwash-liquid-gel-lemon.webp"
                       alt="V-Klin Lemon Dishwash Gel"
                       fill
                       sizes="100px"
@@ -502,8 +503,8 @@ export default function Home() {
         <div className="container company-layout">
           <div className="company-image-wrap">
             <Image
-              src="/images/home/company-facility.jpg"
-              alt="PolyTreat chemical formulation and manufacturing facility"
+              src={homeStockImages.companyFacility.activeUrl}
+              alt={homeStockImages.companyFacility.alt}
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
               className="company-image-img"

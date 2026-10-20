@@ -52,16 +52,16 @@ export default function HerbalMosquitoRepellentPage() {
             <figure className="vklin-product-detail-visual">
               <div className="vklin-product-detail-image">
                 <Image
-                  src="/vklin-products/product-label-vklin-herbal-mosquito-repellent.jpeg"
-                  alt="Earlier Altra Care label artwork for Herbal Mosquito Repellent"
+                  src="/vklin-products/vklin-herbal-mosquito-repellent.webp"
+                  alt="V-Klin Herbal Mosquito Repellent Packaged Product"
                   fill
                   priority
                   sizes="(max-width: 760px) 88vw, 480px"
                 />
               </div>
               <figcaption>
-                <span>Earlier Altra Care label artwork</span>
-                <span>The range is now presented under V-Klin.</span>
+                <span>Official V-Klin Packaged Product</span>
+                <span>Formulated &amp; manufactured by PolyTreat Chemicals.</span>
               </figcaption>
             </figure>
           </div>

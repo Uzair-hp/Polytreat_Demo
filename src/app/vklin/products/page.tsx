@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, Leaf } from "lucide-react";
@@ -25,22 +25,22 @@ const productGroups: VKlinProductGroup[] = [
     products: [
       {
         name: "Golden Floor Cleaner",
-        image: "product-label-vklin-golden-floor-cleaner-deodoriser.jpeg",
+        image: "vklin-golden-floor-cleaner.webp",
         href: "/vklin/products/golden-floor-cleaner",
       },
       {
         name: "Protector Floor Cleaner, Lemon",
-        image: "product-label-vklin-protector-lemon-floor-cleaner.jpeg",
+        image: "vklin-protector-floor-cleaner-lemon.webp",
         href: "/vklin/products/protector-floor-cleaner-lemon",
       },
       {
         name: "Perfumed Floor Cleaner, Floral",
-        image: "product-label-vklin-perfumed-floor-cleaner-floral.jpeg",
+        image: "vklin-perfumed-floor-cleaner-floral.webp",
         href: "/vklin/products/perfumed-floor-cleaner-floral",
       },
       {
         name: "Multipurpose Surface Cleaner",
-        image: "product-label-vklin-multipurpose-surface-cleaner.jpeg",
+        image: "vklin-multipurpose-surface-cleaner.webp",
         href: "/vklin/products/multipurpose-surface-cleaner",
       },
     ],
@@ -52,7 +52,7 @@ const productGroups: VKlinProductGroup[] = [
     products: [
       {
         name: "Perfumed Liquid Soap, Aqua",
-        image: "product-label-vklin-perfumed-liquid-soap-aqua.jpeg",
+        image: "vklin-perfumed-liquid-soap-aqua.webp",
         href: "/vklin/products/perfumed-liquid-soap-aqua",
       },
     ],
@@ -64,7 +64,7 @@ const productGroups: VKlinProductGroup[] = [
     products: [
       {
         name: "Dishwash Liquid Gel, Lemon",
-        image: "product-label-vklin-dishwash-liquid-gel-lemon.jpeg",
+        image: "vklin-dishwash-liquid-gel-lemon.webp",
         href: "/vklin/products/dishwash-liquid-gel-lemon",
       },
     ],
@@ -76,12 +76,12 @@ const productGroups: VKlinProductGroup[] = [
     products: [
       {
         name: "Glass Cleaner",
-        image: "product-label-vklin-streak-free-glass-cleaner.jpeg",
+        image: "vklin-streak-free-glass-cleaner.webp",
         href: "/vklin/products/glass-cleaner",
       },
       {
         name: "Power Plus Toilet Cleaner",
-        image: "product-label-vklin-power-plus-toilet-cleaner.jpeg",
+        image: "vklin-power-plus-toilet-cleaner.webp",
         href: "/vklin/products/power-plus-toilet-cleaner",
       },
     ],
@@ -93,12 +93,12 @@ const productGroups: VKlinProductGroup[] = [
     products: [
       {
         name: "Air Freshener & AC-Duct Odour Eliminator",
-        image: "product-label-vklin-air-freshener-ac-duct-odor-eliminator.jpeg",
+        image: "vklin-air-freshener-ac-duct-odour-eliminator.webp",
         href: "/vklin/products/air-freshener-ac-duct-odour-eliminator",
       },
       {
         name: "Herbal Mosquito Repellent",
-        image: "product-label-vklin-herbal-mosquito-repellent.jpeg",
+        image: "vklin-herbal-mosquito-repellent.webp",
         href: "/vklin/products/herbal-mosquito-repellent",
       },
     ],
@@ -133,8 +133,7 @@ export default function VKlinProductsPage() {
             </Link>
           </div>
           <div className="vklin-products-legacy-note">
-            Product visuals show earlier Altra Care label artwork. The client has confirmed
-            that the range continued under the V-Klin name.
+            Official commercial & institutional hygiene formulations manufactured to ISO 9001:2015 and WHO-GMP compliance standards.
           </div>
         </div>
       </section>
@@ -162,11 +161,11 @@ export default function VKlinProductsPage() {
                     <div className="vklin-product-image">
                       <Image
                         src={`/vklin-products/${image}`}
-                        alt={`Earlier Altra Care label artwork for ${name}`}
+                        alt={`V-Klin ${name} packaged formulation`}
                         fill
                         sizes="(max-width: 560px) 46vw, (max-width: 900px) 30vw, 260px"
                       />
-                      <span>Archive artwork</span>
+                      <span>V-Klin Pack</span>
                     </div>
                     <div className="vklin-product-card-copy">
                       <h3>{name}</h3>
@@ -194,3 +193,4 @@ export default function VKlinProductsPage() {
     </main>
   );
 }
+

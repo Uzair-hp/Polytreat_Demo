@@ -52,16 +52,16 @@ export default function PerfumedFloorCleanerFloralPage() {
             <figure className="vklin-product-detail-visual">
               <div className="vklin-product-detail-image">
                 <Image
-                  src="/vklin-products/product-label-vklin-perfumed-floor-cleaner-floral.jpeg"
-                  alt="Earlier Altra Care label artwork for Perfumed Floor Cleaner, Floral"
+                  src="/vklin-products/vklin-perfumed-floor-cleaner-floral.webp"
+                  alt="V-Klin Perfumed Floor Cleaner Floral Packaged Product"
                   fill
                   priority
                   sizes="(max-width: 760px) 88vw, 480px"
                 />
               </div>
               <figcaption>
-                <span>Earlier Altra Care label artwork</span>
-                <span>The range is now presented under V-Klin.</span>
+                <span>Official V-Klin Packaged Product</span>
+                <span>Formulated &amp; manufactured by PolyTreat Chemicals.</span>
               </figcaption>
             </figure>
           </div>

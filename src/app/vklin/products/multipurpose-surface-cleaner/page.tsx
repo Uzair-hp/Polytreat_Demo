@@ -52,16 +52,16 @@ export default function MultipurposeSurfaceCleanerPage() {
             <figure className="vklin-product-detail-visual">
               <div className="vklin-product-detail-image">
                 <Image
-                  src="/vklin-products/product-label-vklin-multipurpose-surface-cleaner.jpeg"
-                  alt="Earlier Altra Care label artwork for Multipurpose Cleaner"
+                  src="/vklin-products/vklin-multipurpose-surface-cleaner.webp"
+                  alt="V-Klin Multipurpose Surface Cleaner Packaged Product"
                   fill
                   priority
                   sizes="(max-width: 760px) 88vw, 480px"
                 />
               </div>
               <figcaption>
-                <span>Earlier Altra Care label artwork</span>
-                <span>The range is now presented under V-Klin.</span>
+                <span>Official V-Klin Packaged Product</span>
+                <span>Formulated &amp; manufactured by PolyTreat Chemicals.</span>
               </figcaption>
             </figure>
           </div>
