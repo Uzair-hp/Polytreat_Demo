@@ -2835,9 +2835,9 @@ code, .font-mono {
 
 .vklin-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.78fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1fr);
   align-items: center;
-  gap: clamp(2.5rem, 8vw, 8rem);
+  gap: clamp(2rem, 4.5vw, 4.5rem);
 }
 
 .vklin-copy h2 {
@@ -11268,7 +11268,8 @@ code, .font-mono {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
 
 .cert-strip-heading {
@@ -11307,8 +11308,10 @@ code, .font-mono {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 0.65rem;
   flex: 1 1 auto;
+  min-width: 0;
 }
 
 .cert-badge-item {
@@ -11665,14 +11668,14 @@ code, .font-mono {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: #059669;
+  color: #244153;
   font-size: 0.86rem;
   font-weight: 700;
   transition: color 200ms ease, transform 200ms ease;
 }
 
 .vklin-products-link:hover {
-  color: #047857;
+  color: #0B192C;
   transform: translateX(2px);
 }
 
@@ -11695,7 +11698,7 @@ code, .font-mono {
 
 .vklin-preview-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
 }
 
@@ -11723,7 +11726,7 @@ code, .font-mono {
 .vklin-preview-img-box {
   position: relative;
   width: 100%;
-  height: 85px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 8px;
   background: #F4FAF6;
@@ -11731,7 +11734,7 @@ code, .font-mono {
 
 .vklin-preview-img {
   object-fit: contain;
-  padding: 0.2rem;
+  padding: 0.35rem;
   transition: transform 300ms ease;
 }
 
@@ -11821,13 +11824,18 @@ code, .font-mono {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1024px) {
+@media (max-width: 1300px) {
   .certifications-strip-layout {
     flex-wrap: wrap;
     justify-content: center;
   }
   .cert-badges-grid {
     flex-wrap: wrap;
+  }
+  .cert-strip-heading {
+    flex: 1 1 100%;
+    justify-content: center;
+    text-align: center;
   }
 }
 
@@ -11853,6 +11861,7 @@ code, .font-mono {
     justify-content: center;
     font-size: 0.72rem;
     padding: 0.35rem 0.5rem;
+    white-space: normal;
   }
   .cert-strip-link {
     justify-content: center;
@@ -11868,14 +11877,14 @@ code, .font-mono {
     min-height: auto;
   }
   .vklin-preview-cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.4rem;
-  }
-  .vklin-preview-img-box {
-    height: 65px;
   }
   .vklin-preview-title {
     font-size: 0.6rem;
+    white-space: normal;
+    line-height: 1.25;
+    min-height: 2.5em;
   }
   .company-facility-card {
     padding: 0.7rem 0.85rem;
@@ -12271,5 +12280,44 @@ h1, h2, h3, .section-heading h2, #solutions-title, #portfolio-title {
   .market-image-note {
     font-size: 0.7rem !important;
     line-height: 1.35 !important;
+  }
+}
+
+/* ==========================================================================
+   Homepage Cards: Portfolio Card Footers, Focus States, and Link Rhythm
+   ========================================================================== */
+
+/* Portfolio cards are now navigable, so their category chips sit in normal
+   flow and the card link is pushed to the bottom edge of the card. */
+.portfolio-categories {
+  margin-top: 0.85rem !important;
+}
+
+.portfolio-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(220, 232, 240, 0.85);
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.portfolio-card-link:focus-visible,
+.solution-card .text-link:focus-visible {
+  outline: 2px solid #1769A6;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .portfolio-categories {
+    margin-top: 0.6rem !important;
+  }
+
+  .portfolio-card-link {
+    margin-top: 0.9rem;
+    padding-top: 0.75rem;
   }
 }

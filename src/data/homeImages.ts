@@ -1,7 +1,9 @@
 ﻿/**
- * Curated stock image configurations for the PolyTreat Homepage.
- * Uses high-resolution Unsplash CDN links with Next.js image optimization.
- * Each section includes its active URL and pre-vetted alternative options for instant swapping.
+ * Curated homepage image configurations for PolyTreat.
+ * Most images are hosted locally under `public/images/home`; two section banners still use
+ * high-resolution Unsplash CDN links, served through Next.js image optimization.
+ * Each entry includes its active URL and pre-vetted alternative options for instant swapping.
+ * Alt text must describe the picture only — never assert that a stock image is a PolyTreat site.
  */
 
 export interface ImageOption {
@@ -121,8 +123,8 @@ export const homeStockImages = {
   portfolioVklin: {
     key: "portfolioVklin",
     label: "Everyday Cleaning and Facility Care",
-    activeUrl: "/images/home/vklin-og-fitted.webp",
-    alt: "V-Klin institutional cleaning supplies and commercial packaging",
+    activeUrl: "/images/home/everyday-cleaning-facility-care.webp",
+    alt: "Facility cleaning staff working in a commercial building lobby with cleaning trolley and supplies",
     options: [
       {
         label: "V-Klin Original Product Lineup (Recommended)",
@@ -141,7 +143,7 @@ export const homeStockImages = {
     label: "Industries & Processing Plants",
     activeUrl:
       "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
-    alt: "Continuous chemical manufacturing plant and heavy industrial utility infrastructure",
+    alt: "Representative image of an industrial chemical processing plant",
     options: [
       {
         label: "Continuous Chemical Plant Complex (Recommended)",
@@ -156,7 +158,7 @@ export const homeStockImages = {
     label: "PolyTreat Manufacturing Facility",
     activeUrl:
       "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1200&q=80",
-    alt: "PolyTreat specialty chemical manufacturing and formulation plant facility",
+    alt: "Representative image of an industrial specialty chemical plant",
     options: [
       {
         label: "Modern Industrial Chemical Plant Exterior (Recommended)",

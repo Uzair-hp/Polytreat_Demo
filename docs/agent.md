@@ -32,7 +32,7 @@ Use this high-level picture confidently in general homepage explanations. Do not
 5. **V-Klin:** Use V-Klin as the cleaning-range brand. Altra Care is discontinued, and its old label images are legacy artwork. The client confirmed the products continued under V-Klin; that brand-change clarification does not independently validate health, germ-kill, pest-control, environmental, or safety claims printed on old labels.
 6. **Company facts:** The client confirmed the company is Pvt. Ltd. and said both “PolyTreat Chemical Industries” and “PolyTreat Chemicals Pvt. Ltd.” may be used publicly. The client believes 1987 is probably when the business began; do not call it the incorporation year or claim a precise tenure as established fact.
 7. **PQRS:** Use the client-corrected wording **Performance, Quality, Reliability, Service**.
-8. **Certificates:** Read Study Wiki Sections 13–16. Never call the reviewed private FDA-named certificate “FDA approved.” Do not imply that one certificate independently verifies every product.
+8. **Certificates:** Read Study Wiki Sections 13–16. Never call the reviewed private FDA-named certificate “FDA approved.” Do not imply that one certificate independently verifies every product. The homepage compliance strip labels them as `ISO 9001:2015 QMS`, `UKcert WHO-GMP reference`, `Private FDA reference`, and `UKcert Eco-Friendly certificate`; keep those labels and the “Certificates and their scope” framing if the strip is edited.
 9. **Open items:** Study Wiki Section 20 is an internal list of questions, not a requirement to put warnings on the public site. Omit unsupported exact claims; explain the supported business/category plainly.
 10. **Confidentiality:** Never expose formulas, exact composition, proprietary process details, dosage/application recipes, internal safety instructions, or sensitive material from client files in public copy, screenshots, commits, or tool prompts.
 
@@ -41,7 +41,7 @@ Use this high-level picture confidently in general homepage explanations. Do not
 The project is a responsive marketing site, not a technical document portal. The homepage has a concise Industries preview; the dedicated `/industries` page expands its application contexts. Current section IDs and navigation targets include:
 
 - `#solutions` — broad solution areas.
-- `#portfolio` — product families, with anchors for boiler/cooling water, RO/effluent, construction, and V-Klin.
+- `#portfolio` — product families, with anchors for boiler/cooling water, RO/effluent, construction, and V-Klin. Each family card also links to its matching solutions page (`/solutions/boiler-cooling-water`, `/solutions/ro-effluent`, `/solutions/construction-chemistry`, `/vklin/products`).
 - `/solutions/industrial-water` — overview of boiler, cooling-water, RO, and effluent treatment categories.
 - `/solutions/boiler-cooling-water` — focused overview of boiler and recirculating cooling-water systems.
 - `/solutions/ro-effluent` — focused overview of reverse-osmosis and effluent-treatment categories.
@@ -60,6 +60,7 @@ Current navbar order is **Home → Solutions → Industries → V-Klin → Quali
 - Styles: **Vanilla CSS only**, chiefly `src/app/globals.css`. Do not add Tailwind.
 - Icons: use the existing `lucide-react` package and its established visual weight.
 - Main files: `src/app/page.tsx`, `src/components/Navbar.tsx`, `src/components/HeroCarousel.tsx`, `src/app/globals.css`, and `src/app/layout.tsx`.
+- Shared data: `src/data/vklinProducts.ts` is the single source of truth for the V-Klin catalogue (products, product count, category list). The homepage preview strip and the `/vklin/products` catalogue both read from it, so never hardcode the product count in copy. `src/data/homeImages.ts` holds the homepage image map.
 - Visual direction: bright, clean blue/green surfaces; compact responsive layout; restrained motion; avoid crowding, duplicate navigation, and unnecessary icon decoration.
 - Real enquiry actions currently include the project email, phone, and WhatsApp. Do not create a fake download, form, modal, catalog search, or backend workflow.
 

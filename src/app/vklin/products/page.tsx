@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, Leaf } from "lucide-react";
+import { vklinProductGroups } from "@/data/vklinProducts";
 
 export const metadata: Metadata = {
   title: "V-Klin Cleaning Products | PolyTreat Chemicals",
@@ -9,103 +10,7 @@ export const metadata: Metadata = {
     "Browse the V-Klin cleaning range by floor and surface care, handwash, dishwashing, glass and washroom care, and other facility-care categories.",
 };
 
-type VKlinProduct = { name: string; image: string; href: string };
-type VKlinProductGroup = {
-  id: string;
-  title: string;
-  intro: string;
-  products: VKlinProduct[];
-};
-
-const productGroups: VKlinProductGroup[] = [
-  {
-    id: "floor-surface",
-    title: "Floor & surface care",
-    intro: "Products grouped around routine floor and surface cleaning.",
-    products: [
-      {
-        name: "Golden Floor Cleaner",
-        image: "vklin-golden-floor-cleaner.webp",
-        href: "/vklin/products/golden-floor-cleaner",
-      },
-      {
-        name: "Protector Floor Cleaner, Lemon",
-        image: "vklin-protector-floor-cleaner-lemon.webp",
-        href: "/vklin/products/protector-floor-cleaner-lemon",
-      },
-      {
-        name: "Perfumed Floor Cleaner, Floral",
-        image: "vklin-perfumed-floor-cleaner-floral.webp",
-        href: "/vklin/products/perfumed-floor-cleaner-floral",
-      },
-      {
-        name: "Multipurpose Surface Cleaner",
-        image: "vklin-multipurpose-surface-cleaner.webp",
-        href: "/vklin/products/multipurpose-surface-cleaner",
-      },
-    ],
-  },
-  {
-    id: "hand-hygiene",
-    title: "Handwash & liquid soap",
-    intro: "A liquid soap category for handwashing routines.",
-    products: [
-      {
-        name: "Perfumed Liquid Soap, Aqua",
-        image: "vklin-perfumed-liquid-soap-aqua.webp",
-        href: "/vklin/products/perfumed-liquid-soap-aqua",
-      },
-    ],
-  },
-  {
-    id: "dishwashing",
-    title: "Dishwashing",
-    intro: "A product category for dish and kitchenware cleaning.",
-    products: [
-      {
-        name: "Dishwash Liquid Gel, Lemon",
-        image: "vklin-dishwash-liquid-gel-lemon.webp",
-        href: "/vklin/products/dishwash-liquid-gel-lemon",
-      },
-    ],
-  },
-  {
-    id: "glass-washroom",
-    title: "Glass & washroom care",
-    intro: "Separate categories for glass and washroom cleaning tasks.",
-    products: [
-      {
-        name: "Glass Cleaner",
-        image: "vklin-streak-free-glass-cleaner.webp",
-        href: "/vklin/products/glass-cleaner",
-      },
-      {
-        name: "Power Plus Toilet Cleaner",
-        image: "vklin-power-plus-toilet-cleaner.webp",
-        href: "/vklin/products/power-plus-toilet-cleaner",
-      },
-    ],
-  },
-  {
-    id: "specialty-care",
-    title: "Other care categories",
-    intro: "Additional home and facility-care categories.",
-    products: [
-      {
-        name: "Air Freshener & AC-Duct Odour Eliminator",
-        image: "vklin-air-freshener-ac-duct-odour-eliminator.webp",
-        href: "/vklin/products/air-freshener-ac-duct-odour-eliminator",
-      },
-      {
-        name: "Herbal Mosquito Repellent",
-        image: "vklin-herbal-mosquito-repellent.webp",
-        href: "/vklin/products/herbal-mosquito-repellent",
-      },
-    ],
-  },
-];
-
-const categoryLinks = productGroups.map(({ id, title }) => ({ id, title }));
+const categoryLinks = vklinProductGroups.map(({ id, title }) => ({ id, title }));
 
 export default function VKlinProductsPage() {
   return (
@@ -146,7 +51,7 @@ export default function VKlinProductsPage() {
             ))}
           </nav>
 
-          {productGroups.map(({ id, title, intro, products }) => (
+          {vklinProductGroups.map(({ id, title, intro, products }) => (
             <section className="vklin-product-group" id={id} key={id} aria-labelledby={`${id}-title`}>
               <div className="vklin-product-group-heading">
                 <div>

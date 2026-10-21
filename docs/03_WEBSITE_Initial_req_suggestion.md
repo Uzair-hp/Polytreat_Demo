@@ -12,11 +12,12 @@ The project is a responsive PolyTreat marketing site. The homepage introduces th
 
 1. **Navbar:** PolyTreat logo; Home, Solutions, Industries, V-Klin, Quality, About Us, and Contact in that order; dropdowns for Solutions, V-Klin, Quality, and About Us; Request a Quote action; mobile drawer. Industries opens its dedicated overview page; the homepage keeps a shorter preview.
 2. **Hero:** Light chemistry-inspired background, animated orbit/molecule illustration, concise company introduction, “Explore solutions” and “Talk to team” CTAs, and direct phone link.
-3. **Three areas of work:** Industrial water treatment; construction and surface protection; V-Klin facility care.
-4. **Applications:** Broad groupings for process/manufacturing, utilities/infrastructure, and facilities/institutions.
-5. **V-Klin overview:** Separate introduction to the cleaning and facility-care range.
-6. **PQRS:** Performance, Quality, Reliability, Service, using the client's corrected meaning.
-7. **Contact panel and footer:** Current email and phone, site navigation, work areas, and locations as currently displayed. The footer's Instagram, LinkedIn, and Facebook glyphs are placeholders, not working social links; add links only after the client supplies official profiles.
+3. **Quality & compliance strip:** A slim bar directly under the hero listing the four supplied certificate documents by issuer and scope, with a link to `/certifications`. Wording must not read as blanket or government approval.
+4. **Three areas of work:** Industrial water treatment; construction and surface protection; V-Klin facility care.
+5. **Applications:** Broad groupings for process/manufacturing, utilities/infrastructure, and facilities/institutions.
+6. **V-Klin overview:** Separate introduction to the cleaning and facility-care range.
+7. **PQRS:** Performance, Quality, Reliability, Service, using the client's corrected meaning.
+8. **Contact panel and footer:** Current email and phone, site navigation, work areas, and locations as currently displayed. The footer's Instagram, LinkedIn, and Facebook glyphs are placeholders, not working social links; add links only after the client supplies official profiles.
 
 Implementation references: `src/app/page.tsx`, `src/components/Navbar.tsx`, and `src/app/globals.css`. Re-check these files before changing this status list.
 

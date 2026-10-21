@@ -2,6 +2,7 @@
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import { homeStockImages } from "@/data/homeImages";
+import { findVKlinProducts, vklinProductCount } from "@/data/vklinProducts";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -10,6 +11,7 @@ import {
   Check,
   Droplets,
   Factory,
+  FileCheck2,
   FlaskConical,
   Gauge,
   Headset,
@@ -18,6 +20,7 @@ import {
   Mail,
   MapPin,
   Phone,
+  ScrollText,
   ShieldCheck,
   Waves,
 } from "lucide-react";
@@ -29,7 +32,6 @@ const solutions = [
     icon: Droplets,
     imageSrc: homeStockImages.solutionWater.activeUrl,
     imageAlt: homeStockImages.solutionWater.alt,
-    imageLabel: "Industrial water systems",
     eyebrow: "Industrial water",
     title: "Treatment for the systems that keep your plant running.",
     description:
@@ -45,7 +47,6 @@ const solutions = [
     icon: Layers3,
     imageSrc: homeStockImages.solutionConstruction.activeUrl,
     imageAlt: homeStockImages.solutionConstruction.alt,
-    imageLabel: "Construction chemistry application",
     eyebrow: "Construction & protection",
     title: "Surface protection built around the material and the problem.",
     description:
@@ -61,7 +62,6 @@ const solutions = [
     icon: Leaf,
     imageSrc: homeStockImages.solutionVklin.activeUrl,
     imageAlt: homeStockImages.solutionVklin.alt,
-    imageLabel: "V-Klin facility care",
     eyebrow: "V-Klin care",
     title: "Everyday cleaning for homes, institutions, and facilities.",
     description:
@@ -80,12 +80,13 @@ const portfolioFamilies = [
     number: "01",
     imageSrc: homeStockImages.portfolioBoilerCooling.activeUrl,
     imageAlt: homeStockImages.portfolioBoilerCooling.alt,
-    imageLabel: "Industrial boiler & cooling water",
     eyebrow: "Industrial water",
     title: "Boiler & cooling-water treatment",
     description:
       "Product families for water systems used in steam generation and recirculating cooling.",
     categories: ["Boiler water", "Cooling water", "Scale & corrosion control"],
+    link: "/solutions/boiler-cooling-water",
+    linkText: "Explore boiler & cooling",
     tone: "blue",
   },
   {
@@ -94,12 +95,13 @@ const portfolioFamilies = [
     number: "02",
     imageSrc: homeStockImages.portfolioRoEffluent.activeUrl,
     imageAlt: homeStockImages.portfolioRoEffluent.alt,
-    imageLabel: "RO & effluent systems",
     eyebrow: "Process water",
     title: "RO, effluent & process treatment",
     description:
       "Categories for membrane-based water systems and industrial wastewater processes.",
     categories: ["RO systems", "Effluent treatment", "Process applications"],
+    link: "/solutions/ro-effluent",
+    linkText: "Explore RO & effluent",
     tone: "slate",
   },
   {
@@ -108,12 +110,13 @@ const portfolioFamilies = [
     number: "03",
     imageSrc: homeStockImages.portfolioConstruction.activeUrl,
     imageAlt: homeStockImages.portfolioConstruction.alt,
-    imageLabel: "Construction & waterproofing",
     eyebrow: "Construction chemistry",
     title: "Waterproofing & surface protection",
     description:
       "Construction product families spanning water ingress, concrete repair, protective finishes, and joints.",
     categories: ["Waterproofing", "Concrete repair", "Protective coatings", "Sealants"],
+    link: "/solutions/construction-chemistry",
+    linkText: "Explore construction chemistry",
     tone: "slate",
   },
   {
@@ -122,15 +125,22 @@ const portfolioFamilies = [
     number: "04",
     imageSrc: homeStockImages.portfolioVklin.activeUrl,
     imageAlt: homeStockImages.portfolioVklin.alt,
-    imageLabel: "Institutional & facility care",
     eyebrow: "V-Klin care",
     title: "Everyday cleaning & facility care",
     description:
       "Cleaning categories for homes and shared spaces, including institutional settings.",
     categories: ["Floor & surface", "Hand & dish care", "Glass & washroom"],
+    link: "/vklin/products",
+    linkText: "Explore the V-Klin range",
     tone: "green",
   },
 ];
+
+const vklinPreviewProducts = findVKlinProducts([
+  "Surface Cleaner",
+  "Floor Cleaner",
+  "Dishwash Gel",
+]);
 
 const markets = [
   {
@@ -188,32 +198,32 @@ export default function Home() {
     <main>
       <HeroCarousel />
 
-      {/* Verified Certifications Strip */}
-      <section className="certifications-strip" aria-label="Quality and regulatory credentials">
+      {/* Quality & Compliance Strip */}
+      <section className="certifications-strip" aria-label="Quality and compliance documents">
         <div className="container certifications-strip-layout">
           <div className="cert-strip-heading">
             <span className="cert-strip-icon-box"><ShieldCheck size={20} strokeWidth={2} aria-hidden="true" /></span>
             <div>
-              <span className="cert-strip-eyebrow">Certified Standards</span>
-              <strong>Formulation &amp; Quality Compliance</strong>
+              <span className="cert-strip-eyebrow">Quality &amp; compliance</span>
+              <strong>Certificates and their scope</strong>
             </div>
           </div>
           <div className="cert-badges-grid">
             <div className="cert-badge-item">
               <BadgeCheck size={16} className="cert-badge-icon" aria-hidden="true" />
-              <span>ISO 9001:2015</span>
+              <span>ISO 9001:2015 QMS</span>
             </div>
             <div className="cert-badge-item">
-              <BadgeCheck size={16} className="cert-badge-icon" aria-hidden="true" />
-              <span>WHO-GMP Compliant</span>
+              <FileCheck2 size={16} className="cert-badge-icon" aria-hidden="true" />
+              <span>UKcert WHO-GMP reference</span>
             </div>
             <div className="cert-badge-item">
-              <BadgeCheck size={16} className="cert-badge-icon" aria-hidden="true" />
-              <span>US FDA Formulations</span>
+              <ScrollText size={16} className="cert-badge-icon" aria-hidden="true" />
+              <span>Private FDA reference</span>
             </div>
             <div className="cert-badge-item">
               <Leaf size={16} className="cert-badge-icon cert-badge-leaf" aria-hidden="true" />
-              <span>Eco-Friendly Certified</span>
+              <span>UKcert Eco-Friendly certificate</span>
             </div>
           </div>
           <Link href="/certifications" className="cert-strip-link">
@@ -232,7 +242,7 @@ export default function Home() {
               <h2 id="solutions-title">Chemistry for the work you do.</h2>
             </div>
             <p>
-              Explore PolyTreat's three solution areas, with product families organized around the systems and tasks they serve.
+              Explore PolyTreat&apos;s three solution areas, with product families organized around the systems and tasks they serve.
             </p>
           </div>
 
@@ -254,7 +264,6 @@ export default function Home() {
                   </span>
                   <span className="solution-number">{number}</span>
                 </div>
-                <span className="solution-eyebrow">{eyebrow}</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <ul className="solution-tags" aria-label={`${eyebrow} categories`}>
@@ -283,7 +292,7 @@ export default function Home() {
           </div>
 
           <div className="portfolio-grid">
-            {portfolioFamilies.map(({ id, icon: Icon, number, imageSrc, imageAlt, eyebrow, title, description, categories, tone }) => (
+            {portfolioFamilies.map(({ id, icon: Icon, number, imageSrc, imageAlt, eyebrow, title, description, categories, link, linkText, tone }) => (
               <article className={`portfolio-card portfolio-card-${tone}`} id={id} key={id}>
                 <div className="portfolio-image-wrap">
                   <Image
@@ -300,12 +309,14 @@ export default function Home() {
                   </span>
                   <span className="portfolio-number">{number}</span>
                 </div>
-                <span className="portfolio-eyebrow">{eyebrow}</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <ul className="portfolio-categories" aria-label={`${title} categories`}>
                   {categories.map((category) => <li key={category}>{category}</li>)}
                 </ul>
+                <Link className="text-link portfolio-card-link" href={link}>
+                  {linkText} <ArrowRight size={16} aria-hidden="true" />
+                </Link>
               </article>
             ))}
           </div>
@@ -326,7 +337,7 @@ export default function Home() {
             <span className="eyebrow eyebrow-light">Industries & applications</span>
             <h2 id="markets-title">Application expertise across plants, projects, and facilities.</h2>
             <p>
-              See where PolyTreat's water-treatment, construction, and cleaning ranges are used across diverse operating environments.
+              See where PolyTreat&apos;s water-treatment, construction, and cleaning ranges are used across diverse operating environments.
             </p>
             <Link className="market-link" href="/industries">
               Explore industries <ArrowRight size={16} aria-hidden="true" />
@@ -343,9 +354,9 @@ export default function Home() {
               <div className="market-image-info">
                 <div className="market-image-tag">
                   <Factory size={15} strokeWidth={2} aria-hidden="true" />
-                  <span>Field-Proven Industrial Chemistry</span>
+                  <span>Industrial &amp; construction chemistry</span>
                 </div>
-                <p className="market-image-note">Deployed across continuous chemical plants, utilities &amp; institutional facilities</p>
+                <p className="market-image-note">Categories for plants, building services, and shared facilities</p>
               </div>
             </div>
           </div>
@@ -383,14 +394,14 @@ export default function Home() {
             </div>
             <h2 id="vklin-title">Meet <span>V-Klin</span>, care for everyday spaces.</h2>
             <p>
-              V-Klin brings PolyTreat's formulated cleaning and hygiene range to homes, workplaces, and commercial facilities with commercial-grade effectiveness.
+              V-Klin brings PolyTreat&apos;s formulated cleaning range to homes, workplaces, and shared facilities, organized by the task each product handles.
             </p>
             <div className="vklin-actions">
               <Link className="btn btn-vklin" href="/vklin">
                 Explore V-Klin <ArrowRight size={17} aria-hidden="true" />
               </Link>
               <Link className="vklin-products-link" href="/vklin/products">
-                View 10 Packaged Formulations <ArrowUpRight size={16} aria-hidden="true" />
+                See all {vklinProductCount} products <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -399,7 +410,7 @@ export default function Home() {
             <div className="vklin-panel-heading">
               <span className="vklin-leaf-mark"><Leaf size={19} aria-hidden="true" /></span>
               <div>
-                <span>Institutional & home care</span>
+                <span>Institutional &amp; home care</span>
                 <h3>Cleaning categories</h3>
               </div>
             </div>
@@ -412,50 +423,24 @@ export default function Home() {
 
             {/* Real Product Packaging Preview Strip */}
             <div className="vklin-preview-strip">
-              <span className="vklin-preview-heading">Formulated Product Range</span>
+              <span className="vklin-preview-heading">Product range</span>
               <div className="vklin-preview-cards">
-                <Link href="/vklin/products/multipurpose-surface-cleaner" className="vklin-preview-card">
-                  <div className="vklin-preview-img-box">
-                    <Image
-                      src="/vklin-products/vklin-multipurpose-surface-cleaner.webp"
-                      alt="V-Klin Multi-Purpose Surface Cleaner"
-                      fill
-                      sizes="100px"
-                      className="vklin-preview-img"
-                    />
-                  </div>
-                  <span className="vklin-preview-title">Surface Cleaner</span>
-                </Link>
-                <Link href="/vklin/products/golden-floor-cleaner" className="vklin-preview-card">
-                  <div className="vklin-preview-img-box">
-                    <Image
-                      src="/vklin-products/vklin-golden-floor-cleaner.webp"
-                      alt="V-Klin Golden Floor Cleaner"
-                      fill
-                      sizes="100px"
-                      className="vklin-preview-img"
-                    />
-                  </div>
-                  <span className="vklin-preview-title">Floor Cleaner</span>
-                </Link>
-                <Link href="/vklin/products/dishwash-liquid-gel-lemon" className="vklin-preview-card">
-                  <div className="vklin-preview-img-box">
-                    <Image
-                      src="/vklin-products/vklin-dishwash-liquid-gel-lemon.webp"
-                      alt="V-Klin Lemon Dishwash Gel"
-                      fill
-                      sizes="100px"
-                      className="vklin-preview-img"
-                    />
-                  </div>
-                  <span className="vklin-preview-title">Dishwash Gel</span>
-                </Link>
+                {vklinPreviewProducts.map((product) => (
+                  <Link href={product.href} className="vklin-preview-card" key={product.href}>
+                    <div className="vklin-preview-img-box">
+                      <Image
+                        src={`/vklin-products/${product.image}`}
+                        alt={`V-Klin ${product.name}`}
+                        fill
+                        sizes="(max-width: 768px) 30vw, 150px"
+                        className="vklin-preview-img"
+                      />
+                    </div>
+                    <span className="vklin-preview-title">{product.shortName}</span>
+                  </Link>
+                ))}
               </div>
             </div>
-
-            <p className="vklin-panel-note">
-              Everyday cleaning for homes, institutions, and facility teams.
-            </p>
           </div>
         </div>
       </section>
@@ -513,8 +498,8 @@ export default function Home() {
             <div className="company-facility-card">
               <span className="facility-card-icon"><Building2 size={20} strokeWidth={1.8} aria-hidden="true" /></span>
               <div className="facility-card-text">
-                <strong>Formulation &amp; Manufacturing Facility</strong>
-                <span>MIDC Tarapur • ISO 9001:2015 &amp; WHO-GMP Compliant</span>
+                <strong>Formulation &amp; manufacturing</strong>
+                <span>ISO 9001:2015 listed manufacturing scope</span>
               </div>
             </div>
           </div>
@@ -539,6 +524,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <Link className="text-link" href="/about">
+              More about PolyTreat <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
@@ -548,8 +536,8 @@ export default function Home() {
         <div className="container contact-panel">
           <div className="contact-copy">
             <span className="eyebrow eyebrow-light">Start a conversation</span>
-            <h2 id="contact-title">Let's talk about your application.</h2>
-            <p>Tell us about your system or facility, and we'll direct your enquiry to the right team.</p>
+            <h2 id="contact-title">Let&apos;s talk about your application.</h2>
+            <p>Tell us about your system or facility, and we&apos;ll direct your enquiry to the right team.</p>
           </div>
           <div className="contact-actions">
             <a className="contact-action-card contact-email" href="mailto:polyind2@gmail.com">
