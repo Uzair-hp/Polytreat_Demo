@@ -56,6 +56,8 @@ The project is a responsive marketing site, not a technical document portal. The
 
 Current navbar order is **Home → Solutions → Industries → V-Klin → Quality → About Us → Contact**, followed by a **Request a Quote** action linking to the contact form. Solutions, V-Klin, Quality, and About Us have dropdowns; Industries links to `/industries`. The V-Klin dropdown links to its overview, product range, and category anchors. Quality links to `/quality`, its PQRS section, and certificate scopes; TDS/SDS requests are available from the Quality overview and contact page. About Us links to the company overview and facilities. Re-check `src/components/Navbar.tsx` before relying on this snapshot.
 
+All four header dropdowns share one menu system, defined by the `NAVIGATION: UNIFIED MENU SYSTEM` block at the end of `src/app/globals.css`: the panel is anchored under its own trigger, the group headings are uppercase eyebrows with a fading rule, links are light card rows with a trailing `ArrowRight`, and each panel ends with a bottom prompt strip. V-Klin keeps a green accent; the rest use brand blue via the `--nav-accent` custom property. Add new menus to this system instead of writing per-menu CSS. Panels are clamped to the viewport in `Navbar.tsx`, so a new panel must keep a `--nav-panel-width` that fits between 1024px and the widest desktop. Use `lucide-react` icons for row affordances, never a glyph in a CSS `content` property, which has caused mojibake before.
+
 - Framework: Next.js 16 App Router, React 19, TypeScript.
 - Styles: **Vanilla CSS only**, chiefly `src/app/globals.css`. Do not add Tailwind.
 - Icons: use the existing `lucide-react` package and its established visual weight.

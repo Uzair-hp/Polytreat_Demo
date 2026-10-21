@@ -10,7 +10,7 @@ The project is a responsive PolyTreat marketing site. The homepage introduces th
 
 ### Implemented homepage structure
 
-1. **Navbar:** PolyTreat logo; Home, Solutions, Industries, V-Klin, Quality, About Us, and Contact in that order; dropdowns for Solutions, V-Klin, Quality, and About Us; Request a Quote action; mobile drawer. Industries opens its dedicated overview page; the homepage keeps a shorter preview.
+1. **Navbar:** PolyTreat logo; Home, Solutions, Industries, V-Klin, Quality, About Us, and Contact in that order; dropdowns for Solutions, V-Klin, Quality, and About Us; Request a Quote action; mobile drawer. Industries opens its dedicated overview page; the homepage keeps a shorter preview. All four dropdowns share one menu system (see item 10).
 2. **Hero:** Light chemistry-inspired background, animated orbit/molecule illustration, concise company introduction, “Explore solutions” and “Talk to team” CTAs, and direct phone link.
 3. **Quality & compliance strip:** A slim bar directly under the hero listing the four supplied certificate documents by issuer and scope, with a link to `/certifications`. Wording must not read as blanket or government approval.
 4. **Three areas of work:** Industrial water treatment; construction and surface protection; V-Klin facility care.
@@ -19,6 +19,7 @@ The project is a responsive PolyTreat marketing site. The homepage introduces th
 7. **PQRS:** Performance, Quality, Reliability, Service, using the client's corrected meaning.
 8. **Contact panel and footer:** Current email and phone, site navigation, work areas, and locations as currently displayed. The footer's Instagram, LinkedIn, and Facebook glyphs are placeholders, not working social links; add links only after the client supplies official profiles.
 9. **Footer navigation:** The Explore column links to the homepage solutions anchor, industries, the V-Klin overview and product range, quality, certifications, about, and contact. The Our Work column links to the six dedicated solution pages. There is no `/solutions` index page, so the Solutions entry points at the homepage anchor; do not link to `/solutions` directly.
+10. **Header menu system:** Every dropdown is one panel anchored under its own trigger and flush with the bottom of the sticky header, never centred on the page. Each panel uses the same parts: group headings as small uppercase eyebrows with a fading rule, link rows as light cards with a trailing arrow, and a bottom prompt strip with a next step. V-Klin keeps its green accent; the other menus use brand blue. Panels are clamped to the viewport in code, so a panel must stay narrower than the desktop range. Add new menus on this system rather than per-menu CSS.
 
 Implementation references: `src/app/page.tsx`, `src/components/Navbar.tsx`, and `src/app/globals.css`. Re-check these files before changing this status list.
 
