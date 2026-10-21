@@ -512,12 +512,8 @@ export default function Home() {
               construction chemistry, and cleaning products under the V-Klin brand.
             </p>
             <div className="company-locations" id="locations">
-              <span className="company-locations-label">Locations</span>
+              <span className="company-locations-label">Location</span>
               <div className="company-location-list">
-                <div className="company-location">
-                  <MapPin size={17} aria-hidden="true" />
-                  <span>Tarapur MIDC</span>
-                </div>
                 <div className="company-location">
                   <MapPin size={17} aria-hidden="true" />
                   <span>Goregaon, Mumbai</span>

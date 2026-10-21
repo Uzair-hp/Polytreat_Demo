@@ -5295,7 +5295,7 @@ code, .font-mono {
 
   .footer-main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
+    align-items: stretch;
     gap: 1rem 0.7rem;
     padding: 1.8rem 0 1.2rem;
   }

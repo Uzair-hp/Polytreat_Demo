@@ -2,6 +2,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 
+const exploreLinks = [
+  { label: "Solutions", href: "/#solutions" },
+  { label: "Industries & applications", href: "/industries" },
+  { label: "V-Klin", href: "/vklin" },
+  { label: "V-Klin products", href: "/vklin/products" },
+  { label: "Quality", href: "/quality" },
+  { label: "Certifications", href: "/certifications" },
+  { label: "About us", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
+const solutionLinks = [
+  { label: "Industrial water treatment", href: "/solutions/industrial-water" },
+  { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water" },
+  { label: "RO & effluent", href: "/solutions/ro-effluent" },
+  { label: "Construction chemistry", href: "/solutions/construction-chemistry" },
+  { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
+  { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
+];
+
 export default function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -34,24 +54,23 @@ export default function SiteFooter() {
               <span className="footer-social-note">Profile links to be added</span>
             </div>
           </div>
-          <div className="footer-column">
+          <nav className="footer-column" aria-label="Explore">
             <h2>Explore</h2>
-            <Link href="/#solutions">Solutions</Link>
-            <Link href="/industries">Industries &amp; applications</Link>
-            <Link href="/#vklin">V-Klin</Link>
-            <Link href="/about">About us</Link>
-          </div>
-          <div className="footer-column">
+            {exploreLinks.map(({ label, href }) => (
+              <Link href={href} key={href}>{label}</Link>
+            ))}
+          </nav>
+          <nav className="footer-column" aria-label="Our work">
             <h2>Our work</h2>
-            <Link href="/#solution-water">Water treatment</Link>
-            <Link href="/#solution-construction">Construction chemistry</Link>
-            <Link href="/#solution-vklin">Institutional &amp; home care</Link>
-          </div>
+            {solutionLinks.map(({ label, href }) => (
+              <Link href={href} key={href}>{label}</Link>
+            ))}
+          </nav>
           <div className="footer-column footer-contact-column">
             <h2>Contact</h2>
             <a href="mailto:polyind2@gmail.com"><Mail size={15} aria-hidden="true" /> polyind2@gmail.com</a>
             <a href="tel:+919820235995"><Phone size={15} aria-hidden="true" /> +91 98202 35995</a>
-            <span><MapPin size={15} aria-hidden="true" /> Tarapur MIDC · Goregaon, Mumbai</span>
+            <span><MapPin size={15} aria-hidden="true" /> Goregaon, Mumbai</span>
           </div>
         </div>
         <div className="footer-bottom">

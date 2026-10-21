@@ -18,6 +18,7 @@ The project is a responsive PolyTreat marketing site. The homepage introduces th
 6. **V-Klin overview:** Separate introduction to the cleaning and facility-care range.
 7. **PQRS:** Performance, Quality, Reliability, Service, using the client's corrected meaning.
 8. **Contact panel and footer:** Current email and phone, site navigation, work areas, and locations as currently displayed. The footer's Instagram, LinkedIn, and Facebook glyphs are placeholders, not working social links; add links only after the client supplies official profiles.
+9. **Footer navigation:** The Explore column links to the homepage solutions anchor, industries, the V-Klin overview and product range, quality, certifications, about, and contact. The Our Work column links to the six dedicated solution pages. There is no `/solutions` index page, so the Solutions entry points at the homepage anchor; do not link to `/solutions` directly.
 
 Implementation references: `src/app/page.tsx`, `src/components/Navbar.tsx`, and `src/app/globals.css`. Re-check these files before changing this status list.
 
