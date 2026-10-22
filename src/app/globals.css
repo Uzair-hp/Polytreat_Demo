@@ -10863,6 +10863,868 @@ code, .font-mono {
   }
 }
 
+/* ==========================================================================
+   SPECIALTY PRODUCTS
+   COROSIL, POLYDOR-WS and POLYKLIN: the flagship products with their own
+   documented application.
+   ========================================================================== */
+
+.specialty-hero,
+.specialty-product-hero {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 84% 12%, rgba(56, 189, 248, 0.18), transparent 36%),
+    radial-gradient(ellipse at 6% 92%, rgba(16, 185, 129, 0.12), transparent 34%),
+    linear-gradient(122deg, #0B192C 0%, #123D60 58%, #0E2C48 100%);
+  color: #FFFFFF;
+}
+
+.specialty-breadcrumbs,
+.specialty-product-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.4rem 0 1.8rem;
+  color: rgba(216, 232, 242, 0.72);
+  font-size: 0.76rem;
+}
+
+.specialty-breadcrumbs a,
+.specialty-product-breadcrumbs a {
+  color: #8FD4F0;
+  font-weight: 700;
+}
+
+.specialty-breadcrumbs [aria-current="page"],
+.specialty-product-breadcrumbs [aria-current="page"] {
+  color: rgba(216, 232, 242, 0.85);
+}
+
+.specialty-hero-layout,
+.specialty-product-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: clamp(1.6rem, 4vw, 3.5rem);
+}
+
+.specialty-hero-layout > .btn {
+  justify-self: start;
+}
+
+.specialty-hero h1,
+.specialty-product-copy h1 {
+  max-width: 640px;
+  margin: 0.9rem 0 0.9rem;
+  color: #FFFFFF;
+  font-size: clamp(2.1rem, 4vw, 3.3rem);
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+
+.specialty-hero p,
+.specialty-product-copy > p {
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+  color: #C6DCEA;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.specialty-hero .eyebrow,
+.specialty-product-copy .eyebrow {
+  color: #8FD4F0;
+}
+
+.specialty-product-figure {
+  position: relative;
+  display: grid;
+  min-height: 300px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(143, 212, 240, 0.28);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(143, 212, 240, 0.16), transparent 55%),
+    rgba(255, 255, 255, 0.05);
+}
+
+.specialty-product-figure-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.specialty-product-figure-icon {
+  position: relative;
+  display: grid;
+  width: 96px;
+  height: 96px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #8FD4F0;
+  backdrop-filter: blur(8px);
+}
+
+.specialty-product-figure-label {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(11, 25, 44, 0.55);
+  color: #C6DCEA;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.specialty-product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.15rem;
+}
+
+.specialty-product-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #8FD4F0;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.specialty-product-back:hover {
+  color: #BFE9FA;
+}
+
+.specialty-product-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem 1.4rem;
+  margin: 2.2rem 0 0;
+  border-top: 1px solid rgba(143, 212, 240, 0.24);
+  padding-top: 1.2rem;
+}
+
+.specialty-product-facts div {
+  display: grid;
+  gap: 0.22rem;
+}
+
+.specialty-product-facts dt {
+  color: rgba(198, 220, 234, 0.72);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.specialty-product-facts dd {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.specialty-range,
+.specialty-other,
+.specialty-product-overview,
+.specialty-product-steps,
+.specialty-product-areas,
+.specialty-product-equipment,
+.specialty-product-applications {
+  padding: clamp(2.6rem, 5vw, 4.2rem) 0;
+  background: #FFFFFF;
+}
+
+.specialty-other,
+.specialty-product-steps,
+.specialty-product-areas,
+.specialty-product-equipment {
+  background: linear-gradient(180deg, #F4F9FC 0%, #FFFFFF 100%);
+}
+
+.specialty-kicker,
+.specialty-product-kicker {
+  display: block;
+  color: #1769A6;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.specialty-section-heading,
+.specialty-product-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+  align-items: end;
+  gap: 1.2rem 2rem;
+  margin-bottom: 1.6rem;
+}
+
+.specialty-section-heading h2,
+.specialty-product-section-heading h2,
+.specialty-product-overview h2,
+.specialty-product-applications h2,
+.specialty-product-systems h2,
+.specialty-product-specs h2,
+.specialty-product-method h2,
+.specialty-product-distinction h2,
+.specialty-cta h2 {
+  margin: 0.6rem 0 0;
+  color: #0B192C;
+  font-size: clamp(1.5rem, 2.8vw, 2.15rem);
+  letter-spacing: -0.04em;
+  line-height: 1.14;
+}
+
+.specialty-section-heading p,
+.specialty-product-section-heading p,
+.specialty-product-overview p,
+.specialty-product-applications-layout > div p,
+.specialty-product-specs-layout > div p,
+.specialty-product-method-layout > div p,
+.specialty-cta p {
+  margin: 0;
+  color: #5C7182;
+  font-size: 0.87rem;
+  line-height: 1.65;
+}
+
+.specialty-range-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+}
+
+.specialty-range-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #DCE8EE;
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem;
+  background: linear-gradient(150deg, #FFFFFF, #F8FBFC);
+  box-shadow: 0 8px 24px rgba(23, 74, 104, 0.05);
+}
+
+.specialty-range-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid #D8EAF2;
+  border-radius: 14px;
+  background: #EDF7FB;
+  color: #1769A6;
+}
+
+.specialty-range-category {
+  margin-top: 0.9rem;
+  color: #6B8290;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.specialty-range-card h3 {
+  margin: 0.3rem 0 0.45rem;
+  color: #0B192C;
+  font-size: 1.28rem;
+  letter-spacing: -0.03em;
+}
+
+.specialty-range-card > p {
+  margin: 0 0 0.9rem;
+  color: #5C7182;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.specialty-range-list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0 0 1.05rem;
+  padding: 0;
+  list-style: none;
+}
+
+.specialty-range-list li {
+  position: relative;
+  padding-left: 0.95rem;
+  color: #4F6A5F;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.specialty-range-list li::before {
+  position: absolute;
+  top: 0.52rem;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #6FBBDD;
+  content: "";
+}
+
+.specialty-range-card > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  margin-top: auto;
+  color: #1769A6;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.specialty-range-card > a svg {
+  transition: transform 180ms ease;
+}
+
+.specialty-range-card > a:hover svg {
+  transform: translateX(3px);
+}
+
+.specialty-other-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem 1.15rem;
+}
+
+.specialty-other-card {
+  border: 1px solid #DCE8EE;
+  border-radius: 14px;
+  padding: 1.05rem 1.2rem;
+  background: #FFFFFF;
+}
+
+.specialty-other-card h3 {
+  margin: 0 0 0.3rem;
+  color: #102D42;
+  font-size: 0.97rem;
+  letter-spacing: -0.02em;
+}
+
+.specialty-other-card p {
+  margin: 0;
+  color: #5C7182;
+  font-size: 0.81rem;
+  line-height: 1.6;
+}
+
+.specialty-cta {
+  padding: 0 0 clamp(2.6rem, 5vw, 4.2rem);
+  background: #FFFFFF;
+}
+
+.specialty-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border: 1px solid #DCE8EE;
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  background: linear-gradient(105deg, #F2F9FD, #FFFFFF 62%, #EFF8F3);
+}
+
+.specialty-cta-inner .btn {
+  flex: 0 0 auto;
+}
+
+.specialty-product-overview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  align-items: start;
+  gap: clamp(1.4rem, 3.5vw, 2.8rem);
+}
+
+.specialty-product-features {
+  border: 1px solid #DCE8EE;
+  border-radius: 16px;
+  padding: 1.2rem 1.35rem;
+  background: #F8FBFC;
+}
+
+.specialty-product-features h3,
+.specialty-product-handling-card h3,
+.specialty-product-area-card h3,
+.specialty-product-equipment-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.85rem;
+  color: #102D42;
+  font-size: 0.71rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.specialty-product-features h3 svg,
+.specialty-product-handling-card h3 svg {
+  color: #1769A6;
+}
+
+.specialty-product-features ul,
+.specialty-product-handling-card ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.specialty-product-features li,
+.specialty-product-handling-card ul li {
+  position: relative;
+  padding: 0.5rem 0.6rem 0.5rem 1.45rem;
+  border: 1px solid #E4EDF2;
+  border-radius: 10px;
+  background: #FFFFFF;
+  color: #3F5A6B;
+  font-size: 0.79rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.specialty-product-features li::before,
+.specialty-product-handling-card ul li::before {
+  position: absolute;
+  top: 0.78rem;
+  left: 0.62rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6FBBDD;
+  content: "";
+}
+
+.specialty-product-step-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: specialty-step;
+}
+
+.specialty-product-step-list li {
+  border: 1px solid #DCE8EE;
+  border-radius: 16px;
+  padding: 1.25rem 1.35rem;
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(23, 74, 104, 0.045);
+}
+
+.specialty-product-step-number {
+  display: inline-grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 10px;
+  background: #1769A6;
+  color: #FFFFFF;
+  font: 700 0.72rem/1 var(--font-mono), monospace;
+}
+
+.specialty-product-step-list h3 {
+  margin: 0.8rem 0 0.4rem;
+  color: #102D42;
+  font-size: 1.02rem;
+  letter-spacing: -0.02em;
+}
+
+.specialty-product-step-list p {
+  margin: 0;
+  color: #5C7182;
+  font-size: 0.82rem;
+  line-height: 1.62;
+}
+
+.specialty-product-specs {
+  padding: clamp(2.6rem, 5vw, 4.2rem) 0;
+  background: #FFFFFF;
+}
+
+.specialty-product-specs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: clamp(1.4rem, 3.5vw, 2.8rem);
+}
+
+.specialty-product-specs-table {
+  display: grid;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #DCE8EE;
+  border-radius: 16px;
+  background: #FFFFFF;
+}
+
+.specialty-product-specs-table div {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.85fr) minmax(0, 1.15fr);
+  gap: 1rem;
+  border-bottom: 1px solid #EDF3F7;
+  padding: 0.68rem 1rem;
+}
+
+.specialty-product-specs-table div:last-child {
+  border-bottom: 0;
+}
+
+.specialty-product-specs-table dt {
+  color: #6B8290;
+  font-size: 0.74rem;
+  font-weight: 650;
+}
+
+.specialty-product-specs-table dd {
+  margin: 0;
+  color: #1D3A4C;
+  font-size: 0.79rem;
+  font-weight: 650;
+}
+
+.specialty-product-systems {
+  padding: clamp(2.6rem, 5vw, 4.2rem) 0 0;
+  background: #FFFFFF;
+}
+
+.specialty-product-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.specialty-product-chip-list li {
+  border: 1px solid #D6E7F0;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: #F4FAFD;
+  color: #35637F;
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.specialty-product-area-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+}
+
+.specialty-product-area-card {
+  border: 1px solid #DCE8EE;
+  border-radius: 16px;
+  padding: 1.2rem 1.35rem;
+  background: #FFFFFF;
+}
+
+.specialty-product-area-card ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.specialty-product-area-card li {
+  position: relative;
+  padding-left: 1rem;
+  color: #4F6A5F;
+  font-size: 0.81rem;
+  line-height: 1.55;
+}
+
+.specialty-product-area-card li::before {
+  position: absolute;
+  top: 0.56rem;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #6FBBDD;
+  content: "";
+}
+
+.specialty-product-distinction {
+  padding: clamp(2.2rem, 4vw, 3.4rem) 0;
+  background: #FFFFFF;
+}
+
+.specialty-product-distinction-inner {
+  max-width: 860px;
+  border: 1px solid #E7D9C4;
+  border-left: 4px solid #C98A26;
+  border-radius: 14px;
+  padding: 1.35rem 1.5rem;
+  background: #FFFBF3;
+}
+
+.specialty-product-distinction-inner h2 {
+  margin-top: 0;
+  color: #6B4715;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+}
+
+.specialty-product-distinction-inner p {
+  margin: 0.6rem 0 0;
+  color: #6A573A;
+  font-size: 0.85rem;
+  line-height: 1.68;
+}
+
+.specialty-product-equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+}
+
+.specialty-product-equipment-card {
+  border: 1px solid #DCE8EE;
+  border-radius: 16px;
+  padding: 1.2rem 1.35rem;
+  background: #FFFFFF;
+}
+
+.specialty-product-equipment-card h3 {
+  margin: 0 0 0.4rem;
+  color: #102D42;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.specialty-product-equipment-card p {
+  margin: 0;
+  color: #5C7182;
+  font-size: 0.82rem;
+  line-height: 1.62;
+}
+
+.specialty-product-method {
+  padding: clamp(2.6rem, 5vw, 4.2rem) 0;
+  background: #FFFFFF;
+}
+
+.specialty-product-method-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: start;
+  gap: clamp(1.4rem, 3.5vw, 2.8rem);
+}
+
+.specialty-product-method-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.specialty-product-method-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #E4EDF2;
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  background: #F8FBFC;
+  color: #3F5A6B;
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.specialty-product-method-list .specialty-product-step-number {
+  flex: 0 0 32px;
+}
+
+.specialty-product-applications-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(1.4rem, 3.5vw, 2.8rem);
+}
+
+.specialty-product-applications-layout ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.specialty-product-applications-layout li {
+  position: relative;
+  padding: 0.55rem 0.7rem 0.55rem 1.45rem;
+  border: 1px solid #E4EDF2;
+  border-radius: 10px;
+  background: #FFFFFF;
+  color: #3F5A6B;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.specialty-product-applications-layout li::before {
+  position: absolute;
+  top: 0.84rem;
+  left: 0.65rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6FBBDD;
+  content: "";
+}
+
+.specialty-product-handling {
+  padding: 0 0 clamp(2.2rem, 4vw, 3.4rem);
+  background: #FFFFFF;
+}
+
+.specialty-product-handling-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+}
+
+.specialty-product-handling-card {
+  border: 1px solid #DCE8EE;
+  border-radius: 16px;
+  padding: 1.2rem 1.35rem;
+  background: #F8FBFC;
+}
+
+.specialty-product-handling-card.is-note {
+  background: linear-gradient(140deg, #F4FAFD, #FFFFFF);
+}
+
+.specialty-product-handling-card p {
+  margin: 0 0 0.6rem;
+  color: #5C7182;
+  font-size: 0.82rem;
+  line-height: 1.62;
+}
+
+.specialty-product-handling-card p:last-child {
+  margin-bottom: 0;
+}
+
+.specialty-product-information {
+  padding: 0 0 clamp(2.6rem, 5vw, 4.2rem);
+  background: #FFFFFF;
+}
+
+.specialty-product-info-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border: 1px solid #DCE8EE;
+  border-radius: 16px;
+  padding: 1.1rem 1.3rem;
+  background: linear-gradient(105deg, #F2F9FD, #FFFFFF 62%, #EFF8F3);
+}
+
+.specialty-product-info-layout h2 {
+  margin: 0.25rem 0 0;
+  color: #0B192C;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+.specialty-product-info-layout p {
+  max-width: 640px;
+  margin: 0.25rem 0 0;
+  color: #5C7182;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.specialty-product-info-layout > a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.45rem;
+  color: #1769A6;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+@media (max-width: 900px) {
+  .specialty-hero-layout,
+  .specialty-product-hero-layout,
+  .specialty-section-heading,
+  .specialty-product-section-heading,
+  .specialty-product-overview-layout,
+  .specialty-product-specs-layout,
+  .specialty-product-method-layout,
+  .specialty-product-applications-layout {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .specialty-range-grid,
+  .specialty-product-step-list,
+  .specialty-product-equipment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .specialty-product-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .specialty-range-grid,
+  .specialty-other-grid,
+  .specialty-product-area-grid,
+  .specialty-product-equipment-grid,
+  .specialty-product-step-list,
+  .specialty-product-handling-layout,
+  .specialty-product-applications-layout ul,
+  .specialty-product-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specialty-cta-inner,
+  .specialty-product-info-layout {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .specialty-product-figure {
+    min-height: 210px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specialty-range-card > a svg {
+    transition: none;
+  }
+}
+
 /* Construction chemistry solution overview */
 .construction-chemistry-hero {
   overflow: hidden;

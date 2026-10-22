@@ -37,6 +37,15 @@ const productGroups: MenuGroup[] = [
       { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
     ],
   },
+  {
+    title: "Specialty products",
+    links: [
+      { label: "Specialty products overview", href: "/specialty" },
+      { label: "COROSIL", href: "/specialty/corosil" },
+      { label: "POLYDOR-WS", href: "/specialty/polydor-ws" },
+      { label: "POLYKLIN", href: "/specialty/polyklin" },
+    ],
+  },
 ];
 
 const vklinGroups: MenuGroup[] = [

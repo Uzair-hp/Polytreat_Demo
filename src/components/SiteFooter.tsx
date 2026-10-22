@@ -20,6 +20,7 @@ const solutionLinks = [
   { label: "Construction chemistry", href: "/solutions/construction-chemistry" },
   { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
   { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
+  { label: "Specialty products", href: "/specialty" },
 ];
 
 export default function SiteFooter() {

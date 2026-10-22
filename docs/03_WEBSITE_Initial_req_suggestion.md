@@ -95,6 +95,19 @@ The V-Klin range is the client's most complete product documentation, and every 
 - The range makes **no pesticidal, insecticidal or germ-kill claim**. The client's ISO, WHO-GMP and Eco-Friendly certificates all scope it as being made without any medicinal, therapeutic, disinfectant, pesticidal, insecticidal or drug claims, and `/certifications` states that scope. Product copy must not contradict it.
 - Source of truth: `polytreat_study.md` Section 11 and Section 22.
 
+## 5C. Specialty product pages
+
+The three flagship specialty products have their own pages, because each one is aimed at a single job and each has its own client literature.
+
+- `/specialty` is the hub. It carries the three flagship products, the further specialty lines from the industrial profile, and an enquiry band.
+- `/specialty/corosil` sets out the rust-treatment sequence (surface preparation, treatment, compatible paint system), the published physical data, and the finishing systems the literature names.
+- `/specialty/polydor-ws` sets out the application areas across waste, wastewater, food and animal processing, scrubbers and facility settings.
+- `/specialty/polyklin` sets out the equipment it serves and the published method of application.
+- The three pages share one shell in `src/components/SpecialtyProductDetail.tsx` and one source of truth in `src/data/specialtyProducts.ts`.
+- These pages deliberately publish **no safety classification or hazard status**, only practical handling guidance, and they point to the current Safety Data Sheet. The COROSIL sheet contradicts itself on hazard status and the POLYKLIN sheet carries unverified safety and environmental statements, so neither can support a published safety summary.
+- They also publish no performance guarantees, no "compatible with any paint", no composition details, and no disinfection, sanitation, insecticidal or food-contact claims. POLYDOR-WS says on the page that it is an odour-control product and not a disinfectant.
+- Source of truth: `polytreat_study.md` Sections 5, 6, 7, 9, 18, 19 and 22.
+
 ## 6. Stack and repository conventions
 
 - Next.js 16 App Router, React 19, TypeScript.

@@ -208,6 +208,10 @@ export default function IndustrialWaterPage() {
             ))}
           </ul>
 
+          <Link className="boiler-cooling-overview-link" href="/specialty">
+            Explore the specialty products <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+
           <Link className="boiler-cooling-overview-link" href="/contact#contact-form">
             Discuss another industrial application <ArrowRight size={16} aria-hidden="true" />
           </Link>
