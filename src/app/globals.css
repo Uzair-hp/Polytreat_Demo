@@ -12271,6 +12271,168 @@ code, .font-mono {
   }
 }
 
+/* ==========================================================================
+   CONSTRUCTION RANGE
+   The products listed in the client's construction profile, grouped by family.
+   ========================================================================== */
+
+.construction-range {
+  padding: clamp(2.8rem, 5.5vw, 4.4rem) 0 clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(180deg, #F4FAFD 0%, #FFFFFF 100%);
+  scroll-margin-top: 6rem;
+}
+
+.construction-range-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(250px, 0.95fr);
+  align-items: end;
+  gap: 1.4rem 2rem;
+  margin-bottom: 1.6rem;
+}
+
+.construction-range-heading h2 {
+  max-width: 640px;
+  margin: 0.65rem 0 0;
+  color: #0B192C;
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.construction-range-heading > p {
+  margin: 0;
+  color: #5C7182;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.construction-range-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.construction-range-family {
+  border: 1px solid #DCE8EE;
+  border-radius: 18px;
+  padding: 1.35rem 1.5rem;
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(23, 74, 104, 0.045);
+}
+
+.construction-range-family-head h3 {
+  margin: 0 0 0.3rem;
+  color: #102D42;
+  font-size: 1.12rem;
+  letter-spacing: -0.025em;
+}
+
+.construction-range-family-head p {
+  margin: 0 0 1rem;
+  color: #62798A;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.construction-range-products {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.construction-range-product {
+  border: 1px solid #E4EDF2;
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+  background: #F9FCFD;
+}
+
+.construction-range-product-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.construction-range-product-head strong {
+  color: #102D42;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+}
+
+.construction-range-product-type {
+  color: #6A8290;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.construction-range-product-uses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.construction-range-product-uses li {
+  border: 1px solid #DCE9EE;
+  border-radius: 999px;
+  padding: 0.28rem 0.55rem;
+  background: #FFFFFF;
+  color: #557466;
+  font-size: 0.69rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.construction-range-product-coverage {
+  margin: 0.55rem 0 0;
+  color: #7A8F9B;
+  font-size: 0.71rem;
+  font-weight: 600;
+}
+
+.construction-range-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #1769A6;
+  font-size: 0.83rem;
+  font-weight: 800;
+}
+
+.construction-range-link svg {
+  transition: transform 180ms ease;
+}
+
+.construction-range-link:hover svg {
+  transform: translateX(3px);
+}
+
+.construction-range-note {
+  max-width: 860px;
+  margin: 1.1rem 0 0;
+  color: #6A8190;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .construction-range-heading {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .construction-range-link svg {
+    transition: none;
+  }
+}
+
 /* Construction chemistry solution overview */
 .construction-chemistry-hero {
   overflow: hidden;
@@ -12577,14 +12739,6 @@ code, .font-mono {
   color: #62798A;
   font-size: 0.82rem;
   line-height: 1.6;
-}
-
-.construction-detail-card > .construction-detail-examples {
-  margin-bottom: 0.8rem;
-  color: #176B73;
-  font-size: 0.7rem;
-  font-weight: 700;
-  line-height: 1.5;
 }
 
 .construction-detail-note {

@@ -8,6 +8,7 @@ import {
   Layers3,
   ShieldCheck,
 } from "lucide-react";
+import ConstructionRange from "@/components/ConstructionRange";
 
 export const metadata: Metadata = {
   title: "Waterproofing, Repair & Coatings | PolyTreat Chemicals",
@@ -22,7 +23,6 @@ const productAreas = [
     title: "Waterproofing systems",
     description:
       "Coating and membrane categories for roofs, terraces, walls, foundations, and other building surfaces.",
-    examples: "Profile examples: POLYPROOF-SPR · POLYROOF-ACE",
     contexts: ["Roofs & terraces", "Walls", "Foundations"],
   },
   {
@@ -31,7 +31,6 @@ const productAreas = [
     title: "Concrete repair & bonding",
     description:
       "Polymer additives for cement and mortar work, including repair, patching, bonding, and related surface applications.",
-    examples: "Profile examples: POLYBOND-SP · POLYBOND-SPR · POLYBOND-SPA",
     contexts: ["Concrete repair", "Mortar mixes", "Bonding"],
   },
   {
@@ -40,7 +39,6 @@ const productAreas = [
     title: "Building-surface coatings",
     description:
       "Protective coating categories for exterior walls and other building surfaces, with product uses varying by substrate.",
-    examples: "Profile examples: PROTEX 2000 · POLYROOF-ACR",
     contexts: ["Exterior surfaces", "Concrete", "Masonry"],
   },
 ];
@@ -108,7 +106,7 @@ export default function WaterproofingRepairCoatingsPage() {
           </div>
 
           <div className="construction-detail-grid">
-            {productAreas.map(({ number, icon: Icon, title, description, examples, contexts }) => (
+            {productAreas.map(({ number, icon: Icon, title, description, contexts }) => (
               <article className="construction-detail-card" key={title}>
                 <div className="construction-card-topline">
                   <span>{number}</span>
@@ -116,7 +114,6 @@ export default function WaterproofingRepairCoatingsPage() {
                 </div>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <p className="construction-detail-examples">{examples}</p>
                 <ul className="construction-context-list" aria-label={`${title} applications`}>
                   {contexts.map((context) => <li key={context}>{context}</li>)}
                 </ul>
@@ -125,14 +122,26 @@ export default function WaterproofingRepairCoatingsPage() {
           </div>
 
           <p className="construction-detail-note">
-            Product names above are examples from the supplied construction profile.
-            Refer to the relevant product information for specification and use details.
+            The product categories behind each area are listed below. Refer to the
+            relevant product information for specification and use details.
           </p>
           <Link className="construction-detail-back" href="/solutions/construction-chemistry">
             Back to construction chemistry <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </section>
+
+      <ConstructionRange
+        familyIds={[
+          "elastomeric-membranes",
+          "bitumen-and-clear",
+          "exterior-coatings",
+          "bonding-and-repair",
+        ]}
+        showCorosil
+        title="Waterproofing, repair and coating products."
+        intro="The products PolyTreat's construction profile lists for waterproofing, repair and protective finishes."
+      />
 
       <section className="construction-contact-band" aria-labelledby="waterproofing-contact-title">
         <div className="container construction-contact-inner">

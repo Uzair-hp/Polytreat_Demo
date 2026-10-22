@@ -9,6 +9,7 @@ import {
   Link2,
   ShieldCheck,
 } from "lucide-react";
+import ConstructionRange from "@/components/ConstructionRange";
 
 export const metadata: Metadata = {
   title: "Construction Chemistry & Surface Protection | PolyTreat Chemicals",
@@ -147,12 +148,26 @@ export default function ConstructionChemistryPage() {
           </div>
 
           <div className="construction-portfolio-link-wrap">
-            <Link className="construction-portfolio-link" href="/#portfolio-construction">
-              Browse construction product families <ArrowRight size={16} aria-hidden="true" />
+            <Link className="construction-portfolio-link" href="#construction-range">
+              Browse the full product range <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
+
+      <ConstructionRange
+        familyIds={[
+          "elastomeric-membranes",
+          "bitumen-and-clear",
+          "exterior-coatings",
+          "bonding-and-repair",
+          "epoxy-polyurethane-floor",
+          "sealants-and-joints",
+        ]}
+        showCorosil
+        title="The full construction range."
+        intro="Every product in PolyTreat's construction profile, grouped by what it does and where it is used."
+      />
 
       <section className="construction-contact-band" aria-labelledby="construction-contact-title">
         <div className="container construction-contact-inner">

@@ -7,6 +7,7 @@ import {
   Link2,
   ShieldCheck,
 } from "lucide-react";
+import ConstructionRange from "@/components/ConstructionRange";
 
 export const metadata: Metadata = {
   title: "Flooring & Joint Sealing | PolyTreat Chemicals",
@@ -21,7 +22,6 @@ const productAreas = [
     title: "Flooring & surface protection",
     description:
       "The supplied profile lists epoxy and polyurethane coating categories, repair mortars, and decorative flooring systems for built surfaces.",
-    examples: "Profile examples: POLYBOND-HB Coating · POLYBOND-HB Mortar",
     contexts: ["Factory floors", "Floor toppings", "Decorative flooring"],
   },
   {
@@ -30,7 +30,6 @@ const productAreas = [
     title: "Joint & crack sealants",
     description:
       "Sealant categories for cracks and joints in concrete, windows, and other listed building-surface applications.",
-    examples: "Profile examples: POLYROOF CRACKSEAL · POLYBOND Silicone Sealant",
     contexts: ["Concrete cracks", "Expansion joints", "Window frames"],
   },
 ];
@@ -98,7 +97,7 @@ export default function FlooringJointSealingPage() {
           </div>
 
           <div className="flooring-joint-grid">
-            {productAreas.map(({ number, icon: Icon, title, description, examples, contexts }) => (
+            {productAreas.map(({ number, icon: Icon, title, description, contexts }) => (
               <article className="construction-detail-card" key={title}>
                 <div className="construction-card-topline">
                   <span>{number}</span>
@@ -106,7 +105,6 @@ export default function FlooringJointSealingPage() {
                 </div>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <p className="construction-detail-examples">{examples}</p>
                 <ul className="construction-context-list" aria-label={`${title} applications`}>
                   {contexts.map((context) => <li key={context}>{context}</li>)}
                 </ul>
@@ -115,7 +113,7 @@ export default function FlooringJointSealingPage() {
           </div>
 
           <p className="construction-detail-note">
-            Product names are examples from the supplied construction profile. System
+            The product categories behind each area are listed below. System
             build-up, specifications, and application instructions should follow current product information.
           </p>
           <Link className="construction-detail-back" href="/solutions/construction-chemistry">
@@ -123,6 +121,12 @@ export default function FlooringJointSealingPage() {
           </Link>
         </div>
       </section>
+
+      <ConstructionRange
+        familyIds={["epoxy-polyurethane-floor", "sealants-and-joints"]}
+        title="Flooring, coating and sealant products."
+        intro="The products PolyTreat's construction profile lists for industrial floors, protective finishes, and joint and crack sealing."
+      />
 
       <section className="construction-contact-band" aria-labelledby="flooring-joint-contact-title">
         <div className="container construction-contact-inner">

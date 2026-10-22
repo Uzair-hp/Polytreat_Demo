@@ -122,6 +122,17 @@ The industries page is where a visitor should come to understand the whole busin
 - Shared content lives in `src/data/industries.ts`, read by both the homepage and this page.
 - Every solution and product hero uses a real photograph with alt text that describes the picture only. Do not reintroduce a decorative placeholder panel with an "Image placeholder" caption.
 
+## 5E. Construction product range
+
+The three construction pages carry a product range section, built from the client's construction profile.
+
+- `/solutions/construction-chemistry` lists the whole range: six families plus a link to COROSIL, seventeen products in total.
+- `/solutions/waterproofing-repair-coatings` lists the ten waterproofing, repair and coating products.
+- `/solutions/flooring-joint-sealing` lists the seven flooring, coating and sealant products.
+- The range lives in `src/data/constructionRange.ts` and is rendered by one shared component, `src/components/ConstructionRange.tsx`.
+- Product names, types, applications and the profile's indicative coverage figures are published, because these are name-branded products the client sells under those names. Coverage is always stated per coat or per litre and never turned into a project estimate.
+- The profile's marketing claims are not repeated. See the construction copy rules in `docs/agent.md`.
+
 ## 6. Stack and repository conventions
 
 - Next.js 16 App Router, React 19, TypeScript.
