@@ -104,6 +104,7 @@ The three flagship specialty products have their own pages, because each one is 
 - `/specialty/polydor-ws` sets out the application areas across waste, wastewater, food and animal processing, scrubbers and facility settings.
 - `/specialty/polyklin` sets out the equipment it serves and the published method of application.
 - The three pages share one shell in `src/components/SpecialtyProductDetail.tsx` and one source of truth in `src/data/specialtyProducts.ts`.
+- They use the site's light theme, like every other page. Do not reintroduce a deep-navy hero on the specialty pages.
 - These pages deliberately publish **no safety classification or hazard status**, only practical handling guidance, and they point to the current Safety Data Sheet. The COROSIL sheet contradicts itself on hazard status and the POLYKLIN sheet carries unverified safety and environmental statements, so neither can support a published safety summary.
 - They also publish no performance guarantees, no "compatible with any paint", no composition details, and no disinfection, sanitation, insecticidal or food-contact claims. POLYDOR-WS says on the page that it is an odour-control product and not a disinfectant.
 - Source of truth: `polytreat_study.md` Sections 5, 6, 7, 9, 18, 19 and 22.

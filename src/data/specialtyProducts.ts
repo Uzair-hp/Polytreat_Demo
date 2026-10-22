@@ -191,6 +191,7 @@ export const specialtyApplicationGroups: SpecialtyApplicationGroup[] = [
       "Water scrubbers at fast-food restaurants",
       "Post-fire situations",
       "Petrochemical and fertiliser sites",
+      "Car wash water recycling",
     ],
   },
   {
@@ -201,7 +202,6 @@ export const specialtyApplicationGroups: SpecialtyApplicationGroup[] = [
       "Public toilets and washrooms",
       "Health clubs and saunas",
       "Hospital rooms",
-      "Car washes",
       "Laundry and dry-cleaning services",
     ],
   },
