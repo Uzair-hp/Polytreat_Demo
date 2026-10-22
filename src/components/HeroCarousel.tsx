@@ -154,7 +154,11 @@ export default function HeroCarousel() {
             <span className="eyebrow-dot" aria-hidden="true" />
             PolyTreat Chemicals
           </span>
-          <h1 id="hero-title" key={`${activeSlide.id}-headline`}>
+          <h1 id="hero-title">
+            Applied chemistry for{" "}
+            <span className="hero-highlight">water, structures, and everyday care.</span>
+          </h1>
+          <p className="hero-rotating-lead" key={`${activeSlide.id}-lead`}>
             {activeSlide.headlineLead}{" "}
             <span className="hero-highlight">
               {headlineAccentWords.map((word, index) => (
@@ -169,7 +173,7 @@ export default function HeroCarousel() {
                 </Fragment>
               ))}
             </span>
-          </h1>
+          </p>
           <p className="home-hero-description hero-copy-slide-in" key={`${activeSlide.id}-description`}>
             {activeSlide.description}
           </p>

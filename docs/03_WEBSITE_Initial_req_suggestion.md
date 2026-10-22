@@ -58,6 +58,7 @@ Use [`polytreat_study.md`](../polytreat_study.md) to check the cited source and 
 - Design and check narrow phones first, then tablet and desktop; prevent horizontal overflow and clipped navigation/actions.
 - Keep mobile hero copy, illustration, and CTAs in a deliberate reading order. Buttons may sit side-by-side when labels remain legible and touch targets remain comfortable.
 - Use semantic headings, navigation landmarks, descriptive link names, visible focus states, and meaningful image alternatives.
+- One page carries one `<h1>`. Rotating or timed content must never be the page heading, because the heading then changes for crawlers and screen-reader users. Where the hero rotates, the `<h1>` stays static and states what the company does, and the rotating line is body copy.
 - Dropdown triggers must expose expanded state and support keyboard dismissal; mobile menu must not trap users or obscure its close action.
 - Respect reduced-motion preferences and retain a usable static presentation.
 - Treat reduced visual clutter as a requirement: avoid duplicate header proof points, redundant CTAs, oversized decorative elements, and unnecessary icon piles.
