@@ -82,6 +82,8 @@ Each solution page follows the same shape: a hero with breadcrumbs, a short stat
 - `/solutions/industrial-water` is the hub for the industrial range. It carries the four system cards, a section on what each system has to manage, the treatment categories for each system, and the wider catalogue families that have no page of their own.
 - `/solutions/boiler-cooling-water` and `/solutions/ro-effluent` are the two system pages the hub links into. Each card on them has a stable anchor id so the hub can deep-link to one system rather than the page top.
 - There is still no `/solutions` index page. The navbar "Solutions" entry and the footer both point at the homepage solutions anchor; do not link to `/solutions` directly until an index exists.
+- Four catalogue families have their own pages: `/solutions/paint-preservatives`, `/solutions/sugar-process-chemicals`, `/solutions/fireside-treatment` and `/solutions/automotive-chemicals`. They share one shell in `src/components/IndustrialFamilyPage.tsx` and one source of truth in `src/data/industrialFamilies.ts`. They publish categories and roles only, never product codes, because the industrial profile is undated and which products are currently active is still an open client question.
+- The remaining industrial lines, drinking-water treatment and swimming-pool treatment, sit on `/specialty` because they come from the same profile but belong with the specialty range.
 - Every solution hero uses a real photograph with alt text that describes the picture only. Do not reintroduce a decorative placeholder panel with a "Image placeholder" caption.
 - Shared content lives in `src/data/industrialWater.ts` so the hub copy and the system page anchors cannot drift apart.
 

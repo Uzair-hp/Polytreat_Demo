@@ -20,6 +20,10 @@ const solutionLinks = [
   { label: "Construction chemistry", href: "/solutions/construction-chemistry" },
   { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
   { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
+  { label: "Paint preservatives", href: "/solutions/paint-preservatives" },
+  { label: "Sugar-process chemicals", href: "/solutions/sugar-process-chemicals" },
+  { label: "Fireside treatment", href: "/solutions/fireside-treatment" },
+  { label: "Automotive chemicals", href: "/solutions/automotive-chemicals" },
   { label: "Specialty products", href: "/specialty" },
 ];
 

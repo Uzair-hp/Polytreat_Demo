@@ -200,6 +200,11 @@ export default function IndustrialWaterPage() {
                 <div>
                   <h3>{family.title}</h3>
                   <p>{family.description}</p>
+                  {family.href && (
+                    <Link className="industrial-water-extra-link" href={family.href}>
+                      Open {family.title.toLowerCase()} <ArrowRight size={15} aria-hidden="true" />
+                    </Link>
+                  )}
                 </div>
                 <ul className="boiler-cooling-contexts" aria-label={`${family.title} categories`}>
                   {family.categories.map((category) => <li key={category}>{category}</li>)}

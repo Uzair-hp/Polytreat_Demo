@@ -41,6 +41,8 @@ export type IndustrialCategoryGroup = {
 export type IndustrialExtraFamily = {
   title: string;
   description: string;
+  /** Page for this family, when it has one. */
+  href?: string;
   categories: string[];
 };
 
@@ -202,6 +204,7 @@ export const industrialExtraFamilies: IndustrialExtraFamily[] = [
   {
     title: "Fireside treatment",
     description: "Combustion-side products for the fuel and furnace side of a boiler.",
+    href: "/solutions/fireside-treatment",
     categories: [
       "Pre-combustion catalysts",
       "Post-combustion catalysts",
@@ -212,6 +215,7 @@ export const industrialExtraFamilies: IndustrialExtraFamily[] = [
   {
     title: "Paint preservatives",
     description: "Preservation for paint in storage and for dried paint films.",
+    href: "/solutions/paint-preservatives",
     categories: [
       "Wet-state paint preservatives",
       "Dry-state preservatives for exterior paints",
@@ -222,6 +226,7 @@ export const industrialExtraFamilies: IndustrialExtraFamily[] = [
   {
     title: "Sugar-process chemicals",
     description: "Process chemicals for sugar manufacturing applications.",
+    href: "/solutions/sugar-process-chemicals",
     categories: [
       "Quaternary-ammonium compounds",
       "Carbamate-based compounds",
@@ -233,11 +238,13 @@ export const industrialExtraFamilies: IndustrialExtraFamily[] = [
   {
     title: "Automotive chemicals",
     description: "Cooling-system products for vehicles.",
+    href: "/solutions/automotive-chemicals",
     categories: ["Engine cooling-system coolants"],
   },
   {
     title: "Specialty products",
     description: "Additional specialty lines carried in the same industrial profile.",
+    href: "/specialty",
     categories: [
       "General-purpose deodorants",
       "Swimming-pool biocides",

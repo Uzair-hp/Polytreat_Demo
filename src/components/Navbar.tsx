@@ -46,6 +46,15 @@ const productGroups: MenuGroup[] = [
       { label: "POLYKLIN", href: "/specialty/polyklin" },
     ],
   },
+  {
+    title: "Other catalogue families",
+    links: [
+      { label: "Paint preservatives", href: "/solutions/paint-preservatives" },
+      { label: "Sugar-process chemicals", href: "/solutions/sugar-process-chemicals" },
+      { label: "Fireside treatment", href: "/solutions/fireside-treatment" },
+      { label: "Automotive chemicals", href: "/solutions/automotive-chemicals" },
+    ],
+  },
 ];
 
 const vklinGroups: MenuGroup[] = [
