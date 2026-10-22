@@ -7,7 +7,7 @@ import { vklinProductGroups } from "@/data/vklinProducts";
 export const metadata: Metadata = {
   title: "V-Klin Cleaning Products | PolyTreat Chemicals",
   description:
-    "Browse the V-Klin cleaning range by floor and surface care, handwash, dishwashing, glass and washroom care, and other facility-care categories.",
+    "Browse the V-Klin cleaning range by floor and surface care, hand care, dishwashing, glass and window care, bathroom and toilet care, odour control and natural wellness.",
 };
 
 const categoryLinks = vklinProductGroups.map(({ id, title }) => ({ id, title }));
@@ -61,7 +61,7 @@ export default function VKlinProductsPage() {
                 <p>{intro}</p>
               </div>
               <div className="vklin-product-grid">
-                {products.map(({ name, image, href }) => (
+                {products.map(({ name, image, href, summary }) => (
                   <article className="vklin-product-card" key={name}>
                     <div className="vklin-product-image">
                       <Image
@@ -74,6 +74,7 @@ export default function VKlinProductsPage() {
                     </div>
                     <div className="vklin-product-card-copy">
                       <h3>{name}</h3>
+                      <p>{summary}</p>
                       <Link href={href} aria-label={`View ${name} details`}>
                         View product <ArrowRight size={14} aria-hidden="true" />
                       </Link>

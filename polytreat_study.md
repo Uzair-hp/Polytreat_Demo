@@ -770,6 +770,8 @@ The V-Klin institutional cleaning catalogue is reviewed in Section 11. Next, com
 
 - Client-provided [V-Klin facility and home-care product catalogue](../Client%20Assets/vklin-facility-homecare-product-catalog.pdf), a 13-page catalogue. It has no visible publication date.
 - The catalogue spells the brand **“VKLEEN”**. The client context identifies the current brand as **V-Klin**; confirm the current display name before using this older catalogue as website copy.
+- **The current, V-KLIN-branded version of the same catalogue** is [vklin-home-care-wellness-formulations.docx](../Client%20Assets/vklin-home-care-wellness-formulations.docx). It is the same document with **VKLEEN replaced by V-KLIN**, and it carries the full product copy for the range: description, benefits, features, directions for use, applications, fragrances, pack sizes and technical specifications for all six catalogue products. **This `.docx` is the source of truth for V-Klin product copy**, and it answers the open question of whether VKLEEN was simply the earlier spelling of V-Klin: it was.
+- Per-product packaging artwork in `Client Assets/product-label-vklin-*.jpeg` carries the back-panel data for the three products the catalogue does not cover (Protector Floor Cleaner, Multipurpose Surface Cleaner, Air Freshener) plus the manufacturer block, pack sizes, warnings and shelf life. The artwork itself is still **Altra Care** branded, so it remains legacy artwork, but the data printed on it is the client's own product literature.
 
 ### Seedhi baat: V-Klin kya sell karta hua dikh raha hai?
 
@@ -793,9 +795,9 @@ The catalogue names homes, apartments, schools, offices, hotels, hospitals, shop
 
 ### Old or unsupported wording to handle carefully
 
-- The introduction says **25 years** of manufacturing. This is older than the client's current heritage information (37+ years / established 1987), so do not use the catalogue's number on the website.
-- The catalogue contains broad claims such as “safe to skin,” “non-irritating,” “sanitiser,” “keeps mosquitoes away,” “safe to all surfaces,” and “totally biodegradable.” It does not show supporting test results or define the conditions for these claims. Do not automatically carry them into website copy.
-- Calling a floor cleaner a “sanitiser” or saying it is hygienic does not show what germs it was tested against or how well it works. Use a germ-kill claim only if the client provides current evidence and approved wording.
+- The PDF introduction says **25 years** of manufacturing. The V-KLIN-branded `.docx` of the same catalogue says **35 years**, which is consistent with an establishment in 1987 and a catalogue dated around 2022. The client's current heritage information is 1987, so do not use either number on the website; see Section 20 for the exact wording that is still open.
+- The catalogue contains broad claims such as "safe to skin," "non-irritating," "sanitiser," "keeps mosquitoes away," "safe to all surfaces," and "totally biodegradable." It does not show supporting test results or define the conditions for these claims. **The client's own certificates resolve which of these may be published**: the ISO 9001:2015, WHO-GMP, FDA-named and Eco-Friendly certificates all scope this range as being made "without any medicinal, therapeutic, disinfectant, pesticidal, insecticidal or drug claims." A website page that repeats "keeps mosquitoes & flies away from floor" or "highly effective sanitisers" would therefore contradict the certificate scope the same site publishes. Descriptive, physical and usage facts (what the product is, where it is used, pack sizes, pH, dilution, directions) are the client's own product literature and can be published with attribution. Germ-kill, pesticidal and safety-superlative wording cannot.
+- Calling a floor cleaner a "sanitiser" or saying it is hygienic does not show what germs it was tested against or how well it works. Use a germ-kill claim only if the client provides current evidence and approved wording.
 - The catalogue spells some product/brand names inconsistently and includes detailed ingredient/specification/use information. Those details are intentionally not copied here; current packaging and client-approved product sheets should decide the final public names and descriptions.
 - The catalogue prints **P.Q.R.S. = Performance, Quality, Reliability, Service**, matching the correction the client already gave us. It also adds “economical price” language, which should be treated as catalogue wording, not a confirmed current slogan.
 
@@ -1281,3 +1283,111 @@ This is the business map for organizing a homepage, not a promise that every his
 ### Plain-language summary
 
 PolyTreat is a specialty-chemicals business working across industrial water, construction/surface protection, and cleaning. V-Klin is the name now used for products formerly sold as Altra Care. Use this wiki to understand what the sources say; use approved product documentation for precise technical or regulated claims. The website should explain the business clearly first, and invite visitors to contact the team when they need a quote, documents, or technical discussion.
+---
+
+## 22. Full re-verification against every Client Assets file (October 2026)
+
+Every file in `Client Assets` was opened and read, including text extraction from all
+twelve Office and PDF documents, and all six certificate and brochure images. This
+section records what the earlier sections got right, what they missed, and what
+changes because of it.
+
+### What the earlier sections got right
+
+Sections 2, 3, 4, 5, 6, 7, 9, 13 to 16 and 18 to 20 all check out against the
+source text. The construction profile grouping in Section 4 matches the document
+exactly. The COROSIL, POLYKLIN and POLYDOR-WS figures, the twenty-six POLYDOR-WS
+applications, and the certificate scopes and safety contradictions are all recorded
+accurately.
+
+### What was missed
+
+1. **The current, V-KLIN-branded product catalogue.** `vklin-home-care-wellness-formulations.docx`
+   is the V-KLIN version of the VKLEEN catalogue, with full product copy. Section 11
+   now records it as the source of truth for V-Klin product copy.
+2. **Tarapur is documented by the client.** Both the V-KLIN catalogue and the
+   discovery alignment document state that PolyTreat has a manufacturing facility at
+   Tarapur and Goregaon, and the discovery document names Tarapur Industrial Area
+   (MIDC), Palghar as the heavy manufacturing plant. Tarapur was previously treated as
+   unsupported because the visiting card, company profile and certificates do not
+   mention it. That reasoning was correct for those three sources and incomplete.
+3. **Three sites, not one.**
+   - Corporate and sales office: 7-A, Topiwala Bldg, 'C' Wing, Opp. Topiwala
+     Center / Cinema, Goregaon (West), Mumbai 400104. This is the address printed on
+     every page of the V-KLIN catalogue, together with `polyind2@gmail.com` and
+     `+91-22-46002847`, which are the contact details the website already publishes.
+   - Green products facility: 306, Shankhala Industrial Premises Co-op Soc. Ltd.,
+     Near Chudiwadi, Gogatewadi, Goregaon (East), Mumbai 400063. All four
+     certificates name this address.
+   - Heavy manufacturing plant: Tarapur Industrial Area (MIDC), Palghar, Maharashtra.
+4. **The client's own business map.** The catalogue introduction enumerates twelve
+   product areas: hand hygiene, floor care, housekeeping and room care, toilet
+   cleaner, glass cleaner, industrial and laundry cleaning, odour control for home,
+   office, school, car, wastewater, food processing and air-conditioning ducts,
+   air-conditioning coil cleaning chemicals, anti-corrosive coating for A/C copper
+   coils and fins, water treatment for cooling water, swimming pools, boilers and
+   drinking water, and waterproofing coating for residential buildings, commercial
+   complexes, hotels and hospitals. The website represented six of these.
+5. **COROSIL has two grades.** The construction profile lists COROSIL-I and
+   COROSIL-II under RUST-CONVERTERS. Sections 5 and 19 only ever discuss one.
+6. **Three legacy brand names.** POLYTREAT and POLYCIDE for industrial water,
+   POLYPROOF and POLYBOND for construction, VKLEEN for cleaning before V-Klin, and
+   ALTRA CARE before V-Klin. Section 20's question about VKLEEN is answered: it is
+   the earlier spelling in the PDF catalogue, and the `.docx` is the same catalogue
+   rebranded.
+7. **The client's domain** is `www.polytreatind.com`.
+8. **The promoter and director** is Mr. Vijay M. Shukla, named on the visiting card
+   and in the discovery document.
+9. **The 2022 website published a client list.** The archived site listed around
+   eighty-five organisations across pharmaceuticals, breweries, dairy, textiles,
+   hotels, railways and public utilities. The earlier sections never recorded it.
+10. **The ISO certificate covers the industrial division too.** Its scope reads
+    "MANUFACTURING WATER TREATMENT CHEMICAL AND HOMECARE CLEANING, HYGIENIC &
+    INDUSTRIAL CLEANING CHEMICALS". The three UKcert certificates are home-care
+    scope only. Earlier wording implied the ISO certificate was also home-care only.
+
+### The contradiction to watch
+
+All three UKcert certificates scope the range as being made "without any medicinal,
+therapeutic, disinfectant, pesticidal, insecticidal or drug claims", while the
+client's own catalogue claims the perfumed floor cleaner "keeps mosquitoes & flies
+from floor", the golden floor cleaner contains "highly effective sanitisers", and the
+agency seed data repeats "99% germ efficacy" for the handwash. The website already
+states the certificate scope correctly. Any catalogue copy carried over verbatim
+would make the site contradict itself.
+
+### Revised guidance on publishing client-supplied material
+
+The client's own material may be published. The correct question is not whether the
+client supplied it, but whether the wording is descriptive or a performance,
+safety, or third-party-approval claim.
+
+- **Publishable as client-stated:** what a product is, what it does, where it is
+  used, pack sizes, physical data such as pH and specific gravity, dilution and
+  application directions, and general qualities such as "phosphate free" or
+  "biodegradable". Attribute these to the product literature and point to the
+  current label.
+- **Not publishable without fresh evidence:** germ-kill, disinfection, pesticidal or
+  insecticidal wording, "non-toxic", "chemical free", "completely safe", and any
+  safety or environmental superlative.
+- **Not publishable without the issuer's wording:** any reading of the certificates
+  that exceeds their printed scope.
+
+### Open questions this pass adds for the client
+
+1. Is the industrial product profile's catalogue current, and which families and
+   product codes are active? The product tables are blocked on this.
+2. Are COROSIL, POLYDOR-WS, POLYKLIN and POLYDOR-D MOS current products, and what
+   website descriptions are approved for them?
+3. Current TDS and SDS documents for COROSIL, POLYKLIN and POLYDOR-WS.
+4. Which POLYDOR-WS application environments are current and approved for use.
+5. Should the 2022 client list be republished? Every name needs current written
+   approval. The recommended alternative is to expand the industries page instead.
+6. What exact wording should be used for the 1987 milestone? "37+ years" is stale.
+7. Are COROSIL-I and COROSIL-II both current, or is one discontinued?
+8. Which of the three Goregaon and Tarapur locations should be published, and what
+   is made at each?
+9. Is sewage (STP) treatment a current business area? It appears in the company
+   profile, the discovery document and the agency taxonomy, but not on the website.
+10. Are the laboratory and multipurpose pilot reactor still current capabilities,
+    and are they approved for publication?

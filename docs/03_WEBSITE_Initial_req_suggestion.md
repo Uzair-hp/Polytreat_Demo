@@ -85,6 +85,16 @@ Each solution page follows the same shape: a hero with breadcrumbs, a short stat
 - Every solution hero uses a real photograph with alt text that describes the picture only. Do not reintroduce a decorative placeholder panel with a "Image placeholder" caption.
 - Shared content lives in `src/data/industrialWater.ts` so the hub copy and the system page anchors cannot drift apart.
 
+## 5B. V-Klin product pages
+
+The V-Klin range is the client's most complete product documentation, and every product page now publishes it.
+
+- `/vklin/products` lists the range in the client's own seven categories: floor and surface care, hand care and hygiene, dishwashing, glass and window care, bathroom and toilet care, odour and air care, and natural wellness.
+- Each product page carries the description, features, applications, directions for use, technical specifications, pack sizes, fragrances and handling notes, written from the client's own product literature. The copy lives in `src/data/vklinProducts.ts` and is rendered by one shared component, so the catalogue page, the product pages and the homepage preview can never disagree.
+- Directions and dilution are published as published in the product literature, with a line asking the visitor to confirm the current label with the team. Do not publish MRP, shelf life, ingredient lists or safety superlatives.
+- The range makes **no pesticidal, insecticidal or germ-kill claim**. The client's ISO, WHO-GMP and Eco-Friendly certificates all scope it as being made without any medicinal, therapeutic, disinfectant, pesticidal, insecticidal or drug claims, and `/certifications` states that scope. Product copy must not contradict it.
+- Source of truth: `polytreat_study.md` Section 11 and Section 22.
+
 ## 6. Stack and repository conventions
 
 - Next.js 16 App Router, React 19, TypeScript.

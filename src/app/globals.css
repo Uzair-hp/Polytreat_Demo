@@ -10595,6 +10595,273 @@ code, .font-mono {
   }
 }
 
+/* ==========================================================================
+   V-KLIN PRODUCT DETAIL: FULL PRODUCT INFORMATION
+   Description, features, applications, directions, specifications and
+   handling, written from the client's own product literature.
+   ========================================================================== */
+
+.vklin-product-detail-facts.is-wide {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vklin-product-card-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  min-height: 62px;
+  padding: 0.65rem 0.72rem;
+}
+
+.vklin-product-card-copy p {
+  margin: 0;
+  color: #6b8177;
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.vklin-product-card-copy a {
+  margin-top: auto;
+}
+
+.vklin-product-detail-overview-layout.is-stacked {
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  align-items: start;
+  border-bottom: 0;
+}
+
+.vklin-product-feature-block h3,
+.vklin-product-usage-card h3,
+.vklin-product-handling-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.8rem;
+  color: #12372b;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.vklin-product-feature-block h3 svg,
+.vklin-product-usage-card h3 svg,
+.vklin-product-handling-card h3 svg {
+  color: #087c5c;
+}
+
+.vklin-product-detail-features {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vklin-product-detail-features li {
+  position: relative;
+  padding: 0.5rem 0.65rem 0.5rem 1.5rem;
+  border: 1px solid #e0eee6;
+  border-radius: 10px;
+  background: #f7fbf8;
+  color: #3f5a4c;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.vklin-product-detail-features li::before {
+  position: absolute;
+  top: 0.78rem;
+  left: 0.65rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5fbf95;
+  content: "";
+}
+
+.vklin-product-detail-usage,
+.vklin-product-detail-specs,
+.vklin-product-detail-handling {
+  padding: clamp(2.2rem, 4.5vw, 3.4rem) 0 0;
+  background: #fff;
+}
+
+.vklin-product-detail-specs {
+  background: linear-gradient(180deg, #f6fbf8 0%, #fff 100%);
+}
+
+.vklin-product-usage-grid,
+.vklin-product-handling-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+}
+
+.vklin-product-usage-card,
+.vklin-product-handling-card {
+  border: 1px solid #dcefe4;
+  border-radius: 16px;
+  padding: 1.15rem 1.3rem;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(21, 93, 63, 0.05);
+}
+
+.vklin-product-handling-card.is-note {
+  background: linear-gradient(140deg, #f5fbf7, #fff);
+}
+
+.vklin-product-usage-card ul,
+.vklin-product-usage-card ol,
+.vklin-product-handling-card ul {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: vklin-step;
+}
+
+.vklin-product-usage-card ol {
+  counter-reset: vklin-step;
+}
+
+.vklin-product-usage-card ol li {
+  position: relative;
+  padding-left: 1.85rem;
+  color: #3f5a4c;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  counter-increment: vklin-step;
+}
+
+.vklin-product-usage-card ol li::before {
+  position: absolute;
+  top: 0.12rem;
+  left: 0;
+  display: grid;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e7f6ee;
+  color: #087c5c;
+  content: counter(vklin-step);
+  font-size: 0.66rem;
+  font-weight: 750;
+}
+
+.vklin-product-usage-card ul li,
+.vklin-product-handling-card ul li {
+  position: relative;
+  padding-left: 1.05rem;
+  color: #4a6355;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.vklin-product-usage-card ul li::before,
+.vklin-product-handling-card ul li::before {
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #5fbf95;
+  content: "";
+}
+
+.vklin-product-usage-note {
+  margin-top: 0.85rem;
+  border-top: 1px solid #e5eee8;
+  padding-top: 0.7rem;
+  color: #7b8f84;
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.vklin-product-specs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.vklin-product-specs-layout h2 {
+  margin: 0.25rem 0 0;
+  color: #12372b;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.035em;
+}
+
+.vklin-product-specs-layout p {
+  margin: 0.5rem 0 0;
+  color: #71837a;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.vklin-product-specs-table {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #dcefe4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.vklin-product-specs-table div {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.8fr) minmax(0, 1.2fr);
+  gap: 1rem;
+  border-bottom: 1px solid #eaf3ee;
+  padding: 0.7rem 1rem;
+}
+
+.vklin-product-specs-table div:last-child {
+  border-bottom: 0;
+}
+
+.vklin-product-specs-table dt {
+  color: #6d8377;
+  font-size: 0.74rem;
+  font-weight: 650;
+}
+
+.vklin-product-specs-table dd {
+  margin: 0;
+  color: #294c3b;
+  font-size: 0.79rem;
+  font-weight: 650;
+}
+
+@media (max-width: 760px) {
+  .vklin-product-detail-facts.is-wide,
+  .vklin-product-detail-overview-layout.is-stacked,
+  .vklin-product-usage-grid,
+  .vklin-product-handling-layout,
+  .vklin-product-specs-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vklin-product-specs-table div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.15rem;
+  }
+}
+
+/* Seven category chips will not fit a phone, so wrap instead of hiding the
+   last few behind a scrollbar with no visible affordance. */
+@media (max-width: 640px) {
+  .vklin-products-category-nav {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
 
 /* Construction chemistry solution overview */
 .construction-chemistry-hero {

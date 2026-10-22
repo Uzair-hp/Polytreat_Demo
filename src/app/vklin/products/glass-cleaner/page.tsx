@@ -1,111 +1,20 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, ArrowRight, FileText, Leaf } from "lucide-react";
+import { notFound } from "next/navigation";
+import VklinProductDetail from "@/components/VklinProductDetail";
+import { findVKlinProduct } from "@/data/vklinProducts";
+
+const PRODUCT_ID = "streak-free-glass-cleaner";
 
 export const metadata: Metadata = {
-  title: "Glass Cleaner | V-Klin by PolyTreat",
+  title: "Streak-Free Glass Cleaner | V-Klin by PolyTreat",
   description:
-    "Explore Glass Cleaner, part of V-Klin's home and facility-care range.",
+    "Streak-Free Glass Cleaner from the V-Klin glass and window care range: what it does, where it is used, pack sizes and technical details.",
 };
 
 export default function GlassCleanerPage() {
-  return (
-    <main className="vklin-product-detail-page">
-      <section className="vklin-product-detail-hero" aria-labelledby="glass-cleaner-title">
-        <div className="container">
-          <nav className="vklin-product-detail-breadcrumbs" aria-label="Breadcrumb">
-            <Link href="/vklin">V-Klin</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/vklin/products">Cleaning range</Link>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page">Glass Cleaner</span>
-          </nav>
+  const product = findVKlinProduct(PRODUCT_ID);
 
-          <div className="vklin-product-detail-layout">
-            <div className="vklin-product-detail-copy">
-              <span className="eyebrow eyebrow-green">
-                <Leaf size={15} aria-hidden="true" /> V-Klin glass &amp; surface care
-              </span>
-              <h1 id="glass-cleaner-title">Glass Cleaner</h1>
-              <p>A glass-cleaning product in the V-Klin home and facility-care range.</p>
-              <div className="vklin-product-detail-actions">
-                <Link className="btn btn-vklin" href="/contact#contact-form">
-                  Enquire about this product <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-                <Link className="vklin-product-detail-back" href="/vklin/products">
-                  <ArrowLeft size={14} aria-hidden="true" /> Back to products
-                </Link>
-              </div>
-              <div className="vklin-product-detail-facts" aria-label="Product category">
-                <div>
-                  <span>Range</span>
-                  <strong>V-Klin home &amp; facility care</strong>
-                </div>
-                <div>
-                  <span>Category</span>
-                  <strong>Glass &amp; surface care</strong>
-                </div>
-              </div>
-            </div>
+  if (!product) notFound();
 
-            <figure className="vklin-product-detail-visual">
-              <div className="vklin-product-detail-image">
-                <Image
-                  src="/vklin-products/vklin-streak-free-glass-cleaner.webp"
-                  alt="V-Klin Streak-Free Glass Cleaner Packaged Product"
-                  fill
-                  priority
-                  sizes="(max-width: 760px) 88vw, 480px"
-                />
-              </div>
-              <figcaption>
-                <span>Official V-Klin Packaged Product</span>
-                <span>Formulated &amp; manufactured by PolyTreat Chemicals.</span>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className="vklin-product-detail-overview" aria-labelledby="glass-cleaner-overview-title">
-        <div className="container">
-          <div className="vklin-product-detail-overview-layout">
-            <div>
-              <span className="vklin-product-group-kicker">Product overview</span>
-              <h2 id="glass-cleaner-overview-title">
-                Glass care within the home and facility range.
-              </h2>
-              <p>
-                The archived product label identifies this as a glass cleaner. Refer to
-                current product documentation for surface suitability and application
-                instructions.
-              </p>
-            </div>
-            <ul className="vklin-product-detail-contexts" aria-label="Product categories">
-              <li>Glass cleaning</li>
-              <li>Surface care</li>
-              <li>Home &amp; facility care</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="vklin-product-detail-information" aria-labelledby="product-information-title">
-        <div className="container vklin-product-detail-info-layout">
-          <div>
-            <span className="vklin-product-group-kicker">Product information</span>
-            <h2 id="product-information-title">Need details for your application?</h2>
-            <p>
-              Share where you plan to use the product. The PolyTreat team can help with
-              relevant product information and technical documents.
-            </p>
-          </div>
-          <Link href="/contact#contact-form">
-            Contact PolyTreat <FileText size={16} aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-    </main>
-  );
+  return <VklinProductDetail product={product} />;
 }

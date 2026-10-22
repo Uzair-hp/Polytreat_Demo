@@ -51,10 +51,17 @@ const vklinGroups: MenuGroup[] = [
     title: "Cleaning categories",
     links: [
       { label: "Floor & surface care", href: "/vklin/products#floor-surface" },
-      { label: "Handwash & liquid soap", href: "/vklin/products#hand-hygiene" },
-      { label: "Dishwashing products", href: "/vklin/products#dishwashing" },
-      { label: "Glass & washroom care", href: "/vklin/products#glass-washroom" },
-      { label: "Specialty care", href: "/vklin/products#specialty-care" },
+      { label: "Hand care & hygiene", href: "/vklin/products#hand-hygiene" },
+      { label: "Dishwashing", href: "/vklin/products#dishwashing" },
+      { label: "Glass & window care", href: "/vklin/products#glass-care" },
+    ],
+  },
+  {
+    title: "More care categories",
+    links: [
+      { label: "Bathroom & toilet care", href: "/vklin/products#toilet-care" },
+      { label: "Odour & air care", href: "/vklin/products#odour-care" },
+      { label: "Natural wellness", href: "/vklin/products#natural-wellness" },
     ],
   },
 ];

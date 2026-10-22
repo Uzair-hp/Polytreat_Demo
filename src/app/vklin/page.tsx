@@ -8,7 +8,10 @@ import {
   GlassWater,
   Hand,
   House,
+  Leaf,
+  ShowerHead,
   Sparkles,
+  Wind,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -23,13 +26,13 @@ const categories = [
     number: "01",
     icon: House,
     title: "Floor & surface care",
-    description: "Cleaning categories for floors and commonly used surfaces.",
+    description: "Cleaning products for floors and commonly used surfaces.",
   },
   {
     id: "hand-hygiene",
     number: "02",
     icon: Hand,
-    title: "Handwash & liquid soap",
+    title: "Hand care & hygiene",
     description: "Liquid hand-cleaning products for everyday use.",
   },
   {
@@ -40,18 +43,32 @@ const categories = [
     description: "Products for routine dish and kitchenware cleaning.",
   },
   {
-    id: "glass-washroom",
+    id: "glass-care",
     number: "04",
     icon: GlassWater,
-    title: "Glass & washroom care",
-    description: "Cleaning categories for glass and washroom tasks.",
+    title: "Glass & window care",
+    description: "Products for glass, mirrors and appliance surfaces.",
   },
   {
-    id: "specialty-care",
+    id: "toilet-care",
     number: "05",
-    icon: Sparkles,
-    title: "Specialty care",
-    description: "Additional home and facility-care products, including air care.",
+    icon: ShowerHead,
+    title: "Bathroom & toilet care",
+    description: "Products for bathroom and toilet cleaning tasks.",
+  },
+  {
+    id: "odour-care",
+    number: "06",
+    icon: Wind,
+    title: "Odour & air care",
+    description: "Odour control for ducts, coils and hard-to-reach areas.",
+  },
+  {
+    id: "natural-wellness",
+    number: "07",
+    icon: Leaf,
+    title: "Natural wellness",
+    description: "Plant-based products for everyday household spaces.",
   },
 ];
 
