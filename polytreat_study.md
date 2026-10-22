@@ -1399,4 +1399,14 @@ no client source maps products to sites.
 9. Is sewage (STP) treatment a current business area? It appears in the company
    profile, the discovery document and the agency taxonomy, but not on the website.
 10. Are the laboratory and multipurpose pilot reactor still current capabilities,
-    and are they approved for publication?
+    and are they approved for publication? The site publishes the laboratory and
+    quality-control claims because the 2022 V-Klin catalogue attests them, and
+    does not publish the pilot reactor because the 2022 catalogue does not
+    mention it.
+11. Should the customer list from the 2022 website be republished? The archived
+    site lists around eighty-five organisations, and the industry sectors they
+    cover are now on the industries page as documented settings with no customer
+    named. Publishing the names themselves would need current written approval
+    for each one, so the decision belongs to the client.
+12. Which of the three sites makes which products? The site publishes each
+    site's role, not a product-to-site mapping.
