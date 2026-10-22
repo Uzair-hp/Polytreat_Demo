@@ -1367,11 +1367,20 @@ safety, or third-party-approval claim.
   application directions, and general qualities such as "phosphate free" or
   "biodegradable". Attribute these to the product literature and point to the
   current label.
-- **Not publishable without fresh evidence:** germ-kill, disinfection, pesticidal or
-  insecticidal wording, "non-toxic", "chemical free", "completely safe", and any
-  safety or environmental superlative.
+- **Not publishable without fresh evidence:** germ-kill, disinfection,
+  pesticidal or insecticidal wording, "non-toxic", "chemical free", "completely
+  safe", and any safety or environmental superlative.
 - **Not publishable without the issuer's wording:** any reading of the certificates
   that exceeds their printed scope.
+
+A capability follows the same rule. The 2022 V-Klin catalogue attests an in-house
+laboratory, daily quality monitoring, raw-material and finished-product
+inspection, statistical analysis of control data, and a quality committee that
+sets the standard for labelling, delivery and customer response, so those may be
+published. The **multipurpose pilot reactor** appears only in the older company and
+industrial profiles and is absent from the 2022 catalogue, so it is not published.
+The site states which products are made at which site as an open question, because
+no client source maps products to sites.
 
 ### Open questions this pass adds for the client
 

@@ -43,7 +43,8 @@ const credentials = [
   {
     value: "ISO 9001:2015",
     title: "Certified quality system",
-    description: "SMCS certified, AIAO-BAR USA accredited, covering both divisions.",
+    description:
+      "SMCS certified, AIAO-BAR USA accredited, for water treatment and home-care chemicals.",
   },
   {
     value: "2 units",
@@ -127,7 +128,7 @@ const brands = [
     eyebrow: "Flagship specialty",
     title: "Polydor-WS · Corosil · Polyklin",
     description:
-      "High-performance single-problem formulations: odor neutralization, rust conversion, and HVAC coil cleaning.",
+      "Single-problem formulations: odor neutralization, rust conversion, and HVAC coil cleaning.",
     categories: ["Odor control", "Rust converter", "Coil cleaner"],
     tone: "blue",
   },
@@ -140,12 +141,11 @@ const facilities = [
 ];
 
 const rdPoints = [
-  "In-house laboratory with day-to-day batch testing",
-  "Raw-material inspection before production",
-  "Statistical process control across manufacturing",
-  "Multipurpose pilot reactor for formulation trials and system simulation",
-  "Custom batch manufacturing for specific system requirements",
-  "Technical consultation on dosing and application",
+  "In-house laboratory with daily quality monitoring",
+  "Raw-material and finished-product inspection",
+  "Statistical analysis of control data",
+  "Customised treatment programmes for specific system requirements",
+  "Technical consultation on system and application requirements",
 ];
 
 export default function AboutPage() {
@@ -216,7 +216,7 @@ export default function AboutPage() {
             </p>
             <p>
               Everything PolyTreat supplies is formulated and produced in its own plants. The
-              range is built around performance at practical dosages, backed by clear technical
+              range is built around performance and value, backed by clear technical
               documentation and a direct conversation with the people who make the products.
             </p>
             <Link className="text-link" href="/#solutions">
@@ -293,17 +293,19 @@ export default function AboutPage() {
       <section className="section" id="quality" aria-labelledby="rd-title">
         <div className="container about-rd-layout">
           <div className="company-copy">
-            <span className="eyebrow eyebrow-dark">Research &amp; development</span>
-            <h2 id="rd-title">Development and quality control under one roof.</h2>
+            <span className="eyebrow eyebrow-dark">Quality &amp; technical support</span>
+            <h2 id="rd-title">Quality control and technical support, in one place.</h2>
             <p>
-              Product development happens alongside manufacturing: new formulations are trialled
-              on a multipurpose pilot reactor before they reach production scale, and routine
-              batches move through laboratory checks at every stage.
+              Formulations are assessed in the laboratory, and raw materials and
+              finished batches are inspected as part of a daily quality routine. A
+              quality committee sets the standard for labelling, delivery, and the
+              response to the customer.
             </p>
             <p>
-              The same discipline carries the ISO 9001:2015 certification that covers both
-              divisions — the framework behind it is the PQRS approach of Performance, Quality,
-              Reliability, and Service.
+              The same discipline carries the ISO 9001:2015 certification, whose
+              scope covers the manufacture of water treatment chemicals and homecare,
+              hygienic and industrial cleaning chemicals. The framework behind it is
+              the PQRS approach of Performance, Quality, Reliability, and Service.
             </p>
             <Link className="text-link" href="/quality#pqrs">
               Read about the PQRS framework <ArrowRight size={16} aria-hidden="true" />
@@ -314,7 +316,7 @@ export default function AboutPage() {
             <div className="vklin-panel-heading">
               <span className="about-rd-mark"><FlaskConical size={19} aria-hidden="true" /></span>
               <div>
-                <span>In-house capability</span>
+                <span>Quality approach</span>
                 <h3>How quality is maintained</h3>
               </div>
             </div>
@@ -338,11 +340,12 @@ export default function AboutPage() {
           </a>
           <div className="company-copy">
             <span className="eyebrow eyebrow-dark">Certification</span>
-            <h2 id="cert-title">ISO 9001:2015, certified for both divisions.</h2>
+            <h2 id="cert-title">ISO 9001:2015, for water treatment and home-care manufacturing.</h2>
             <p>
               Scope: manufacturing of water treatment chemicals and homecare, hygienic &amp;
               industrial cleaning chemicals. The certificate is issued by SMCS and accredited by
-              AIAO-BAR USA. Select the certificate to view it in full resolution.
+              AIAO-BAR USA, for the Goregaon (East) site. Select the certificate to view it in
+              full resolution.
             </p>
             <div className="cert-actions">
               <Link className="btn btn-primary" href="/certifications">
