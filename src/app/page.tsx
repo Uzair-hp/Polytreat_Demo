@@ -4,6 +4,7 @@ import HeroCarousel from "@/components/HeroCarousel";
 import { homeStockImages } from "@/data/homeImages";
 import { findVKlinProducts, vklinProductCount } from "@/data/vklinProducts";
 import { locationSites } from "@/data/locations";
+import { environmentIcons, operatingEnvironments } from "@/data/industries";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -143,29 +144,12 @@ const vklinPreviewProducts = findVKlinProducts([
   "Dishwash Gel",
 ]);
 
-const markets = [
-  {
-    icon: Factory,
-    title: "Process & manufacturing",
-    description:
-      "Water-treatment categories for boiler, cooling-water, RO, and effluent systems.",
-    href: "/industries#process-manufacturing",
-  },
-  {
-    icon: Layers3,
-    title: "Utilities & infrastructure",
-    description:
-      "Water and building services, alongside construction and surface-protection applications.",
-    href: "/industries#utilities-infrastructure",
-  },
-  {
-    icon: Building2,
-    title: "Facilities & institutions",
-    description:
-      "V-Klin cleaning categories for homes, workplaces, and shared facilities.",
-    href: "/industries#facilities-institutions",
-  },
-];
+const markets = operatingEnvironments.map(({ id, eyebrow, description }) => ({
+  icon: environmentIcons[id],
+  title: eyebrow,
+  description,
+  href: `/industries#${id}`,
+}));
 
 const pqrs = [
   {

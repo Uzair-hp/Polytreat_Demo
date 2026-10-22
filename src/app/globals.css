@@ -4260,77 +4260,58 @@ code, .font-mono {
   gap: 0.55rem;
 }
 
-.industries-hero-visual {
-  position: relative;
-  display: grid;
-  min-height: 330px;
-  place-items: center;
-  overflow: hidden;
-  border: 1px solid rgba(183, 214, 228, 0.9);
-  border-radius: 26px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.27) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.27) 1px, transparent 1px),
-    radial-gradient(ellipse at 76% 12%, rgba(255, 255, 255, 0.96), transparent 34%),
-    linear-gradient(140deg, #DDF0F8 0%, #CBE8F0 48%, #DCF3E7 100%);
-  background-size: 25px 25px, 25px 25px, auto, auto;
-  box-shadow: 0 24px 60px rgba(29, 78, 103, 0.09);
+.industries-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.15rem;
+}
+
+.industries-hero-link {
   color: #1769A6;
-  isolation: isolate;
+  font-size: 0.85rem;
+  font-weight: 800;
 }
 
-.industries-visual-orbit {
-  position: absolute;
-  z-index: -1;
-  border: 1px solid rgba(23, 105, 166, 0.16);
-  border-radius: 50%;
+.industries-hero-link:hover {
+  color: #125682;
 }
 
-.industries-visual-orbit-outer {
-  width: 300px;
-  height: 300px;
-}
-
-.industries-visual-orbit-inner {
-  width: 205px;
-  height: 205px;
-}
-
-.industries-visual-icon {
+.industries-hero-figures {
   display: grid;
-  width: 76px;
-  height: 76px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  border-radius: 23px;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 14px 34px rgba(29, 90, 120, 0.13);
-  backdrop-filter: blur(8px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
-.industries-visual-label,
-.industries-visual-caption {
+.industries-hero-figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  min-height: 210px;
+  border: 1px solid rgba(183, 214, 228, 0.9);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #EAF4F9, #D9EEF5);
+  box-shadow: 0 16px 40px rgba(29, 78, 103, 0.09);
+}
+
+.industries-hero-figure img {
+  object-fit: cover;
+}
+
+.industries-hero-figure figcaption {
   position: absolute;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.86);
+  right: 0.55rem;
+  bottom: 0.55rem;
+  left: 0.55rem;
+  padding: 0.38rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  color: #526D7E;
-  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.88);
+  color: #2C536B;
+  font-size: 0.65rem;
   font-weight: 700;
-  backdrop-filter: blur(8px);
-}
-
-.industries-visual-label {
-  top: 1rem;
-  left: 1rem;
-}
-
-.industries-visual-caption {
-  right: 1rem;
-  bottom: 1rem;
-  color: #718493;
-  font-weight: 600;
+  text-align: center;
+  backdrop-filter: blur(6px);
 }
 
 .industries-area-section {
@@ -4481,6 +4462,130 @@ code, .font-mono {
   border-radius: 3px;
 }
 
+/* Full product map and industry sectors. */
+.industries-map-section,
+.industries-sector-section {
+  padding: clamp(2.8rem, 5.5vw, 4.4rem) 0;
+  background: #FFFFFF;
+}
+
+.industries-map-section {
+  background: linear-gradient(180deg, #F4FAFD 0%, #FFFFFF 100%);
+}
+
+.industries-map-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+}
+
+.industries-map-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #DCE8EE;
+  border-radius: 18px;
+  padding: 1.25rem 1.35rem;
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(23, 74, 104, 0.045);
+}
+
+.industries-map-card h3 {
+  margin: 0 0 0.35rem;
+  color: #102D42;
+  font-size: 1.05rem;
+  letter-spacing: -0.025em;
+}
+
+.industries-map-card > p {
+  margin: 0 0 0.9rem;
+  color: #62798A;
+  font-size: 0.79rem;
+  line-height: 1.55;
+}
+
+.industries-map-card ul,
+.industries-sector-card ul {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.industries-map-card li a,
+.industries-sector-card li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 8px;
+  padding: 0.42rem 0.5rem;
+  color: #35637F;
+  font-size: 0.78rem;
+  font-weight: 650;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.industries-map-card li a:hover,
+.industries-sector-card li a:hover {
+  background: #EDF7FB;
+  color: #1769A6;
+}
+
+.industries-map-card li a svg,
+.industries-sector-card li a svg {
+  flex: 0 0 auto;
+  opacity: 0.5;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.industries-map-card li a:hover svg,
+.industries-sector-card li a:hover svg {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.industries-sector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+}
+
+.industries-sector-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #DCE8EE;
+  border-radius: 18px;
+  padding: 1.25rem 1.35rem;
+  background: linear-gradient(150deg, #FFFFFF, #F7FBFC);
+  box-shadow: 0 8px 24px rgba(23, 74, 104, 0.045);
+}
+
+.industries-sector-card h3 {
+  margin: 0 0 0.4rem;
+  color: #102D42;
+  font-size: 1.02rem;
+  letter-spacing: -0.025em;
+}
+
+.industries-sector-card > p {
+  margin: 0 0 0.85rem;
+  color: #62798A;
+  font-size: 0.8rem;
+  line-height: 1.58;
+}
+
+.industries-sector-card ul {
+  margin-top: auto;
+  border-top: 1px solid #E7EFF4;
+  padding-top: 0.6rem;
+}
+
+.industries-sector-card li a {
+  padding: 0.34rem 0.5rem;
+  font-size: 0.75rem;
+}
+
 .industries-contact-band {
   padding: 0 0 clamp(3rem, 6vw, 5rem);
   background: #FFFFFF;
@@ -4522,12 +4627,16 @@ code, .font-mono {
     gap: 2rem;
   }
 
-  .industries-hero-visual {
-    min-height: 280px;
-  }
-
   .industries-area-grid {
     grid-template-columns: 1fr;
+  }
+
+  .industries-map-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .industries-sector-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .industries-area-card {
@@ -4579,19 +4688,26 @@ code, .font-mono {
     font-size: clamp(2.15rem, 10vw, 3.15rem);
   }
 
-  .industries-hero-visual {
-    min-height: 215px;
-    border-radius: 20px;
+  .industries-hero-figures {
+    gap: 0.6rem;
   }
 
-  .industries-visual-orbit-outer {
-    width: 230px;
-    height: 230px;
+  .industries-hero-figure {
+    min-height: 150px;
+    border-radius: 14px;
   }
 
-  .industries-visual-orbit-inner {
-    width: 155px;
-    height: 155px;
+  .industries-hero-figure figcaption {
+    right: 0.4rem;
+    bottom: 0.4rem;
+    left: 0.4rem;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.58rem;
+  }
+
+  .industries-map-grid,
+  .industries-sector-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .industries-section-heading {

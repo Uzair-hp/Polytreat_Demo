@@ -1,57 +1,19 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, Waves } from "lucide-react";
 import {
-  ArrowRight,
-  Building2,
-  Factory,
-  Layers3,
-  Waves,
-} from "lucide-react";
+  industrySectors,
+  environmentIcons,
+  operatingEnvironments,
+  productMapGroups,
+} from "@/data/industries";
 
 export const metadata: Metadata = {
   title: "Industries & Applications | PolyTreat Chemicals",
   description:
-    "Explore PolyTreat's application areas across process and manufacturing operations, utilities and infrastructure, and facilities and institutions.",
+    "Explore PolyTreat's industrial water, construction, specialty and V-Klin ranges, and the industries and settings each one is documented for.",
 };
-
-const industryAreas = [
-  {
-    id: "process-manufacturing",
-    number: "01",
-    icon: Factory,
-    eyebrow: "Process & manufacturing",
-    title: "Water systems within plant operations.",
-    description:
-      "Industrial water-treatment categories cover boiler, cooling-water, reverse-osmosis, and effluent systems used across process operations.",
-    contexts: ["Boiler systems", "Cooling water", "RO systems", "Effluent treatment"],
-    link: "/#portfolio",
-    linkLabel: "Browse related solutions",
-  },
-  {
-    id: "utilities-infrastructure",
-    number: "02",
-    icon: Layers3,
-    eyebrow: "Utilities & infrastructure",
-    title: "Water services and built environments.",
-    description:
-      "Water and building services sit alongside construction applications such as waterproofing, concrete repair, protective coatings, flooring, and joints.",
-    contexts: ["Building water services", "Waterproofing", "Concrete repair", "Protective surfaces"],
-    link: "/#portfolio",
-    linkLabel: "Browse related solutions",
-  },
-  {
-    id: "facilities-institutions",
-    number: "03",
-    icon: Building2,
-    eyebrow: "Facilities & institutions",
-    title: "Cleaning for shared and everyday spaces.",
-    description:
-      "The V-Klin range brings home and facility-care cleaning categories together for workplaces, institutions, and other shared spaces.",
-    contexts: ["Workplaces", "Institutions", "Shared facilities", "Homes"],
-    link: "/vklin",
-    linkLabel: "Explore V-Klin care",
-  },
-];
 
 export default function IndustriesPage() {
   return (
@@ -61,28 +23,49 @@ export default function IndustriesPage() {
           <nav className="industries-breadcrumbs" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span aria-hidden="true">/</span>
-            <span>Industries</span>
+            <span aria-current="page">Industries</span>
           </nav>
 
           <div className="industries-hero-layout">
             <div className="industries-hero-copy">
-              <span className="eyebrow"><Waves size={15} aria-hidden="true" /> Industries & applications</span>
+              <span className="eyebrow"><Waves size={15} aria-hidden="true" /> Industries &amp; applications</span>
               <h1 id="industries-page-title">Chemistry for plants, infrastructure, and shared facilities.</h1>
               <p>
-                Explore PolyTreat across process operations, utilities and infrastructure,
-                and the facilities where people work and live.
+                PolyTreat makes water treatment, construction and protection, specialty
+                and cleaning chemistry. Start with the setting you work in, then follow
+                the range that serves it.
               </p>
-              <Link className="btn btn-accent" href="#industry-areas">
-                Explore application areas <ArrowRight size={17} aria-hidden="true" />
-              </Link>
+              <div className="industries-hero-actions">
+                <Link className="btn btn-accent" href="#industry-areas">
+                  Explore application areas <ArrowRight size={17} aria-hidden="true" />
+                </Link>
+                <Link className="industries-hero-link" href="#product-map">
+                  See the full range
+                </Link>
+              </div>
             </div>
 
-            <div className="industries-hero-visual" role="img" aria-label="Image placeholder for manufacturing, infrastructure, and facility environments">
-              <span className="industries-visual-orbit industries-visual-orbit-outer" />
-              <span className="industries-visual-orbit industries-visual-orbit-inner" />
-              <span className="industries-visual-icon"><Factory size={30} strokeWidth={1.5} aria-hidden="true" /></span>
-              <span className="industries-visual-label">Application environments</span>
-              <span className="industries-visual-caption">Image placeholder · industry photography</span>
+            <div className="industries-hero-figures">
+              <figure className="industries-hero-figure">
+                <Image
+                  src="/images/home/solution-water-cooling-tower.jpg"
+                  alt="Industrial cooling tower water treatment and recirculating pipe manifold"
+                  fill
+                  priority
+                  sizes="(max-width: 760px) 50vw, 220px"
+                />
+                <figcaption>Industrial water systems</figcaption>
+              </figure>
+              <figure className="industries-hero-figure">
+                <Image
+                  src="/images/home/everyday-cleaning-facility-care.webp"
+                  alt="Facility cleaning staff working in a commercial building lobby with cleaning trolley and supplies"
+                  fill
+                  priority
+                  sizes="(max-width: 760px) 50vw, 220px"
+                />
+                <figcaption>Facility &amp; institutional care</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -102,21 +85,90 @@ export default function IndustriesPage() {
           </div>
 
           <div className="industries-area-grid">
-            {industryAreas.map(({ id, number, icon: Icon, eyebrow, title, description, contexts, link, linkLabel }) => (
-              <article className="industries-area-card" id={id} key={id}>
-                <div className="industries-card-topline">
-                  <span className="industries-card-number">{number}</span>
-                  <span className="industries-card-icon"><Icon size={20} aria-hidden="true" /></span>
-                </div>
-                <span className="industries-card-eyebrow">{eyebrow}</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <ul className="industries-context-list" aria-label={`${eyebrow} application categories`}>
-                  {contexts.map((context) => <li key={context}>{context}</li>)}
+            {operatingEnvironments.map(({ id, number, eyebrow, title, description, contexts, link, linkLabel }) => {
+              const Icon = environmentIcons[id];
+              return (
+                <article className="industries-area-card" id={id} key={id}>
+                  <div className="industries-card-topline">
+                    <span className="industries-card-number">{number}</span>
+                    <span className="industries-card-icon"><Icon size={20} aria-hidden="true" /></span>
+                  </div>
+                  <span className="industries-card-eyebrow">{eyebrow}</span>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <ul className="industries-context-list" aria-label={`${eyebrow} application categories`}>
+                    {contexts.map((context) => <li key={context}>{context}</li>)}
+                  </ul>
+                  <Link className="industries-card-link" href={link}>
+                    {linkLabel} <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="industries-map-section" id="product-map" aria-labelledby="product-map-title">
+        <div className="container">
+          <div className="industries-section-heading">
+            <div>
+              <span className="eyebrow">The full range</span>
+              <h2 id="product-map-title">Everything PolyTreat makes, in one place.</h2>
+            </div>
+            <p>
+              Four groups cover the whole range. Follow any category to the page that
+              sets out what it is for and where it is used.
+            </p>
+          </div>
+
+          <div className="industries-map-grid">
+            {productMapGroups.map((group) => (
+              <article className="industries-map-card" key={group.id}>
+                <h3>{group.title}</h3>
+                <p>{group.summary}</p>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item.label}>
+                      <Link href={item.href}>
+                        {item.label} <ArrowRight size={14} aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
-                <Link className="industries-card-link" href={link}>
-                  {linkLabel} <ArrowRight size={16} aria-hidden="true" />
-                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="industries-sector-section" id="industry-sectors" aria-labelledby="industry-sectors-title">
+        <div className="container">
+          <div className="industries-section-heading">
+            <div>
+              <span className="eyebrow">Industries we work in</span>
+              <h2 id="industry-sectors-title">The settings our ranges are documented for.</h2>
+            </div>
+            <p>
+              These are the environments our product ranges are written for. Tell us
+              your sector and we will confirm what we can supply today.
+            </p>
+          </div>
+
+          <div className="industries-sector-grid">
+            {industrySectors.map((sector) => (
+              <article className="industries-sector-card" key={sector.id}>
+                <h3>{sector.title}</h3>
+                <p>{sector.description}</p>
+                <ul>
+                  {sector.areas.map((area) => (
+                    <li key={area.label}>
+                      <Link href={area.href}>
+                        {area.label} <ArrowRight size={13} aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
@@ -128,7 +180,10 @@ export default function IndustriesPage() {
           <div>
             <span className="eyebrow">Have a specific site or system in mind?</span>
             <h2 id="industries-contact-title">Tell us what you work with.</h2>
-            <p>Share the application area and the team can direct your enquiry.</p>
+            <p>
+              Share the application area, the system and the operating conditions, and
+              the team can direct your enquiry to the right category.
+            </p>
           </div>
           <Link className="btn btn-accent" href="/contact#contact-form">
             Discuss your application <ArrowRight size={17} aria-hidden="true" />

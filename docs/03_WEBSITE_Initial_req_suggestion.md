@@ -108,6 +108,16 @@ The three flagship specialty products have their own pages, because each one is 
 - They also publish no performance guarantees, no "compatible with any paint", no composition details, and no disinfection, sanitation, insecticidal or food-contact claims. POLYDOR-WS says on the page that it is an odour-control product and not a disinfectant.
 - Source of truth: `polytreat_study.md` Sections 5, 6, 7, 9, 18, 19 and 22.
 
+## 5D. Industries page
+
+The industries page is where a visitor should come to understand the whole business, not just one product family.
+
+- It has four parts: the three **operating environments** (process and manufacturing, utilities and infrastructure, facilities and institutions), the **full product map**, the **industry sectors**, and the enquiry band.
+- The three operating environments keep their anchor ids, because the homepage links straight to them.
+- The product map carries all four ranges — industrial water and process, construction and protection, specialty products, and the V-Klin cleaning range — so the full catalogue is visible in one place. Every entry resolves to a real page; a family without a page of its own points at the section of the industrial water hub that lists it.
+- The industry sectors are the settings the ranges are documented for, derived from the sectors visible in the 2022 customer list. **Sector names only.** The 2022 website published around eighty-five customer organisations and those names are not republished: most of those relationships are decades old and each name would need current written approval. No customer logos, no customer count, and no "industries we serve" wording.
+- Shared content lives in `src/data/industries.ts`, read by both the homepage and this page.
+
 ## 6. Stack and repository conventions
 
 - Next.js 16 App Router, React 19, TypeScript.
