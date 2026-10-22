@@ -4208,6 +4208,7 @@ code, .font-mono {
 
 .industries-breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.65rem;
   margin: 0.4rem 0 2rem;
@@ -9592,6 +9593,7 @@ code, .font-mono {
 
 .vklin-products-breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem;
   color: #789087;
@@ -11866,6 +11868,7 @@ code, .font-mono {
 
 .construction-chemistry-breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.65rem;
   margin: 0.4rem 0 2rem;
@@ -11943,77 +11946,49 @@ code, .font-mono {
   border-radius: 3px;
 }
 
-.construction-chemistry-visual {
+.construction-hero-figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.construction-hero-figures.is-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.construction-hero-figures.is-single .construction-hero-figure {
+  min-height: 300px;
+}
+
+.construction-hero-figure {
   position: relative;
-  display: grid;
-  min-height: 320px;
-  place-items: center;
   overflow: hidden;
+  margin: 0;
+  min-height: 210px;
   border: 1px solid rgba(190, 212, 223, 0.9);
-  border-radius: 26px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-    radial-gradient(ellipse at 75% 12%, rgba(255, 255, 255, 0.96), transparent 34%),
-    linear-gradient(140deg, #E7F1F5 0%, #D7E8EE 57%, #E5F1EB 100%);
-  background-size: 25px 25px, 25px 25px, auto, auto;
-  box-shadow: 0 24px 60px rgba(29, 78, 103, 0.08);
-  color: #1769A6;
-  isolation: isolate;
+  border-radius: 18px;
+  background: linear-gradient(150deg, #EAF3F6, #DCEBF0);
+  box-shadow: 0 16px 40px rgba(29, 78, 103, 0.09);
 }
 
-.construction-visual-orbit {
+.construction-hero-figure img {
+  object-fit: cover;
+}
+
+.construction-hero-figure figcaption {
   position: absolute;
-  z-index: -1;
-  border: 1px solid rgba(23, 105, 166, 0.16);
-  border-radius: 50%;
-}
-
-.construction-visual-orbit-outer {
-  width: 290px;
-  height: 290px;
-}
-
-.construction-visual-orbit-inner {
-  width: 190px;
-  height: 190px;
-}
-
-.construction-visual-icon {
-  display: grid;
-  width: 76px;
-  height: 76px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  border-radius: 23px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 14px 34px rgba(29, 90, 120, 0.13);
-  backdrop-filter: blur(8px);
-}
-
-.construction-visual-label,
-.construction-visual-caption {
-  position: absolute;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.88);
+  right: 0.55rem;
+  bottom: 0.55rem;
+  left: 0.55rem;
+  padding: 0.38rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.84);
-  color: #526D7E;
-  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2C536B;
+  font-size: 0.65rem;
   font-weight: 700;
-  backdrop-filter: blur(8px);
-}
-
-.construction-visual-label {
-  top: 1rem;
-  left: 1rem;
-}
-
-.construction-visual-caption {
-  right: 1rem;
-  bottom: 1rem;
-  color: #718493;
-  font-weight: 600;
+  text-align: center;
+  backdrop-filter: blur(6px);
 }
 
 .construction-areas-section {
@@ -12275,8 +12250,21 @@ code, .font-mono {
     gap: 1.7rem;
   }
 
-  .construction-chemistry-visual {
-    min-height: 245px;
+  .construction-hero-figures {
+    gap: 0.6rem;
+  }
+
+  .construction-hero-figure {
+    min-height: 165px;
+    border-radius: 14px;
+  }
+
+  .construction-hero-figure figcaption {
+    right: 0.4rem;
+    bottom: 0.4rem;
+    left: 0.4rem;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.58rem;
   }
 
   .construction-areas-heading {
@@ -12308,19 +12296,8 @@ code, .font-mono {
     gap: 0.85rem 1rem;
   }
 
-  .construction-chemistry-visual {
-    min-height: 210px;
-    border-radius: 20px;
-  }
-
-  .construction-visual-orbit-outer {
-    width: 230px;
-    height: 230px;
-  }
-
-  .construction-visual-orbit-inner {
-    width: 150px;
-    height: 150px;
+  .construction-hero-figure {
+    min-height: 140px;
   }
 
   .construction-areas-grid {

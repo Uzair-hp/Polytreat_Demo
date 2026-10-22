@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -67,12 +68,17 @@ export default function FlooringJointSealingPage() {
               </div>
             </div>
 
-            <div className="construction-chemistry-visual" role="img" aria-label="Image placeholder for flooring and joint-sealing applications">
-              <span className="construction-visual-orbit construction-visual-orbit-outer" />
-              <span className="construction-visual-orbit construction-visual-orbit-inner" />
-              <span className="construction-visual-icon"><Layers3 size={31} strokeWidth={1.5} aria-hidden="true" /></span>
-              <span className="construction-visual-label">Floors &amp; joints</span>
-              <span className="construction-visual-caption">Image placeholder · protective surfaces</span>
+            <div className="construction-hero-figures is-single">
+              <figure className="construction-hero-figure">
+                <Image
+                  src="/images/home/solution-construction-waterproofing.webp"
+                  alt="Workers applying a liquid protective coating to a concrete industrial floor with a roller"
+                  fill
+                  priority
+                  sizes="(max-width: 760px) 100vw, 420px"
+                />
+                <figcaption>Protective floor coatings on concrete</figcaption>
+              </figure>
             </div>
           </div>
         </div>

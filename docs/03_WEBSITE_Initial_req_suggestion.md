@@ -117,6 +117,7 @@ The industries page is where a visitor should come to understand the whole busin
 - The product map carries all four ranges — industrial water and process, construction and protection, specialty products, and the V-Klin cleaning range — so the full catalogue is visible in one place. Every entry resolves to a real page; a family without a page of its own points at the section of the industrial water hub that lists it.
 - The industry sectors are the settings the ranges are documented for, derived from the sectors visible in the 2022 customer list. **Sector names only.** The 2022 website published around eighty-five customer organisations and those names are not republished: most of those relationships are decades old and each name would need current written approval. No customer logos, no customer count, and no "industries we serve" wording.
 - Shared content lives in `src/data/industries.ts`, read by both the homepage and this page.
+- Every solution and product hero uses a real photograph with alt text that describes the picture only. Do not reintroduce a decorative placeholder panel with an "Image placeholder" caption.
 
 ## 6. Stack and repository conventions
 

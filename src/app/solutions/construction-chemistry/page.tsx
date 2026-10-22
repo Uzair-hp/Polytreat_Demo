@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -85,12 +86,27 @@ export default function ConstructionChemistryPage() {
               </div>
             </div>
 
-            <div className="construction-chemistry-visual" role="img" aria-label="Image placeholder for construction and surface-protection applications">
-              <span className="construction-visual-orbit construction-visual-orbit-outer" />
-              <span className="construction-visual-orbit construction-visual-orbit-inner" />
-              <span className="construction-visual-icon"><Layers3 size={31} strokeWidth={1.5} aria-hidden="true" /></span>
-              <span className="construction-visual-label">Built surfaces</span>
-              <span className="construction-visual-caption">Image placeholder · construction application</span>
+            <div className="construction-hero-figures">
+              <figure className="construction-hero-figure">
+                <Image
+                  src="/images/home/solution-construction-waterproofing.webp"
+                  alt="Workers applying a liquid protective coating to a concrete industrial floor with a roller"
+                  fill
+                  priority
+                  sizes="(max-width: 760px) 50vw, 220px"
+                />
+                <figcaption>Protective coatings on concrete</figcaption>
+              </figure>
+              <figure className="construction-hero-figure">
+                <Image
+                  src="/images/home/portfolio-waterproofing.jpg"
+                  alt="Elastomeric liquid coating being roller-applied to a flat roof terrace"
+                  fill
+                  priority
+                  sizes="(max-width: 760px) 50vw, 220px"
+                />
+                <figcaption>Roof &amp; terrace waterproofing</figcaption>
+              </figure>
             </div>
           </div>
         </div>
