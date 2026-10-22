@@ -91,7 +91,7 @@ const companyGroups: MenuGroup[] = [
     title: "About PolyTreat",
     links: [
       { label: "Company overview", href: "/about", detail: "Company · product ranges · locations" },
-      { label: "Locations & facilities", href: "/about#infrastructure", detail: "Goregaon · Tarapur MIDC" },
+      { label: "Locations & facilities", href: "/about#infrastructure", detail: "Goregaon West · Goregaon East · Tarapur" },
     ],
   },
 ];

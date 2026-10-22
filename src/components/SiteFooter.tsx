@@ -71,7 +71,7 @@ export default function SiteFooter() {
             <h2>Contact</h2>
             <a href="mailto:polyind2@gmail.com"><Mail size={15} aria-hidden="true" /> polyind2@gmail.com</a>
             <a href="tel:+919820235995"><Phone size={15} aria-hidden="true" /> +91 98202 35995</a>
-            <span><MapPin size={15} aria-hidden="true" /> Goregaon, Mumbai</span>
+            <span><MapPin size={15} aria-hidden="true" /> Goregaon (West), Mumbai</span>
           </div>
         </div>
         <div className="footer-bottom">

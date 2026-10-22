@@ -15,18 +15,19 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
+import { locationSites } from "@/data/locations";
 
 export const metadata: Metadata = {
   title: "About Us | PolyTreat Chemicals Pvt. Ltd.",
   description:
-    "PolyTreat Chemicals has formulated and manufactured specialty industrial water, construction, and institutional care chemicals since 1987, from ISO 9001:2015 certified facilities in Tarapur MIDC and Goregaon, Mumbai.",
+    "PolyTreat Chemicals has formulated and manufactured specialty industrial water, construction, and institutional care chemicals since 1987, from manufacturing facilities in Tarapur MIDC and Goregaon, Mumbai.",
   keywords:
     "about PolyTreat Chemicals, ISO 9001:2015 chemical manufacturer, Tarapur MIDC plant, Goregaon chemical unit, water treatment chemicals since 1987",
 };
 
 const glance = [
   { label: "Established", value: "1987, Mumbai" },
-  { label: "Certifications", value: "ISO 9001:2015 · WHO-GMP · US FDA · UKcert Eco-Friendly" },
+  { label: "Certifications", value: "ISO 9001:2015 · WHO-GMP reference · Private FDA reference · UKcert Eco-Friendly" },
   { label: "Manufacturing", value: "Tarapur MIDC · Goregaon (East), Mumbai" },
   { label: "Corporate office", value: "Goregaon (West), Mumbai" },
   { label: "Divisions", value: "Industrial water · Construction · V-Klin care" },
@@ -35,7 +36,7 @@ const glance = [
 
 const credentials = [
   {
-    value: "37+ years",
+    value: "Since 1987",
     title: "Manufacturing since 1987",
     description: "Specialty chemistry formulated and produced in our own plants.",
   },
@@ -61,13 +62,13 @@ const milestones = [
     era: "1987",
     title: "Founded in Mumbai",
     description:
-      "PolyTreat Chemicals begins as a manufacturer of industrial water-treatment chemistry, formulating in-house rather than reselling blended products.",
+      "PolyTreat Chemicals begins as a manufacturer of industrial water-treatment chemistry.",
   },
   {
     era: "Manufacturing",
     title: "Tarapur MIDC unit",
     description:
-      "Heavy chemical manufacturing is established at Tarapur MIDC, Palghar district, adding capacity for bulk water-treatment and process chemicals.",
+      "Heavy chemical manufacturing is established at Tarapur MIDC, Palghar district, adding capacity for the industrial water and process chemical ranges.",
   },
   {
     era: "Quality",
@@ -133,32 +134,9 @@ const brands = [
 ];
 
 const facilities = [
-  {
-    icon: Building2,
-    kind: "Corporate & administrative office",
-    title: "Goregaon (West), Mumbai",
-    address:
-      "7-A, Topiwala Building, 'C' Wing,\nOpp. Topiwala Center / Cinema,\nGoregaon (West), Mumbai – 400104,\nMaharashtra, India.",
-    note: "Sales, administration, and technical coordination.",
-    tone: "",
-  },
-  {
-    icon: Leaf,
-    kind: "Manufacturing — green products",
-    title: "Goregaon (East), Mumbai",
-    address:
-      "306, Shankhala Industrial Premises,\nNear Chudiwadi, Gogatewadi,\nGoregaon (East), Mumbai – 400063,\nMaharashtra, India.",
-    note: "V-Klin cleaning and institutional care formulations.",
-    tone: "infra-card-green",
-  },
-  {
-    icon: Factory,
-    kind: "Manufacturing — heavy chemicals",
-    title: "Tarapur MIDC, Palghar",
-    address: "Tarapur MIDC,\nPalghar district,\nMaharashtra, India.",
-    note: "Bulk industrial water-treatment and process chemistry.",
-    tone: "",
-  },
+  { icon: Building2, site: locationSites[0], tone: "" },
+  { icon: Leaf, site: locationSites[1], tone: "infra-card-green" },
+  { icon: Factory, site: locationSites[2], tone: "" },
 ];
 
 const rdPoints = [
@@ -186,7 +164,7 @@ export default function AboutPage() {
             <ul className="about-facts">
               <li><BadgeCheck size={15} aria-hidden="true" /> ISO 9001:2015 certified</li>
               <li><Factory size={15} aria-hidden="true" /> 2 production units</li>
-              <li><Droplets size={15} aria-hidden="true" /> 37+ years of manufacturing</li>
+                <li><Droplets size={15} aria-hidden="true" /> Manufacturing since 1987</li>
               <li><Leaf size={15} aria-hidden="true" /> V-Klin care range</li>
             </ul>
           </div>
@@ -299,15 +277,15 @@ export default function AboutPage() {
           </div>
 
           <div className="infra-grid">
-            {facilities.map(({ icon: Icon, kind, title, address, note, tone }) => (
-              <article className={`infra-card ${tone}`} key={title}>
-                <span className="infra-icon"><Icon size={21} strokeWidth={1.7} aria-hidden="true" /></span>
-                <span className="infra-kind">{kind}</span>
-                <h3>{title}</h3>
-                <address>{address}</address>
-                <span className="infra-note"><MapPin size={14} aria-hidden="true" /> {note}</span>
-              </article>
-            ))}
+              {facilities.map(({ icon: Icon, site, tone }) => (
+                <article className={`infra-card ${tone}`} key={site.id}>
+                  <span className="infra-icon"><Icon size={21} strokeWidth={1.7} aria-hidden="true" /></span>
+                  <span className="infra-kind">{site.kind}</span>
+                  <h3>{site.title}</h3>
+                  <address>{site.addressLines.join("\n")}</address>
+                  <span className="infra-note"><MapPin size={14} aria-hidden="true" /> {site.note}</span>
+                </article>
+              ))}
           </div>
         </div>
       </section>

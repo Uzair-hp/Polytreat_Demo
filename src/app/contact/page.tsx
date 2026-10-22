@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Building2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import LocationMap from "@/components/LocationMap";
+import { locationSites } from "@/data/locations";
 
 export const metadata: Metadata = {
   title: "Contact PolyTreat | PolyTreat Chemicals Pvt. Ltd.",
@@ -9,28 +10,12 @@ export const metadata: Metadata = {
     "Contact PolyTreat about industrial water treatment, construction chemistry, and V-Klin cleaning and facility-care products.",
 };
 
-const locations = [
-  {
-    id: "goregaon-west",
-    title: "Corporate & sales office",
-    area: "Goregaon West, Mumbai",
-    address:
-      "7-A, Topiwala Building, 'C' Wing, Opp. Topiwala Center / Cinema, Goregaon (West), Mumbai – 400104, Maharashtra, India.",
-  },
-  {
-    id: "goregaon-east",
-    title: "Goregaon East location",
-    area: "Goregaon East, Mumbai",
-    address:
-      "306, Shankhala Industrial Premises Co-op Society Ltd., Near Chudiwadi, Gogatewadi, Goregaon (East), Mumbai – 400063, Maharashtra, India.",
-  },
-  {
-    id: "tarapur",
-    title: "Tarapur MIDC location",
-    area: "Tarapur MIDC, Palghar",
-    address: "Tarapur MIDC, Palghar district, Maharashtra, India.",
-  },
-];
+const locations = locationSites.map((site) => ({
+  id: site.id,
+  title: site.role,
+  area: site.area,
+  address: site.address,
+}));
 
 export default function ContactPage() {
   return (

@@ -25,7 +25,7 @@ const certificates = [
     image: "/certifications/iso-9001-2015-quality-certificate.jpeg",
     alt: "PolyTreat Chemicals ISO 9001:2015 quality management certificate",
     scope:
-      "The listed manufacturing scope covers water-treatment chemicals and home-care, hygienic, and industrial cleaning chemicals. This is a quality-management-system certificate, not an individual product approval.",
+      "The listed manufacturing scope covers water-treatment chemicals and home-care, hygienic, and industrial cleaning chemicals. It is issued to the Goregaon (East) site, and it is a quality-management-system certificate, not an individual product approval.",
     tone: "blue",
   },
   {
@@ -35,7 +35,7 @@ const certificates = [
     image: "/certifications/who-gmp-compliance-certificate.jpeg",
     alt: "UKcert-issued certificate of compliance referencing WHO-GMP requirements",
     scope:
-      "The certificate names a defined non-medicated, non-therapeutic home-care and household-utility product scope. It is issued by UKcert, not by WHO, and excludes medical, disinfectant, pesticidal, and drug claims.",
+      "The certificate names a defined non-medicated, non-therapeutic home-care and household-utility product scope, and is issued to the Goregaon (East) site. It is issued by UKcert, not by WHO, and excludes medical, disinfectant, pesticidal, and drug claims.",
     tone: "slate",
   },
   {
@@ -45,7 +45,7 @@ const certificates = [
     image: "/certifications/fda-compliance-certificate.jpeg",
     alt: "Certificate of compliance referencing FDA requirements, issued by UK Certification and Assessment Ltd",
     scope:
-      "The document records a private assessment against requirements it calls FDA for a listed non-medicated home-care scope. It is issued by a private certification body, not by the U.S. Food and Drug Administration, and is not FDA approval.",
+      "The document records a private assessment against requirements it calls FDA for a listed non-medicated home-care scope, and is issued to the Goregaon (East) site. It is issued by a private certification body, not by the U.S. Food and Drug Administration, and is not FDA approval.",
     tone: "slate",
   },
   {
@@ -55,7 +55,7 @@ const certificates = [
     image: "/certifications/eco-friendly-compliance-certificate.jpeg",
     alt: "PolyTreat Chemicals UKcert eco-friendly quality compliance certificate",
     scope:
-      "The certificate applies its 'Eco Friendly' wording to a listed non-medicated home-care and household-product scope. The document does not state environmental test criteria or establish that each product is environmentally safe.",
+      "The certificate applies its 'Eco Friendly' wording to a listed non-medicated home-care and household-product scope, and is issued to the Goregaon (East) site. The document does not state environmental test criteria or establish that each product is environmentally safe.",
     tone: "green",
   },
 ];

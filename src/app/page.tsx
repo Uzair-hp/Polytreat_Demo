@@ -3,6 +3,7 @@ import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import { homeStockImages } from "@/data/homeImages";
 import { findVKlinProducts, vklinProductCount } from "@/data/vklinProducts";
+import { locationSites } from "@/data/locations";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -512,12 +513,16 @@ export default function Home() {
               construction chemistry, and cleaning products under the V-Klin brand.
             </p>
             <div className="company-locations" id="locations">
-              <span className="company-locations-label">Location</span>
+              <span className="company-locations-label">Locations</span>
               <div className="company-location-list">
-                <div className="company-location">
-                  <MapPin size={17} aria-hidden="true" />
-                  <span>Goregaon, Mumbai</span>
-                </div>
+                {locationSites.map((site) => (
+                  <div className="company-location" key={site.id}>
+                    <MapPin size={17} aria-hidden="true" />
+                    <span>
+                      {site.title} <em>{site.role}</em>
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
             <Link className="text-link" href="/about">

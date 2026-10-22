@@ -3187,6 +3187,19 @@ code, .font-mono {
   color: #168A91;
 }
 
+.company-location em {
+  margin-left: 0.4rem;
+  color: #6B8290;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.company-location em::before {
+  margin-right: 0.4rem;
+  color: #A8BDC9;
+  content: "·";
+}
+
 .company-image-placeholder:hover .company-image-mark {
   transform: translateY(-4px) rotate(-3deg);
   box-shadow: 0 18px 35px rgba(29, 90, 120, 0.18);
