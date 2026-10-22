@@ -47,6 +47,7 @@ Use [`polytreat_study.md`](../polytreat_study.md) to check the cited source and 
 - Use **V-Klin** as the current cleaning-range brand. Altra Care is discontinued legacy branding.
 - Use **PQRS = Performance, Quality, Reliability, Service**. Do not reuse the earlier incorrect “Price / Regularity” interpretation.
 - Describe the supported broad solution areas clearly; do not make visitors read internal confirmation caveats throughout the homepage. The client confirmed that the former Altra Care products continue under V-Klin with only the brand name changed. For other historic exact SKUs, technical specifications, safety/performance claims, and certificate wording, follow the evidence limits in the study wiki. Keep those internal uncertainties out of general category copy; use enquiry links for real next steps such as quotes, TDS/SDS, or technical support.
+- The industrial water pages publish **treatment categories and roles only, never product codes**. The client industrial product profile is undated and which products are currently active is still an open question, so a published code could point at something discontinued. Do not republish the profile's "non-oxidizing / oxidizing" biocide split — its headings contradict the bases it lists (a hypochlorite base appears under non-oxidizing) and a chemist must confirm the classification first. Do not publish dosage, water-analysis limits, handling or safety text, "incorporated in 1987", export markets, "eco-friendly/biodegradable" product claims, or laboratory and pilot-reactor capability. What a system has to manage is general engineering context, not a product performance claim. Source of truth: `src/data/industrialWater.ts`.
 - Avoid unsupported claims about efficacy, safety, “non-toxic” or “100% eco-friendly” status, guaranteed results, stock guarantees, export markets, laboratory capability, or performance metrics.
 - Certificate images need careful scope and status review. In particular, do not claim “FDA approved”; the reviewed FDA-named certificate is private third-party material and is not an FDA-issued approval. See Study Wiki Sections 13–16.
 - Do not publish formulas, exact dosage, proprietary process steps, or internal technical/safety content.
@@ -73,6 +74,16 @@ These appeared in older AI-generated briefs and are not part of the current home
 - Product-level technical claims, performance comparisons, or application recipes.
 
 Before planning one of these, confirm the business need, current source material, data handling, and what the client has approved.
+
+## 5A. Solution pages
+
+Each solution page follows the same shape: a hero with breadcrumbs, a short statement of what the system is and what it has to manage, then cards that hand off to the next step, then an enquiry band. The system pages link back up to their parent and down to the contact form, so no page is a dead end.
+
+- `/solutions/industrial-water` is the hub for the industrial range. It carries the four system cards, a section on what each system has to manage, the treatment categories for each system, and the wider catalogue families that have no page of their own.
+- `/solutions/boiler-cooling-water` and `/solutions/ro-effluent` are the two system pages the hub links into. Each card on them has a stable anchor id so the hub can deep-link to one system rather than the page top.
+- There is still no `/solutions` index page. The navbar "Solutions" entry and the footer both point at the homepage solutions anchor; do not link to `/solutions` directly until an index exists.
+- Every solution hero uses a real photograph with alt text that describes the picture only. Do not reintroduce a decorative placeholder panel with a "Image placeholder" caption.
+- Shared content lives in `src/data/industrialWater.ts` so the hub copy and the system page anchors cannot drift apart.
 
 ## 6. Stack and repository conventions
 

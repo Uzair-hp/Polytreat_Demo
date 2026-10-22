@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   Gauge,
   Waves,
 } from "lucide-react";
+import { industrialAnchors, type IndustrialSystemId } from "@/data/industrialWater";
 
 export const metadata: Metadata = {
   title: "Boiler & Cooling Water Treatment | PolyTreat Chemicals",
@@ -12,8 +14,9 @@ export const metadata: Metadata = {
     "Explore PolyTreat's boiler-water and recirculating cooling-water treatment categories for industrial systems.",
 };
 
-const systems = [
+const systems: { id: IndustrialSystemId; number: string; icon: typeof Gauge; title: string; description: string; contexts: string[] }[] = [
   {
+    id: "boiler",
     number: "01",
     icon: Gauge,
     title: "Boiler water",
@@ -22,6 +25,7 @@ const systems = [
     contexts: ["Steam generation", "Boiler-water systems", "Plant operations"],
   },
   {
+    id: "cooling",
     number: "02",
     icon: Waves,
     title: "Cooling water",
@@ -64,13 +68,15 @@ export default function BoilerCoolingWaterPage() {
               </div>
             </div>
 
-            <div className="industrial-water-visual" role="img" aria-label="Image placeholder for boiler and cooling-water systems">
-              <span className="industrial-water-visual-orbit industrial-water-visual-orbit-outer" />
-              <span className="industrial-water-visual-orbit industrial-water-visual-orbit-inner" />
-              <span className="industrial-water-visual-icon"><Gauge size={31} strokeWidth={1.5} aria-hidden="true" /></span>
-              <span className="industrial-water-visual-label">Boiler &amp; cooling water</span>
-              <span className="industrial-water-visual-caption">Image placeholder · industrial systems</span>
-            </div>
+            <figure className="industrial-water-figure">
+              <Image
+                src="/images/home/solution-water-boiler-room.jpg"
+                alt="Industrial steam boiler plant room with burner and associated piping"
+                fill
+                sizes="(max-width: 760px) 100vw, 40vw"
+              />
+              <figcaption className="industrial-water-figure-label">Boiler &amp; cooling water</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -89,8 +95,8 @@ export default function BoilerCoolingWaterPage() {
           </div>
 
           <div className="boiler-cooling-grid">
-            {systems.map(({ number, icon: Icon, title, description, contexts }) => (
-              <article className="boiler-cooling-card" key={title}>
+            {systems.map(({ id, number, icon: Icon, title, description, contexts }) => (
+              <article className="boiler-cooling-card" key={id} id={industrialAnchors[id]}>
                 <div className="industrial-water-card-topline">
                   <span>{number}</span>
                   <span className="industrial-water-card-icon"><Icon size={20} aria-hidden="true" /></span>

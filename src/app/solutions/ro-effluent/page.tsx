@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   Droplets,
+  Factory,
   Filter,
-  Waves,
 } from "lucide-react";
+import { industrialAnchors, type IndustrialSystemId } from "@/data/industrialWater";
 
 export const metadata: Metadata = {
   title: "RO & Effluent Treatment | PolyTreat Chemicals",
@@ -13,8 +15,9 @@ export const metadata: Metadata = {
     "Explore PolyTreat product categories for reverse-osmosis membrane systems and industrial effluent treatment.",
 };
 
-const treatmentAreas = [
+const treatmentAreas: { id: IndustrialSystemId; number: string; icon: typeof Filter; title: string; description: string; contexts: string[] }[] = [
   {
+    id: "ro",
     number: "01",
     icon: Filter,
     title: "Reverse-osmosis systems",
@@ -23,8 +26,9 @@ const treatmentAreas = [
     contexts: ["Membrane systems", "Scale control", "Membrane cleaning"],
   },
   {
+    id: "effluent",
     number: "02",
-    icon: Waves,
+    icon: Factory,
     title: "Effluent treatment",
     description:
       "Effluent-treatment categories include products described for coagulation, flocculation, and sludge dewatering processes.",
@@ -65,13 +69,15 @@ export default function RoEffluentPage() {
               </div>
             </div>
 
-            <div className="industrial-water-visual" role="img" aria-label="Image placeholder for reverse-osmosis and effluent treatment systems">
-              <span className="industrial-water-visual-orbit industrial-water-visual-orbit-outer" />
-              <span className="industrial-water-visual-orbit industrial-water-visual-orbit-inner" />
-              <span className="industrial-water-visual-icon"><Filter size={31} strokeWidth={1.5} aria-hidden="true" /></span>
-              <span className="industrial-water-visual-label">RO &amp; effluent systems</span>
-              <span className="industrial-water-visual-caption">Image placeholder · water-treatment applications</span>
-            </div>
+            <figure className="industrial-water-figure">
+              <Image
+                src="/images/home/portfolio-ro-effluent.webp"
+                alt="Industrial effluent treatment plant clarifiers and biological aeration sedimentation basins"
+                fill
+                sizes="(max-width: 760px) 100vw, 40vw"
+              />
+              <figcaption className="industrial-water-figure-label">RO &amp; effluent systems</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -90,8 +96,8 @@ export default function RoEffluentPage() {
           </div>
 
           <div className="boiler-cooling-grid">
-            {treatmentAreas.map(({ number, icon: Icon, title, description, contexts }) => (
-              <article className="boiler-cooling-card" key={title}>
+            {treatmentAreas.map(({ id, number, icon: Icon, title, description, contexts }) => (
+              <article className="boiler-cooling-card" key={id} id={industrialAnchors[id]}>
                 <div className="industrial-water-card-topline">
                   <span>{number}</span>
                   <span className="industrial-water-card-icon"><Icon size={20} aria-hidden="true" /></span>

@@ -10158,77 +10158,33 @@ code, .font-mono {
   border-radius: 3px;
 }
 
-.industrial-water-visual {
+.industrial-water-figure {
   position: relative;
-  display: grid;
   min-height: 320px;
-  place-items: center;
   overflow: hidden;
+  margin: 0;
   border: 1px solid rgba(183, 214, 228, 0.9);
   border-radius: 26px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.27) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.27) 1px, transparent 1px),
-    radial-gradient(ellipse at 76% 12%, rgba(255, 255, 255, 0.96), transparent 34%),
-    linear-gradient(140deg, #DDF0F8 0%, #CBE8F0 65%, #E3F3F7 100%);
-  background-size: 25px 25px, 25px 25px, auto, auto;
-  box-shadow: 0 24px 60px rgba(29, 78, 103, 0.08);
-  color: #1769A6;
-  isolation: isolate;
+  background: linear-gradient(140deg, #DDF0F8 0%, #CBE8F0 100%);
+  box-shadow: 0 24px 60px rgba(29, 78, 103, 0.1);
 }
 
-.industrial-water-visual-orbit {
+.industrial-water-figure img {
+  object-fit: cover;
+}
+
+.industrial-water-figure-label {
   position: absolute;
-  z-index: -1;
-  border: 1px solid rgba(23, 105, 166, 0.16);
-  border-radius: 50%;
-}
-
-.industrial-water-visual-orbit-outer {
-  width: 290px;
-  height: 290px;
-}
-
-.industrial-water-visual-orbit-inner {
-  width: 190px;
-  height: 190px;
-}
-
-.industrial-water-visual-icon {
-  display: grid;
-  width: 76px;
-  height: 76px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  border-radius: 23px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 14px 34px rgba(29, 90, 120, 0.13);
-  backdrop-filter: blur(8px);
-}
-
-.industrial-water-visual-label,
-.industrial-water-visual-caption {
-  position: absolute;
+  top: 1rem;
+  left: 1rem;
   padding: 0.45rem 0.7rem;
   border: 1px solid rgba(255, 255, 255, 0.88);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.84);
-  color: #526D7E;
+  background: rgba(255, 255, 255, 0.86);
+  color: #2C536B;
   font-size: 0.7rem;
   font-weight: 700;
   backdrop-filter: blur(8px);
-}
-
-.industrial-water-visual-label {
-  top: 1rem;
-  left: 1rem;
-}
-
-.industrial-water-visual-caption {
-  right: 1rem;
-  bottom: 1rem;
-  color: #718493;
-  font-weight: 600;
 }
 
 .industrial-water-systems {
@@ -10395,7 +10351,7 @@ code, .font-mono {
     gap: 1.7rem;
   }
 
-  .industrial-water-visual {
+  .industrial-water-figure {
     min-height: 245px;
   }
 
@@ -10422,19 +10378,9 @@ code, .font-mono {
     gap: 0.85rem 1rem;
   }
 
-  .industrial-water-visual {
+  .industrial-water-figure {
     min-height: 210px;
     border-radius: 20px;
-  }
-
-  .industrial-water-visual-orbit-outer {
-    width: 230px;
-    height: 230px;
-  }
-
-  .industrial-water-visual-orbit-inner {
-    width: 150px;
-    height: 150px;
   }
 
   .industrial-water-grid {
@@ -10458,6 +10404,197 @@ code, .font-mono {
     transform: none;
   }
 }
+
+/* Industrial water hub: system challenges, treatment categories, wider range. */
+.industrial-water-challenges,
+.industrial-water-categories,
+.industrial-water-extra {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  scroll-margin-top: 6rem;
+}
+
+.industrial-water-challenges {
+  background: linear-gradient(180deg, #F4FAFD 0%, #FFFFFF 100%);
+}
+
+.industrial-water-categories {
+  background: #FFFFFF;
+}
+
+.industrial-water-extra {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F3FAFD 100%);
+}
+
+.industrial-water-challenge-grid,
+.industrial-water-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+}
+
+.industrial-water-challenge-card,
+.industrial-water-category-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #DCE8EE;
+  border-radius: 18px;
+  padding: 1.35rem 1.5rem;
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(23, 74, 104, 0.04);
+}
+
+.industrial-water-category-card {
+  background: linear-gradient(145deg, #FFFFFF, #F8FBFC);
+}
+
+.industrial-water-challenge-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.85rem;
+  color: #102D42;
+  font-size: 1.05rem;
+  letter-spacing: -0.025em;
+}
+
+.industrial-water-challenge-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid #D8EAF2;
+  border-radius: 12px;
+  background: #EDF7FB;
+  color: #1769A6;
+}
+
+.industrial-water-challenge-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.industrial-water-challenge-list li {
+  position: relative;
+  padding-left: 1.05rem;
+  color: #5B7286;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.industrial-water-challenge-list li::before {
+  position: absolute;
+  top: 0.62rem;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #9CC7DE;
+  content: "";
+}
+
+.industrial-water-category-card h3 {
+  margin: 0 0 0.4rem;
+  color: #102D42;
+  font-size: 1.15rem;
+  letter-spacing: -0.025em;
+}
+
+.industrial-water-category-card > p {
+  margin: 0 0 0.95rem;
+  color: #62798A;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.industrial-water-category-card .boiler-cooling-contexts {
+  margin-bottom: 1.05rem;
+}
+
+.industrial-water-category-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  margin-top: auto;
+  color: #1769A6;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.industrial-water-category-link svg {
+  transition: transform 180ms ease;
+}
+
+.industrial-water-category-link:hover svg {
+  transform: translateX(3px);
+}
+
+.industrial-water-category-link:focus-visible {
+  outline: 2px solid #1769A6;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+.industrial-water-extra-list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.industrial-water-extra-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 0.9rem 1.5rem;
+  border: 1px solid #DCE8EE;
+  border-radius: 16px;
+  padding: 1.15rem 1.35rem;
+  background: #FFFFFF;
+}
+
+.industrial-water-extra-row h3 {
+  margin: 0 0 0.25rem;
+  color: #102D42;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.industrial-water-extra-row p {
+  margin: 0;
+  color: #62798A;
+  font-size: 0.83rem;
+  line-height: 1.6;
+}
+
+/* Deep links from the industrial water hub land on these cards. */
+.boiler-cooling-card[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 760px) {
+  .industrial-water-challenge-grid,
+  .industrial-water-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industrial-water-extra-row {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .industrial-water-category-link svg {
+    transition: none;
+  }
+}
+
 
 /* Construction chemistry solution overview */
 .construction-chemistry-hero {
