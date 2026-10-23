@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { IndustrialFamily } from "@/data/industrialFamilies";
@@ -17,15 +18,20 @@ export default function IndustrialFamilyPage({
   family,
   icon: Icon,
   categoryIcons = {},
+  mainClassName,
+  figureImage,
 }: {
   family: IndustrialFamily;
   icon: LucideIcon;
   categoryIcons?: Record<string, LucideIcon>;
+  mainClassName?: string;
+  figureImage?: { src: string; alt: string; caption: string };
 }) {
   const isSingle = family.categories.length === 1;
+  const heroClasses = ["industrial-family-page", mainClassName].filter(Boolean).join(" ");
 
   return (
-    <main className="industrial-family-page">
+    <main className={heroClasses}>
       <section className="industrial-family-hero" aria-labelledby="family-title">
         <div className="container">
           <nav className="industrial-family-breadcrumbs" aria-label="Breadcrumb">
@@ -55,12 +61,27 @@ export default function IndustrialFamilyPage({
               </div>
             </div>
 
-            <div className="industrial-family-figure" aria-hidden="true">
-              <span className="industrial-family-figure-grid" />
-              <span className="industrial-family-figure-icon">
-                <Icon size={40} strokeWidth={1.4} />
-              </span>
-              <span className="industrial-family-figure-label">{family.name}</span>
+            <div className={figureImage ? "industrial-family-figure-image" : "industrial-family-figure"} aria-hidden={!figureImage}>
+              {figureImage ? (
+                <figure className="industrial-water-figure">
+                  <Image
+                    src={figureImage.src}
+                    alt={figureImage.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 760px) 100vw, 40vw"
+                  />
+                  <figcaption className="industrial-water-figure-label">{figureImage.caption}</figcaption>
+                </figure>
+              ) : (
+                <>
+                  <span className="industrial-family-figure-grid" />
+                  <span className="industrial-family-figure-icon">
+                    <Icon size={40} strokeWidth={1.4} />
+                  </span>
+                  <span className="industrial-family-figure-label">{family.name}</span>
+                </>
+              )}
             </div>
           </div>
 

@@ -21,5 +21,17 @@ export default function PaintPreservativesPage() {
 
   if (!family) return null;
 
-  return <IndustrialFamilyPage family={family} icon={PaintBucket} categoryIcons={categoryIcons} />;
+  return (
+    <IndustrialFamilyPage
+      family={family}
+      icon={PaintBucket}
+      categoryIcons={categoryIcons}
+      mainClassName="paint-preservatives-page"
+      figureImage={{
+        src: "/images/home/paint-cans.webp",
+        alt: "Paint cans on the production line at a coatings manufacturing plant",
+        caption: "Paint industry & process",
+      }}
+    />
+  );
 }

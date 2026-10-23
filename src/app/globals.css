@@ -10330,6 +10330,68 @@ code, .font-mono {
   backdrop-filter: blur(8px);
 }
 
+/* Page-scoped hero backgrounds: each solutions page uses its own hero image
+   at low opacity; sibling pages sharing a hero class stay plain. */
+.industrial-water-page .industrial-water-hero {
+  background:
+    radial-gradient(ellipse at 88% 7%, rgba(56, 189, 248, 0.16), transparent 34%),
+    linear-gradient(rgba(242, 248, 252, 0.92), rgba(243, 250, 252, 0.92)),
+    url("/images/home/reverse-osmosis-plant.webp") center / cover no-repeat,
+    linear-gradient(120deg, #F2F8FC 0%, #FFFFFF 58%, #F3FAFC 100%);
+}
+
+.boiler-cooling-page .industrial-water-hero {
+  background:
+    radial-gradient(ellipse at 88% 7%, rgba(56, 189, 248, 0.16), transparent 34%),
+    linear-gradient(rgba(242, 248, 252, 0.92), rgba(243, 250, 252, 0.92)),
+    url("/images/home/solution-water-boiler-room.jpg") center / cover no-repeat,
+    linear-gradient(120deg, #F2F8FC 0%, #FFFFFF 58%, #F3FAFC 100%);
+}
+
+.ro-effluent-page .industrial-water-hero {
+  background:
+    radial-gradient(ellipse at 88% 7%, rgba(56, 189, 248, 0.16), transparent 34%),
+    linear-gradient(rgba(242, 248, 252, 0.92), rgba(243, 250, 252, 0.92)),
+    url("/images/home/portfolio-ro-effluent.webp") center / cover no-repeat,
+    linear-gradient(120deg, #F2F8FC 0%, #FFFFFF 58%, #F3FAFC 100%);
+}
+
+.construction-chemistry-page .construction-chemistry-hero {
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(148, 190, 212, 0.2), transparent 35%),
+    radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
+    linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
+    url("/images/home/surface-protection-membrane.webp") center / cover no-repeat,
+    linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
+}
+
+.construction-detail-page .construction-chemistry-hero {
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(148, 190, 212, 0.2), transparent 35%),
+    radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
+    linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
+    url("/images/home/portfolio-waterproofing.jpg") center / cover no-repeat,
+    linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
+}
+
+.flooring-joint-page .construction-chemistry-hero {
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(148, 190, 212, 0.2), transparent 35%),
+    radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
+    linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
+    url("/images/home/solution-construction-waterproofing.webp") center / cover no-repeat,
+    linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
+}
+
+.paint-preservatives-page .industrial-family-hero {
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(148, 190, 212, 0.2), transparent 35%),
+    radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
+    linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
+    url("/images/home/paint-cans.webp") center / cover no-repeat,
+    linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
+}
+
 .industrial-water-systems {
   padding: clamp(3rem, 6vw, 5rem) 0;
   background: #FFFFFF;
@@ -12028,6 +12090,30 @@ code, .font-mono {
   font-weight: 700;
   letter-spacing: 0.04em;
   backdrop-filter: blur(8px);
+}
+
+.industrial-family-figure-image {
+  position: relative;
+  display: block;
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid rgba(183, 214, 228, 0.9);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(29, 78, 103, 0.08);
+}
+
+.industrial-family-figure-image .industrial-water-figure-label {
+  top: 1rem;
+  left: 1rem;
+  right: auto;
+  bottom: auto;
+}
+
+@media (max-width: 560px) {
+  .industrial-family-figure-image {
+    min-height: 210px;
+    border-radius: 14px;
+  }
 }
 
 .industrial-family-facts {

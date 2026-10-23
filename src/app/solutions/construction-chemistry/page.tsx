@@ -87,28 +87,16 @@ export default function ConstructionChemistryPage() {
               </div>
             </div>
 
-            <div className="construction-hero-figures">
-              <figure className="construction-hero-figure">
-                <Image
-                  src="/images/home/solution-construction-waterproofing.webp"
-                  alt="Workers applying a liquid protective coating to a concrete industrial floor with a roller"
-                  fill
-                  priority
-                  sizes="(max-width: 760px) 50vw, 220px"
-                />
-                <figcaption>Protective coatings on concrete</figcaption>
-              </figure>
-              <figure className="construction-hero-figure">
-                <Image
-                  src="/images/home/portfolio-waterproofing.jpg"
-                  alt="Elastomeric liquid coating being roller-applied to a flat roof terrace"
-                  fill
-                  priority
-                  sizes="(max-width: 760px) 50vw, 220px"
-                />
-                <figcaption>Roof &amp; terrace waterproofing</figcaption>
-              </figure>
-            </div>
+            <figure className="industrial-water-figure">
+              <Image
+                src="/images/home/surface-protection-membrane.webp"
+                alt="Torch-applied bituminous waterproofing membrane being installed on a flat roof"
+                fill
+                priority
+                sizes="(max-width: 760px) 100vw, 40vw"
+              />
+              <figcaption className="industrial-water-figure-label">Surface protection membrane</figcaption>
+            </figure>
           </div>
         </div>
       </section>

@@ -66,12 +66,12 @@ export default function IndustrialWaterPage() {
 
             <figure className="industrial-water-figure">
               <Image
-                src="/images/home/solution-water-cooling-tower.jpg"
-                alt="Industrial cooling tower water treatment and recirculating pipe manifold"
+                src="/images/home/reverse-osmosis-plant.webp"
+                alt="Reverse-osmosis plant with membrane housings, high-pressure pumps and process piping"
                 fill
                 sizes="(max-width: 760px) 100vw, 40vw"
               />
-              <figcaption className="industrial-water-figure-label">Plant water systems</figcaption>
+              <figcaption className="industrial-water-figure-label">Reverse-osmosis plant</figcaption>
             </figure>
           </div>
         </div>
