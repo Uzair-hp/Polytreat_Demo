@@ -18,5 +18,17 @@ export default function AutomotiveChemicalsPage() {
 
   if (!family) return null;
 
-  return <IndustrialFamilyPage family={family} icon={Car} categoryIcons={categoryIcons} />;
+  return (
+    <IndustrialFamilyPage
+      family={family}
+      icon={Car}
+      categoryIcons={categoryIcons}
+      mainClassName="automotive-chemicals-page"
+      figureImage={{
+        src: "/images/home/car-coolant.webp",
+        alt: "Pouring green engine coolant into a vehicle cooling-system reservoir",
+        caption: "Automotive chemicals",
+      }}
+    />
+  );
 }

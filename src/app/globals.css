@@ -10379,7 +10379,7 @@ code, .font-mono {
     radial-gradient(ellipse at 88% 8%, rgba(148, 190, 212, 0.2), transparent 35%),
     radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
     linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
-    url("/images/home/solution-construction-waterproofing.webp") center / cover no-repeat,
+    url("/images/home/pcs-joint-filling.webp") center / cover no-repeat,
     linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
 }
 
@@ -10389,6 +10389,33 @@ code, .font-mono {
     radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
     linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
     url("/images/home/paint-cans.webp") center / cover no-repeat,
+    linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
+}
+
+.sugar-process-page .industrial-family-hero {
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(148, 190, 212, 0.2), transparent 35%),
+    radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
+    linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
+    url("/images/home/sugar-chemical.webp") center / cover no-repeat,
+    linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
+}
+
+.fireside-page .industrial-family-hero {
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(148, 190, 212, 0.2), transparent 35%),
+    radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
+    linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
+    url("/images/home/boiler-combustion.webp") center / cover no-repeat,
+    linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
+}
+
+.automotive-chemicals-page .industrial-family-hero {
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(148, 190, 212, 0.2), transparent 35%),
+    radial-gradient(ellipse at 4% 100%, rgba(16, 185, 129, 0.07), transparent 34%),
+    linear-gradient(rgba(244, 248, 250, 0.92), rgba(247, 250, 249, 0.92)),
+    url("/images/home/car-coolant.webp") center / cover no-repeat,
     linear-gradient(120deg, #F4F8FA 0%, #FFFFFF 58%, #F7FAF9 100%);
 }
 

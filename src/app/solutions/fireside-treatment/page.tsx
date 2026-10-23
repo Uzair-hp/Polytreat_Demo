@@ -21,5 +21,17 @@ export default function FiresideTreatmentPage() {
 
   if (!family) return null;
 
-  return <IndustrialFamilyPage family={family} icon={Flame} categoryIcons={categoryIcons} />;
+  return (
+    <IndustrialFamilyPage
+      family={family}
+      icon={Flame}
+      categoryIcons={categoryIcons}
+      mainClassName="fireside-page"
+      figureImage={{
+        src: "/images/home/boiler-combustion.webp",
+        alt: "Unsafe boiler combustion furnace with heavy deposits and workers inspecting",
+        caption: "Fireside treatment",
+      }}
+    />
+  );
 }

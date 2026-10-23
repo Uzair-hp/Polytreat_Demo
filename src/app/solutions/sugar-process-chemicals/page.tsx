@@ -22,5 +22,17 @@ export default function SugarProcessChemicalsPage() {
 
   if (!family) return null;
 
-  return <IndustrialFamilyPage family={family} icon={Wheat} categoryIcons={categoryIcons} />;
+  return (
+    <IndustrialFamilyPage
+      family={family}
+      icon={Wheat}
+      categoryIcons={categoryIcons}
+      mainClassName="sugar-process-page"
+      figureImage={{
+        src: "/images/home/sugar-chemical.webp",
+        alt: "Sugar mill processing line with evaporator bodies and product pans",
+        caption: "Sugar-process chemicals",
+      }}
+    />
+  );
 }
