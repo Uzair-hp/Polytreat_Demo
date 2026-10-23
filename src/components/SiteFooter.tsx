@@ -43,21 +43,6 @@ export default function SiteFooter() {
               />
             </Link>
             <p>Applied chemistry for industrial water, construction, and everyday facility care.</p>
-            <div className="footer-social-block">
-              <span className="footer-social-label">Connect with PolyTreat</span>
-              <div className="footer-social-links" role="group" aria-label="Social media icons; profile links are pending">
-                <span className="footer-social-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle className="footer-social-dot" cx="17.6" cy="6.7" r="0.8" /></svg>
-                </span>
-                <span className="footer-social-icon footer-social-linkedin" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 8.8H2.5v12h2.7v-12ZM3.85 2.7a1.58 1.58 0 1 0 0 3.16 1.58 1.58 0 0 0 0-3.16ZM21.5 13.9c0-3.6-1.92-5.28-4.48-5.28a3.87 3.87 0 0 0-3.48 1.92V8.8h-2.7v12h2.7v-6.2c0-1.64.31-3.23 2.35-3.23 2.01 0 2.04 1.88 2.04 3.34v6.09h2.7l.87-6.9Z" /></svg>
-                </span>
-                <span className="footer-social-icon footer-social-facebook" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.2H7.6V13h2.7v8h3.2Z" /></svg>
-                </span>
-              </div>
-              <span className="footer-social-note">Profile links to be added</span>
-            </div>
           </div>
           <nav className="footer-column" aria-label="Explore">
             <h2>Explore</h2>

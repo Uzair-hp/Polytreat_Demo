@@ -1,9 +1,10 @@
 ﻿/**
- * Curated homepage image configurations for PolyTreat.
- * Most images are hosted locally under `public/images/home`; two section banners still use
- * high-resolution Unsplash CDN links, served through Next.js image optimization.
- * Each entry includes its active URL and pre-vetted alternative options for instant swapping.
- * Alt text must describe the picture only — never assert that a stock image is a PolyTreat site.
+ * Homepage image map for PolyTreat.
+ * All images are hosted locally under `public/images/home`, so the homepage has no
+ * third-party image dependency and no broken remote links.
+ * Alt text describes the picture only — never assert that a stock image is a PolyTreat site.
+ * Every slot is allocated a distinct photograph, because the hero, the range cards and
+ * the applications section sit on one page; subjects are not reused across slots.
  */
 
 export interface ImageOption {
@@ -20,9 +21,65 @@ export interface SectionImage {
 }
 
 export const homeStockImages = {
-  // 1. Solution Areas
-  solutionWater: {
-    key: "solutionWater",
+  // 1. Hero slides, one per business area
+  heroWater: {
+    key: "heroWater",
+    label: "Industrial steam boiler plant room",
+    activeUrl: "/images/home/solution-water-boiler-room.jpg",
+    alt: "Industrial steam boiler plant room with combustion burner and pipework",
+    options: [
+      {
+        label: "Industrial Steam Boiler Plant Room (Recommended)",
+        url: "/images/home/solution-water-boiler-room.jpg",
+      },
+      {
+        label: "Cooling Tower Piping and Recirculating Loop",
+        url: "/images/home/solution-water-cooling-tower.jpg",
+      },
+      {
+        label: "Effluent Treatment Clarifier Basins (ETP)",
+        url: "/images/home/solution-water-effluent-clarifier.webp",
+      },
+    ],
+  },
+
+  heroConstruction: {
+    key: "heroConstruction",
+    label: "Liquid waterproofing membrane application",
+    activeUrl: "/images/home/solution-construction-waterproofing.webp",
+    alt: "Application of liquid elastomeric waterproofing membrane over a concrete surface",
+    options: [
+      {
+        label: "Liquid Waterproofing Membrane Application (Recommended)",
+        url: "/images/home/solution-construction-waterproofing.webp",
+      },
+      {
+        label: "Terrace Liquid Waterproofing Roller Coating",
+        url: "/images/home/portfolio-waterproofing.jpg",
+      },
+    ],
+  },
+
+  heroVklin: {
+    key: "heroVklin",
+    label: "Everyday facility cleaning",
+    activeUrl: "/images/home/everyday-cleaning-facility-care.webp",
+    alt: "Facility cleaning staff in a commercial building lobby with a cleaning trolley and supplies",
+    options: [
+      {
+        label: "Professional Facility Housekeeping (Recommended)",
+        url: "/images/home/everyday-cleaning-facility-care.webp",
+      },
+      {
+        label: "V-Klin Original Product Lineup",
+        url: "/images/home/vklin-og-fitted.webp",
+      },
+    ],
+  },
+
+  // 2. Range cards, one per range ("What we make")
+  rangeWater: {
+    key: "rangeWater",
     label: "Industrial Water Treatment",
     activeUrl: "/images/home/solution-water-cooling-tower.jpg",
     alt: "Industrial cooling tower water treatment and recirculating pipe manifold",
@@ -35,77 +92,12 @@ export const homeStockImages = {
         label: "Effluent Treatment Clarifier Basins (ETP)",
         url: "/images/home/solution-water-effluent-clarifier.webp",
       },
-      {
-        label: "Industrial Steam Boiler Plant Room",
-        url: "/images/home/solution-water-boiler-room.jpg",
-      },
     ],
   },
 
-  solutionConstruction: {
-    key: "solutionConstruction",
-    label: "Construction Chemistry and Protection",
-    activeUrl: "/images/home/solution-construction-waterproofing.webp",
-    alt: "Application of industrial liquid elastomeric waterproofing membrane on concrete structure",
-    options: [
-      {
-        label: "Liquid Waterproofing Membrane Application (Recommended)",
-        url: "/images/home/solution-construction-waterproofing.webp",
-      },
-    ],
-  },
-
-  solutionVklin: {
-    key: "solutionVklin",
-    label: "V-Klin Everyday Facility Care",
-    activeUrl: "/images/home/vklin-og-fitted.webp",
-    alt: "V-Klin Golden Floor Cleaner and Deodoriser 5-Litre facility packaging",
-    options: [
-      {
-        label: "V-Klin Original Golden Floor Cleaner Packaging (Recommended)",
-        url: "/images/home/vklin-og-fitted.webp",
-      },
-      {
-        label: "Professional Facility Housekeeping and Sanitization",
-        url: "/images/home/everyday-cleaning-facility-care.webp",
-      },
-    ],
-  },
-
-  // 2. Portfolio Product Families
-  portfolioBoilerCooling: {
-    key: "portfolioBoilerCooling",
-    label: "Boiler and Cooling Water Treatment",
-    activeUrl: "/images/home/portfolio-boiler-cooling.jpg",
-    alt: "Industrial packaged steam boiler plant room and combustion burner system",
-    options: [
-      {
-        label: "Industrial Steam Boiler Plant Room (Recommended)",
-        url: "/images/home/portfolio-boiler-cooling.jpg",
-      },
-      {
-        label: "Industrial Cooling Tower Pipe Manifold",
-        url: "/images/home/solution-water-cooling-tower.jpg",
-      },
-    ],
-  },
-
-  portfolioRoEffluent: {
-    key: "portfolioRoEffluent",
-    label: "RO, Effluent and Process Treatment",
-    activeUrl: "/images/home/portfolio-ro-effluent.webp",
-    alt: "Industrial effluent treatment plant clarifiers and biological aeration sedimentation basins",
-    options: [
-      {
-        label: "Effluent Clarifier Basins and Aeration Plant (Recommended)",
-        url: "/images/home/portfolio-ro-effluent.webp",
-      },
-    ],
-  },
-
-  portfolioConstruction: {
-    key: "portfolioConstruction",
-    label: "Waterproofing and Surface Protection",
+  rangeConstruction: {
+    key: "rangeConstruction",
+    label: "Surface Protection and Waterproofing",
     activeUrl: "/images/home/portfolio-waterproofing.jpg",
     alt: "Application of elastomeric liquid roof waterproofing coating with roller on building terrace",
     options: [
@@ -120,49 +112,41 @@ export const homeStockImages = {
     ],
   },
 
-  portfolioVklin: {
-    key: "portfolioVklin",
-    label: "Everyday Cleaning and Facility Care",
-    activeUrl: "/images/home/everyday-cleaning-facility-care.webp",
-    alt: "Facility cleaning staff working in a commercial building lobby with cleaning trolley and supplies",
+  // The specialty range has no client photograph, so its card uses the
+  // labelled icon panel treatment instead of a stock photo of someone else's plant.
+  // rangeSpecialty is rendered as an icon panel in src/app/page.tsx.
+
+  rangeVklin: {
+    key: "rangeVklin",
+    label: "V-Klin Everyday Facility Care",
+    activeUrl: "/images/home/vklin-og-lineup.webp",
+    alt: "V-Klin product lineup of floor-cleaning and care bottles",
     options: [
       {
         label: "V-Klin Original Product Lineup (Recommended)",
+        url: "/images/home/vklin-og-lineup.webp",
+      },
+      {
+        label: "V-Klin Golden Floor Cleaner Packaging",
         url: "/images/home/vklin-og-fitted.webp",
       },
-      {
-        label: "Janitorial Surface Care in Action",
-        url: "/images/home/everyday-cleaning-facility-care.webp",
-      },
     ],
   },
 
-  // 3. Markets & Applications Banner
-  marketApplications: {
-    key: "marketApplications",
-    label: "Industries & Processing Plants",
-    activeUrl:
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
-    alt: "Representative image of an industrial chemical processing plant",
+  // 3. Applications section
+  applicationsImage: {
+    key: "applicationsImage",
+    label: "Effluent Treatment Plant",
+    activeUrl: "/images/home/solution-water-effluent-clarifier.webp",
+    alt: "Industrial effluent treatment plant with clarifier basins and aeration tanks",
     options: [
       {
-        label: "Continuous Chemical Plant Complex (Recommended)",
-        url: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
+        label: "Effluent Clarifier Basins and Aeration Plant (Recommended)",
+        url: "/images/home/solution-water-effluent-clarifier.webp",
       },
-    ],
-  },
-
-  // 4. Company Facility Section
-  companyFacility: {
-    key: "companyFacility",
-    label: "PolyTreat Manufacturing Facility",
-    activeUrl:
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1200&q=80",
-    alt: "Representative image of an industrial specialty chemical plant",
-    options: [
       {
-        label: "Modern Industrial Chemical Plant Exterior (Recommended)",
-        url: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1200&q=80",
+        label: "Industrial Cooling Tower Pipe Manifold",
+        url: "/images/home/solution-water-cooling-tower.jpg",
       },
     ],
   },

@@ -1,116 +1,55 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Building2,
+  CalendarClock,
   Droplets,
-  Factory,
   FlaskConical,
   Layers3,
   Leaf,
-  ShieldCheck,
-  Waves,
+  MapPin,
+  MessageCircle,
 } from "lucide-react";
+import { homeStockImages } from "@/data/homeImages";
 
 const slides = [
   {
     id: "water",
-    label: "Industrial water treatment",
+    label: "Industrial water & process",
     selectorLabel: "Water",
-    headlineLead: "Water treatment for",
-    headlineAccent: "critical plant systems.",
-    description:
-      "Treatment options for boiler, cooling-water, reverse-osmosis, and effluent systems.",
-    sceneTitle: "Industrial water",
-    sceneNote: "Boiler · Cooling · RO · Effluent",
+    image: homeStockImages.heroWater,
+    lead: "Water treatment for critical plant systems.",
+    captionTitle: "Boiler · Cooling · RO · Effluent",
     icon: Droplets,
   },
   {
     id: "construction",
     label: "Construction & protection",
     selectorLabel: "Construction",
-    headlineLead: "Construction chemistry for",
-    headlineAccent: "demanding applications.",
-    description:
-      "Product categories include waterproofing, coatings, concrete repair, flooring, and surface treatment.",
-    sceneTitle: "Construction & protection",
-    sceneNote: "Waterproofing · Coatings · Repair",
+    image: homeStockImages.heroConstruction,
+    lead: "Surface protection built around the material and the problem.",
+    captionTitle: "Waterproofing · Coatings · Repair",
     icon: Layers3,
   },
   {
     id: "vklin",
-    label: "V-Klin institutional care",
+    label: "V-Klin care",
     selectorLabel: "V-Klin",
-    headlineLead: "Hygiene solutions for",
-    headlineAccent: "everyday facility care.",
-    description:
-      "V-Klin cleaning products for floor and surface care, handwashing, dishwashing, and facility upkeep.",
-    sceneTitle: "V-Klin care",
-    sceneNote: "Surface · Hand · Dish · Facility",
+    image: homeStockImages.heroVklin,
+    lead: "Everyday cleaning for homes, institutions, and facilities.",
+    captionTitle: "Floor · Hand · Dish · Facility",
     icon: Leaf,
   },
 ];
 
-function SlideArtwork({ slideId }: { slideId: string }) {
-  if (slideId === "construction") {
-    return (
-      <div className="hero-scene-art hero-construction-art" aria-hidden="true">
-        <div className="construction-halo" />
-        <div className="construction-surface construction-surface-back" />
-        <div className="construction-surface construction-surface-mid" />
-        <div className="construction-surface construction-surface-front" />
-        <span className="construction-seal construction-seal-one"><ShieldCheck size={21} /></span>
-        <span className="construction-seal construction-seal-two"><Layers3 size={18} /></span>
-        <span className="construction-measure construction-measure-one" />
-        <span className="construction-measure construction-measure-two" />
-        <span className="construction-orbit-dot construction-orbit-dot-one" />
-        <span className="construction-orbit-dot construction-orbit-dot-two" />
-      </div>
-    );
-  }
-
-  if (slideId === "vklin") {
-    return (
-      <div className="hero-scene-art hero-vklin-art" aria-hidden="true">
-        <div className="vklin-glass-orb vklin-glass-orb-one" />
-        <div className="vklin-glass-orb vklin-glass-orb-two" />
-        <div className="vklin-leaf-shape vklin-leaf-shape-one"><Leaf size={24} /></div>
-        <div className="vklin-leaf-shape vklin-leaf-shape-two"><Leaf size={17} /></div>
-        <div className="vklin-bottle vklin-bottle-tall">
-          <span className="vklin-bottle-cap" />
-          <span className="vklin-bottle-neck" />
-          <span className="vklin-bottle-body"><Droplets size={18} /><b>V-Klin</b><small>CARE</small></span>
-        </div>
-        <div className="vklin-bottle vklin-bottle-short">
-          <span className="vklin-bottle-cap" />
-          <span className="vklin-bottle-neck" />
-          <span className="vklin-bottle-body"><Leaf size={16} /><b>V-Klin</b></span>
-        </div>
-        <span className="vklin-bubble vklin-bubble-one" />
-        <span className="vklin-bubble vklin-bubble-two" />
-        <span className="vklin-bubble vklin-bubble-three" />
-      </div>
-    );
-  }
-
-  return (
-    <div className="hero-scene-art hero-water-art" aria-hidden="true">
-      <div className="water-grid-floor" />
-      <div className="water-orbit water-orbit-one" />
-      <div className="water-orbit water-orbit-two" />
-      <div className="water-orbit water-orbit-three" />
-      <div className="water-treatment-core"><Waves size={56} strokeWidth={1.35} /></div>
-      <span className="water-particle water-particle-one" />
-      <span className="water-particle water-particle-two" />
-      <span className="water-particle water-particle-three" />
-      <span className="water-tech-chip water-tech-chip-one"><Factory size={16} /> Process water</span>
-      <span className="water-tech-chip water-tech-chip-two"><FlaskConical size={16} /> Applied chemistry</span>
-      <span className="water-tech-chip water-tech-chip-three"><Building2 size={16} /> Plant systems</span>
-    </div>
-  );
-}
+const proofChips = [
+  { icon: CalendarClock, text: "Manufacturing since 1987" },
+  { icon: MapPin, text: "Three sites in Maharashtra" },
+  { icon: FlaskConical, text: "In-house QC laboratory" },
+];
 
 export default function HeroCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -118,7 +57,6 @@ export default function HeroCarousel() {
   const [isFocused, setIsFocused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const activeSlide = slides[activeIndex];
-  const headlineAccentWords = activeSlide.headlineAccent.split(" ");
 
   useEffect(() => {
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -142,113 +80,113 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="home-hero"
+      className="hp-hero"
       aria-labelledby="hero-title"
       aria-roledescription="carousel"
     >
-      <div className="home-hero-glow home-hero-glow-one" aria-hidden="true" />
-      <div className="home-hero-glow home-hero-glow-two" aria-hidden="true" />
-      <div className="container home-hero-grid">
-        <div className="home-hero-copy">
-          <span className="eyebrow eyebrow-light hero-carousel-eyebrow">
+      <div className="container hp-hero-grid">
+        <div className="hp-hero-copy">
+          <span className="eyebrow eyebrow-dark hp-hero-eyebrow">
             <span className="eyebrow-dot" aria-hidden="true" />
-            PolyTreat Chemicals
+            PolyTreat Chemicals Pvt. Ltd.
           </span>
           <h1 id="hero-title">
             Applied chemistry for{" "}
-            <span className="hero-highlight">water, structures, and everyday care.</span>
-          </h1>
-          <p className="hero-rotating-lead" key={`${activeSlide.id}-lead`}>
-            {activeSlide.headlineLead}{" "}
-            <span className="hero-highlight">
-              {headlineAccentWords.map((word, index) => (
-                <Fragment key={`${activeSlide.id}-${word}-${index}`}>
-                  <span
-                    className="hero-highlight-word"
-                    style={{ animationDelay: `${index * 190}ms` }}
-                  >
-                    {word}
-                  </span>
-                  {index < headlineAccentWords.length - 1 ? " " : null}
-                </Fragment>
-              ))}
+            <span className="hp-hero-highlight">
+              water, structures, and everyday care.
             </span>
+          </h1>
+          <p className="hp-hero-lead" aria-live="polite" key={activeSlide.id}>
+            {activeSlide.lead}
           </p>
-          <p className="home-hero-description hero-copy-slide-in" key={`${activeSlide.id}-description`}>
-            {activeSlide.description}
-          </p>
-          <div className="home-hero-actions">
-            <Link className="btn btn-accent" href="#solutions">
+
+          <ul className="hp-hero-proof" aria-label="Company facts">
+            {proofChips.map(({ icon: Icon, text }) => (
+              <li key={text}>
+                <Icon size={15} strokeWidth={1.9} aria-hidden="true" />
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="hp-hero-actions">
+            <Link className="btn btn-accent" href="#ranges">
               Explore solutions <ArrowRight size={17} aria-hidden="true" />
             </Link>
             <a
-              className="btn btn-outline"
+              className="btn hp-btn-whatsapp"
               href="https://wa.me/919820235995?text=Hi%20PolyTreat%2C%20I%27d%20like%20to%20discuss%20a%20product%20or%20site%20requirement."
               target="_blank"
               rel="noreferrer"
             >
-              Talk to our team <ArrowRight size={16} aria-hidden="true" />
+              <MessageCircle size={16} aria-hidden="true" />
+              Talk to our team
             </a>
           </div>
         </div>
 
-        <div
-          className="hero-carousel-visual"
-          role="group"
-          aria-label={`${activeSlide.label} visual`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onFocusCapture={() => setIsFocused(true)}
-          onBlurCapture={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsFocused(false);
-          }}
-        >
-          <div className="hero-scene-stage">
+        <div className="hp-hero-visual">
+          <div
+            className="hp-hero-stage"
+            role="group"
+            aria-label={`${activeSlide.label} image`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onFocusCapture={() => setIsFocused(true)}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsFocused(false);
+            }}
+          >
             {slides.map((slide, index) => {
               const SlideIcon = slide.icon;
               const isActive = index === activeIndex;
               return (
                 <div
-                  className={`hero-scene hero-scene-${slide.id}${isActive ? " is-active" : ""}`}
+                  className={`hp-hero-slide${isActive ? " is-active" : ""}`}
                   key={slide.id}
                   aria-hidden={!isActive}
                   role="group"
                   aria-roledescription="slide"
                   aria-label={`${index + 1} of ${slides.length}: ${slide.label}`}
                 >
-                  <div className="hero-scene-caption">
-                    <span className="hero-scene-caption-icon"><SlideIcon size={17} aria-hidden="true" /></span>
-                    <span>
-                      <strong>{slide.sceneTitle}</strong>
-                      <small>{slide.sceneNote}</small>
+                  <Image
+                    src={slide.image.activeUrl}
+                    alt={slide.image.alt}
+                    fill
+                    priority={index === 0}
+                    sizes="(max-width: 760px) 92vw, 46vw"
+                    className="hp-hero-slide-img"
+                  />
+                  <div className="hp-hero-slide-shade" aria-hidden="true" />
+                  <div className="hp-hero-slide-caption">
+                    <span className="hp-hero-caption-icon"><SlideIcon size={16} strokeWidth={2} aria-hidden="true" /></span>
+                    <span className="hp-hero-caption-text">
+                      <strong>{slide.label}</strong>
+                      <small>{slide.captionTitle}</small>
                     </span>
                   </div>
-                  <SlideArtwork slideId={slide.id} />
                 </div>
               );
             })}
           </div>
 
-          <div className="hero-carousel-controls" role="group" aria-label="Hero slides">
-            <div className="hero-carousel-pagination">
-              {slides.map((slide, index) => (
-                <button
-                  className={`hero-carousel-dot${index === activeIndex ? " is-active" : ""}`}
-                  key={slide.id}
-                  type="button"
-                  aria-label={`Show ${slide.label} slide`}
-                  aria-pressed={index === activeIndex}
-                  onClick={() => showSlide(index)}
-                >
-                  <span className="hero-carousel-dot-number">{`0${index + 1}`}</span>
-                  <strong>{slide.selectorLabel}</strong>
-                </button>
-              ))}
-            </div>
+          <div className="hp-hero-tabs" role="group" aria-label="Hero slides">
+            {slides.map((slide, index) => (
+              <button
+                className={`hp-hero-tab${index === activeIndex ? " is-active" : ""}`}
+                key={slide.id}
+                type="button"
+                aria-label={`Show ${slide.label} slide`}
+                aria-pressed={index === activeIndex}
+                onClick={() => showSlide(index)}
+              >
+                <span className="hp-hero-tab-mark" aria-hidden="true" />
+                <span className="hp-hero-tab-label">{slide.selectorLabel}</span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
-      <div className="hero-bottom-line" aria-hidden="true" />
     </section>
   );
 }
