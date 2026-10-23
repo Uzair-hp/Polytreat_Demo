@@ -16478,3 +16478,729 @@ a.hp-contact-card:focus-visible {
   }
 }
 
+
+/* ==========================================================================
+   HOMEPAGE PREMIUM VISUAL UPGRADE
+   Enhanced depth, micro-interactions, animations, glassmorphism, and
+   premium typography for a stronger first impression.
+   ========================================================================== */
+
+/* ------------------------------------------------------------------ */
+/* 1. Animated hero background — slow gradient pulse                  */
+/* ------------------------------------------------------------------ */
+
+@keyframes hp-hero-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hp-hero {
+  background:
+    radial-gradient(ellipse at 82% 8%, rgba(56, 189, 248, 0.22), transparent 38%),
+    radial-gradient(ellipse at 18% 85%, rgba(16, 185, 129, 0.14), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.06), transparent 50%),
+    linear-gradient(118deg, #FFFFFF 0%, #F0F8FC 42%, #F2FAF7 72%, #F5FAFC 100%);
+  background-size: 200% 200%;
+  animation: hp-hero-gradient-shift 16s ease infinite;
+}
+
+.hp-hero::before {
+  background-image:
+    linear-gradient(rgba(11, 25, 44, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 25, 44, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 70%);
+}
+
+/* Decorative floating orb behind hero visual */
+.hp-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 15%;
+  right: -5%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+  filter: blur(60px);
+  animation: hp-orb-float 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hp-orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-20px, 15px) scale(1.05); }
+  66% { transform: translate(10px, -10px) scale(0.97); }
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Enhanced hero typography & elements                             */
+/* ------------------------------------------------------------------ */
+
+.hp-hero-copy h1 {
+  font-size: clamp(2.15rem, 3.8vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.hp-hero-highlight {
+  background: linear-gradient(115deg, #1054A6 4%, #1B8AB8 38%, #0D9470 72%, #059669 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: hp-gradient-text 6s ease infinite;
+}
+
+@keyframes hp-gradient-text {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Entrance animation for hero copy */
+.hp-hero-copy {
+  animation: hp-hero-entrance 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hp-hero-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hp-hero-visual {
+  animation: hp-hero-visual-entrance 800ms cubic-bezier(0.22, 1, 0.36, 1) 150ms both;
+}
+
+@keyframes hp-hero-visual-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Hero stage — deeper shadow and subtle border glow */
+.hp-hero-stage {
+  border: 1px solid rgba(200, 222, 238, 0.7);
+  box-shadow:
+    0 4px 16px rgba(23, 74, 104, 0.08),
+    0 24px 64px rgba(23, 74, 104, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  border-radius: 24px;
+}
+
+/* Hero proof chips — glass effect */
+.hp-hero-proof li {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(206, 224, 235, 0.75);
+  box-shadow: 0 2px 12px rgba(23, 74, 104, 0.06);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.hp-hero-proof li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(23, 74, 104, 0.1);
+}
+
+/* Hero tab enhancement */
+.hp-hero-tab {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(23, 74, 104, 0.04);
+}
+
+.hp-hero-tab.is-active {
+  box-shadow:
+    0 4px 16px rgba(37, 133, 181, 0.12),
+    0 0 0 1px rgba(37, 133, 181, 0.15) inset;
+}
+
+/* CTA buttons — premium feel */
+.hp-hero-actions .btn-accent {
+  box-shadow:
+    0 4px 14px rgba(23, 105, 166, 0.25),
+    0 1px 3px rgba(23, 105, 166, 0.1);
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.hp-hero-actions .btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(23, 105, 166, 0.3),
+    0 2px 6px rgba(23, 105, 166, 0.15);
+}
+
+.hp-btn-whatsapp {
+  box-shadow: 0 2px 10px rgba(5, 122, 88, 0.08);
+}
+
+.hp-btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(5, 122, 88, 0.14);
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Certifications strip — glass card elevation                     */
+/* ------------------------------------------------------------------ */
+
+.certifications-strip {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(245, 250, 252, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.cert-badge-item {
+  transition: transform 180ms ease;
+}
+
+.cert-badge-item:hover {
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. Section headings — premium typography                           */
+/* ------------------------------------------------------------------ */
+
+.hp-section-heading h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  background: linear-gradient(140deg, #0B192C 30%, #1B4E6F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Range cards — premium depth and interactions                    */
+/* ------------------------------------------------------------------ */
+
+.hp-range-card {
+  border: 1px solid rgba(202, 220, 231, 0.6);
+  box-shadow:
+    0 1px 3px rgba(23, 74, 104, 0.04),
+    0 8px 28px rgba(23, 74, 104, 0.06);
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 300ms ease;
+}
+
+.hp-range-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(23, 105, 166, 0.25);
+  box-shadow:
+    0 4px 12px rgba(23, 74, 104, 0.06),
+    0 20px 48px rgba(23, 74, 104, 0.13),
+    0 0 0 1px rgba(23, 105, 166, 0.08) inset;
+}
+
+.hp-range-card.hp-tone-green:hover {
+  border-color: rgba(5, 150, 105, 0.3);
+  box-shadow:
+    0 4px 12px rgba(5, 120, 82, 0.06),
+    0 20px 48px rgba(5, 120, 82, 0.12),
+    0 0 0 1px rgba(5, 150, 105, 0.08) inset;
+}
+
+.hp-range-media-img {
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hp-range-card:hover .hp-range-media-img {
+  transform: scale(1.07);
+}
+
+.hp-range-number {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+}
+
+.hp-range-link svg {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hp-range-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ------------------------------------------------------------------ */
+/* 6. Tags — refined styling                                          */
+/* ------------------------------------------------------------------ */
+
+.hp-tags li {
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.hp-tags li:hover {
+  transform: translateY(-1px);
+  background: #EDF5FA;
+  border-color: rgba(23, 105, 166, 0.25);
+}
+
+/* ------------------------------------------------------------------ */
+/* 7. Product map group cards — depth + interaction                   */
+/* ------------------------------------------------------------------ */
+
+.hp-map-group {
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.hp-map-group:hover {
+  transform: translateY(-3px);
+  border-color: rgba(23, 105, 166, 0.2);
+  box-shadow:
+    0 2px 8px rgba(23, 74, 104, 0.04),
+    0 14px 32px rgba(23, 74, 104, 0.08);
+}
+
+.hp-map-pills a {
+  transition: background 180ms ease, border-color 180ms ease, transform 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms ease;
+}
+
+.hp-map-pills a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(23, 74, 104, 0.06);
+}
+
+/* ------------------------------------------------------------------ */
+/* 8. Applications — image treatment + row interactions               */
+/* ------------------------------------------------------------------ */
+
+.hp-applications-figure {
+  border-radius: 20px;
+  box-shadow:
+    0 4px 14px rgba(23, 74, 104, 0.06),
+    0 20px 50px rgba(23, 74, 104, 0.12);
+}
+
+.hp-applications-img {
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hp-applications-figure:hover .hp-applications-img {
+  transform: scale(1.04);
+}
+
+.hp-application-row {
+  transition: background 200ms ease, border-color 200ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease;
+}
+
+.hp-application-row:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 14px rgba(23, 74, 104, 0.06),
+    0 14px 32px rgba(23, 74, 104, 0.08);
+}
+
+.hp-application-arrow {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1), color 200ms ease;
+}
+
+.hp-application-row:hover .hp-application-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ------------------------------------------------------------------ */
+/* 9. Flagship cards — premium elevation + glass icon                 */
+/* ------------------------------------------------------------------ */
+
+.hp-flag-card {
+  border: 1px solid rgba(202, 220, 231, 0.6);
+  box-shadow:
+    0 1px 3px rgba(23, 74, 104, 0.03),
+    0 8px 24px rgba(23, 74, 104, 0.06);
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 300ms ease;
+}
+
+.hp-flag-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(23, 105, 166, 0.25);
+  box-shadow:
+    0 4px 12px rgba(23, 74, 104, 0.05),
+    0 20px 48px rgba(23, 74, 104, 0.12),
+    0 0 0 1px rgba(23, 105, 166, 0.06) inset;
+}
+
+.hp-flag-icon {
+  box-shadow: 0 4px 14px rgba(20, 121, 181, 0.1);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.hp-flag-card:hover .hp-flag-icon {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(20, 121, 181, 0.16);
+}
+
+.hp-flag-link svg {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hp-flag-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ------------------------------------------------------------------ */
+/* 10. V-Klin section — vibrant leaf-green accents                    */
+/* ------------------------------------------------------------------ */
+
+.hp-section-vklin {
+  background:
+    radial-gradient(ellipse at 20% 15%, rgba(16, 185, 129, 0.08), transparent 45%),
+    radial-gradient(ellipse at 80% 85%, rgba(52, 211, 153, 0.06), transparent 40%),
+    linear-gradient(180deg, #F0FAF5 0%, #FBFEFD 100%);
+}
+
+.hp-vklin-panel {
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms ease;
+}
+
+.hp-vklin-panel:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 12px rgba(5, 120, 82, 0.04),
+    0 16px 40px rgba(5, 120, 82, 0.1);
+}
+
+.hp-vklin-product {
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.hp-vklin-product:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 4px 12px rgba(5, 120, 82, 0.06),
+    0 16px 36px rgba(5, 120, 82, 0.12);
+}
+
+.hp-vklin-product:hover .hp-vklin-product-img {
+  transform: scale(1.08);
+}
+
+.hp-vklin-product-img {
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-vklin {
+  box-shadow: 0 4px 14px rgba(5, 122, 88, 0.2);
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.btn-vklin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(5, 122, 88, 0.28);
+}
+
+/* ------------------------------------------------------------------ */
+/* 11. Story + PQRS — enhanced company section                        */
+/* ------------------------------------------------------------------ */
+
+.hp-section-story {
+  position: relative;
+}
+
+.hp-section-story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 85% 20%, rgba(56, 189, 248, 0.05), transparent 45%),
+    radial-gradient(ellipse at 10% 80%, rgba(16, 185, 129, 0.04), transparent 40%);
+  pointer-events: none;
+}
+
+.hp-pqrs {
+  box-shadow:
+    0 2px 8px rgba(23, 74, 104, 0.04),
+    0 14px 36px rgba(23, 74, 104, 0.08);
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms ease;
+}
+
+.hp-pqrs:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 12px rgba(23, 74, 104, 0.05),
+    0 20px 48px rgba(23, 74, 104, 0.1);
+}
+
+.hp-pqrs-tile {
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.hp-pqrs-tile:hover {
+  transform: translateY(-2px);
+  background: #EFF7FC;
+  border-color: rgba(23, 105, 166, 0.2);
+}
+
+.hp-pqrs-letter {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 250ms ease;
+}
+
+.hp-pqrs-tile:hover .hp-pqrs-letter {
+  transform: scale(1.1);
+}
+
+.hp-story-facts li {
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.hp-story-facts li:hover {
+  transform: translateY(-2px);
+  border-color: rgba(23, 105, 166, 0.25);
+  box-shadow: 0 6px 18px rgba(23, 74, 104, 0.07);
+}
+
+.hp-story-location {
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.hp-story-location:hover {
+  transform: translateY(-1px);
+  border-color: rgba(11, 143, 108, 0.35);
+}
+
+/* ------------------------------------------------------------------ */
+/* 12. Contact panel — premium gradient + interactions                */
+/* ------------------------------------------------------------------ */
+
+.hp-contact-panel {
+  border: 1px solid rgba(202, 220, 231, 0.5);
+  box-shadow:
+    0 4px 14px rgba(23, 74, 104, 0.05),
+    0 20px 50px rgba(23, 74, 104, 0.1);
+  background:
+    radial-gradient(ellipse at 0% 100%, rgba(56, 189, 248, 0.08), transparent 50%),
+    radial-gradient(ellipse at 100% 0%, rgba(16, 185, 129, 0.1), transparent 50%),
+    linear-gradient(118deg, #F8FCFD 0%, #F3F9F7 100%);
+}
+
+.hp-contact-copy h2 {
+  background: linear-gradient(140deg, #0B192C 30%, #1054A6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hp-contact-card {
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), border-color 260ms ease, box-shadow 260ms ease, background 200ms ease;
+}
+
+a.hp-contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 4px 12px rgba(23, 74, 104, 0.06),
+    0 14px 32px rgba(23, 74, 104, 0.1);
+}
+
+.hp-contact-icon {
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+a.hp-contact-card:hover .hp-contact-icon {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(8, 122, 120, 0.12);
+}
+
+a.hp-contact-card:hover svg:last-child {
+  transform: translate(2px, -2px);
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/* 13. Section separator — subtle gradient dividers                   */
+/* ------------------------------------------------------------------ */
+
+.hp-section + .hp-section {
+  position: relative;
+}
+
+.hp-section + .hp-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(85%, 960px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(23, 105, 166, 0.12) 30%, rgba(5, 150, 105, 0.1) 70%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* 14. Scroll reveal animations (JS class-triggered)                  */
+/* ------------------------------------------------------------------ */
+
+@keyframes hp-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hp-reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hp-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.hp-reveal.is-visible {
+  animation: hp-reveal-up 550ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hp-reveal-scale {
+  opacity: 0;
+  transform: scale(0.95) translateY(16px);
+}
+
+.hp-reveal-scale.is-visible {
+  animation: hp-reveal-scale 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hp-stagger.is-visible > * {
+  animation: hp-reveal-up 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hp-stagger.is-visible > *:nth-child(1) { animation-delay: 0ms; }
+.hp-stagger.is-visible > *:nth-child(2) { animation-delay: 80ms; }
+.hp-stagger.is-visible > *:nth-child(3) { animation-delay: 160ms; }
+.hp-stagger.is-visible > *:nth-child(4) { animation-delay: 240ms; }
+.hp-stagger.is-visible > *:nth-child(5) { animation-delay: 320ms; }
+.hp-stagger.is-visible > *:nth-child(6) { animation-delay: 400ms; }
+
+/* ------------------------------------------------------------------ */
+/* 15. Section tint refinement — background depth                     */
+/* ------------------------------------------------------------------ */
+
+.hp-section-tint {
+  background:
+    radial-gradient(ellipse at 70% 10%, rgba(56, 189, 248, 0.05), transparent 50%),
+    radial-gradient(ellipse at 30% 90%, rgba(16, 185, 129, 0.04), transparent 45%),
+    linear-gradient(180deg, #F4FAFC 0%, #F6FBF9 50%, #FAFCFD 100%);
+}
+
+/* ------------------------------------------------------------------ */
+/* 16. Enhanced eyebrow with dot indicator                            */
+/* ------------------------------------------------------------------ */
+
+.eyebrow-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 0.35rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1769A6, #059669);
+  vertical-align: middle;
+  animation: hp-dot-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes hp-dot-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(23, 105, 166, 0.3); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(23, 105, 166, 0); }
+}
+
+/* ------------------------------------------------------------------ */
+/* 17. Link arrow animations (all text-links)                         */
+/* ------------------------------------------------------------------ */
+
+.text-link svg {
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.text-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ------------------------------------------------------------------ */
+/* 18. Responsive refinements for premium upgrade                     */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+  .hp-hero-copy h1 {
+    font-size: clamp(1.82rem, 7.2vw, 2.25rem);
+  }
+
+  .hp-section-heading h2 {
+    font-size: clamp(1.78rem, 7vw, 2.2rem);
+  }
+
+  .hp-hero::after {
+    width: 220px;
+    height: 220px;
+    top: 5%;
+    right: -10%;
+  }
+
+  .hp-section + .hp-section::before {
+    width: 90%;
+  }
+}
+
+@media (max-width: 420px) {
+  .hp-hero::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-hero,
+  .hp-hero-highlight {
+    animation: none !important;
+    background-size: auto !important;
+  }
+
+  .hp-hero::after {
+    display: none;
+  }
+
+  .hp-hero-copy,
+  .hp-hero-visual,
+  .hp-reveal,
+  .hp-reveal-scale,
+  .hp-stagger.is-visible > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .eyebrow-dot {
+    animation: none !important;
+  }
+}

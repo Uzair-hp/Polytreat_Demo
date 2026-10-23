@@ -1,7 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
+import ScrollReveal from "@/components/ScrollReveal";
 import { homeStockImages } from "@/data/homeImages";
 import {
   findVKlinProducts,
@@ -212,6 +213,7 @@ export default function Home() {
   return (
     <main className="hp-home">
       <HeroCarousel />
+      <ScrollReveal />
 
       {/* Quality & Compliance Strip */}
       <section className="certifications-strip" aria-label="Quality and compliance documents">
@@ -251,7 +253,7 @@ export default function Home() {
       {/* What we make — one card per range */}
       <section className="hp-section hp-section-tint" id="ranges" aria-labelledby="ranges-title">
         <div className="container">
-          <div className="hp-section-heading">
+          <div className="hp-section-heading hp-reveal">
             <div>
               <span className="eyebrow eyebrow-dark">What we make</span>
               <h2 id="ranges-title">Four ranges, one manufacturer.</h2>
@@ -262,7 +264,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="hp-range-grid">
+          <div className="hp-range-grid hp-stagger">
             {ranges.map(({ id, number, icon: Icon, imageSrc, imageAlt, eyebrow, title, description, tags, link, linkText, tone }) => (
               <article className={`hp-range-card hp-tone-${tone}`} id={id} key={id}>
                 <div className="hp-range-media">
@@ -321,7 +323,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="hp-map-grid">
+          <div className="hp-map-grid hp-stagger">
             {productMapGroups.map((group) => (
               <div className={`hp-map-group hp-map-${group.id}`} key={group.id}>
                 <div className="hp-map-group-head">
@@ -355,7 +357,7 @@ export default function Home() {
       <section className="hp-section hp-section-tint" id="applications" aria-labelledby="applications-title">
         <div className="container hp-applications-layout">
           <div className="hp-applications-image">
-            <div className="hp-applications-figure">
+            <div className="hp-applications-figure hp-reveal-scale">
               <Image
                 src={homeStockImages.applicationsImage.activeUrl}
                 alt={homeStockImages.applicationsImage.alt}
@@ -378,7 +380,7 @@ export default function Home() {
           </div>
 
           <div className="hp-applications-list">
-            <div className="hp-section-heading hp-heading-tight">
+            <div className="hp-section-heading hp-heading-tight hp-reveal">
               <div>
                 <span className="eyebrow eyebrow-dark">Industries &amp; applications</span>
                 <h2 id="applications-title">Where the chemistry goes to work.</h2>
@@ -389,7 +391,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="hp-application-rows">
+            <div className="hp-application-rows hp-stagger">
               {markets.map(({ icon: Icon, description, href }, index) => (
                 <Link className="hp-application-row" href={href} key={markets[index].href}>
                   <span className="hp-application-index">{`0${index + 1}`}</span>
@@ -421,7 +423,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="hp-flag-grid">
+          <div className="hp-flag-grid hp-stagger">
             {flagshipProducts.map((product) => {
               const Icon = flagshipIcons[product.slug];
               return (
@@ -468,7 +470,7 @@ export default function Home() {
       {/* V-Klin brand spotlight */}
       <section className="hp-section hp-section-vklin" id="vklin" aria-labelledby="vklin-title">
         <div className="container hp-vklin-layout">
-          <div className="hp-vklin-copy">
+          <div className="hp-vklin-copy hp-reveal">
             <div className="hp-vklin-identity">
               <Image
                 src="/vklin-logo.webp"
@@ -499,7 +501,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hp-vklin-panel">
+          <div className="hp-vklin-panel hp-reveal-scale">
             <div className="hp-vklin-panel-head">
               <span className="hp-vklin-panel-mark" aria-hidden="true"><Leaf size={18} aria-hidden="true" /></span>
               <div>
@@ -531,7 +533,7 @@ export default function Home() {
       <section className="hp-section hp-section-story" id="story" aria-labelledby="story-title">
         <div className="container">
           <div className="hp-story-layout">
-            <div className="hp-story-copy">
+            <div className="hp-story-copy hp-reveal">
               <span className="eyebrow eyebrow-dark">About PolyTreat</span>
               <h2 id="story-title">A manufacturer first, since 1987.</h2>
               <p>
@@ -577,7 +579,7 @@ export default function Home() {
             </div>
 
             <div className="hp-story-side">
-              <div className="hp-pqrs">
+              <div className="hp-pqrs hp-reveal-scale">
                 <span className="hp-pqrs-label">The PQRS framework</span>
                 <div className="hp-pqrs-list">
                   {pqrsTiles.map(({ letter, icon: Icon, title, description }) => (
@@ -602,7 +604,7 @@ export default function Home() {
       {/* Contact */}
       <section className="hp-section hp-section-contact" id="contact" aria-labelledby="contact-title">
         <div className="container hp-contact-panel">
-          <div className="hp-contact-copy">
+          <div className="hp-contact-copy hp-reveal">
             <span className="eyebrow eyebrow-dark">Start a conversation</span>
             <h2 id="contact-title">Let&apos;s talk about your application.</h2>
             <p>
@@ -614,7 +616,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="hp-contact-cards">
+          <div className="hp-contact-cards hp-stagger">
             <a className="hp-contact-card" href="mailto:polyind2@gmail.com">
               <span className="hp-contact-icon"><Mail size={18} aria-hidden="true" /></span>
               <span className="hp-contact-card-copy">
