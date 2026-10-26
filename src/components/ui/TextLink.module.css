@@ -1,0 +1,39 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pt-space-2);
+  color: var(--pt-brand);
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-sm);
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.link:hover .text,
+.link:focus-visible .text {
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--pt-brand);
+  outline-offset: 2px;
+  border-radius: var(--pt-radius-sm);
+}
+
+.arrow {
+  flex-shrink: 0;
+  transition: transform var(--pt-dur-hover) var(--pt-ease);
+}
+
+.link:hover .arrow {
+  transform: translateX(5px);
+}
+
+.onDark {
+  color: var(--pt-on-dark);
+}
+
+.onDark:focus-visible {
+  outline-color: var(--pt-on-dark);
+}

@@ -1,0 +1,80 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pt-space-2);
+  min-height: 46px;
+  padding-inline: var(--pt-space-5);
+  border: 1px solid transparent;
+  border-radius: var(--pt-radius-sm);
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-sm);
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--pt-dur-hover) var(--pt-ease),
+    border-color var(--pt-dur-hover) var(--pt-ease),
+    color var(--pt-dur-hover) var(--pt-ease),
+    filter var(--pt-dur-hover) var(--pt-ease);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--pt-brand);
+  outline-offset: 2px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.primary {
+  background: var(--pt-d);
+  color: var(--pt-on-dark);
+}
+
+.primary:hover,
+.primary:focus-visible {
+  filter: brightness(0.92);
+}
+
+.secondary {
+  background: var(--pt-surface);
+  color: var(--pt-text-strong);
+  border-color: var(--pt-border-strong);
+}
+
+.secondary:hover,
+.secondary:focus-visible {
+  border-color: var(--pt-brand);
+  color: var(--pt-brand);
+}
+
+.secondary.onDark {
+  background: transparent;
+  color: var(--pt-on-dark);
+  border-color: var(--pt-dark-outline);
+}
+
+.secondary.onDark:hover,
+.secondary.onDark:focus-visible {
+  background: var(--pt-dark-surface);
+  border-color: var(--pt-on-dark);
+  color: var(--pt-on-dark);
+}
+
+.inverse {
+  background: var(--pt-on-dark);
+  color: var(--pt-navy);
+}
+
+.inverse:hover,
+.inverse:focus-visible {
+  background: var(--pt-brand-50);
+}

@@ -11,223 +11,56 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
-
-type MenuKey = "products" | "vklin" | "quality" | "company";
-type MenuLink = { label: string; href: string; detail?: string };
-type MenuGroup = { title: string; links: MenuLink[] };
-type MenuPromo = { eyebrow: string; text: string; cta: string; href: string };
+import { ArrowRight, ChevronDown, MessageCircle, Phone } from "lucide-react";
+import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
+import { companyInfo } from "@/data/companyInfo";
+import {
+  groupRange,
+  menuGroups,
+  menuLabels,
+  menuPromos,
+  menuRange,
+  type MenuKey,
+} from "@/data/navigation";
+import styles from "./navbar/Navbar.module.css";
 
 const DESKTOP_BREAKPOINT = 1024;
 
-const productGroups: MenuGroup[] = [
-  {
-    title: "Industrial water",
-    links: [
-      { label: "Industrial water treatment", href: "/solutions/industrial-water" },
-      { label: "Boiler & cooling water", href: "/solutions/boiler-cooling-water" },
-      { label: "RO & effluent", href: "/solutions/ro-effluent" },
-    ],
-  },
-  {
-    title: "Construction & surface protection",
-    links: [
-      { label: "Construction chemistry overview", href: "/solutions/construction-chemistry" },
-      { label: "Waterproofing, repair & coatings", href: "/solutions/waterproofing-repair-coatings" },
-      { label: "Flooring & joint sealing", href: "/solutions/flooring-joint-sealing" },
-    ],
-  },
-  {
-    title: "Specialty products",
-    links: [
-      { label: "Specialty products overview", href: "/specialty" },
-      { label: "COROSIL", href: "/specialty/corosil" },
-      { label: "POLYDOR-WS", href: "/specialty/polydor-ws" },
-      { label: "POLYKLIN", href: "/specialty/polyklin" },
-    ],
-  },
-  {
-    title: "Other catalogue families",
-    links: [
-      { label: "Paint preservatives", href: "/solutions/paint-preservatives" },
-      { label: "Sugar-process chemicals", href: "/solutions/sugar-process-chemicals" },
-      { label: "Fireside treatment", href: "/solutions/fireside-treatment" },
-      { label: "Automotive chemicals", href: "/solutions/automotive-chemicals" },
-    ],
-  },
-];
-
-const vklinGroups: MenuGroup[] = [
-  {
-    title: "V-Klin range",
-    links: [
-      { label: "V-Klin overview", href: "/vklin" },
-      { label: "Cleaning product range", href: "/vklin/products" },
-    ],
-  },
-  {
-    title: "Cleaning categories",
-    links: [
-      { label: "Floor & surface care", href: "/vklin/products#floor-surface" },
-      { label: "Hand care & hygiene", href: "/vklin/products#hand-hygiene" },
-      { label: "Dishwashing", href: "/vklin/products#dishwashing" },
-      { label: "Glass & window care", href: "/vklin/products#glass-care" },
-    ],
-  },
-  {
-    title: "More care categories",
-    links: [
-      { label: "Bathroom & toilet care", href: "/vklin/products#toilet-care" },
-      { label: "Odour & air care", href: "/vklin/products#odour-care" },
-      { label: "Natural wellness", href: "/vklin/products#natural-wellness" },
-    ],
-  },
-];
-
-const qualityGroups: MenuGroup[] = [
-  {
-    title: "Quality & product information",
-    links: [
-      { label: "Quality overview", href: "/quality", detail: "How PolyTreat approaches quality and product information" },
-      { label: "PQRS framework", href: "/quality#pqrs", detail: "Performance · Quality · Reliability · Service" },
-      { label: "Certifications", href: "/certifications", detail: "Review each certificate's stated scope" },
-    ],
-  },
-];
-
-const companyGroups: MenuGroup[] = [
-  {
-    title: "About PolyTreat",
-    links: [
-      { label: "Company overview", href: "/about", detail: "Company · product ranges · locations" },
-      { label: "Locations & facilities", href: "/about#infrastructure", detail: "Goregaon West · Goregaon East · Tarapur" },
-    ],
-  },
-];
-
-const menuGroups: Record<MenuKey, MenuGroup[]> = {
-  products: productGroups,
-  vklin: vklinGroups,
-  quality: qualityGroups,
-  company: companyGroups,
-};
-
-const menuLabels: Record<MenuKey, string> = {
-  products: "Solutions",
-  vklin: "V-Klin",
-  quality: "Quality",
-  company: "About Us",
-};
-
-const menuPromos: Record<MenuKey, MenuPromo> = {
-  products: {
-    eyebrow: "Not sure where to start",
-    text: "Tell us about the plant and the system you need to protect. We will point you to the right chemistry.",
-    cta: "Request a quote",
-    href: "/contact#contact-form",
-  },
-  vklin: {
-    eyebrow: "V-Klin range",
-    text: "Cleaning products for institutional, commercial and everyday cleaning, under one brand.",
-    cta: "Browse the product range",
-    href: "/vklin/products",
-  },
-  quality: {
-    eyebrow: "How we work",
-    text: "Performance, Quality, Reliability, Service. The framework behind our product information.",
-    cta: "Talk to our team",
-    href: "/contact#contact-form",
-  },
-  company: {
-    eyebrow: "Talk to us",
-    text: "Want to see the facilities or set up a supply discussion? Our team can walk you through it.",
-    cta: "Get in touch",
-    href: "/contact",
-  },
-};
-
 const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
-function stripHash(href: string) {
-  return href.split("#")[0];
-}
-
-function MenuGroupLinks({
-  groups,
-  pathname,
-  onNavigate,
-}: {
-  groups: MenuGroup[];
-  pathname: string | null;
-  onNavigate: () => void;
-}) {
-  return (
-    <div className="nav-menu-groups">
-      {groups.map((group) => (
-        <section className="nav-menu-group" key={group.title}>
-          <h3>{group.title}</h3>
-          <ul>
-            {group.links.map((link) => {
-              const external = link.href.startsWith("https://");
-              const className = `nav-menu-group-link${link.detail ? " nav-menu-group-link--detail" : ""}`;
-              const current = pathname !== null && !link.href.includes("#") && stripHash(link.href) === pathname;
-              const content = (
-                <>
-                  <span className="nav-menu-link-head">
-                    <span className="nav-menu-link-label">{link.label}</span>
-                    <ArrowRight className="nav-menu-link-arrow" size={15} aria-hidden="true" />
-                  </span>
-                  {link.detail && <small>{link.detail}</small>}
-                </>
-              );
-
-              return (
-                <li key={`${group.title}-${link.label}`}>
-                  {external ? (
-                    <a
-                      className={className}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-current={current ? "page" : undefined}
-                      onClick={onNavigate}
-                    >
-                      {content}
-                    </a>
-                  ) : (
-                    <Link
-                      className={className}
-                      href={link.href}
-                      aria-current={current ? "page" : undefined}
-                      onClick={onNavigate}
-                    >
-                      {content}
-                    </Link>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      ))}
-    </div>
-  );
+function groupSlug(title: string) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
 
 export default function Navbar() {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
   const [openMobileGroup, setOpenMobileGroup] = useState<MenuKey | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   const headerRef = useRef<HTMLElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const mobilePanelRef = useRef<HTMLDivElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
   const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingFocus = useRef<MenuKey | null>(null);
   const wasDesktop = useRef(true);
 
-  const clearHoverCloseTimer = useCallback(() => {
+  const telHref = `tel:${companyInfo.phone.replace(/\s+/g, "")}`;
+
+  const clearHoverClose = useCallback(() => {
     if (hoverCloseTimer.current) clearTimeout(hoverCloseTimer.current);
     hoverCloseTimer.current = null;
   }, []);
+
+  const closeMenus = useCallback(() => {
+    clearHoverClose();
+    setOpenMenu(null);
+    setOpenMobileGroup(null);
+    setIsMobileOpen(false);
+  }, [clearHoverClose]);
 
   /** Keep the open panel fully on screen when it is wider than the space under its trigger. */
   const clampPanel = useCallback(() => {
@@ -236,7 +69,7 @@ export default function Navbar() {
 
     panel.style.marginLeft = "0px";
     const rect = panel.getBoundingClientRect();
-    const gutter = 12;
+    const gutter = 16;
     let shift = 0;
 
     if (rect.left < gutter) {
@@ -255,7 +88,7 @@ export default function Navbar() {
     (Object.keys(menuGroups) as MenuKey[]).forEach((key) => {
       const matches = menuGroups[key].some((group) =>
         group.links.some((link) => {
-          const base = stripHash(link.href);
+          const base = link.href.split("#")[0];
           if (base === "" || base === "/") return false;
           return pathname === base || pathname.startsWith(`${base}/`);
         }),
@@ -267,149 +100,263 @@ export default function Navbar() {
   }, [pathname]);
 
   function openMenuFromHover(menu: MenuKey) {
-    clearHoverCloseTimer();
+    clearHoverClose();
     setOpenMenu(menu);
   }
 
   function toggleMenu(menu: MenuKey) {
-    clearHoverCloseTimer();
+    clearHoverClose();
     setOpenMenu((current) => (current === menu ? null : menu));
   }
 
   function scheduleMenuClose(menu: MenuKey) {
-    clearHoverCloseTimer();
+    clearHoverClose();
     hoverCloseTimer.current = setTimeout(() => {
       setOpenMenu((current) => (current === menu ? null : current));
       hoverCloseTimer.current = null;
     }, 180);
   }
 
-  useIsomorphicLayoutEffect(() => {
-    if (!openMenu) return;
-    clampPanel();
-  }, [openMenu, clampPanel]);
+  function handleTriggerKeyDown(event: React.KeyboardEvent<HTMLButtonElement>, menu: MenuKey) {
+    if (event.key !== "ArrowDown") return;
+    event.preventDefault();
+    clearHoverClose();
+    pendingFocus.current = menu;
+    setOpenMenu(menu);
+  }
 
+  function handleSkip(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    const target =
+      document.querySelector<HTMLElement>("main") ?? document.querySelector<HTMLElement>("h1");
+    if (!target) return;
+    target.setAttribute("tabindex", "-1");
+    target.focus();
+  }
+
+  // Fade in the scroll shadow once the page has moved.
+  useEffect(() => {
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        setScrolled(window.scrollY > 8);
+      });
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  // Close on a click outside the header or the mobile panel.
   useEffect(() => {
     function handlePointerDown(event: PointerEvent) {
-      if (!headerRef.current?.contains(event.target as Node)) {
-        clearHoverCloseTimer();
-        setOpenMenu(null);
-        setIsMobileMenuOpen(false);
-      }
-    }
-
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key !== "Escape") return;
-
-      const mobileToggle = headerRef.current?.querySelector<HTMLButtonElement>(
-        '.mobile-menu-btn[aria-expanded="true"]',
-      );
-      const menuTrigger = headerRef.current?.querySelector<HTMLButtonElement>(
-        ".nav-item.is-open .nav-trigger",
-      );
-      clearHoverCloseTimer();
-      setOpenMenu(null);
-      setOpenMobileGroup(null);
-      setIsMobileMenuOpen(false);
-      (mobileToggle ?? menuTrigger)?.focus();
+      const target = event.target as Node;
+      if (headerRef.current?.contains(target)) return;
+      if (mobilePanelRef.current?.contains(target)) return;
+      closeMenus();
     }
 
     document.addEventListener("pointerdown", handlePointerDown);
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("pointerdown", handlePointerDown);
-      document.removeEventListener("keydown", handleKeyDown);
-      clearHoverCloseTimer();
-    };
-  }, [clearHoverCloseTimer]);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [closeMenus]);
 
+  // Escape closes the panel (desktop) or the menu (mobile) and restores focus.
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key !== "Escape") return;
+      clearHoverClose();
+
+      if (isMobileOpen) {
+        setIsMobileOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (openMenu) {
+        const trigger = headerRef.current?.querySelector<HTMLButtonElement>(
+          `[data-nav-trigger="${openMenu}"]`,
+        );
+        setOpenMenu(null);
+        trigger?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isMobileOpen, openMenu, clearHoverClose]);
+
+  // Close everything when the viewport crosses the desktop breakpoint.
   useEffect(() => {
     function handleResize() {
       const desktop = window.innerWidth >= DESKTOP_BREAKPOINT;
       if (desktop !== wasDesktop.current) {
         wasDesktop.current = desktop;
-        setOpenMenu(null);
-        setOpenMobileGroup(null);
-        setIsMobileMenuOpen(false);
+        closeMenus();
       }
-      if (openMenu) clampPanel();
     }
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [openMenu, clampPanel]);
+  }, [closeMenus]);
+
+  // Close on route change. Deferred out of the effect body so the state update
+  // is not synchronous with the render commit.
+  useEffect(() => {
+    const timer = window.setTimeout(closeMenus, 0);
+    return () => window.clearTimeout(timer);
+  }, [pathname, closeMenus]);
 
   useEffect(() => {
-    if (!isMobileMenuOpen) return;
+    window.addEventListener("hashchange", closeMenus);
+    return () => window.removeEventListener("hashchange", closeMenus);
+  }, [closeMenus]);
+
+  // Mobile menu: lock body scroll and trap focus inside the panel.
+  useEffect(() => {
+    if (!isMobileOpen) return;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key !== "Tab") return;
+      const panel = mobilePanelRef.current;
+      if (!panel) return;
+
+      const items: HTMLElement[] = [];
+      if (menuButtonRef.current) items.push(menuButtonRef.current);
+      panel
+        .querySelectorAll<HTMLElement>("a[href], button:not([disabled])")
+        .forEach((element) => items.push(element));
+      if (items.length === 0) return;
+
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (!active || !items.includes(active)) {
+        event.preventDefault();
+        first.focus();
+        return;
+      }
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
+      document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileOpen]);
 
-  function closeMenus() {
-    clearHoverCloseTimer();
-    setOpenMenu(null);
-    setOpenMobileGroup(null);
-    setIsMobileMenuOpen(false);
-  }
+  // Clamp the open panel, and move focus into it after an ArrowDown.
+  useIsomorphicLayoutEffect(() => {
+    if (!openMenu) return;
+    clampPanel();
+    if (pendingFocus.current === openMenu) {
+      pendingFocus.current = null;
+      panelRef.current?.querySelector<HTMLElement>("a")?.focus();
+    }
+  }, [openMenu, clampPanel]);
 
-  function renderMobileMenuGroup(menu: MenuKey) {
-    const expanded = openMobileGroup === menu;
+  function renderGroups(menu: MenuKey) {
+    return menuGroups[menu].map((group) => {
+      const range = groupRange[group.title];
+      const headingId = `nav-group-${menu}-${groupSlug(group.title)}`;
 
-    return (
-      <section className={`mobile-nav-group mobile-nav-group-${menu}`} key={menu}>
-        <button
-          type="button"
-          aria-expanded={expanded}
-          aria-current={activeMenus.has(menu) ? "true" : undefined}
-          aria-controls={`mobile-panel-${menu}`}
-          onClick={() => setOpenMobileGroup((current) => (current === menu ? null : menu))}
+      return (
+        <div
+          className={styles.group}
+          key={group.title}
+          data-range={range && range !== "brand" ? range : undefined}
         >
-          {menuLabels[menu]} <ChevronDown size={17} aria-hidden="true" />
-        </button>
-        {expanded && (
-          <div id={`mobile-panel-${menu}`} className="mobile-nav-panel">
-            <MenuGroupLinks groups={menuGroups[menu]} pathname={pathname} onNavigate={closeMenus} />
-          </div>
-        )}
-      </section>
-    );
+          <p className={styles.groupHeading} id={headingId}>
+            <span className={styles.dot} aria-hidden="true" />
+            {group.title}
+          </p>
+          <ul className={styles.groupList} aria-labelledby={headingId}>
+            {group.links.map((link) => {
+              const external = link.href.startsWith("https://");
+              const current =
+                pathname !== null && !link.href.includes("#") && link.href === pathname;
+              const className = `${styles.groupLink}${link.detail ? ` ${styles.groupLinkDetail}` : ""}`;
+              const content = (
+                <>
+                  <span className={styles.groupLinkHead}>
+                    <span>{link.label}</span>
+                    <ArrowRight size={14} strokeWidth={1.75} aria-hidden="true" />
+                  </span>
+                  {link.detail && <span className={styles.groupDetail}>{link.detail}</span>}
+                </>
+              );
+
+              return (
+                <li key={`${group.title}-${link.label}`}>
+                  {external ? (
+                    <a
+                      className={className}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-current={current ? "page" : undefined}
+                      onClick={closeMenus}
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <Link
+                      className={className}
+                      href={link.href}
+                      aria-current={current ? "page" : undefined}
+                      onClick={closeMenus}
+                    >
+                      {content}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    });
   }
 
-  function renderDropdown(menu: MenuKey) {
+  function renderPromo(menu: MenuKey) {
     const promo = menuPromos[menu];
+    const range = menuRange[menu];
 
     return (
-      <div
-        className={`nav-dropdown-panel nav-${menu}-panel`}
-        id={`nav-panel-${menu}`}
-        ref={panelRef}
-        role="group"
-        aria-label={`${menuLabels[menu]} links`}
-      >
-        <MenuGroupLinks groups={menuGroups[menu]} pathname={pathname} onNavigate={closeMenus} />
-        <aside className="nav-promo-card">
-          <span className="nav-promo-eyebrow">{promo.eyebrow}</span>
-          <p className="nav-promo-text">{promo.text}</p>
-          <Link className="nav-promo-link" href={promo.href} onClick={closeMenus}>
-            {promo.cta}
-            <ArrowRight size={14} aria-hidden="true" />
-          </Link>
-        </aside>
-      </div>
+      <aside className={styles.promo} data-range={range !== "brand" ? range : undefined}>
+        <p className={styles.promoEyebrow}>{promo.eyebrow}</p>
+        <p className={styles.promoText}>{promo.text}</p>
+        <Link className={styles.promoLink} href={promo.href} onClick={closeMenus}>
+          {promo.cta}
+          <ArrowRight size={14} strokeWidth={1.75} aria-hidden="true" />
+        </Link>
+      </aside>
     );
   }
 
-  function renderMenuTrigger(menu: MenuKey) {
+  function renderTrigger(menu: MenuKey) {
     const isOpen = openMenu === menu;
     const isActive = activeMenus.has(menu);
 
     return (
       <div
-        className={`nav-item nav-item-${menu}${isOpen ? " is-open" : ""}`}
+        className={`${styles.item}${menu === "vklin" ? ` ${styles.itemVklin}` : ""}`}
         key={menu}
         data-active={isActive ? "true" : undefined}
         onPointerEnter={(event) => {
@@ -425,79 +372,207 @@ export default function Navbar() {
         }}
       >
         <button
-          className="nav-trigger"
+          className={styles.trigger}
           type="button"
+          data-nav-trigger={menu}
           aria-expanded={isOpen}
           aria-haspopup="true"
           aria-controls={`nav-panel-${menu}`}
           onClick={() => toggleMenu(menu)}
+          onKeyDown={(event) => handleTriggerKeyDown(event, menu)}
           onFocus={(event) => {
             if (event.currentTarget.matches(":focus-visible")) openMenuFromHover(menu);
           }}
         >
-          {menuLabels[menu]} <ChevronDown size={14} strokeWidth={1.8} aria-hidden="true" />
+          {menuLabels[menu]}
+          <ChevronDown size={14} strokeWidth={1.8} aria-hidden="true" />
         </button>
-        {isOpen && renderDropdown(menu)}
+
+        {isOpen && (
+          <div
+            className={`${styles.panel}${menu === "company" ? ` ${styles.panelCompany}` : ""}`}
+            id={`nav-panel-${menu}`}
+            ref={panelRef}
+          >
+            <div className={styles.panelGroups}>{renderGroups(menu)}</div>
+            {renderPromo(menu)}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  function renderAccordion(menu: MenuKey) {
+    const expanded = openMobileGroup === menu;
+
+    return (
+      <div className={styles.accordion}>
+        <button
+          type="button"
+          className={`${styles.accordionRow}${expanded ? ` ${styles.accordionRowOpen}` : ""}`}
+          aria-expanded={expanded}
+          aria-current={activeMenus.has(menu) ? "true" : undefined}
+          aria-controls={`mobile-panel-${menu}`}
+          onClick={() => setOpenMobileGroup((current) => (current === menu ? null : menu))}
+        >
+          <span>{menuLabels[menu]}</span>
+          <ChevronDown className={styles.chevron} size={18} strokeWidth={1.75} aria-hidden="true" />
+        </button>
+
+        {expanded && (
+          <div className={styles.accordionPanel} id={`mobile-panel-${menu}`}>
+            <div className={styles.accordionGroups}>{renderGroups(menu)}</div>
+          </div>
+        )}
       </div>
     );
   }
 
   return (
-    <header className="site-header" ref={headerRef}>
-      <div className="navbar-inner">
-        <Link className="navbar-brand" href="/" aria-label="PolyTreat Chemicals home" onClick={closeMenus}>
-          <span className="navbar-logo"><Image src="/logo.png" alt="" fill priority sizes="(max-width: 430px) 132px, (max-width: 1023px) 126px, 118px" /></span>
-          <span className="navbar-brand-copy">
-            <strong>PolyTreat Chemicals</strong>
-            <small>Water Treatment &amp; Specialty Chemistry</small>
-          </span>
-        </Link>
+    <>
+      <a className={styles.skipLink} href="#main-content" onClick={handleSkip}>
+        Skip to content
+      </a>
 
-        <nav className="desktop-nav" aria-label="Main navigation">
-          <Link className="nav-direct-link" href="/" aria-current={pathname === "/" ? "page" : undefined} onClick={closeMenus}>Home</Link>
-          {renderMenuTrigger("products")}
-          <Link className="nav-direct-link" href="/industries" aria-current={pathname === "/industries" ? "page" : undefined} onClick={closeMenus}>Industries</Link>
-          {renderMenuTrigger("vklin")}
-          {renderMenuTrigger("quality")}
-          {renderMenuTrigger("company")}
-          <Link className="nav-direct-link" href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} onClick={closeMenus}>Contact</Link>
-        </nav>
-
-        <div className="navbar-actions">
-          <Link className="btn btn-accent navbar-cta" href="/contact#contact-form" onClick={closeMenus}>
-            <span>Request a Quote</span>
-            <ArrowRight size={16} aria-hidden="true" />
+      <header
+        className={`${styles.header}${scrolled ? ` ${styles.headerScrolled}` : ""}`}
+        ref={headerRef}
+      >
+        <Container className={styles.inner}>
+          <Link className={styles.brand} href="/" aria-label="PolyTreat home" onClick={closeMenus}>
+            <Image
+              className={styles.logo}
+              src="/logo.png"
+              alt=""
+              width={2167}
+              height={726}
+              priority
+            />
           </Link>
 
-          <button
-            className="mobile-menu-btn"
-            type="button"
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
-            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-navigation"
-          >
-            {isMobileMenuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
-          </button>
-        </div>
-      </div>
-
-      {isMobileMenuOpen && (
-        <div className="mobile-navigation" id="mobile-navigation">
-          <nav className="mobile-menu-list" aria-label="Mobile navigation">
-            <Link className="mobile-direct-link" href="/" aria-current={pathname === "/" ? "page" : undefined} onClick={closeMenus}>Home</Link>
-            {renderMobileMenuGroup("products")}
-            <Link className="mobile-direct-link" href="/industries" aria-current={pathname === "/industries" ? "page" : undefined} onClick={closeMenus}>Industries</Link>
-            {renderMobileMenuGroup("vklin")}
-            {renderMobileMenuGroup("quality")}
-            {renderMobileMenuGroup("company")}
-            <Link className="mobile-direct-link" href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} onClick={closeMenus}>Contact</Link>
-            <Link className="btn btn-accent mobile-cta" href="/contact#contact-form" onClick={closeMenus}>
-              Request a Quote
+          <nav className={styles.nav} aria-label="Main navigation">
+            <Link
+              className={styles.link}
+              href="/"
+              aria-current={pathname === "/" ? "page" : undefined}
+              onClick={closeMenus}
+            >
+              Home
+            </Link>
+            {renderTrigger("products")}
+            <Link
+              className={styles.link}
+              href="/industries"
+              aria-current={pathname === "/industries" ? "page" : undefined}
+              onClick={closeMenus}
+            >
+              Industries
+            </Link>
+            {renderTrigger("vklin")}
+            {renderTrigger("quality")}
+            {renderTrigger("company")}
+            <Link
+              className={styles.link}
+              href="/contact"
+              aria-current={pathname === "/contact" ? "page" : undefined}
+              onClick={closeMenus}
+            >
+              Contact
             </Link>
           </nav>
+
+          <div className={styles.actions}>
+            <a className={styles.phone} href={telHref}>
+              <Phone size={16} strokeWidth={1.75} aria-hidden="true" />
+              <span>{companyInfo.phone}</span>
+            </a>
+
+            <Button className={styles.cta} variant="primary" href="/contact#contact-form">
+              Request a Quote
+            </Button>
+
+            <button
+              className={`${styles.menuButton}${isMobileOpen ? ` ${styles.menuButtonOpen}` : ""}`}
+              type="button"
+              ref={menuButtonRef}
+              aria-label={isMobileOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMobileOpen}
+              aria-controls="mobile-nav"
+              onClick={() => setIsMobileOpen((open) => !open)}
+            >
+              <span className={styles.menuBar} aria-hidden="true" />
+              <span className={styles.menuBar} aria-hidden="true" />
+              <span className={styles.menuBar} aria-hidden="true" />
+            </button>
+          </div>
+        </Container>
+      </header>
+
+      {isMobileOpen && (
+        <div className={styles.mobilePanel} id="mobile-nav" ref={mobilePanelRef}>
+          <div className={styles.mobileScroll}>
+            <nav className={styles.mobileNav} aria-label="Mobile navigation">
+              <ul className={styles.mobileList}>
+                <li>
+                  <Link
+                    className={styles.mobileRow}
+                    href="/"
+                    aria-current={pathname === "/" ? "page" : undefined}
+                    onClick={closeMenus}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>{renderAccordion("products")}</li>
+                <li>
+                  <Link
+                    className={styles.mobileRow}
+                    href="/industries"
+                    aria-current={pathname === "/industries" ? "page" : undefined}
+                    onClick={closeMenus}
+                  >
+                    Industries
+                  </Link>
+                </li>
+                <li>{renderAccordion("vklin")}</li>
+                <li>{renderAccordion("quality")}</li>
+                <li>{renderAccordion("company")}</li>
+                <li>
+                  <Link
+                    className={styles.mobileRow}
+                    href="/contact"
+                    aria-current={pathname === "/contact" ? "page" : undefined}
+                    onClick={closeMenus}
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div className={styles.mobileSticky}>
+            <Button variant="primary" href="/contact#contact-form">
+              Request a Quote
+            </Button>
+            <div className={styles.mobileContacts}>
+              <a className={styles.mobileContact} href={telHref}>
+                <Phone size={16} strokeWidth={1.75} aria-hidden="true" />
+                Call
+              </a>
+              <a
+                className={styles.mobileContact}
+                href={companyInfo.whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MessageCircle size={16} strokeWidth={1.75} aria-hidden="true" />
+                WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

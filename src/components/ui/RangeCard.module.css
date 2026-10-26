@@ -1,0 +1,122 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--pt-border);
+  border-top: 5px solid var(--pt-c);
+  border-radius: var(--pt-radius-lg);
+  background: var(--pt-surface);
+  color: var(--pt-text-body);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform var(--pt-dur-hover) var(--pt-ease),
+    box-shadow var(--pt-dur-hover) var(--pt-ease);
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--pt-shadow-hover);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--pt-brand);
+  outline-offset: 2px;
+}
+
+.media {
+  position: relative;
+  flex-shrink: 0;
+  background: var(--pt-t);
+}
+
+.mediaImg {
+  object-fit: cover;
+}
+
+.tall .media {
+  height: 240px;
+}
+
+.wide .media {
+  height: 240px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-space-3);
+  padding: var(--pt-space-5);
+  flex: 1;
+}
+
+.number {
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-xs);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  color: var(--pt-d);
+}
+
+.title {
+  font-family: var(--pt-font-heading);
+  font-size: var(--pt-text-h3);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--pt-text-strong);
+  margin: 0;
+}
+
+.text {
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-sm);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--pt-text-body);
+  margin: 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pt-space-2);
+  list-style: none;
+  margin: var(--pt-space-1) 0 0;
+  padding: 0;
+}
+
+.linkLine {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pt-space-2);
+  margin-top: auto;
+  padding-top: var(--pt-space-2);
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-sm);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--pt-brand);
+}
+
+.linkLine svg {
+  flex-shrink: 0;
+  transition: transform var(--pt-dur-hover) var(--pt-ease);
+}
+
+.card:hover .linkLine svg {
+  transform: translateX(5px);
+}
+
+@media (min-width: 1024px) {
+  .wide {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .wide .media {
+    width: 44%;
+    height: auto;
+  }
+}

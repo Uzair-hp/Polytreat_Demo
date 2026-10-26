@@ -1,0 +1,27 @@
+.bar {
+  display: flex;
+  width: 168px;
+  height: 6px;
+  border-radius: var(--pt-radius-full);
+  overflow: hidden;
+}
+
+.segment {
+  flex: 1;
+}
+
+.water {
+  background: var(--pt-water-c);
+}
+
+.construction {
+  background: var(--pt-construction-c);
+}
+
+.specialty {
+  background: var(--pt-specialty-c);
+}
+
+.vklin {
+  background: var(--pt-vklin-c);
+}

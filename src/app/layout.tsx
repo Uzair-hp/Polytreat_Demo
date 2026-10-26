@@ -1,7 +1,23 @@
 ﻿import type { Metadata, Viewport } from "next";
+import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
+import "@/styles/tokens.css";
 import Navbar from "@/components/Navbar";
 import SiteFooter from "@/components/SiteFooter";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-manrope",
+  weight: ["400", "500", "700", "800"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "PolyTreat Chemicals | Industrial Water Treatment & Specialty Chemistry",
@@ -24,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className={`${manrope.variable} ${inter.variable}`}>
         <Navbar />
         {children}
         <SiteFooter />

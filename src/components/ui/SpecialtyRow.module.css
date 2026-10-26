@@ -1,0 +1,133 @@
+.row {
+  display: grid;
+  gap: var(--pt-space-4);
+  padding: var(--pt-space-6);
+  border-left: 5px solid var(--pt-c);
+  border-bottom: 1px solid var(--pt-border);
+  color: var(--pt-text-body);
+  text-decoration: none;
+  transition: background-color var(--pt-dur-hover) var(--pt-ease);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover,
+.row:focus-visible {
+  background: var(--pt-t);
+}
+
+.row:focus-visible {
+  outline: 2px solid var(--pt-brand);
+  outline-offset: -2px;
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-space-2);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: var(--pt-space-2);
+  padding: var(--pt-space-1) var(--pt-space-3);
+  border-radius: var(--pt-radius-full);
+  background: var(--pt-t);
+  color: var(--pt-d);
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-xs);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tagIcon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.name {
+  font-family: var(--pt-font-heading);
+  font-size: var(--pt-text-h3);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--pt-text-strong);
+  margin: 0;
+}
+
+.bodyCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-space-2);
+}
+
+.tagline {
+  margin: 0;
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-lg);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--pt-text-strong);
+}
+
+.text {
+  margin: 0;
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-sm);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--pt-text-body);
+}
+
+.note {
+  margin: 0;
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-sm);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--pt-text-muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pt-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--pt-radius-full);
+  background: var(--pt-t);
+  color: var(--pt-d);
+  transition: transform var(--pt-dur-hover) var(--pt-ease);
+}
+
+.row:hover .arrow {
+  transform: translateX(5px);
+}
+
+@media (min-width: 1024px) {
+  .row {
+    grid-template-columns: 200px minmax(0, 1.1fr) minmax(0, 1fr) 44px;
+    align-items: start;
+    gap: var(--pt-space-6);
+  }
+
+  .name {
+    font-size: var(--pt-text-h3-lg);
+  }
+}

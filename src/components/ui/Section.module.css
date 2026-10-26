@@ -1,0 +1,18 @@
+.section {
+  padding-block: var(--pt-section-y);
+  background: var(--pt-surface);
+  color: var(--pt-text-body);
+}
+
+.tint {
+  background: var(--pt-page-tint);
+}
+
+.dark {
+  background: var(--pt-navy);
+  color: var(--pt-on-dark);
+}
+
+.vklin {
+  background: var(--pt-vklin-section);
+}

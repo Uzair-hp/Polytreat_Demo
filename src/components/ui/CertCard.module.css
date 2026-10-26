@@ -1,0 +1,45 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--pt-space-4);
+  padding: var(--pt-space-5);
+  border: 1px solid var(--pt-border);
+  border-radius: var(--pt-radius-lg);
+  background: var(--pt-surface);
+  color: var(--pt-text-strong);
+  text-decoration: none;
+  transition: border-color var(--pt-dur-hover) var(--pt-ease),
+    transform var(--pt-dur-hover) var(--pt-ease),
+    box-shadow var(--pt-dur-hover) var(--pt-ease);
+}
+
+.linked:hover,
+.linked:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--pt-vklin-border);
+  box-shadow: var(--pt-shadow-hover);
+}
+
+.linked:focus-visible {
+  outline: 2px solid var(--pt-brand);
+  outline-offset: 2px;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--pt-radius-full);
+  background: var(--pt-vklin-t);
+  color: var(--pt-vklin-d);
+}
+
+.label {
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-base);
+  font-weight: 500;
+  line-height: 1.4;
+}

@@ -1,0 +1,25 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pt-space-2);
+  padding: var(--pt-space-1) var(--pt-space-3);
+  border: 1px solid var(--pt-border-soft);
+  border-radius: var(--pt-radius-full);
+  background: var(--pt-surface);
+  color: var(--pt-text-body);
+  font-family: var(--pt-font-body);
+  font-size: var(--pt-text-sm);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.ranged {
+  background: var(--pt-t);
+  border-color: transparent;
+  color: var(--pt-d);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}
