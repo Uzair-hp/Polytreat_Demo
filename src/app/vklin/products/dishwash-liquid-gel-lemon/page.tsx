@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "dishwash-liquid-gel-lemon";
 
 export const metadata: Metadata = {
-  title: "Dishwash Liquid Gel, Lemon | V-Klin by PolyTreat",
+  title: "VKLIN Dishwash Liquid Gel - Lemon | V-Klin by PolyTreat",
   description:
-    "Dishwash Liquid Gel Lemon from the V-Klin dishwashing range: what it does, where it is used, pack sizes and technical details.",
+    "VKLIN Lemon Dishwash Liquid Gel effectively removes grease, oil, and food stains while remaining gentle on hands. Its concentrated, phosphate-free formula provides superior cleaning performance and a refreshing lemon fragrance.",
 };
 
 export default function DishwashLiquidGelPage() {

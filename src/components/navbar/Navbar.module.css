@@ -1,4 +1,22 @@
 /* ---------------------------------------------------------------- */
+/* Scroll Progress Bar                                              */
+/* ---------------------------------------------------------------- */
+
+.scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  height: 4px;
+  background: var(--pt-progress-gradient);
+  transform-origin: left center;
+  transform: scaleX(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- */
 /* Skip link — first focusable element, focuses the page <main>      */
 /* ---------------------------------------------------------------- */
 
@@ -37,10 +55,12 @@
   background: var(--pt-header-bg);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  transition: box-shadow 200ms var(--pt-ease);
+  transition: height 200ms var(--pt-ease), box-shadow 200ms var(--pt-ease);
+  height: var(--pt-header-h);
 }
 
 .headerScrolled {
+  height: var(--pt-header-h-scrolled);
   box-shadow: var(--pt-shadow-header);
 }
 
@@ -49,7 +69,7 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: var(--pt-space-4);
-  height: var(--pt-header-h-mobile);
+  height: 100%;
 }
 
 .brand {
@@ -663,6 +683,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .header,
+  .scrollProgress,
   .menuBar,
   .chevron,
   .groupLink,

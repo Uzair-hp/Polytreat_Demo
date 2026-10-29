@@ -1,12 +1,13 @@
 .row {
   display: grid;
-  gap: var(--pt-space-4);
-  padding: var(--pt-space-6);
-  border-left: 5px solid var(--pt-c);
+  gap: var(--pt-space-3);
+  padding: 20px 24px;
+  border-left: 6px solid var(--pt-c);
   border-bottom: 1px solid var(--pt-border);
   color: var(--pt-text-body);
   text-decoration: none;
-  transition: background-color var(--pt-dur-hover) var(--pt-ease);
+  transition: background-color var(--pt-dur-hover) var(--pt-ease),
+    border-left-width var(--pt-dur-hover) var(--pt-ease);
 }
 
 .row:last-child {
@@ -16,6 +17,12 @@
 .row:hover,
 .row:focus-visible {
   background: var(--pt-t);
+  border-left-width: 10px;
+}
+
+.row:hover .arrow {
+  background: var(--pt-c);
+  color: #FFFFFF;
 }
 
 .row:focus-visible {
@@ -53,7 +60,7 @@
 
 .name {
   font-family: var(--pt-font-heading);
-  font-size: var(--pt-text-h3);
+  font-size: 1.75rem; /* 28px */
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.025em;
@@ -125,9 +132,5 @@
     grid-template-columns: 200px minmax(0, 1.1fr) minmax(0, 1fr) 44px;
     align-items: start;
     gap: var(--pt-space-6);
-  }
-
-  .name {
-    font-size: var(--pt-text-h3-lg);
   }
 }

@@ -15,7 +15,7 @@
 
 .linked:hover,
 .linked:focus-visible {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--pt-dark-outline);
   box-shadow: var(--pt-shadow-hover);
 }

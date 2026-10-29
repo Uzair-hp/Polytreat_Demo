@@ -39,3 +39,6 @@ Client originals are organized in the sibling `../Client Assets/` directory. Con
 - Use Vanilla CSS and existing design tokens in `src/app/globals.css`; do not introduce Tailwind.
 - Before changing code, follow `AGENTS.md` and read the relevant installed Next.js documentation under `node_modules/next/dist/docs/`.
 - Keep homepage content responsive and accessible, and respect reduced-motion preferences.
+
+
+# Polytreat_Demo

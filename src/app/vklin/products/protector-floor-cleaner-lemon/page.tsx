@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "protector-floor-cleaner-lemon";
 
 export const metadata: Metadata = {
-  title: "Protector Floor Cleaner, Lemon | V-Klin by PolyTreat",
+  title: "VKLIN Protector Floor Cleaner Lemon | V-Klin by PolyTreat",
   description:
-    "Protector Floor Cleaner Lemon from the V-Klin floor and surface care range: what it does, where it is used, pack sizes and technical details.",
+    "VKLIN Protector Floor Cleaner Lemon delivers strong cleaning performance, removes unpleasant odors, and leaves a refreshing lemon fragrance. Its biodegradable and phosphate-free formula is suitable for homes, offices, hospitals, schools, and commercial facilities.",
 };
 
 export default function ProtectorFloorCleanerPage() {

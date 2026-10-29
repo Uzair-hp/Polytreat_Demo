@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "perfumed-floor-cleaner-floral";
 
 export const metadata: Metadata = {
-  title: "Perfumed Floor Cleaner, Floral | V-Klin by PolyTreat",
+  title: "VKLIN Perfumed Floor Cleaner - Floral | V-Klin by PolyTreat",
   description:
-    "Perfumed Floor Cleaner Floral from the V-Klin floor and surface care range: what it does, where it is used, pack sizes and technical details.",
+    "VKLIN Floral Perfumed Floor Cleaner removes tough stains, helps protect against germs, eliminates unpleasant odors, and leaves a long-lasting floral fragrance. Ideal for homes, offices, hospitals, and commercial facilities.",
 };
 
 export default function PerfumedFloorCleanerPage() {

@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "multipurpose-surface-cleaner";
 
 export const metadata: Metadata = {
-  title: "Multipurpose Surface Cleaner | V-Klin by PolyTreat",
+  title: "VKLIN Multipurpose Cleaner | V-Klin by PolyTreat",
   description:
-    "Multipurpose Surface Cleaner from the V-Klin range: what it does, where it is used, pack sizes and technical details.",
+    "VKLIN Multipurpose Cleaner is a powerful biodegradable surface cleaner that removes grease, dirt, and grime from household, office, and commercial surfaces. Its low-foam, non-corrosive formula delivers sparkling clean results without residue.",
 };
 
 export default function MultipurposeSurfaceCleanerPage() {

@@ -11,7 +11,7 @@ import styles from "./home.module.css";
 
 export default function VKlin() {
   return (
-    <Section tone="vklin" id="vklin" labelledBy="vklin-title">
+    <Section id="vklin" tone="vklin" labelledBy="vklin-title" className={styles.vklinSection} data-reveal>
       <Container>
         <div className={styles.vklinGrid}>
           <div className={styles.vklinCopy}>
@@ -32,11 +32,13 @@ export default function VKlin() {
               V-Klin brings PolyTreat&apos;s formulated cleaning range to homes, workplaces,
               and shared facilities, organized by the task each product handles.
             </p>
-            <Button variant="primary" href="/vklin">Explore V-Klin</Button>
+            <Button variant="primary" range="vklin" href="/vklin">
+              Explore V-Klin
+            </Button>
             <TextLink href="/vklin/products">See all {vklinProductCount} products</TextLink>
           </div>
 
-          <div>
+          <div className={styles.vklinVisual}>
             <div className={styles.vklinPanel}>
               <Image
                 src={homeStockImages.rangeVklin.activeUrl}
@@ -44,6 +46,7 @@ export default function VKlin() {
                 fill
                 sizes="(max-width: 1024px) 92vw, 44vw"
                 className={styles.vklinPanelImg}
+                data-reveal
               />
             </div>
 

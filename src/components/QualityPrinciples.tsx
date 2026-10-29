@@ -39,7 +39,7 @@ export default function QualityPrinciples() {
     if (!grid) return;
 
     if (!("IntersectionObserver" in window)) {
-      setIsVisible(true);
+      queueMicrotask(() => setIsVisible(true));
       return;
     }
 
@@ -56,7 +56,9 @@ export default function QualityPrinciples() {
     observer.observe(grid);
 
     const bounds = grid.getBoundingClientRect();
-    if (bounds.top < window.innerHeight && bounds.bottom > 0) setIsVisible(true);
+    if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+      queueMicrotask(() => setIsVisible(true));
+    }
 
     return () => observer.disconnect();
   }, []);

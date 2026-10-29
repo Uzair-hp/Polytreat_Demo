@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "perfumed-liquid-soap-aqua";
 
 export const metadata: Metadata = {
-  title: "Perfumed Liquid Soap, Aqua | V-Klin by PolyTreat",
+  title: "VKLIN Aqua Perfumed Liquid Soap | V-Klin by PolyTreat",
   description:
-    "Perfumed Liquid Soap Aqua from the V-Klin hand care and hygiene range: what it does, where it is used, pack sizes and technical details.",
+    "VKLIN Aqua Perfumed Liquid Soap is a premium Aloe Vera enriched hand wash that provides effective germ protection, gentle cleansing, rich lather, and moisturizing care. Its biodegradable and phosphate-free formula makes it suitable for homes, offices, hospitals, hotels, and commercial establishments.",
 };
 
 export default function PerfumedLiquidSoapPage() {

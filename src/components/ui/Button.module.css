@@ -16,7 +16,9 @@
   transition: background-color var(--pt-dur-hover) var(--pt-ease),
     border-color var(--pt-dur-hover) var(--pt-ease),
     color var(--pt-dur-hover) var(--pt-ease),
-    filter var(--pt-dur-hover) var(--pt-ease);
+    filter var(--pt-dur-hover) var(--pt-ease),
+    transform var(--pt-dur-hover) var(--pt-ease);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .button:focus-visible {
@@ -35,31 +37,57 @@
 }
 
 .primary {
-  background: var(--pt-d);
+  background: var(--pt-blue);
   color: var(--pt-on-dark);
+  box-shadow: 0 4px 14px rgba(27, 95, 168, 0.3);
 }
 
-.primary:hover,
+.primary:hover {
+  background: #154d8a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(27, 95, 168, 0.4);
+}
+
 .primary:focus-visible {
-  filter: brightness(0.92);
+  background: #154d8a;
+  box-shadow: 0 0 0 3px rgba(27, 95, 168, 0.3);
+}
+
+.primary[data-range="vklin"] {
+  background: var(--pt-green);
+  box-shadow: 0 4px 14px rgba(14, 143, 94, 0.3);
+}
+
+.primary[data-range="vklin"]:hover {
+  background: #0b734b;
+  box-shadow: 0 8px 24px rgba(14, 143, 94, 0.4);
+}
+
+.primary[data-range="vklin"]:focus-visible {
+  background: #0b734b;
+  box-shadow: 0 0 0 3px rgba(14, 143, 94, 0.3);
 }
 
 .secondary {
   background: var(--pt-surface);
   color: var(--pt-text-strong);
-  border-color: var(--pt-border-strong);
+  border: 1px solid var(--pt-border-strong);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .secondary:hover,
 .secondary:focus-visible {
-  border-color: var(--pt-brand);
-  color: var(--pt-brand);
+  background: var(--pt-t);
+  border-color: var(--pt-blue);
+  color: var(--pt-blue);
+  box-shadow: 0 4px 14px rgba(27, 95, 168, 0.15);
 }
 
 .secondary.onDark {
   background: transparent;
   color: var(--pt-on-dark);
   border-color: var(--pt-dark-outline);
+  box-shadow: none;
 }
 
 .secondary.onDark:hover,
@@ -67,14 +95,18 @@
   background: var(--pt-dark-surface);
   border-color: var(--pt-on-dark);
   color: var(--pt-on-dark);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
 }
 
 .inverse {
   background: var(--pt-on-dark);
   color: var(--pt-navy);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .inverse:hover,
 .inverse:focus-visible {
   background: var(--pt-brand-50);
+  color: var(--pt-navy);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }

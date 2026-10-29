@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "golden-floor-cleaner";
 
 export const metadata: Metadata = {
-  title: "Golden Floor Cleaner | V-Klin by PolyTreat",
+  title: "VKLIN Golden Floor Cleaner & Deodoriser | V-Klin by PolyTreat",
   description:
-    "Golden Floor Cleaner from the V-Klin floor and surface care range: what it does, where it is used, pack sizes and technical details.",
+    "VKLIN Golden Floor Cleaner & Deodoriser is a dual-action floor cleaner and deodoriser formulated with effective cleaning compounds and sanitising agents for superior cleaning and long-lasting freshness. Fully biodegradable, safe on multiple surfaces.",
 };
 
 export default function GoldenFloorCleanerPage() {

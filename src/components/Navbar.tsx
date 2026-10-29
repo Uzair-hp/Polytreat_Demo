@@ -41,6 +41,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const headerRef = useRef<HTMLElement | null>(null);
+  const progressRef = useRef<HTMLDivElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const mobilePanelRef = useRef<HTMLDivElement | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -134,13 +135,20 @@ export default function Navbar() {
     target.focus();
   }
 
-  // Fade in the scroll shadow once the page has moved.
+  // Scroll progress bar (RAF-throttled, written straight to the DOM so it never triggers
+  // a React render) plus the scrolled state that shrinks the header.
   useEffect(() => {
     let frame = 0;
     const onScroll = () => {
       if (frame) return;
       frame = window.requestAnimationFrame(() => {
         frame = 0;
+        const scrollY = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? Math.min(scrollY / docHeight, 1) : 0;
+        if (progressRef.current) {
+          progressRef.current.style.transform = `scaleX(${progress})`;
+        }
         setScrolled(window.scrollY > 8);
       });
     };
@@ -205,8 +213,7 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, [closeMenus]);
 
-  // Close on route change. Deferred out of the effect body so the state update
-  // is not synchronous with the render commit.
+  // Close on route change.
   useEffect(() => {
     const timer = window.setTimeout(closeMenus, 0);
     return () => window.clearTimeout(timer);
@@ -430,6 +437,13 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Scroll Progress Bar */}
+      <div
+        className={styles.scrollProgress}
+        ref={progressRef}
+        aria-hidden="true"
+      />
+
       <a className={styles.skipLink} href="#main-content" onClick={handleSkip}>
         Skip to content
       </a>

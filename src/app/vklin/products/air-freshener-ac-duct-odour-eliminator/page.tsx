@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "air-freshener-ac-duct-odour-eliminator";
 
 export const metadata: Metadata = {
-  title: "Air Freshener & AC-Duct Odour Eliminator | V-Klin by PolyTreat",
+  title: "VKLIN Air Freshener Multipurpose Odour Eliminator | V-Klin by PolyTreat",
   description:
-    "V-Klin Air Freshener and AC-Duct Odour Eliminator: what it does, where it is used, dilution, coverage and pack sizes.",
+    "VKLIN Air Freshener Multipurpose Odour Eliminator effectively neutralizes smoke, pet, cooking, and musty odors while improving indoor air quality. Its natural plant-based biodegradable formula is ideal for HVAC systems, homes, offices, hotels, and commercial spaces.",
 };
 
 export default function AirFreshenerPage() {

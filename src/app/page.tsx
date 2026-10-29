@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/home/HomeHero";
-import FactsBar from "@/components/home/FactsBar";
+import HomeMotion from "@/components/home/HomeMotion";
+import PqrsBand from "@/components/home/PqrsBand";
 import Ranges from "@/components/home/Ranges";
-import Applications from "@/components/home/Applications";
 import Specialty from "@/components/home/Specialty";
-import Certificates from "@/components/home/Certificates";
+import WhereWeMakeIt from "@/components/home/WhereWeMakeIt";
 import VKlin from "@/components/home/VKlin";
-import Story from "@/components/home/Story";
 import Contact from "@/components/home/Contact";
-import styles from "@/components/home/home.module.css";
 
 export const metadata: Metadata = {
   title: "PolyTreat Chemicals Pvt. Ltd. | Water Treatment, Construction Chemistry & V-Klin Care",
@@ -18,15 +16,14 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className={styles.home}>
+    <main id="main-content">
+      <HomeMotion />
       <HomeHero />
-      <FactsBar />
+      <PqrsBand />
       <Ranges />
-      <Applications />
       <Specialty />
-      <Certificates />
+      <WhereWeMakeIt />
       <VKlin />
-      <Story />
       <Contact />
     </main>
   );

@@ -114,7 +114,7 @@ export const menuLabels: Record<MenuKey, string> = {
   products: "Solutions",
   vklin: "V-Klin",
   quality: "Quality",
-  company: "About Us",
+  company: "About",
 };
 
 export const menuPromos: Record<MenuKey, MenuPromo> = {

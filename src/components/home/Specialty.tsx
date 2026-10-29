@@ -22,12 +22,9 @@ const flagshipIcons: Record<string, typeof Paintbrush> = {
 };
 
 const flagshipNotes: Record<string, string> = {
-  corosil:
-    "A treatment and primer step — a compatible paint system is still required over it.",
-  "polydor-ws":
-    "Odour control only — not a disinfectant, sanitiser or insecticide.",
-  polyklin:
-    "Directions are as published in our product literature; ask for the current sheet.",
+  corosil: "A treatment and primer step — a compatible paint system is still required over it.",
+  "polydor-ws": "Odour control only — not a disinfectant, sanitiser or insecticide.",
+  polyklin: "Directions are as published in our product literature; ask for the current sheet.",
 };
 
 const flagshipRanges: Record<string, RangeName> = {
@@ -40,17 +37,17 @@ const flagshipProducts = specialtyProducts.filter((product) => product.slug in f
 
 export default function Specialty() {
   return (
-    <Section tone="tint" id="specialty" labelledBy="specialty-title">
+    <Section id="specialty" labelledBy="specialty-title" className={styles.specialtySection} data-reveal>
       <Container>
         <SectionHeading
           id="specialty-title"
           eyebrow="Specialty products"
           title="Specialty products, in detail."
-          intro="POLYDOR-WS, COROSIL and POLYKLIN each solve one specific problem. Their full pages carry the product literature, application lists, and document requests."
+          intro="COROSIL, POLYDOR-WS and POLYKLIN each solve one specific problem. Their full pages carry the product literature, application lists, and document requests."
           align="split"
         />
 
-        <div className={styles.specialtyPanel}>
+        <div className={styles.specialtyList}>
           {flagshipProducts.map((product) => {
             const Icon = flagshipIcons[product.slug];
             return (

@@ -52,7 +52,7 @@ export default function RangeCard({
       data-range={range}
       className={`${styles.card} ${styles[layout]} ${className ?? ""}`}
     >
-      {media && layout !== "compact" && (
+      {media && (
         <div className={styles.media}>
           <Image
             src={media.src}

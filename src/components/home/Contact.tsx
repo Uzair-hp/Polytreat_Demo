@@ -4,12 +4,11 @@ import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 import ContactTile from "@/components/ui/ContactTile";
-import TextLink from "@/components/ui/TextLink";
 import styles from "./home.module.css";
 
 export default function Contact() {
   return (
-    <Section tone="dark" id="contact" labelledBy="contact-title">
+    <Section tone="dark" id="contact" labelledBy="contact-title" className={styles.contactSection} data-reveal>
       <Container>
         <div className={styles.contactGrid}>
           <div className={styles.contactCopy}>
@@ -23,22 +22,19 @@ export default function Contact() {
             </p>
 
             <div className={styles.contactActions}>
+              <Button variant="primary" href="/contact#contact-form">
+                Request a Quote
+              </Button>
               <Button
-                variant="inverse"
+                variant="secondary"
+                onDark
                 href={companyInfo.whatsappUrl}
                 external
                 icon={<MessageCircle size={16} strokeWidth={1.75} />}
               >
-                Talk to our team
-              </Button>
-              <Button variant="secondary" onDark href={`mailto:${companyInfo.email}`} icon={<Mail size={16} strokeWidth={1.75} />}>
-                Email enquiries
+                Chat on WhatsApp
               </Button>
             </div>
-
-            <TextLink href="/contact#contact-form" onDark>
-              Or send a detailed enquiry form
-            </TextLink>
           </div>
 
           <div className={styles.contactTiles}>

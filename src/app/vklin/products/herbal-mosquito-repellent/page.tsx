@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "herbal-mosquito-repellent";
 
 export const metadata: Metadata = {
-  title: "Herbal Mosquito Repellent | V-Klin by PolyTreat",
+  title: "VKLIN Herbal Mosquito Repellent | V-Klin by PolyTreat",
   description:
-    "V-Klin Herbal Mosquito Repellent: a water-based plant-oil room spray, where it is used, how to apply it, and pack sizes.",
+    "VKLIN Herbal Mosquito Repellent is a natural herbal mosquito repellent formulated with Lemongrass, Citronella, Neem Oil and Eucalyptus Oil. Provides long-lasting protection without harsh chemicals. Chemical-free, 100% family safe, non-toxic, and environment friendly.",
 };
 
 export default function HerbalMosquitoRepellentPage() {

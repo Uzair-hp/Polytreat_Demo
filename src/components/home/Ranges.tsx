@@ -1,20 +1,14 @@
-import { Droplet, Hexagon, Layers, Leaf, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Fan, Paintbrush, Wind } from "lucide-react";
 import { homeStockImages } from "@/data/homeImages";
-import { companyInfo } from "@/data/companyInfo";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
-import SectionHeading from "@/components/ui/SectionHeading";
-import RangeCard from "@/components/ui/RangeCard";
-import TextLink from "@/components/ui/TextLink";
 import type { RangeName } from "@/components/ui/range";
 import styles from "./home.module.css";
 
-const specialtyAreas = ["Odour control", "HVAC coil cleaning", "Rust conversion", "Pool & drinking water"];
-
-type RangeEntry = {
+interface Range {
   id: string;
-  number: string;
-  icon: React.ReactNode;
   eyebrow: string;
   title: string;
   description: string;
@@ -22,117 +16,128 @@ type RangeEntry = {
   link: string;
   linkText: string;
   range: RangeName;
-  layout: "tall" | "wide" | "compact";
-  positionClass: string;
   media?: { src: string; alt: string };
-};
+}
 
-const ranges: RangeEntry[] = [
+const rangesData: Range[] = [
   {
-    id: "ranges-water",
-    number: "01 · INDUSTRIAL WATER & PROCESS",
-    icon: <Droplet size={24} strokeWidth={1.75} />,
-    eyebrow: "Industrial water & process",
+    id: "water",
+    eyebrow: "01 Water & process",
     title: "Treatment for the systems that keep your plant running.",
     description: "Water-treatment chemistry for boiler, cooling-water, reverse-osmosis, and effluent systems.",
     tags: ["Boilers", "Cooling towers", "RO", "Effluent"],
     link: "/solutions/industrial-water",
     linkText: "Explore water treatment",
     range: "water",
-    layout: "tall",
-    positionClass: styles.rangeWater,
     media: { src: homeStockImages.rangeWater.activeUrl, alt: homeStockImages.rangeWater.alt },
   },
   {
-    id: "ranges-construction",
-    number: "02 · CONSTRUCTION & PROTECTION",
-    icon: <Layers size={24} strokeWidth={1.75} />,
-    eyebrow: "Construction & protection",
+    id: "construction",
+    eyebrow: "02 Construction",
     title: "Surface protection built around the material and the problem.",
     description: "Waterproofing, coatings, concrete repair, flooring, and specialty surface-treatment products.",
     tags: ["Waterproofing", "Coatings", "Flooring", "Rust treatment"],
     link: "/solutions/construction-chemistry",
     linkText: "Explore construction chemistry",
     range: "construction",
-    layout: "wide",
-    positionClass: styles.rangeConstruction,
     media: { src: homeStockImages.rangeConstruction.activeUrl, alt: homeStockImages.rangeConstruction.alt },
   },
   {
-    id: "ranges-specialty",
-    number: "03 · SPECIALTY PRODUCTS",
-    icon: <Hexagon size={24} strokeWidth={1.75} />,
-    eyebrow: "Specialty products",
+    id: "specialty",
+    eyebrow: "03 Specialty",
     title: "Single-purpose products, each aimed at one problem.",
     description: "A dedicated line for jobs the main ranges do not cover, from odour control to HVAC coil care.",
-    tags: specialtyAreas.slice(0, 2),
+    tags: ["Odour control", "HVAC coil cleaning"],
     link: "/specialty",
     linkText: "Explore specialty products",
     range: "specialty",
-    layout: "compact",
-    positionClass: styles.rangeSpecialty,
   },
   {
-    id: "ranges-vklin",
-    number: "04 · V-KLIN CARE",
-    icon: <Leaf size={24} strokeWidth={1.75} />,
-    eyebrow: "V-Klin care",
+    id: "vklin",
+    eyebrow: "04 V-Klin care",
     title: "Everyday cleaning for homes, institutions, and facilities.",
     description: "Cleaning and facility-care products grouped under PolyTreat's V-Klin brand.",
     tags: ["Floor & surface", "Handwash"],
     link: "/vklin/products",
     linkText: "Explore the V-Klin range",
     range: "vklin",
-    layout: "compact",
-    positionClass: styles.rangeVklin,
+    media: { src: homeStockImages.rangeVklin.activeUrl, alt: homeStockImages.rangeVklin.alt },
   },
 ];
 
 export default function Ranges() {
   return (
-    <Section id="ranges" labelledBy="ranges-title">
+    <Section id="ranges" labelledBy="ranges-title" data-reveal>
       <Container>
-        <SectionHeading
-          id="ranges-title"
-          eyebrow="What we make"
-          title="Four ranges, one manufacturer."
-          intro="PolyTreat formulates and produces all four of its product ranges at its own sites, organized around the systems, surfaces, and spaces they serve."
-          align="split"
-        />
-
-        <div className={styles.rangesGrid}>
-          {ranges.map((range) => (
-            <RangeCard
-              key={range.id}
-              range={range.range}
-              icon={range.icon}
-              number={range.number}
-              title={range.title}
-              text={range.description}
-              chips={range.tags}
-              href={range.link}
-              linkText={range.linkText}
-              layout={range.layout}
-              media={range.media}
-              className={range.positionClass}
-            />
-          ))}
-        </div>
-
-        <div className={styles.rangesFoot}>
-          <div className={styles.rangesPrompt}>
-            <p className={styles.rangesFootnote}>Not sure which range fits your requirement?</p>
-            <a
-              className={styles.whatsappLink}
-              href={companyInfo.whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <MessageCircle size={16} strokeWidth={1.75} aria-hidden="true" />
-              Chat on WhatsApp
-            </a>
+        <header className={styles.rangesHeader}>
+          <div className={styles.rangesHeadGroup}>
+            <span className={styles.rangesEyebrow}>What we make</span>
+            <h2 id="ranges-title" className={styles.rangesTitle}>
+              Four ranges, one manufacturer.
+            </h2>
           </div>
-          <TextLink href="/industries#product-map">See all product areas</TextLink>
+          <p className={styles.rangesLead}>
+            PolyTreat formulates and produces all four of its product ranges at its own sites,
+            organized around the systems, surfaces, and spaces they serve.
+          </p>
+        </header>
+
+        <div className={styles.rangesGrid} data-stagger-group>
+          {rangesData.map((range) => (
+            <Link
+              key={range.id}
+              href={range.link}
+              className={`${styles.rangeBento} ${styles[`range${range.id.charAt(0).toUpperCase() + range.id.slice(1)}`]}`}
+              data-range={range.range}
+              data-stagger-item
+            >
+              {range.media ? (
+                <div className={styles.bentoMedia}>
+                  <Image
+                    src={range.media.src}
+                    alt={range.media.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 32vw"
+                    className={styles.bentoImg}
+                    priority={range.id === "water"}
+                  />
+                </div>
+              ) : (
+                <div className={styles.bentoIconPanel}>
+                  <div className={styles.bentoIconChips}>
+                    <span className={styles.bentoIconItem} title="COROSIL Rust Converter Primer">
+                      <Paintbrush size={18} strokeWidth={2} />
+                      <small>COROSIL</small>
+                    </span>
+                    <span className={styles.bentoIconItem} title="POLYDOR-WS Odour Neutraliser">
+                      <Wind size={18} strokeWidth={2} />
+                      <small>POLYDOR-WS</small>
+                    </span>
+                    <span className={styles.bentoIconItem} title="POLYKLIN HVAC Coil Cleaner">
+                      <Fan size={18} strokeWidth={2} />
+                      <small>POLYKLIN</small>
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div className={styles.bentoBody}>
+                <span className={styles.bentoEyebrow}>{range.eyebrow}</span>
+                <h3 className={styles.bentoTitle}>{range.title}</h3>
+                <p className={styles.bentoText}>{range.description}</p>
+                <ul className={styles.bentoPills}>
+                  {range.tags.map((tag) => (
+                    <li key={tag}>
+                      <span className={styles.bentoPill}>{tag}</span>
+                    </li>
+                  ))}
+                </ul>
+                <span className={styles.bentoLink}>
+                  {range.linkText}
+                  <ArrowRight size={15} className={styles.bentoArrow} aria-hidden="true" />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </Container>
     </Section>

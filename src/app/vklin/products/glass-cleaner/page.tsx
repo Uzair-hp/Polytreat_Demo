@@ -6,9 +6,9 @@ import { findVKlinProduct } from "@/data/vklinProducts";
 const PRODUCT_ID = "streak-free-glass-cleaner";
 
 export const metadata: Metadata = {
-  title: "Streak-Free Glass Cleaner | V-Klin by PolyTreat",
+  title: "VKLIN Streak-Free Glass Cleaner | V-Klin by PolyTreat",
   description:
-    "Streak-Free Glass Cleaner from the V-Klin glass and window care range: what it does, where it is used, pack sizes and technical details.",
+    "VKLIN Streak-Free Glass Cleaner delivers sparkling, streak-free shine on windows, mirrors, glass tables, refrigerators, and electronic appliances. Its ammonia-free, biodegradable formula quickly removes dust, grease, and grime while leaving a fresh fragrance.",
 };
 
 export default function GlassCleanerPage() {
