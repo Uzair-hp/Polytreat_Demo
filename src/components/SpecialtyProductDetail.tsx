@@ -3,21 +3,27 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowLeft,
-  ArrowRight,
-  FileText,
   Info,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
   ShieldAlert,
   Sparkles,
 } from "lucide-react";
+import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
+import ContactTile from "@/components/ui/ContactTile";
+import HomeMotion from "@/components/home/HomeMotion";
+import { companyInfo } from "@/data/companyInfo";
 import type { SpecialtyProduct } from "@/data/specialtyProducts";
+import styles from "@/components/solutions/specialtyProducts.module.css";
 
 /**
- * Shared shell for the specialty product pages.
+ * Shared shell for the specialty product pages (COROSIL, POLYDOR-WS, POLYKLIN).
  *
- * The three flagship products do not have the same content shape, so each page
- * composes its own sections and passes them as children. The hero, the
- * overview, the applications and handling notes are shared so the range reads
- * as one system.
+ * Implements the Home v4 Design System with signature Purple accent (#5B4BC4)
+ * and high-contrast dark sections (#0B1B33).
  */
 export default function SpecialtyProductDetail({
   product,
@@ -29,136 +35,256 @@ export default function SpecialtyProductDetail({
   children?: ReactNode;
 }) {
   return (
-    <main className="specialty-product-page">
-      <section className="specialty-product-hero" aria-labelledby="specialty-product-title">
-        <div className="container">
-          <nav className="specialty-product-breadcrumbs" aria-label="Breadcrumb">
+    <main className={styles.page}>
+      <HomeMotion />
+
+      {/* Hero Section */}
+      <section className={styles.hero} aria-labelledby="specialty-product-title">
+        <Container>
+          {/* Breadcrumbs */}
+          <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
             <Link href="/">Home</Link>
-            <span aria-hidden="true">/</span>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
+            <Link href="/solutions">Solutions</Link>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
             <Link href="/specialty">Specialty products</Link>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page">{product.name}</span>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
+            <span className={styles.breadcrumbCurrent} aria-current="page">
+              {product.name}
+            </span>
           </nav>
 
-          <div className="specialty-product-hero-layout">
-            <div className="specialty-product-copy">
-              <span className="eyebrow">
-                <Icon size={15} aria-hidden="true" /> Specialty products · {product.category}
+          <div className={styles.heroGrid}>
+            {/* Left Copy */}
+            <div className={styles.heroCopy}>
+              <span className={styles.eyebrow}>
+                <Icon size={14} aria-hidden="true" />
+                Specialty Products · {product.category}
               </span>
-              <h1 id="specialty-product-title">{product.name}</h1>
-              <p>{product.summary}</p>
-              <div className="specialty-product-actions">
-                <Link className="btn btn-accent" href="/contact#contact-form">
-                  Enquire about this product <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-                <Link className="specialty-product-back" href="/specialty">
-                  <ArrowLeft size={14} aria-hidden="true" /> All specialty products
+
+              <h1 id="specialty-product-title" className={styles.heroTitle}>
+                {product.name}
+              </h1>
+
+              <p className={styles.heroSubline}>{product.summary}</p>
+
+              <div className={styles.heroActions}>
+                <Button href="/contact#contact-form" variant="primary">
+                  Enquire about this product
+                </Button>
+                <Link className={styles.textLink} href="/specialty">
+                  <ArrowLeft size={15} aria-hidden="true" />
+                  <span>All specialty products</span>
                 </Link>
               </div>
             </div>
 
-            <div className="specialty-product-figure" aria-hidden="true">
-              <span className="specialty-product-figure-grid" />
-              <span className="specialty-product-figure-icon">
-                <Icon size={40} strokeWidth={1.4} />
-              </span>
-              <span className="specialty-product-figure-label">{product.category}</span>
+            {/* Right Media / Graphic Frame */}
+            <div className={styles.heroMediaFrame}>
+              <div className={styles.heroGraphicGrid} aria-hidden="true" />
+              <div className={styles.heroCenterBadge}>
+                <span className={styles.badgeIconCircle}>
+                  <Icon size={36} strokeWidth={1.6} />
+                </span>
+                <span className={styles.badgeName}>{product.name}</span>
+              </div>
+              <div className={styles.mediaCaption}>
+                <div className={styles.captionIconChip} aria-hidden="true">
+                  <Icon size={18} strokeWidth={2} />
+                </div>
+                <div className={styles.captionText}>
+                  <strong className={styles.captionTitle}>{product.category}</strong>
+                  <span className={styles.captionScope}>{product.summary}</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <dl className="specialty-product-facts" aria-label="Product summary">
+          {/* Facts Strip */}
+          <dl className={styles.factsStrip} aria-label="Product summary facts">
             {product.facts.map((fact) => (
-              <div key={fact.label}>
-                <dt>{fact.label}</dt>
-                <dd>{fact.value}</dd>
+              <div key={fact.label} className={styles.factItem}>
+                <dt className={styles.factLabel}>{fact.label}</dt>
+                <dd className={styles.factValue}>{fact.value}</dd>
               </div>
             ))}
           </dl>
-        </div>
+        </Container>
       </section>
 
-      <section className="specialty-product-overview" aria-labelledby="specialty-overview-title">
-        <div className="container">
-          <div className="specialty-product-overview-layout">
-            <div>
-              <span className="specialty-product-kicker">Product overview</span>
-              <h2 id="specialty-overview-title">{product.headline}</h2>
-              <p>{product.description}</p>
+      {/* Product Overview Section */}
+      <section
+        className={`${styles.section} ${styles.sectionLight}`}
+        id="overview"
+        aria-labelledby="specialty-overview-title"
+        data-reveal
+      >
+        <Container>
+          <div className={styles.overviewGrid}>
+            <div className={styles.overviewLeft}>
+              <span className={styles.sectionEyebrow}>Product overview</span>
+              <h2 id="specialty-overview-title" className={styles.overviewHeadline}>
+                {product.headline}
+              </h2>
+              <p className={styles.overviewDesc}>{product.description}</p>
             </div>
-            <div className="specialty-product-features">
-              <h3>
-                <Sparkles size={16} aria-hidden="true" /> What it is used for
+
+            <div className={styles.featuresCard}>
+              <h3 className={styles.featuresCardTitle}>
+                <Sparkles size={18} className={styles.heroHighlight} aria-hidden="true" />
+                Key Product Capabilities
               </h3>
-              <ul>
+              <ul className={styles.featuresList} aria-label="Key features">
                 {product.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
+                  <li key={feature} className={styles.featureItem}>
+                    <span className={styles.featureBullet} aria-hidden="true" />
+                    <span>{feature}</span>
+                  </li>
                 ))}
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
+      {/* Custom Child Sections (Steps, Specs, Systems, Distinction) */}
       {children}
 
-      <section className="specialty-product-applications" aria-labelledby="specialty-applications-title">
-        <div className="container">
-          <div className="specialty-product-applications-layout">
-            <div>
-              <span className="specialty-product-kicker">Where it is used</span>
-              <h2 id="specialty-applications-title">Applications and surfaces.</h2>
+      {/* Applications Section */}
+      <section
+        className={`${styles.section} ${styles.sectionLight}`}
+        id="applications"
+        aria-labelledby="specialty-applications-title"
+        data-reveal
+      >
+        <Container>
+          <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
+            <div className={styles.headingGroup}>
+              <span className={styles.sectionEyebrow}>Where it is used</span>
+              <h2 id="specialty-applications-title" className={styles.sectionTitle}>
+                Applications and surfaces.
+              </h2>
             </div>
-            <ul>
-              {product.applications.map((application) => (
-                <li key={application}>{application}</li>
-              ))}
-            </ul>
+            <p className={styles.sectionLead}>
+              Settings and environments where {product.name} is commonly deployed in
+              routine operations and maintenance.
+            </p>
+          </header>
+
+          <div className={styles.applicationsGrid} data-stagger-group>
+            {product.applications.map((application) => (
+              <div className={styles.applicationItem} key={application} data-stagger-item>
+                <span className={styles.appBullet} aria-hidden="true" />
+                <span>{application}</span>
+              </div>
+            ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section className="specialty-product-handling" aria-labelledby="specialty-handling-title">
-        <div className="container">
-          <div className="specialty-product-handling-layout">
-            <div className="specialty-product-handling-card">
-              <h3 id="specialty-handling-title">
-                <ShieldAlert size={16} aria-hidden="true" /> Handling guidance
+      {/* Handling Guidance Section */}
+      <section
+        className={`${styles.section} ${styles.sectionTint}`}
+        id="handling"
+        aria-labelledby="specialty-handling-title"
+        data-reveal
+      >
+        <Container>
+          <div className={styles.handlingGrid}>
+            <div className={styles.handlingCard}>
+              <h3 id="specialty-handling-title" className={styles.handlingTitle}>
+                <ShieldAlert size={20} color="#E07B1A" aria-hidden="true" />
+                Handling Guidance
               </h3>
-              <ul>
+              <ul className={styles.cautionList} aria-label="Handling cautions">
                 {product.cautions.map((caution) => (
-                  <li key={caution}>{caution}</li>
+                  <li key={caution} className={styles.cautionItem}>
+                    <span className={styles.cautionBullet} aria-hidden="true" />
+                    <span>{caution}</span>
+                  </li>
                 ))}
               </ul>
             </div>
-            <div className="specialty-product-handling-card is-note">
-              <h3>
-                <Info size={16} aria-hidden="true" /> About these details
+
+            <div className={styles.handlingCard}>
+              <h3 className={styles.handlingTitle}>
+                <Info size={20} color="#5B4BC4" aria-hidden="true" />
+                Documentation &amp; Compliance
               </h3>
-              <p>{product.sourceNote}</p>
-              <p>
-                Safety information is provided in the current Safety Data Sheet.
-                Request it from our team, along with the current technical data
-                sheet for your application.
+              <p className={styles.stepText}>{product.sourceNote}</p>
+              <p className={styles.stepText} style={{ marginTop: "12px" }}>
+                Safety information is provided in the current Safety Data Sheet (MSDS).
+                Request it from our technical team along with the Technical Data Sheet
+                (TDS) for your specific site conditions.
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section className="specialty-product-information" aria-labelledby="specialty-information-title">
-        <div className="container specialty-product-info-layout">
-          <div>
-            <span className="specialty-product-kicker">Product information</span>
-            <h2 id="specialty-information-title">Need details for your application?</h2>
-            <p>
-              Tell us the system, the surface or the process, and the PolyTreat team
-              can help with the right product and its current documentation.
-            </p>
+      {/* Navy Contact Band */}
+      <section
+        className={styles.contactSection}
+        id="contact"
+        aria-labelledby="specialty-contact-title"
+        data-reveal
+      >
+        <Container>
+          <div className={styles.contactGrid}>
+            <div className={styles.contactCopy}>
+              <span className={styles.contactEyebrow}>Need details for your application?</span>
+              <h2 id="specialty-contact-title" className={styles.contactTitle}>
+                Share the process and operating context.
+              </h2>
+              <p className={styles.contactLead}>
+                Tell us the system, the surface, or the process parameters. Our chemical
+                team can provide product selection, dosing guidance, and official TDS/MSDS documents.
+              </p>
+
+              <div className={styles.contactActions}>
+                <Button variant="primary" href="/contact#contact-form">
+                  Discuss your application
+                </Button>
+                <Button
+                  variant="secondary"
+                  onDark
+                  href={companyInfo.whatsappUrl}
+                  external
+                  icon={<MessageCircle size={16} strokeWidth={1.75} />}
+                >
+                  Chat on WhatsApp
+                </Button>
+              </div>
+            </div>
+
+            <div className={styles.contactTiles}>
+              <ContactTile
+                icon={<Mail size={24} strokeWidth={1.75} />}
+                label="Email enquiries"
+                value={companyInfo.email}
+                href={`mailto:${companyInfo.email}`}
+              />
+              <ContactTile
+                icon={<Phone size={24} strokeWidth={1.75} />}
+                label="Technical & sales"
+                value={companyInfo.phone}
+                href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`}
+              />
+              <ContactTile
+                icon={<MessageCircle size={24} strokeWidth={1.75} />}
+                label="WhatsApp"
+                value={companyInfo.whatsappLabel}
+                href={companyInfo.whatsappUrl}
+                external
+              />
+              <ContactTile
+                icon={<MapPin size={24} strokeWidth={1.75} />}
+                label="Corporate office"
+                value={companyInfo.officeAddress}
+              />
+            </div>
           </div>
-          <Link href="/contact#contact-form">
-            Contact PolyTreat <FileText size={16} aria-hidden="true" />
-          </Link>
-        </div>
+        </Container>
       </section>
     </main>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
+import Container from "@/components/ui/Container";
 import SpecialtyProductDetail from "@/components/SpecialtyProductDetail";
 import {
   corosilFinishingSystems,
@@ -7,6 +8,7 @@ import {
   corosilSpecifications,
   findSpecialtyProduct,
 } from "@/data/specialtyProducts";
+import styles from "@/components/solutions/specialtyProducts.module.css";
 
 export const metadata: Metadata = {
   title: "COROSIL | Rust Converter Primer | PolyTreat Chemicals",
@@ -21,76 +23,103 @@ export default function CorosilPage() {
 
   return (
     <SpecialtyProductDetail product={product} icon={ShieldCheck}>
-      <section className="specialty-product-steps" aria-labelledby="corosil-steps-title">
-        <div className="container">
-          <div className="specialty-product-section-heading">
-            <div>
-              <span className="specialty-product-kicker">How it works</span>
-              <h2 id="corosil-steps-title">Three steps, in this order.</h2>
+      {/* 3 Process Steps */}
+      <section
+        className={`${styles.section} ${styles.sectionTint}`}
+        id="corosil-steps"
+        aria-labelledby="corosil-steps-title"
+        data-reveal
+      >
+        <Container>
+          <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
+            <div className={styles.headingGroup}>
+              <span className={styles.sectionEyebrow}>How it works</span>
+              <h2 id="corosil-steps-title" className={styles.sectionTitle}>
+                Three steps, in this order.
+              </h2>
             </div>
-            <p>
-              The product literature presents COROSIL as a step inside a coating
-              system rather than a coating on its own.
+            <p className={styles.sectionLead}>
+              The product literature presents COROSIL as a treatment and primer step inside
+              a coating system rather than a standalone finish.
             </p>
-          </div>
+          </header>
 
-          <ol className="specialty-product-step-list">
+          <div className={styles.stepsGrid} data-stagger-group>
             {corosilProcessSteps.map((step, index) => (
-              <li key={step.title}>
-                <span className="specialty-product-step-number">
+              <article className={styles.stepCard} key={step.title} data-stagger-item>
+                <span className={styles.stepNumber}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </li>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepText}>{step.text}</p>
+              </article>
             ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="specialty-product-specs" aria-labelledby="corosil-specs-title">
-        <div className="container">
-          <div className="specialty-product-specs-layout">
-            <div>
-              <span className="specialty-product-kicker">Physical data</span>
-              <h2 id="corosil-specs-title">Published product data.</h2>
-              <p>
-                These figures are as published in our COROSIL product literature.
-                Ask us for the current datasheet before you plan a job around them.
-              </p>
-            </div>
-            <dl className="specialty-product-specs-table">
-              {corosilSpecifications.map((spec) => (
-                <div key={spec.label}>
-                  <dt>{spec.label}</dt>
-                  <dd>{spec.value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section className="specialty-product-systems" aria-labelledby="corosil-systems-title">
-        <div className="container">
-          <div className="specialty-product-section-heading">
-            <div>
-              <span className="specialty-product-kicker">Finishing systems</span>
-              <h2 id="corosil-systems-title">Compatible with most finishing systems.</h2>
+      {/* Published Specifications */}
+      <section
+        className={`${styles.section} ${styles.sectionLight}`}
+        id="corosil-specs"
+        aria-labelledby="corosil-specs-title"
+        data-reveal
+      >
+        <Container>
+          <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
+            <div className={styles.headingGroup}>
+              <span className={styles.sectionEyebrow}>Physical data</span>
+              <h2 id="corosil-specs-title" className={styles.sectionTitle}>
+                Published product data.
+              </h2>
             </div>
-            <p>
-              The literature states that COROSIL is compatible with most finishing
-              systems. Confirm compatibility against the specific paint system you
-              intend to apply.
+            <p className={styles.sectionLead}>
+              These figures are as published in our COROSIL product literature.
+              Request the current Technical Data Sheet before specifying for a project.
             </p>
-          </div>
+          </header>
 
-          <ul className="specialty-product-chip-list">
-            {corosilFinishingSystems.map((system) => (
-              <li key={system}>{system}</li>
+          <dl className={styles.specsGrid}>
+            {corosilSpecifications.map((spec) => (
+              <div key={spec.label} className={styles.specRow}>
+                <dt className={styles.specLabel}>{spec.label}</dt>
+                <dd className={styles.specValue}>{spec.value}</dd>
+              </div>
             ))}
-          </ul>
-        </div>
+          </dl>
+        </Container>
+      </section>
+
+      {/* Finishing Systems Compatibility */}
+      <section
+        className={`${styles.section} ${styles.sectionTint}`}
+        id="corosil-systems"
+        aria-labelledby="corosil-systems-title"
+        data-reveal
+      >
+        <Container>
+          <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
+            <div className={styles.headingGroup}>
+              <span className={styles.sectionEyebrow}>Finishing systems</span>
+              <h2 id="corosil-systems-title" className={styles.sectionTitle}>
+                Compatible with most finishing systems.
+              </h2>
+            </div>
+            <p className={styles.sectionLead}>
+              The literature states that COROSIL is compatible with most finishing systems.
+              Confirm compatibility against the specific paint system you intend to apply.
+            </p>
+          </header>
+
+          <div className={styles.applicationsGrid} data-stagger-group>
+            {corosilFinishingSystems.map((system) => (
+              <div className={styles.applicationItem} key={system} data-stagger-item>
+                <span className={styles.appBullet} aria-hidden="true" />
+                <span>{system}</span>
+              </div>
+            ))}
+          </div>
+        </Container>
       </section>
     </SpecialtyProductDetail>
   );

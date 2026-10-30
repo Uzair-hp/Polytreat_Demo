@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Wind } from "lucide-react";
+import Container from "@/components/ui/Container";
 import SpecialtyProductDetail from "@/components/SpecialtyProductDetail";
 import {
   findSpecialtyProduct,
   specialtyApplicationGroups,
 } from "@/data/specialtyProducts";
+import styles from "@/components/solutions/specialtyProducts.module.css";
 
 export const metadata: Metadata = {
   title: "POLYDOR-WS | Odour Neutraliser | PolyTreat Chemicals",
@@ -19,52 +21,60 @@ export default function PolydorWsPage() {
 
   return (
     <SpecialtyProductDetail product={product} icon={Wind}>
-      <section className="specialty-product-areas" aria-labelledby="polydor-areas-title">
-        <div className="container">
-          <div className="specialty-product-section-heading">
-            <div>
-              <span className="specialty-product-kicker">Application areas</span>
-              <h2 id="polydor-areas-title">Where the odour comes from.</h2>
+      {/* Application Areas Grid */}
+      <section
+        className={`${styles.section} ${styles.sectionTint}`}
+        id="polydor-areas"
+        aria-labelledby="polydor-areas-title"
+        data-reveal
+      >
+        <Container>
+          <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
+            <div className={styles.headingGroup}>
+              <span className={styles.sectionEyebrow}>Application areas</span>
+              <h2 id="polydor-areas-title" className={styles.sectionTitle}>
+                Where the odour comes from.
+              </h2>
             </div>
-            <p>
-              Our application material lists a wide spread of settings. These are the
-              main areas we work with; share your specific situation and we will
-              confirm the fit.
+            <p className={styles.sectionLead}>
+              Our application literature covers a wide spectrum of industrial and municipal
+              settings. Share your specific context and our team will confirm the application method.
             </p>
-          </div>
+          </header>
 
-          <div className="specialty-product-area-grid">
+          <div className={styles.otherLinesGrid} data-stagger-group>
             {specialtyApplicationGroups.map((group) => (
-              <article className="specialty-product-area-card" key={group.id}>
-                <h3>{group.title}</h3>
-                <ul>
+              <article className={styles.otherLineCard} key={group.id} data-stagger-item>
+                <h3 className={styles.otherLineTitle}>{group.title}</h3>
+                <ul className={styles.contextPills} style={{ marginTop: "12px" }}>
                   {group.items.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className={styles.contextPill}>
+                      <span className={styles.contextPillBullet} aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
               </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="specialty-product-distinction" aria-labelledby="polydor-distinction-title">
-        <div className="container">
-          <div className="specialty-product-distinction-inner">
-            <h2 id="polydor-distinction-title">Odour control is not disinfection.</h2>
-            <p>
-              POLYDOR-WS is an odour-control product. It is not a disinfectant, a
-              sanitiser, an insecticide or a food-contact-safe treatment, and this
-              page makes no claim that it kills microorganisms.
+          {/* Distinction Callout */}
+          <div className={styles.distinctionCallout} data-reveal>
+            <h2 id="polydor-distinction-title" className={styles.distinctionTitle}>
+              Odour control is not disinfection.
+            </h2>
+            <p className={styles.distinctionText}>
+              POLYDOR-WS is an odour-control product. It is not a disinfectant, a sanitiser,
+              an insecticide, or a food-contact-safe treatment, and makes no claim to kill
+              microorganisms.
             </p>
-            <p>
-              Neutralising an unpleasant smell and inactivating a microorganism are
-              different jobs, and the second one needs its own evidence and approved
-              directions. If your site needs a disinfection claim, ask us for the
-              current documentation for that specific application.
+            <p className={styles.distinctionText}>
+              Neutralising an unpleasant smell and inactivating a pathogen are different jobs,
+              and the second requires certified evidence and approved regulatory directions. If
+              your site requires antimicrobial claims, consult our team for dedicated biocidal lines.
             </p>
           </div>
-        </div>
+        </Container>
       </section>
     </SpecialtyProductDetail>
   );
