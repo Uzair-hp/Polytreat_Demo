@@ -6,19 +6,16 @@ import {
   CheckCircle2,
   FileCheck2,
   FlaskConical,
-  Gauge,
-  Headset,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
-  ShieldCheck,
-  Truck,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import ContactTile from "@/components/ui/ContactTile";
 import HomeMotion from "@/components/home/HomeMotion";
+import PqrsAnimatedGrid from "@/components/quality/PqrsAnimatedGrid";
 import { companyInfo } from "@/data/companyInfo";
 import styles from "@/components/quality/quality.module.css";
 
@@ -27,61 +24,6 @@ export const metadata: Metadata = {
   description:
     "Explore PolyTreat's PQRS framework (Performance, Quality, Reliability, Service), in-house analytical lab testing, ISO 9001:2015 QMS, and technical documentation.",
 };
-
-const pqrsItems = [
-  {
-    letter: "P",
-    index: "01",
-    title: "Performance",
-    desc: "Formulations engineered for measurable operational outcomes in scale prevention, corrosion inhibition, and deep surface sanitisation.",
-    icon: Gauge,
-    features: [
-      "Targeted active concentrations for maximum field efficiency",
-      "Optimised dosage rates that reduce total treatment operating costs",
-      "Validated against raw water analyses and system operating metallurgy",
-    ],
-    tag: "Operational Result",
-  },
-  {
-    letter: "Q",
-    index: "02",
-    title: "Quality",
-    desc: "Strict raw material screening, controlled synthesis cycles, and calibrated analytical QC testing ensure lot-to-lot consistency.",
-    icon: ShieldCheck,
-    features: [
-      "Inward testing of raw materials against purity benchmarks",
-      "Calibrated checks for pH, active solids, and specific gravity at 25 °C",
-      "Zero unverified solvents or unapproved inert fillers",
-    ],
-    tag: "Batch Consistency",
-  },
-  {
-    letter: "R",
-    index: "03",
-    title: "Reliability",
-    desc: "Dependable dispatch timelines, heavy-duty industrial packaging, and systematic batch sample archiving for supply continuity.",
-    icon: Truck,
-    features: [
-      "Tamper-evident carboys, standard drums, and IBC tote packaging",
-      "Stable manufacturing schedules and buffer inventory management",
-      "100% batch sample retention for full shelf-life traceability",
-    ],
-    tag: "Supply Continuity",
-  },
-  {
-    letter: "S",
-    index: "04",
-    title: "Service",
-    desc: "Direct access to chemical specialists for application consulting, dosing calculations, water analysis interpretation, and rapid support.",
-    icon: Headset,
-    features: [
-      "Direct technical consultation with experienced formulators",
-      "Prompt delivery of product TDS, SDS, and batch COA documents",
-      "On-demand dosing guidance and plant troubleshooting support",
-    ],
-    tag: "Technical Support",
-  },
-];
 
 const labWorkflow = [
   {
@@ -219,7 +161,7 @@ export default function QualityPage() {
       </section>
 
       {/* 2. PQRS Framework Section */}
-      <section className={`${styles.section} ${styles.sectionLight}`} id="pqrs" aria-labelledby="pqrs-title" data-reveal>
+      <section className={`${styles.section} ${styles.sectionLight}`} id="pqrs" aria-labelledby="pqrs-title">
         <Container>
           <div className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
             <div>
@@ -227,42 +169,11 @@ export default function QualityPage() {
               <h2 id="pqrs-title" className={styles.sectionTitle}>The PQRS framework.</h2>
             </div>
             <p className={styles.sectionLead}>
-              Four core principles that guide formulation, manufacturing, analytical testing, and customer service across every product family we produce.
+              Four core principles that guide formulation, manufacturing, analytical testing, and customer service across every product family we produce. Click or select any principle below to explore its parameters.
             </p>
           </div>
 
-          <div className={styles.pqrsGrid} role="list" aria-label="PQRS Framework Principles">
-            {pqrsItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <article className={styles.pqrsCard} key={item.letter} role="listitem">
-                  <div className={styles.pqrsTopline}>
-                    <div className={styles.pqrsLetterGroup}>
-                      <span className={styles.pqrsLetter}>{item.letter}</span>
-                      <span className={styles.pqrsIndex}>{item.index}</span>
-                    </div>
-                    <div className={styles.pqrsIconChip} aria-hidden="true">
-                      <Icon size={22} strokeWidth={2} />
-                    </div>
-                  </div>
-
-                  <h3 className={styles.pqrsTitle}>{item.title}</h3>
-                  <p className={styles.pqrsDesc}>{item.desc}</p>
-
-                  <ul className={styles.pqrsFeatures} role="list">
-                    {item.features.map((feature, idx) => (
-                      <li className={styles.pqrsFeature} key={idx}>
-                        <span className={styles.pqrsFeatureBullet} aria-hidden="true" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <span className={styles.pqrsTag}>{item.tag}</span>
-                </article>
-              );
-            })}
-          </div>
+          <PqrsAnimatedGrid />
         </Container>
       </section>
 
