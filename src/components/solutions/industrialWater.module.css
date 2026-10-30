@@ -390,21 +390,42 @@
 }
 
 .contextPills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
   list-style: none;
   padding: 0;
-  margin: 0 0 18px 0;
+  margin: 0 0 20px 0;
 }
 
 .contextPill {
-  font-size: var(--pt-text-xs, 0.75rem);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--pt-text-xs, 0.8125rem);
   font-weight: 600;
-  padding: 4px 10px;
-  border-radius: var(--pt-radius-full, 999px);
+  line-height: 1.35;
+  padding: 7px 12px;
+  border-radius: var(--pt-radius-sm, 8px);
   background: var(--pt-water-t, #DDF5F3);
   color: #0B6F6B;
+  border: 1px solid rgba(15, 143, 138, 0.15);
+  box-sizing: border-box;
+  transition: background var(--pt-dur-hover, 200ms) var(--pt-ease),
+    border-color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.contextPill:hover {
+  background: #CFF0EC;
+  border-color: rgba(15, 143, 138, 0.3);
+}
+
+.contextPillBullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pt-teal, #0F8F8A);
+  flex-shrink: 0;
 }
 
 .cardLinkPinned {
@@ -540,10 +561,10 @@
 
 .categorySummary {
   font-size: var(--pt-text-sm, 0.875rem);
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--pt-body, #4A5B72);
   margin: 0 0 16px 0;
-  min-height: 40px;
+  min-height: 64px;
 }
 
 .categoryTagList {
@@ -551,18 +572,47 @@
   padding: 0;
   margin: 0 0 20px 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-direction: column;
+  gap: 7px;
   flex-grow: 1;
 }
 
 .categoryTag {
-  font-size: var(--pt-text-xs, 0.75rem);
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: var(--pt-radius-full, 999px);
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: var(--pt-radius-sm, 8px);
   background: var(--pt-water-t, #DDF5F3);
   color: #0B6F6B;
+  border: 1px solid rgba(15, 143, 138, 0.15);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  transition: background var(--pt-dur-hover, 200ms) var(--pt-ease),
+    border-color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.categoryTag:hover {
+  background: #CFF0EC;
+  border-color: rgba(15, 143, 138, 0.3);
+}
+
+.categoryBullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pt-teal, #0F8F8A);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.categoryText {
+  flex: 1;
+  text-align: left;
 }
 
 .categoryLink {
@@ -664,13 +714,12 @@
 }
 
 .extraRowTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
   list-style: none;
   padding: 0;
   margin: 0;
-  justify-content: flex-end;
 }
 
 .backOverviewLinks {
@@ -847,7 +896,7 @@
   }
 
   .extraRowTags {
-    justify-content: flex-start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contactGrid {

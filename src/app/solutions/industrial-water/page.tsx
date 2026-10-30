@@ -233,7 +233,8 @@ export default function IndustrialWaterPage() {
                 <ul className={styles.categoryTagList} aria-label={`${title} categories`}>
                   {categories.map((category) => (
                     <li key={category} className={styles.categoryTag}>
-                      {category}
+                      <span className={styles.categoryBullet} aria-hidden="true" />
+                      <span className={styles.categoryText}>{category}</span>
                     </li>
                   ))}
                 </ul>
@@ -291,7 +292,8 @@ export default function IndustrialWaterPage() {
                 <ul className={styles.extraRowTags} aria-label={`${family.title} categories`}>
                   {family.categories.map((category) => (
                     <li key={category} className={styles.categoryTag}>
-                      {category}
+                      <span className={styles.categoryBullet} aria-hidden="true" />
+                      <span className={styles.categoryText}>{category}</span>
                     </li>
                   ))}
                 </ul>

@@ -186,7 +186,8 @@ export default function IndustrialFamilyPage({
                   >
                     {category.contexts.map((context) => (
                       <li key={context} className={styles.contextPill}>
-                        {context}
+                        <span className={styles.contextPillBullet} aria-hidden="true" />
+                        <span>{context}</span>
                       </li>
                     ))}
                   </ul>

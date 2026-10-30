@@ -177,7 +177,8 @@ export default function BoilerCoolingWaterPage() {
                 <ul className={styles.contextPills} aria-label={`${title} contexts`}>
                   {contexts.map((context) => (
                     <li key={context} className={styles.contextPill}>
-                      {context}
+                      <span className={styles.contextPillBullet} aria-hidden="true" />
+                      <span>{context}</span>
                     </li>
                   ))}
                 </ul>
