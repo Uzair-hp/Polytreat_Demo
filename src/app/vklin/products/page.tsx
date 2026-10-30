@@ -1,102 +1,313 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, Leaf } from "lucide-react";
-import { vklinProductGroups } from "@/data/vklinProducts";
+import {
+  ArrowRight,
+  Leaf,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Package,
+  Phone,
+  Sparkles,
+} from "lucide-react";
+import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
+import ContactTile from "@/components/ui/ContactTile";
+import HomeMotion from "@/components/home/HomeMotion";
+import { companyInfo } from "@/data/companyInfo";
+import { vklinProductCount, vklinProductGroups } from "@/data/vklinProducts";
+import styles from "@/components/solutions/vklin.module.css";
 
 export const metadata: Metadata = {
-  title: "V-Klin Cleaning Products | PolyTreat Chemicals",
+  title: "V-Klin Cleaning Products Catalogue | PolyTreat Chemicals",
   description:
-    "Browse the V-Klin cleaning range by floor and surface care, hand care, dishwashing, glass and window care, bathroom and toilet care, odour control and natural wellness.",
+    "Browse the full V-Klin cleaning catalogue across floor care, hand care, dishwashing, glass care, bathroom care, odour elimination and natural wellness.",
 };
 
 const categoryLinks = vklinProductGroups.map(({ id, title }) => ({ id, title }));
 
 export default function VKlinProductsPage() {
   return (
-    <main className="vklin-products-page">
-      <section className="vklin-products-hero" aria-labelledby="vklin-products-title">
-        <div className="container">
-          <nav className="vklin-products-breadcrumbs" aria-label="Breadcrumb">
+    <main className={styles.page}>
+      <HomeMotion />
+
+      {/* Hero Section */}
+      <section className={styles.hero} aria-labelledby="vklin-products-title">
+        <Container>
+          {/* Breadcrumbs */}
+          <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
+            <Link href="/solutions">Solutions</Link>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
             <Link href="/vklin">V-Klin</Link>
-            <ChevronRight size={14} aria-hidden="true" />
-            <span>Cleaning range</span>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
+            <span className={styles.breadcrumbCurrent} aria-current="page">
+              Cleaning range catalogue
+            </span>
           </nav>
-          <div className="vklin-products-hero-layout">
-            <div>
-              <span className="eyebrow eyebrow-green">
-                <Leaf size={15} aria-hidden="true" /> V-Klin home &amp; facility care
+
+          <div className={styles.heroGrid}>
+            {/* Left Copy */}
+            <div className={styles.heroCopy}>
+              <div className={styles.heroLogoWrap}>
+                <Image
+                  src="/vklin-logo.webp"
+                  alt="V-Klin"
+                  width={150}
+                  height={52}
+                  priority
+                  className={styles.heroLogo}
+                />
+              </div>
+
+              <span className={styles.eyebrow}>
+                <Leaf size={14} aria-hidden="true" />
+                V-Klin Formulated Catalogue
               </span>
-              <h1 id="vklin-products-title">Cleaning products, organised by task.</h1>
-              <p>
-                Browse the range across everyday cleaning categories for homes and shared
-                facilities.
+
+              <h1 id="vklin-products-title" className={styles.heroTitle}>
+                Cleaning products,{" "}
+                <span className={styles.heroHighlight}>organised by task.</span>
+              </h1>
+
+              <p className={styles.heroSubline}>
+                Browse all {vklinProductCount} formulations across everyday maintenance
+                categories for residential homes, corporate workspaces, and institutional facilities.
               </p>
+
+              <div className={styles.heroActions}>
+                <Button href="#catalogue" variant="primary">
+                  Jump to catalogue
+                </Button>
+                <Link className={styles.textLink} href="/contact#contact-form">
+                  <span>Enquire about bulk supply</span>
+                  <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+              </div>
             </div>
-            <Link className="btn btn-vklin" href="/contact#contact-form">
-              Ask about a product <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+
+            {/* Right Media Frame */}
+            <div className={styles.heroMediaFrame}>
+              <Image
+                src="/images/home/vklin-og-lineup.webp"
+                alt="Complete V-Klin commercial and residential cleaning catalogue"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className={styles.heroImg}
+              />
+              <div className={styles.mediaScrim} aria-hidden="true" />
+              <div className={styles.mediaCaption}>
+                <div className={styles.captionIconChip} aria-hidden="true">
+                  <Package size={20} strokeWidth={2} />
+                </div>
+                <div className={styles.captionText}>
+                  <strong className={styles.captionTitle}>Institutional &amp; Retail Packaging</strong>
+                  <span className={styles.captionScope}>
+                    500 ml · 1 L · 5 L Bulk Refills
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="vklin-products-legacy-note">
-            Official commercial & institutional hygiene formulations manufactured to ISO 9001:2015 and WHO-GMP compliance standards.
-          </div>
-        </div>
+
+          {/* Facts Strip */}
+          <dl className={styles.factsStrip} aria-label="Catalogue facts">
+            <div className={styles.factItem}>
+              <dt className={styles.factLabel}>Catalogue total</dt>
+              <dd className={styles.factValue}>{vklinProductCount} Active Products</dd>
+            </div>
+            <div className={styles.factItem}>
+              <dt className={styles.factLabel}>Pack sizes</dt>
+              <dd className={styles.factValue}>500 ml · 1 L · 5 L Carboys</dd>
+            </div>
+            <div className={styles.factItem}>
+              <dt className={styles.factLabel}>Formulation base</dt>
+              <dd className={styles.factValue}>Biodegradable &amp; Phosphate-Free</dd>
+            </div>
+            <div className={styles.factItem}>
+              <dt className={styles.factLabel}>Compliance standard</dt>
+              <dd className={styles.factValue}>ISO 9001:2015 &amp; WHO-GMP Ref</dd>
+            </div>
+          </dl>
+        </Container>
       </section>
 
-      <section className="vklin-products-catalogue" aria-label="V-Klin product categories">
-        <div className="container">
-          <nav className="vklin-products-category-nav" aria-label="Jump to a category">
+      {/* Product Groups Catalogue Section */}
+      <section
+        className={`${styles.section} ${styles.sectionLight}`}
+        id="catalogue"
+        aria-label="V-Klin product categories"
+        data-reveal
+      >
+        <Container>
+          {/* Category Jump Switcher Nav */}
+          <nav className={styles.categoryJumpNav} aria-label="Jump to cleaning category">
             {categoryLinks.map(({ id, title }) => (
-              <a href={`#${id}`} key={id}>{title}</a>
+              <a className={styles.categoryJumpPill} href={`#${id}`} key={id}>
+                <span>{title}</span>
+              </a>
             ))}
           </nav>
 
-          {vklinProductGroups.map(({ id, title, intro, products }) => (
-            <section className="vklin-product-group" id={id} key={id} aria-labelledby={`${id}-title`}>
-              <div className="vklin-product-group-heading">
-                <div>
-                  <span className="vklin-product-group-kicker">V-Klin range</span>
-                  <h2 id={`${id}-title`}>{title}</h2>
-                </div>
-                <p>{intro}</p>
-              </div>
-              <div className="vklin-product-grid">
-                {products.map(({ name, image, href, summary }) => (
-                  <article className="vklin-product-card" key={name}>
-                    <div className="vklin-product-image">
-                      <Image
-                        src={`/vklin-products/${image}`}
-                        alt={`V-Klin ${name} packaged formulation`}
-                        fill
-                        sizes="(max-width: 560px) 46vw, (max-width: 900px) 30vw, 260px"
-                      />
-                      <span>V-Klin Pack</span>
-                    </div>
-                    <div className="vklin-product-card-copy">
-                      <h3>{name}</h3>
-                      <p>{summary}</p>
-                      <Link href={href} aria-label={`View ${name} details`}>
-                        View product <ArrowRight size={14} aria-hidden="true" />
-                      </Link>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </section>
-          ))}
+          {/* Category Groups */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
+            {vklinProductGroups.map(({ id, title, intro, products }) => (
+              <section
+                id={id}
+                key={id}
+                aria-labelledby={`${id}-title`}
+                data-reveal
+              >
+                <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
+                  <div className={styles.headingGroup}>
+                    <span className={styles.sectionEyebrow}>V-Klin category</span>
+                    <h2 id={`${id}-title`} className={styles.sectionTitle}>
+                      {title}
+                    </h2>
+                  </div>
+                  <p className={styles.sectionLead}>{intro}</p>
+                </header>
 
-          <div className="vklin-products-footer-cta">
-            <div>
-              <span>Need help choosing a category?</span>
-              <p>Tell the team what you need to clean and where the product will be used.</p>
-            </div>
-            <Link href="/contact#contact-form">
-              Contact PolyTreat <ArrowRight size={15} aria-hidden="true" />
-            </Link>
+                <div className={styles.productCatalogueGrid} data-stagger-group>
+                  {products.map(({ id: prodId, name, image, href, summary, packSizes }) => (
+                    <article
+                      className={styles.productCatalogueCard}
+                      key={prodId}
+                      data-stagger-item
+                    >
+                      <div className={styles.productImageFrame}>
+                        <span className={styles.productPackageBadge}>V-Klin Pack</span>
+                        <Image
+                          src={`/vklin-products/${image}`}
+                          alt={`V-Klin ${name} packaged formulation`}
+                          fill
+                          sizes="(max-width: 560px) 90vw, (max-width: 900px) 45vw, 280px"
+                          className={styles.productBottleImg}
+                        />
+                      </div>
+
+                      <div className={styles.productCardBody}>
+                        <h3 className={styles.productCardTitle}>{name}</h3>
+                        <p className={styles.productCardDesc}>{summary}</p>
+
+                        <ul
+                          className={styles.productPacksList}
+                          aria-label={`${name} pack sizes`}
+                        >
+                          {packSizes.map((size) => (
+                            <li key={size} className={styles.productPackBadge}>
+                              {size}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <Link
+                          href={href}
+                          className={styles.cardLinkPinned}
+                          aria-label={`View ${name} specifications`}
+                        >
+                          <span>View product specification</span>
+                          <ArrowRight size={15} aria-hidden="true" />
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))}
           </div>
-        </div>
+
+          {/* Help Choosing Callout */}
+          <div className={styles.catalogueCallout} data-reveal>
+            <div className={styles.calloutLeft}>
+              <div className={styles.calloutIconWrap} aria-hidden="true">
+                <Sparkles size={26} strokeWidth={1.8} />
+              </div>
+              <div>
+                <h3 className={styles.calloutTitle}>
+                  Need assistance selecting products for your site?
+                </h3>
+                <p className={styles.calloutDesc}>
+                  Share the facility type, surface challenges, and expected volume with our
+                  housekeeping chemical specialists.
+                </p>
+              </div>
+            </div>
+
+            <Button href="/contact#contact-form" variant="primary">
+              Contact technical sales
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      {/* Navy Contact Band */}
+      <section
+        className={styles.contactSection}
+        id="contact"
+        aria-labelledby="vklin-products-contact-title"
+        data-reveal
+      >
+        <Container>
+          <div className={styles.contactGrid}>
+            <div className={styles.contactCopy}>
+              <span className={styles.contactEyebrow}>Facility Care &amp; Bulk Distribution</span>
+              <h2 id="vklin-products-contact-title" className={styles.contactTitle}>
+                Supplying homes, facilities, and commercial spaces.
+              </h2>
+              <p className={styles.contactLead}>
+                Whether you manage institutional housekeeping, commercial facilities, or retail
+                distribution networks, contact our team for bulk pricing and safety documentation.
+              </p>
+
+              <div className={styles.contactActions}>
+                <Button variant="primary" href="/contact#contact-form">
+                  Enquire about supply
+                </Button>
+                <Button
+                  variant="secondary"
+                  onDark
+                  href={companyInfo.whatsappUrl}
+                  external
+                  icon={<MessageCircle size={16} strokeWidth={1.75} />}
+                >
+                  Chat on WhatsApp
+                </Button>
+              </div>
+            </div>
+
+            <div className={styles.contactTiles}>
+              <ContactTile
+                icon={<Mail size={24} strokeWidth={1.75} />}
+                label="Commercial enquiries"
+                value={companyInfo.email}
+                href={`mailto:${companyInfo.email}`}
+              />
+              <ContactTile
+                icon={<Phone size={24} strokeWidth={1.75} />}
+                label="Sales & supply"
+                value={companyInfo.phone}
+                href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`}
+              />
+              <ContactTile
+                icon={<MessageCircle size={24} strokeWidth={1.75} />}
+                label="WhatsApp"
+                value={companyInfo.whatsappLabel}
+                href={companyInfo.whatsappUrl}
+                external
+              />
+              <ContactTile
+                icon={<MapPin size={24} strokeWidth={1.75} />}
+                label="Corporate office"
+                value={companyInfo.officeAddress}
+              />
+            </div>
+          </div>
+        </Container>
       </section>
     </main>
   );
 }
-

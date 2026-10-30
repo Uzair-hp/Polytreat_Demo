@@ -454,6 +454,453 @@
 }
 
 /* ================================================================= */
+/* 2b. Catalogue Navigation & Product Cards                          */
+/* ================================================================= */
+
+.categoryJumpNav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 16px);
+  margin-bottom: 48px;
+  box-shadow: 0 4px 16px rgba(11, 27, 51, 0.03);
+}
+
+.categoryJumpPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  font-weight: 600;
+  color: var(--pt-vklin-d, #047857);
+  background: var(--pt-vklin-t, #DDF6EA);
+  border: 1px solid rgba(14, 143, 94, 0.2);
+  padding: 8px 16px;
+  border-radius: var(--pt-radius-full, 999px);
+  text-decoration: none;
+  transition: background var(--pt-dur-hover, 200ms) var(--pt-ease),
+    border-color var(--pt-dur-hover, 200ms) var(--pt-ease),
+    transform var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.categoryJumpPill:hover {
+  background: #CBEFDE;
+  border-color: rgba(14, 143, 94, 0.4);
+  transform: translateY(-1px);
+}
+
+.productCatalogueGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.productCatalogueCard {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-top: 4px solid var(--pt-green, #0E8F5E);
+  border-radius: var(--pt-radius-md, 14px);
+  overflow: hidden;
+  transition: transform var(--pt-dur-hover, 200ms) var(--pt-ease),
+    box-shadow var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.productCatalogueCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--pt-shadow-lg, 0 16px 36px rgba(11, 27, 51, 0.09));
+}
+
+.productImageFrame {
+  position: relative;
+  height: 220px;
+  background: linear-gradient(180deg, #F9FBFA 0%, #EDF7F2 100%);
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.productBottleImg {
+  object-fit: contain;
+  transition: transform 300ms var(--pt-ease);
+}
+
+.productCatalogueCard:hover .productBottleImg {
+  transform: scale(1.05);
+}
+
+.productPackageBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pt-vklin-d, #047857);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  padding: 3px 8px;
+  border-radius: var(--pt-radius-full, 999px);
+  border: 1px solid rgba(14, 143, 94, 0.2);
+}
+
+.productCardBody {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.productCardTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 8px 0;
+}
+
+.productCardDesc {
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.5;
+  color: var(--pt-body, #4A5B72);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.productPacksList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.productPackBadge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-vklin-d, #047857);
+  border: 1px solid rgba(14, 143, 94, 0.15);
+}
+
+/* ================================================================= */
+/* 2c. Product Detail Shell Styles (VklinProductDetail)              */
+/* ================================================================= */
+
+.detailHeroVisual {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 20px);
+  overflow: hidden;
+  box-shadow: var(--pt-shadow-sm, 0 4px 12px rgba(11, 27, 51, 0.05));
+}
+
+.detailImageWrap {
+  position: relative;
+  height: 340px;
+  background: radial-gradient(circle at center, #ffffff 30%, #EDF7F2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.detailImg {
+  object-fit: contain;
+}
+
+.detailFigcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 20px;
+  background: #ffffff;
+  border-top: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.detailFigcaption strong {
+  font-family: var(--pt-font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.detailFigcaption span {
+  font-size: 0.75rem;
+  color: var(--pt-body, #4A5B72);
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.overviewLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.overviewHeadline {
+  font-family: var(--pt-font-heading);
+  font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+.overviewDesc {
+  font-size: var(--pt-text-base, 1rem);
+  line-height: 1.65;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+.featuresCard {
+  background: var(--pt-vklin-section, #EDF7F2);
+  border: 1px solid var(--pt-vklin-border, #CDEBDD);
+  border-radius: var(--pt-radius-lg, 16px);
+  padding: 24px;
+}
+
+.featuresCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pt-font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 16px 0;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.5;
+  color: var(--pt-body, #4A5B72);
+}
+
+.featureBullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pt-green, #0E8F5E);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.usageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.usageCard {
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 16px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.usageCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pt-font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 16px 0;
+}
+
+.applicationsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.applicationItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.5;
+  color: var(--pt-body, #4A5B72);
+}
+
+.appBullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pt-green, #0E8F5E);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.directionsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.directionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.5;
+  color: var(--pt-body, #4A5B72);
+}
+
+.directionNumber {
+  font-family: var(--pt-font-heading);
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--pt-vklin-d, #047857);
+  background: var(--pt-vklin-t, #DDF6EA);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.usageNote {
+  font-size: var(--pt-text-xs, 0.75rem);
+  line-height: 1.6;
+  color: var(--pt-body, #4A5B72);
+  background: var(--pt-hero-bg, #F3F7FB);
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-top: auto;
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 16px);
+  padding: 20px 24px;
+}
+
+.specRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #EEF2F6;
+}
+
+.specLabel {
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pt-vklin-d, #047857);
+}
+
+.specValue {
+  font-size: var(--pt-text-sm, 0.875rem);
+  font-weight: 600;
+  color: var(--pt-dark, #0B1B33);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.handlingGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.handlingCard {
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 16px);
+  padding: 24px;
+}
+
+.handlingTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pt-font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 16px 0;
+}
+
+.cautionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cautionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.5;
+  color: var(--pt-body, #4A5B72);
+}
+
+.cautionBullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E07B1A;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* ================================================================= */
 /* 3. Standards & Values Grid                                        */
 /* ================================================================= */
 
@@ -623,6 +1070,17 @@
 
   .heroMediaFrame {
     height: 320px;
+  }
+
+  .overviewGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .usageGrid,
+  .handlingGrid,
+  .specsGrid {
+    grid-template-columns: 1fr;
   }
 
   .standardsGrid {
