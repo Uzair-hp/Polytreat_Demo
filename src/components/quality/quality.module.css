@@ -1,0 +1,763 @@
+/* ================================================================= */
+/* Quality Page — Home v4 Design System                              */
+/* PolyTreat Chemicals Pvt. Ltd.                                      */
+/* ================================================================= */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
+  color: var(--pt-dark, #0B1B33);
+}
+
+/* ================================================================= */
+/* 1. Hero Section                                                   */
+/* ================================================================= */
+
+.hero {
+  position: relative;
+  background: linear-gradient(180deg, #F0F7F4 0%, #FFFFFF 100%);
+  padding-top: var(--pt-space-6, 2rem);
+  padding-bottom: var(--pt-space-8, 3rem);
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+  overflow: hidden;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--pt-text-xs, 0.75rem);
+  color: var(--pt-body, #4A5B72);
+  margin-bottom: var(--pt-space-5, 1.25rem);
+}
+
+.breadcrumbs a {
+  color: var(--pt-body, #4A5B72);
+  text-decoration: none;
+  transition: color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.breadcrumbs a:hover {
+  color: var(--pt-green, #0E8F5E);
+}
+
+.breadcrumbSeparator {
+  color: var(--pt-card-border, #DDE4EE);
+  font-weight: 400;
+}
+
+.breadcrumbCurrent {
+  color: var(--pt-dark, #0B1B33);
+  font-weight: 600;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-space-4, 1rem);
+  max-width: 62ch;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  background: var(--pt-vklin-t, #DDF6EA);
+  padding: 6px 14px;
+  border-radius: var(--pt-radius-full, 999px);
+  width: fit-content;
+}
+
+.heroTitle {
+  font-family: var(--pt-font-heading);
+  font-size: var(--pt-text-h1, clamp(2.25rem, 1.3rem + 3vw, 3.75rem));
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+.heroHighlight {
+  color: var(--pt-green, #0E8F5E);
+}
+
+.heroSubline {
+  font-size: var(--pt-text-lg, 1.125rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--pt-text-sm, 0.875rem);
+  font-weight: 700;
+  color: var(--pt-green, #0E8F5E);
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: color var(--pt-dur-hover, 200ms) var(--pt-ease),
+    transform var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.textLink:hover {
+  color: #047857;
+  transform: translateX(2px);
+}
+
+/* Hero Showcase Card */
+.heroShowcaseCard {
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 20px);
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(11, 27, 51, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.showcaseHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--pt-surface-subtle, #F7FAFC);
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.showcaseHeaderTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  background: var(--pt-vklin-t, #DDF6EA);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 143, 94, 0.2);
+}
+
+.showcaseHeaderBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--pt-body, #4A5B72);
+}
+
+.showcaseBody {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.showcaseHeadline {
+  font-family: var(--pt-font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.showcaseLead {
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.55;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+.showcaseList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.showcaseItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  font-weight: 500;
+  color: var(--pt-dark, #0B1B33);
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: var(--pt-radius-sm, 8px);
+  background: var(--pt-surface-subtle, #F7FAFC);
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.showcaseItemIcon {
+  color: var(--pt-green, #0E8F5E);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.showcaseFooter {
+  padding: 14px 20px;
+  background: var(--pt-surface-subtle, #F7FAFC);
+  border-top: 1px solid var(--pt-card-border, #DDE4EE);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.showcaseFooterLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  font-weight: 700;
+  color: var(--pt-green, #0E8F5E);
+  text-decoration: none;
+  transition: gap var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.showcaseFooterLink:hover {
+  gap: 10px;
+}
+
+/* ================================================================= */
+/* Facts Strip (ISO 9001, QC Lab, Traceability, TDS/SDS)             */
+/* ================================================================= */
+
+.factsStrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 40px;
+  padding: 18px 24px;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 16px);
+  box-shadow: 0 4px 16px rgba(11, 27, 51, 0.03);
+}
+
+.factItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 20px;
+  border-right: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.factItem:last-child {
+  border-right: none;
+}
+
+.factLabel {
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pt-body, #4A5B72);
+}
+
+.factValue {
+  font-family: var(--pt-font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+/* ================================================================= */
+/* 2. Common Section Layouts                                         */
+/* ================================================================= */
+
+.section {
+  padding-block: var(--pt-space-9, 4.5rem);
+}
+
+.sectionLight {
+  background-color: #ffffff;
+}
+
+.sectionTone {
+  background-color: var(--pt-surface-subtle, #F7FAFC);
+  border-top: 1px solid var(--pt-card-border, #DDE4EE);
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.sectionHeading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-space-2, 0.5rem);
+  margin-bottom: var(--pt-space-7, 2.5rem);
+  max-width: 72ch;
+}
+
+.sectionHeadingSplit {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pt-space-4, 1rem);
+}
+
+@media (min-width: 1024px) {
+  .sectionHeadingSplit {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: end;
+    gap: var(--pt-space-6, 2rem);
+  }
+}
+
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  margin-bottom: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--pt-font-heading);
+  font-size: var(--pt-text-h2, clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem));
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+.sectionLead {
+  font-size: var(--pt-text-base, 1rem);
+  line-height: 1.65;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+/* ================================================================= */
+/* 3. PQRS Framework Section                                         */
+/* ================================================================= */
+
+.pqrsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.pqrsCard {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-top: 4px solid var(--pt-green, #0E8F5E);
+  border-radius: var(--pt-radius-md, 16px);
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(11, 27, 51, 0.03);
+  transition: transform var(--pt-dur-hover, 200ms) var(--pt-ease),
+    box-shadow var(--pt-dur-hover, 200ms) var(--pt-ease),
+    border-color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.pqrsCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(14, 143, 94, 0.35);
+  box-shadow: 0 16px 36px rgba(11, 27, 51, 0.09);
+}
+
+.pqrsTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.pqrsLetterGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pqrsLetter {
+  font-family: var(--pt-font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--pt-dark, #0B1B33);
+  line-height: 1;
+}
+
+.pqrsIndex {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--pt-green, #0E8F5E);
+  letter-spacing: 0.04em;
+}
+
+.pqrsIconChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-green, #0E8F5E);
+}
+
+.pqrsTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 10px 0;
+}
+
+.pqrsDesc {
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.6;
+  color: var(--pt-body, #4A5B72);
+  margin: 0 0 20px 0;
+}
+
+.pqrsFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.pqrsFeature {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  color: var(--pt-body, #4A5B72);
+  line-height: 1.45;
+}
+
+.pqrsFeatureBullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pt-green, #0E8F5E);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.pqrsTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  background: var(--pt-vklin-t, #DDF6EA);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(14, 143, 94, 0.15);
+  margin-top: auto;
+  width: fit-content;
+}
+
+/* ================================================================= */
+/* 4. QC Testing & Lab Workflow Section                              */
+/* ================================================================= */
+
+.workflowGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.workflowStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-md, 14px);
+  padding: 24px 20px;
+  box-shadow: 0 4px 16px rgba(11, 27, 51, 0.03);
+}
+
+.workflowStepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-green, #0E8F5E);
+  font-family: var(--pt-font-heading);
+  font-size: 0.875rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.workflowStepTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.workflowStepDesc {
+  font-size: var(--pt-text-xs, 0.8125rem);
+  line-height: 1.55;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+/* ================================================================= */
+/* 5. Useful Resources & Certifications Linkage Cards                */
+/* ================================================================= */
+
+.resourcesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.resourceCard {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 18px);
+  padding: 32px;
+  box-shadow: 0 6px 20px rgba(11, 27, 51, 0.04);
+  transition: transform var(--pt-dur-hover, 200ms) var(--pt-ease),
+    box-shadow var(--pt-dur-hover, 200ms) var(--pt-ease),
+    border-color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.resourceCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(14, 143, 94, 0.35);
+  box-shadow: 0 16px 36px rgba(11, 27, 51, 0.08);
+}
+
+.resourceIconChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-green, #0E8F5E);
+  margin-bottom: 20px;
+}
+
+.resourceKicker {
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  margin-bottom: 6px;
+}
+
+.resourceTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  line-height: 1.3;
+  margin: 0 0 10px 0;
+}
+
+.resourceDesc {
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.6;
+  color: var(--pt-body, #4A5B72);
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+.resourceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pt-font-heading);
+  font-size: var(--pt-text-sm, 0.875rem);
+  font-weight: 700;
+  color: var(--pt-green, #0E8F5E);
+  text-decoration: none;
+  transition: gap var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.resourceCard:hover .resourceLink {
+  gap: 12px;
+}
+
+/* ================================================================= */
+/* 6. Navy Contact Band                                              */
+/* ================================================================= */
+
+.contactSection {
+  background: var(--pt-dark, #0B1B33);
+  padding-block: var(--pt-space-9, 4.5rem);
+  color: #ffffff;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contactCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactEyebrow {
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pt-green-tint, #4FD1A0);
+}
+
+.contactTitle {
+  font-family: var(--pt-font-heading);
+  font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.contactLead {
+  font-size: var(--pt-text-base, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.contactTiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* ================================================================= */
+/* 7. Responsive Media Queries                                       */
+/* ================================================================= */
+
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .workflowGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .resourcesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: var(--pt-space-5, 1.25rem);
+    padding-bottom: var(--pt-space-6, 2rem);
+  }
+
+  .factsStrip {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .factItem {
+    border-right: none;
+    border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+    padding: 0 0 12px 0;
+  }
+
+  .factItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .workflowGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactTiles {
+    grid-template-columns: 1fr;
+  }
+
+  .contactSection {
+    padding-block: 56px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .pqrsCard,
+  .resourceCard,
+  .textLink,
+  .showcaseFooterLink,
+  .resourceLink {
+    transition: none !important;
+    transform: none !important;
+  }
+}
