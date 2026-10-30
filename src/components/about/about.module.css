@@ -1,0 +1,928 @@
+/* ================================================================= */
+/* About Page — Home v4 Design System                                */
+/* PolyTreat Chemicals Pvt. Ltd.                                      */
+/* ================================================================= */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
+  color: var(--pt-dark, #0B1B33);
+}
+
+/* ================================================================= */
+/* 1. Hero Section                                                   */
+/* ================================================================= */
+
+.hero {
+  position: relative;
+  background: linear-gradient(180deg, #F0F7F4 0%, #FFFFFF 100%);
+  padding-top: var(--pt-space-6, 2rem);
+  padding-bottom: var(--pt-space-8, 3.5rem);
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+  overflow: hidden;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--pt-text-xs, 0.75rem);
+  color: var(--pt-body, #4A5B72);
+  margin-bottom: var(--pt-space-5, 1.25rem);
+}
+
+.breadcrumbs a {
+  color: var(--pt-body, #4A5B72);
+  text-decoration: none;
+  transition: color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.breadcrumbs a:hover {
+  color: var(--pt-green, #0E8F5E);
+}
+
+.breadcrumbSeparator {
+  color: var(--pt-card-border, #DDE4EE);
+  font-weight: 400;
+}
+
+.breadcrumbCurrent {
+  color: var(--pt-dark, #0B1B33);
+  font-weight: 600;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-space-4, 1rem);
+  max-width: 62ch;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  background: var(--pt-vklin-t, #DDF6EA);
+  padding: 6px 14px;
+  border-radius: var(--pt-radius-full, 999px);
+  width: fit-content;
+}
+
+.heroTitle {
+  font-family: var(--pt-font-heading);
+  font-size: var(--pt-text-h1, clamp(2.25rem, 1.3rem + 3vw, 3.75rem));
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+.heroHighlight {
+  color: var(--pt-green, #0E8F5E);
+}
+
+.heroSubline {
+  font-size: var(--pt-text-lg, 1.125rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+.heroFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+  list-style: none;
+  padding: 0;
+}
+
+.heroFactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  font-weight: 600;
+  color: var(--pt-dark, #0B1B33);
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  padding: 6px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(11, 27, 51, 0.03);
+}
+
+.heroFactIcon {
+  color: var(--pt-green, #0E8F5E);
+}
+
+/* Hero Glance Card */
+.glanceCard {
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 20px);
+  padding: 28px;
+  box-shadow: 0 12px 32px rgba(11, 27, 51, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.glanceHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.glanceIconChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-green, #0E8F5E);
+  flex-shrink: 0;
+}
+
+.glanceHeaderCopy {
+  display: flex;
+  flex-direction: column;
+}
+
+.glanceKicker {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+}
+
+.glanceTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+.glanceList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.glanceRow {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  line-height: 1.45;
+}
+
+.glanceLabel {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pt-body, #4A5B72);
+}
+
+.glanceValue {
+  font-weight: 600;
+  color: var(--pt-dark, #0B1B33);
+}
+
+/* ================================================================= */
+/* 2. Trust Proof Bar                                                */
+/* ================================================================= */
+
+.trustProofBar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+  padding-block: var(--pt-space-6, 2rem);
+}
+
+.trustProofGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.trustProofItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 16px;
+  border-right: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.trustProofItem:last-child {
+  border-right: none;
+}
+
+.trustProofValue {
+  font-family: var(--pt-font-heading);
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--pt-green, #0E8F5E);
+  line-height: 1.2;
+}
+
+.trustProofHeading {
+  font-family: var(--pt-font-heading);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+.trustProofDesc {
+  font-size: var(--pt-text-xs, 0.8125rem);
+  color: var(--pt-body, #4A5B72);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ================================================================= */
+/* 3. Common Section Layouts                                         */
+/* ================================================================= */
+
+.section {
+  padding-block: var(--pt-space-9, 4.5rem);
+}
+
+.sectionLight {
+  background-color: #ffffff;
+}
+
+.sectionTone {
+  background-color: var(--pt-surface-subtle, #F7FAFC);
+  border-top: 1px solid var(--pt-card-border, #DDE4EE);
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.sectionHeading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pt-space-2, 0.5rem);
+  margin-bottom: var(--pt-space-7, 2.5rem);
+  max-width: 72ch;
+}
+
+.sectionHeadingSplit {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pt-space-4, 1rem);
+}
+
+@media (min-width: 1024px) {
+  .sectionHeadingSplit {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: end;
+    gap: var(--pt-space-6, 2rem);
+  }
+}
+
+.sectionHeadingCenter {
+  text-align: center;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  margin-bottom: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--pt-font-heading);
+  font-size: var(--pt-text-h2, clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem));
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+.sectionLead {
+  font-size: var(--pt-text-base, 1rem);
+  line-height: 1.65;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+/* ================================================================= */
+/* 4. Story & Milestones Timeline                                    */
+/* ================================================================= */
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 52px;
+  align-items: start;
+}
+
+.storyCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.storyParagraph {
+  font-size: var(--pt-text-base, 1rem);
+  line-height: 1.65;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+.storyAction {
+  margin-top: 8px;
+}
+
+.timeline {
+  position: relative;
+  list-style: none;
+  padding: 0 0 0 28px;
+  margin: 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--pt-green, #0E8F5E), #1B5FA8);
+  opacity: 0.35;
+  border-radius: 2px;
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+.timelineItem::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--pt-green, #0E8F5E);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 3px rgba(14, 143, 94, 0.2);
+}
+
+.timelineItem:nth-child(even)::before {
+  background: #1B5FA8;
+  box-shadow: 0 0 0 3px rgba(27, 95, 168, 0.2);
+}
+
+.timelineEra {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.timelineTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 6px 0;
+}
+
+.timelineDesc {
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.6;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+/* ================================================================= */
+/* 5. Brand Architecture Section                                     */
+/* ================================================================= */
+
+.brandsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.brandCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 18px);
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(11, 27, 51, 0.03);
+  transition: transform var(--pt-dur-hover, 200ms) var(--pt-ease),
+    box-shadow var(--pt-dur-hover, 200ms) var(--pt-ease),
+    border-color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.brandCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(14, 143, 94, 0.35);
+  box-shadow: 0 16px 36px rgba(11, 27, 51, 0.09);
+}
+
+.brandCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.brandIconChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--brand-bg, var(--pt-vklin-t, #DDF6EA));
+  color: var(--brand-color, var(--pt-green, #0E8F5E));
+}
+
+.brandNumber {
+  font-family: var(--pt-font-heading);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--pt-body, #4A5B72);
+  letter-spacing: 0.06em;
+}
+
+.brandEyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-color, var(--pt-green, #0E8F5E));
+  margin-bottom: 4px;
+}
+
+.brandTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  line-height: 1.3;
+  margin: 0 0 10px 0;
+}
+
+.brandDesc {
+  font-size: var(--pt-text-xs, 0.8125rem);
+  line-height: 1.55;
+  color: var(--pt-body, #4A5B72);
+  margin: 0 0 18px 0;
+  flex-grow: 1;
+}
+
+.brandCategories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0 0;
+}
+
+.brandCategoryPill {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--pt-dark, #0B1B33);
+  background: var(--pt-surface-subtle, #F7FAFC);
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* ================================================================= */
+/* 6. Infrastructure Section                                         */
+/* ================================================================= */
+
+.infraGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.infraCard {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 18px);
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(11, 27, 51, 0.04);
+  transition: transform var(--pt-dur-hover, 200ms) var(--pt-ease),
+    box-shadow var(--pt-dur-hover, 200ms) var(--pt-ease),
+    border-color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.infraCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(14, 143, 94, 0.35);
+  box-shadow: 0 16px 36px rgba(11, 27, 51, 0.08);
+}
+
+.infraCardGreen {
+  border-top: 4px solid var(--pt-green, #0E8F5E);
+}
+
+.infraIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-green, #0E8F5E);
+  margin-bottom: 16px;
+}
+
+.infraKind {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+  margin-bottom: 4px;
+}
+
+.infraTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 12px 0;
+}
+
+.infraAddress {
+  font-style: normal;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  line-height: 1.6;
+  color: var(--pt-body, #4A5B72);
+  white-space: pre-line;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.infraNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--pt-body, #4A5B72);
+  padding-top: 12px;
+  border-top: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.infraNoteIcon {
+  color: var(--pt-green, #0E8F5E);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ================================================================= */
+/* 7. Quality & R&D Section                                          */
+/* ================================================================= */
+
+.rdLayout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.rdCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rdPanel {
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 20px);
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(11, 27, 51, 0.05);
+}
+
+.rdPanelHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.rdPanelIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-green, #0E8F5E);
+  flex-shrink: 0;
+}
+
+.rdPanelKicker {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-green, #0E8F5E);
+}
+
+.rdPanelTitle {
+  font-family: var(--pt-font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0;
+}
+
+.rdList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0 0;
+}
+
+.rdItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  line-height: 1.5;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.rdItemIcon {
+  color: var(--pt-green, #0E8F5E);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ================================================================= */
+/* 8. ISO 9001:2015 Certificate Showcase                             */
+/* ================================================================= */
+
+.certLayout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.certFigure {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-lg, 18px);
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(11, 27, 51, 0.06);
+  text-decoration: none;
+  transition: transform var(--pt-dur-hover, 200ms) var(--pt-ease),
+    box-shadow var(--pt-dur-hover, 200ms) var(--pt-ease);
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.certFigure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(11, 27, 51, 0.12);
+}
+
+.certImg {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  display: block;
+}
+
+.certCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.certActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ================================================================= */
+/* 9. Navy Contact Band                                              */
+/* ================================================================= */
+
+.contactSection {
+  background: var(--pt-dark, #0B1B33);
+  padding-block: var(--pt-space-9, 4.5rem);
+  color: #ffffff;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contactCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactEyebrow {
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pt-green-tint, #4FD1A0);
+}
+
+.contactTitle {
+  font-family: var(--pt-font-heading);
+  font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.contactLead {
+  font-size: var(--pt-text-base, 1rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.contactTiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* ================================================================= */
+/* 10. Responsive Media Queries                                      */
+/* ================================================================= */
+
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .trustProofGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .trustProofItem:nth-child(2) {
+    border-right: none;
+  }
+
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .brandsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .infraGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .rdLayout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .certLayout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: var(--pt-space-5, 1.25rem);
+    padding-bottom: var(--pt-space-6, 2rem);
+  }
+
+  .trustProofGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trustProofItem {
+    border-right: none;
+    border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+    padding-bottom: 14px;
+  }
+
+  .trustProofItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .brandsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .glanceRow {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .contactTiles {
+    grid-template-columns: 1fr;
+  }
+
+  .contactSection {
+    padding-block: 56px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .brandCard,
+  .infraCard,
+  .certFigure {
+    transition: none !important;
+    transform: none !important;
+  }
+}
