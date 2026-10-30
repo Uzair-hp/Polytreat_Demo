@@ -5,9 +5,19 @@ import {
   ArrowRight,
   Layers3,
   Link2,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
   ShieldCheck,
 } from "lucide-react";
+import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
+import ContactTile from "@/components/ui/ContactTile";
+import HomeMotion from "@/components/home/HomeMotion";
 import ConstructionRange from "@/components/ConstructionRange";
+import { companyInfo } from "@/data/companyInfo";
+import styles from "@/components/solutions/constructionChemistry.module.css";
 
 export const metadata: Metadata = {
   title: "Flooring & Joint Sealing | PolyTreat Chemicals",
@@ -36,109 +46,214 @@ const productAreas = [
 
 export default function FlooringJointSealingPage() {
   return (
-    <main className="flooring-joint-page">
-      <section className="construction-chemistry-hero" aria-labelledby="flooring-joint-title">
-        <div className="container">
-          <nav className="construction-chemistry-breadcrumbs" aria-label="Breadcrumb">
+    <main className={styles.page}>
+      <HomeMotion />
+
+      {/* Hero Section */}
+      <section className={styles.hero} aria-labelledby="flooring-joint-title">
+        <Container>
+          {/* Breadcrumbs */}
+          <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
             <Link href="/">Home</Link>
-            <span aria-hidden="true">/</span>
-            <span>Solutions</span>
-            <span aria-hidden="true">/</span>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
+            <Link href="/solutions">Solutions</Link>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
             <Link href="/solutions/construction-chemistry">Construction chemistry</Link>
-            <span aria-hidden="true">/</span>
-            <span>Flooring &amp; joint sealing</span>
+            <span className={styles.breadcrumbSeparator} aria-hidden="true">/</span>
+            <span className={styles.breadcrumbCurrent} aria-current="page">
+              Flooring &amp; joint sealing
+            </span>
           </nav>
 
-          <div className="construction-chemistry-hero-layout">
-            <div className="construction-chemistry-hero-copy">
-              <span className="eyebrow"><ShieldCheck size={15} aria-hidden="true" /> Construction &amp; surface protection</span>
-              <h1 id="flooring-joint-title">Flooring systems and joint sealing.</h1>
-              <p>
+          <div className={styles.heroGrid}>
+            {/* Left Copy */}
+            <div className={styles.heroCopy}>
+              <span className={styles.eyebrow}>
+                <ShieldCheck size={14} aria-hidden="true" />
+                Construction &amp; Surface Protection
+              </span>
+
+              <h1 id="flooring-joint-title" className={styles.heroTitle}>
+                Flooring systems and{" "}
+                <span className={styles.heroHighlight}>joint sealing.</span>
+              </h1>
+
+              <p className={styles.heroSubline}>
                 Explore protective flooring and coating categories alongside sealants
                 for cracks and joints in built surfaces.
               </p>
-              <div className="construction-chemistry-hero-actions">
-                <Link className="btn btn-accent" href="#product-areas">
-                  Explore product areas <ArrowRight size={17} aria-hidden="true" />
-                </Link>
-                <Link className="construction-chemistry-text-link" href="/contact#contact-form">
-                  Discuss a requirement
+
+              <div className={styles.heroActions}>
+                <Button href="#product-areas" variant="primary">
+                  Explore product areas
+                </Button>
+                <Link className={styles.textLink} href="/contact#contact-form">
+                  Discuss a requirement <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             </div>
 
-            <div className="construction-hero-figures is-single">
-              <figure className="construction-hero-figure">
-                <Image
-                  src="/images/home/pcs-joint-filling.webp"
-                  alt="Worker filling expansion joint in a concrete industrial floor with sealant"
-                  fill
-                  priority
-                  sizes="(max-width: 760px) 100vw, 420px"
-                />
-                <figcaption>PCS joint filling</figcaption>
-              </figure>
+            {/* Right Media Frame */}
+            <div className={styles.heroMediaFrame}>
+              <Image
+                src="/images/home/pcs-joint-filling.webp"
+                alt="Worker filling expansion joint in a concrete industrial floor with sealant"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className={styles.heroImg}
+              />
+              <div className={styles.mediaScrim} aria-hidden="true" />
+              <div className={styles.mediaCaption}>
+                <div className={styles.captionIconChip} aria-hidden="true">
+                  <Link2 size={20} strokeWidth={2} />
+                </div>
+                <div className={styles.captionText}>
+                  <strong className={styles.captionTitle}>PCS Joint Filling &amp; Sealants</strong>
+                  <span className={styles.captionScope}>
+                    Expansion Joints · Concrete Cracks · Epoxy Mortars
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      <section className="construction-detail-section" id="product-areas" aria-labelledby="product-areas-title">
-        <div className="container">
-          <div className="construction-areas-heading">
-            <div>
-              <span className="eyebrow">Explore by surface need</span>
-              <h2 id="product-areas-title">Two distinct surface applications.</h2>
+      {/* Product Areas Grid */}
+      <section
+        className={`${styles.section} ${styles.sectionLight}`}
+        id="product-areas"
+        aria-labelledby="product-areas-title"
+        data-reveal
+      >
+        <Container>
+          <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
+            <div className={styles.headingGroup}>
+              <span className={styles.sectionEyebrow}>Explore by surface need</span>
+              <h2 id="product-areas-title" className={styles.sectionTitle}>
+                Two distinct surface applications.
+              </h2>
             </div>
-            <p>
+            <p className={styles.sectionLead}>
               Flooring systems protect or finish larger surface areas; sealants address
               gaps and cracks. The right category depends on the surface and project.
             </p>
-          </div>
+          </header>
 
-          <div className="flooring-joint-grid">
+          <div className={styles.areasGridTwoCol} data-stagger-group>
             {productAreas.map(({ number, icon: Icon, title, description, contexts }) => (
-              <article className="construction-detail-card" key={title}>
-                <div className="construction-card-topline">
-                  <span>{number}</span>
-                  <span className="construction-card-icon"><Icon size={20} aria-hidden="true" /></span>
+              <article className={styles.areaCard} key={title} data-stagger-item>
+                <div className={styles.cardTopline}>
+                  <span className={styles.cardNumber}>{number}</span>
+                  <div className={styles.cardIconWrapper} aria-hidden="true">
+                    <Icon size={20} strokeWidth={1.8} />
+                  </div>
                 </div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <ul className="construction-context-list" aria-label={`${title} applications`}>
-                  {contexts.map((context) => <li key={context}>{context}</li>)}
+
+                <h3 className={styles.cardTitle}>{title}</h3>
+                <p className={styles.cardDesc}>{description}</p>
+
+                <ul className={styles.contextPills} aria-label={`${title} applications`}>
+                  {contexts.map((context) => (
+                    <li key={context} className={styles.contextPill}>
+                      <span className={styles.contextPillBullet} aria-hidden="true" />
+                      <span>{context}</span>
+                    </li>
+                  ))}
                 </ul>
+
+                <Link className={styles.cardLinkPinned} href="#construction-range">
+                  <span>View products</span>
+                  <ArrowRight size={15} aria-hidden="true" />
+                </Link>
               </article>
             ))}
           </div>
 
-          <p className="construction-detail-note">
-            The product categories behind each area are listed below. System
-            build-up, specifications, and application instructions should follow current product information.
-          </p>
-          <Link className="construction-detail-back" href="/solutions/construction-chemistry">
-            Back to construction chemistry <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-        </div>
+          <div className={styles.backOverviewLinks}>
+            <Link className={styles.overviewLink} href="/solutions/construction-chemistry">
+              <ArrowRight
+                size={15}
+                style={{ transform: "rotate(180deg)" }}
+                aria-hidden="true"
+              />
+              <span>Back to construction chemistry overview</span>
+            </Link>
+          </div>
+        </Container>
       </section>
 
+      {/* Construction Range */}
       <ConstructionRange
         familyIds={["epoxy-polyurethane-floor", "sealants-and-joints"]}
         title="Flooring, coating and sealant products."
         intro="The products PolyTreat's construction profile lists for industrial floors, protective finishes, and joint and crack sealing."
       />
 
-      <section className="construction-contact-band" aria-labelledby="flooring-joint-contact-title">
-        <div className="container construction-contact-inner">
-          <div>
-            <span className="eyebrow">Planning a floor or joint application?</span>
-            <h2 id="flooring-joint-contact-title">Share the surface and project context.</h2>
-            <p>That helps the team direct your flooring or sealant enquiry.</p>
+      {/* Navy Contact Band */}
+      <section
+        className={styles.contactSection}
+        id="contact"
+        aria-labelledby="flooring-joint-contact-title"
+        data-reveal
+      >
+        <Container>
+          <div className={styles.contactGrid}>
+            <div className={styles.contactCopy}>
+              <span className={styles.contactEyebrow}>Planning a floor or joint application?</span>
+              <h2 id="flooring-joint-contact-title" className={styles.contactTitle}>
+                Share the surface and project context.
+              </h2>
+              <p className={styles.contactLead}>
+                Detailing traffic conditions, chemical exposures, joint dimensions, and substrate
+                materials helps our team recommend the right flooring or sealant specification.
+              </p>
+
+              <div className={styles.contactActions}>
+                <Button variant="primary" href="/contact#contact-form">
+                  Discuss your requirement
+                </Button>
+                <Button
+                  variant="secondary"
+                  onDark
+                  href={companyInfo.whatsappUrl}
+                  external
+                  icon={<MessageCircle size={16} strokeWidth={1.75} />}
+                >
+                  Chat on WhatsApp
+                </Button>
+              </div>
+            </div>
+
+            <div className={styles.contactTiles}>
+              <ContactTile
+                icon={<Mail size={24} strokeWidth={1.75} />}
+                label="Email enquiries"
+                value={companyInfo.email}
+                href={`mailto:${companyInfo.email}`}
+              />
+              <ContactTile
+                icon={<Phone size={24} strokeWidth={1.75} />}
+                label="Technical & sales"
+                value={companyInfo.phone}
+                href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`}
+              />
+              <ContactTile
+                icon={<MessageCircle size={24} strokeWidth={1.75} />}
+                label="WhatsApp"
+                value={companyInfo.whatsappLabel}
+                href={companyInfo.whatsappUrl}
+                external
+              />
+              <ContactTile
+                icon={<MapPin size={24} strokeWidth={1.75} />}
+                label="Corporate office"
+                value={companyInfo.officeAddress}
+              />
+            </div>
           </div>
-          <Link className="btn btn-accent" href="/contact#contact-form">
-            Discuss your requirement <ArrowRight size={17} aria-hidden="true" />
-          </Link>
-        </div>
+        </Container>
       </section>
     </main>
   );

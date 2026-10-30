@@ -1,14 +1,18 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Container from "@/components/ui/Container";
 import {
   constructionRangeNote,
   findConstructionFamilies,
 } from "@/data/constructionRange";
+import styles from "@/components/solutions/constructionChemistry.module.css";
 
 /**
  * The product range of the construction profiles: every product the client's
  * construction profile lists, grouped into families, with its type, its
  * applications and the indicative coverage figure from the profile.
+ *
+ * Implements the Home v4 Design System with orange range accent (#E07B1A).
  */
 export default function ConstructionRange({
   familyIds,
@@ -24,50 +28,65 @@ export default function ConstructionRange({
   const families = findConstructionFamilies(familyIds);
 
   return (
-    <section className="construction-range" aria-labelledby="construction-range-title">
-      <div className="container">
-        <div className="construction-range-heading">
-          <div>
-            <span className="eyebrow">The product range</span>
-            <h2 id="construction-range-title">{title}</h2>
+    <section
+      className={`${styles.section} ${styles.sectionLight}`}
+      id="construction-range"
+      aria-labelledby="construction-range-title"
+      data-reveal
+    >
+      <Container>
+        <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
+          <div className={styles.headingGroup}>
+            <span className={styles.sectionEyebrow}>The product range</span>
+            <h2 id="construction-range-title" className={styles.sectionTitle}>
+              {title}
+            </h2>
           </div>
-          <p>{intro}</p>
-        </div>
+          <p className={styles.sectionLead}>{intro}</p>
+        </header>
 
-        <div className="construction-range-list">
+        <div className={styles.rangeList} data-stagger-group>
           {families.map((family) => (
-            <article className="construction-range-family" key={family.id}>
-              <div className="construction-range-family-head">
-                <h3>{family.title}</h3>
-                <p>{family.summary}</p>
+            <article className={styles.familyCard} key={family.id} data-stagger-item>
+              <div className={styles.familyHead}>
+                <h3 className={styles.familyTitle}>{family.title}</h3>
+                <p className={styles.familySummary}>{family.summary}</p>
               </div>
 
-              <ul className="construction-range-products">
+              <div className={styles.productsGrid}>
                 {family.products.map((product) => (
-                  <li className="construction-range-product" key={product.name}>
-                    <div className="construction-range-product-head">
-                      <strong>{product.name}</strong>
-                      <span className="construction-range-product-type">{product.type}</span>
+                  <div className={styles.productCard} key={product.name}>
+                    <div className={styles.productTop}>
+                      <strong className={styles.productName}>{product.name}</strong>
+                      <span className={styles.productType}>{product.type}</span>
                     </div>
-                    <ul className="construction-range-product-uses">
+
+                    <ul
+                      className={styles.productUsesList}
+                      aria-label={`${product.name} applications`}
+                    >
                       {product.uses.map((use) => (
-                        <li key={use}>{use}</li>
+                        <li className={styles.productUseItem} key={use}>
+                          <span className={styles.productBullet} aria-hidden="true" />
+                          <span>{use}</span>
+                        </li>
                       ))}
                     </ul>
+
                     {product.coverage && (
-                      <p className="construction-range-product-coverage">
+                      <span className={styles.productCoverage}>
                         Catalogue coverage: {product.coverage}
-                      </p>
+                      </span>
                     )}
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </article>
           ))}
 
           {showCorosil && (
-            <article className="construction-range-family is-linked">
-              <div className="construction-range-family-head">
+            <article className={styles.specialLinkedFamily} data-stagger-item>
+              <div className={styles.specialLinkedCopy}>
                 <h3>Rust converters</h3>
                 <p>
                   Treatment for rusty iron and steel before a paint system is
@@ -75,15 +94,16 @@ export default function ConstructionRange({
                   data and the finishing systems it is compatible with.
                 </p>
               </div>
-              <Link className="construction-range-link" href="/specialty/corosil">
-                Open COROSIL <ArrowRight size={16} aria-hidden="true" />
+              <Link className={styles.specialLinkedLink} href="/specialty/corosil">
+                <span>Open COROSIL</span>
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </article>
           )}
         </div>
 
-        <p className="construction-range-note">{constructionRangeNote}</p>
-      </div>
+        <p className={styles.disclaimerNote}>{constructionRangeNote}</p>
+      </Container>
     </section>
   );
 }
