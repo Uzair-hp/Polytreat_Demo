@@ -17,6 +17,7 @@ import ContactTile from "@/components/ui/ContactTile";
 import HomeMotion from "@/components/home/HomeMotion";
 import { companyInfo } from "@/data/companyInfo";
 import { vklinProductCount, vklinProductGroups } from "@/data/vklinProducts";
+import VklinCatalogueGrid from "@/components/solutions/VklinCatalogueGrid";
 import styles from "@/components/solutions/vklin.module.css";
 
 export const metadata: Metadata = {
@@ -24,8 +25,6 @@ export const metadata: Metadata = {
   description:
     "Browse the full V-Klin cleaning catalogue across floor care, hand care, dishwashing, glass care, bathroom care, odour elimination and natural wellness.",
 };
-
-const categoryLinks = vklinProductGroups.map(({ id, title }) => ({ id, title }));
 
 export default function VKlinProductsPage() {
   return (
@@ -90,15 +89,16 @@ export default function VKlinProductsPage() {
 
             {/* Right Media Frame */}
             <div className={styles.heroMediaFrame}>
-              <Image
-                src="/images/home/vklin-og-lineup.webp"
-                alt="Complete V-Klin commercial and residential cleaning catalogue"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className={styles.heroImg}
-              />
-              <div className={styles.mediaScrim} aria-hidden="true" />
+              <div className={styles.heroImageWrap}>
+                <Image
+                  src="/images/home/vklin-og-lineup.webp"
+                  alt="Complete V-Klin commercial and residential cleaning catalogue"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className={styles.heroImg}
+                />
+              </div>
               <div className={styles.mediaCaption}>
                 <div className={styles.captionIconChip} aria-hidden="true">
                   <Package size={20} strokeWidth={2} />
@@ -135,92 +135,20 @@ export default function VKlinProductsPage() {
         </Container>
       </section>
 
-      {/* Product Groups Catalogue Section */}
+      {/* Product Catalogue Section with Interactive Filter */}
       <section
         className={`${styles.section} ${styles.sectionLight}`}
         id="catalogue"
-        aria-label="V-Klin product categories"
+        aria-label="V-Klin product catalogue"
         data-reveal
       >
         <Container>
-          {/* Category Jump Switcher Nav */}
-          <nav className={styles.categoryJumpNav} aria-label="Jump to cleaning category">
-            {categoryLinks.map(({ id, title }) => (
-              <a className={styles.categoryJumpPill} href={`#${id}`} key={id}>
-                <span>{title}</span>
-              </a>
-            ))}
-          </nav>
+          <VklinCatalogueGrid
+            groups={vklinProductGroups}
+            totalCount={vklinProductCount}
+          />
 
-          {/* Category Groups */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
-            {vklinProductGroups.map(({ id, title, intro, products }) => (
-              <section
-                id={id}
-                key={id}
-                aria-labelledby={`${id}-title`}
-                data-reveal
-              >
-                <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
-                  <div className={styles.headingGroup}>
-                    <span className={styles.sectionEyebrow}>V-Klin category</span>
-                    <h2 id={`${id}-title`} className={styles.sectionTitle}>
-                      {title}
-                    </h2>
-                  </div>
-                  <p className={styles.sectionLead}>{intro}</p>
-                </header>
-
-                <div className={styles.productCatalogueGrid} data-stagger-group>
-                  {products.map(({ id: prodId, name, image, href, summary, packSizes }) => (
-                    <article
-                      className={styles.productCatalogueCard}
-                      key={prodId}
-                      data-stagger-item
-                    >
-                      <div className={styles.productImageFrame}>
-                        <span className={styles.productPackageBadge}>V-Klin Pack</span>
-                        <Image
-                          src={`/vklin-products/${image}`}
-                          alt={`V-Klin ${name} packaged formulation`}
-                          fill
-                          sizes="(max-width: 560px) 90vw, (max-width: 900px) 45vw, 280px"
-                          className={styles.productBottleImg}
-                        />
-                      </div>
-
-                      <div className={styles.productCardBody}>
-                        <h3 className={styles.productCardTitle}>{name}</h3>
-                        <p className={styles.productCardDesc}>{summary}</p>
-
-                        <ul
-                          className={styles.productPacksList}
-                          aria-label={`${name} pack sizes`}
-                        >
-                          {packSizes.map((size) => (
-                            <li key={size} className={styles.productPackBadge}>
-                              {size}
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Link
-                          href={href}
-                          className={styles.cardLinkPinned}
-                          aria-label={`View ${name} specifications`}
-                        >
-                          <span>View product specification</span>
-                          <ArrowRight size={15} aria-hidden="true" />
-                        </Link>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-
-          {/* Help Choosing Callout */}
+          {/* Technical Enquiry Callout */}
           <div className={styles.catalogueCallout} data-reveal>
             <div className={styles.calloutLeft}>
               <div className={styles.calloutIconWrap} aria-hidden="true">

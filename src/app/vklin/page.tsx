@@ -165,15 +165,16 @@ export default function VKlinPage() {
 
             {/* Right Media Frame */}
             <div className={styles.heroMediaFrame}>
-              <Image
-                src="/images/home/vklin-og-lineup.webp"
-                alt="V-Klin home and facility care product lineup bottles"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className={styles.heroImg}
-              />
-              <div className={styles.mediaScrim} aria-hidden="true" />
+              <div className={styles.heroImageWrap}>
+                <Image
+                  src="/images/home/vklin-og-lineup.webp"
+                  alt="V-Klin home and facility care product lineup bottles"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className={styles.heroImg}
+                />
+              </div>
               <div className={styles.mediaCaption}>
                 <div className={styles.captionIconChip} aria-hidden="true">
                   <Leaf size={20} strokeWidth={2} />
