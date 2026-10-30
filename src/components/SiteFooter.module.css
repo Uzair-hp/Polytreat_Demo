@@ -1,0 +1,296 @@
+/* ================================================================= */
+/* SiteFooter.module.css — Home v4 Design System                     */
+/* ================================================================= */
+
+.footer {
+  background-color: var(--pt-hero-bg, #F3F7FB);
+  border-top: 1px solid var(--pt-card-border, #DDE4EE);
+  color: var(--pt-body, #4A5B72);
+  font-family: var(--pt-font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional top brand line: 4-color gradient subtle strip */
+.topBrandLine {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--pt-blue, #1B5FA8) 0%,
+    var(--pt-orange, #E07B1A) 33%,
+    var(--pt-purple, #5B4BC4) 66%,
+    var(--pt-green, #0E8F5E) 100%
+  );
+}
+
+.footerInner {
+  max-width: var(--pt-container, 1200px);
+  margin: 0 auto;
+  padding: 56px var(--pt-gutter, 24px) 24px;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr) minmax(0, 1.15fr) minmax(0, 1.05fr);
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+/* Column 1: Brand & Credibility */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 360px;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  width: 180px;
+  transition: opacity var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.logoLink:hover {
+  opacity: 0.85;
+}
+
+.logoImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.brandDesc {
+  font-size: var(--pt-text-sm, 0.875rem);
+  line-height: 1.6;
+  color: var(--pt-body, #4A5B72);
+  margin: 0;
+}
+
+.brandProof {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 600;
+  color: var(--pt-dark, #0B1B33);
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  padding: 6px 12px;
+  border-radius: var(--pt-radius-full, 999px);
+  width: fit-content;
+}
+
+.proofDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--pt-teal, #0F8F8A);
+  flex-shrink: 0;
+}
+
+/* Nav Columns */
+.navCol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.colHeading {
+  font-family: var(--pt-font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pt-dark, #0B1B33);
+  margin: 0 0 4px 0;
+}
+
+.navLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navLink {
+  font-size: var(--pt-text-sm, 0.875rem);
+  color: var(--pt-body, #4A5B72);
+  text-decoration: none;
+  transition: color var(--pt-dur-hover, 200ms) var(--pt-ease), transform var(--pt-dur-hover, 200ms) var(--pt-ease);
+  display: inline-flex;
+  align-items: center;
+}
+
+.navLink:hover {
+  color: var(--pt-blue, #1B5FA8);
+  transform: translateX(2px);
+}
+
+/* Contact Column */
+.contactCol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--pt-text-sm, 0.875rem);
+  color: var(--pt-body, #4A5B72);
+  line-height: 1.5;
+}
+
+.contactLink {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--pt-text-sm, 0.875rem);
+  color: var(--pt-body, #4A5B72);
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.contactLink:hover {
+  color: var(--pt-blue, #1B5FA8);
+}
+
+.contactIcon {
+  color: var(--pt-blue, #1B5FA8);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* WhatsApp Direct Button in Footer */
+.whatsappBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--pt-radius-md, 10px);
+  background: #E8F8F0;
+  color: #0E8F5E;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 6px;
+  border: 1px solid rgba(14, 143, 94, 0.2);
+  transition: background-color var(--pt-dur-hover, 200ms) var(--pt-ease), transform var(--pt-dur-hover, 200ms) var(--pt-ease);
+  width: fit-content;
+}
+
+.whatsappBadge:hover {
+  background: #D4F3E4;
+  transform: translateY(-1px);
+}
+
+/* Bottom Bar */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 24px;
+  font-size: var(--pt-text-xs, 0.75rem);
+  color: var(--pt-body, #4A5B72);
+}
+
+.copyright {
+  font-weight: 500;
+}
+
+/* PQRS Tagline with 4 colored dots in Footer */
+.pqrsTagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.pqrsItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pqrsDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.credit {
+  font-size: var(--pt-text-xs, 0.75rem);
+  color: var(--pt-body, #4A5B72);
+}
+
+.credit a {
+  color: var(--pt-dark, #0B1B33);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.credit a:hover {
+  color: var(--pt-blue, #1B5FA8);
+  text-decoration: underline;
+}
+
+.creditHeart {
+  color: #E11D48;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+
+  .brandCol {
+    max-width: none;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pqrsTagline {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+}
