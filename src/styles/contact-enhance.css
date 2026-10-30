@@ -1,0 +1,357 @@
+/* ================================================================= */
+/* Contact Page Style-Up (Home v4 Modernization)                     */
+/* Enhances .contact-reference-layout classes                        */
+/* ================================================================= */
+
+/* 1. Hero Enhancement */
+.contact-reference-layout .contact-reference-hero {
+  background:
+    radial-gradient(ellipse at 15% 100%, rgba(14, 143, 94, 0.12), transparent 45%),
+    radial-gradient(ellipse at 85% 0%, rgba(27, 95, 168, 0.15), transparent 45%),
+    linear-gradient(180deg, #F0F7F4 0%, #FFFFFF 100%);
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.contact-reference-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--pt-body, #4A5B72);
+  margin-bottom: 1rem;
+}
+
+.contact-reference-breadcrumbs a {
+  color: var(--pt-body, #4A5B72);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.contact-reference-breadcrumbs a:hover {
+  color: var(--pt-green, #0E8F5E);
+}
+
+.contact-reference-breadcrumbs span:last-child {
+  color: var(--pt-dark, #0B1B33);
+  font-weight: 600;
+}
+
+.contact-reference-layout .contact-reference-eyebrow {
+  color: var(--pt-green, #0E8F5E);
+  background: var(--pt-vklin-t, #DDF6EA);
+  border: 1px solid rgba(14, 143, 94, 0.2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+}
+
+.contact-reference-layout .contact-reference-hero h1 {
+  font-family: var(--pt-font-heading);
+  color: var(--pt-dark, #0B1B33);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0.8rem 0 0.6rem;
+}
+
+.contact-reference-layout .contact-reference-hero p {
+  color: var(--pt-body, #4A5B72);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.contact-reference-layout .contact-reference-hero-link {
+  background: var(--pt-green, #0E8F5E);
+  color: #ffffff;
+  font-family: var(--pt-font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.65rem 1.25rem;
+  margin-top: 1.2rem;
+  box-shadow: 0 4px 14px rgba(14, 143, 94, 0.25);
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+
+.contact-reference-layout .contact-reference-hero-link:hover {
+  background: #047857;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(14, 143, 94, 0.35);
+}
+
+.contact-reference-layout .contact-reference-orbit {
+  border-color: rgba(14, 143, 94, 0.08);
+}
+
+.contact-reference-layout .contact-reference-orbit::before,
+.contact-reference-layout .contact-reference-orbit::after {
+  border-color: rgba(27, 95, 168, 0.08);
+}
+
+/* 2. Main Section & Cards Enhancement */
+.contact-reference-layout .contact-reference-main {
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+  background-color: #ffffff;
+}
+
+.contact-reference-layout .contact-reference-details > h2,
+.contact-reference-layout .contact-reference-form-heading h2,
+.contact-reference-layout .contact-reference-map-heading h2 {
+  font-family: var(--pt-font-heading);
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+  letter-spacing: -0.025em;
+  margin: 0.4rem 0 1rem;
+}
+
+/* Head Office Card */
+.contact-reference-layout .contact-reference-office {
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: 16px;
+  padding: 1.15rem;
+  box-shadow: 0 4px 16px rgba(11, 27, 51, 0.04);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  margin-bottom: 0.85rem;
+}
+
+.contact-reference-layout .contact-reference-office:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14, 143, 94, 0.35);
+  box-shadow: 0 12px 28px rgba(11, 27, 51, 0.08);
+}
+
+.contact-reference-layout .contact-reference-icon {
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-green, #0E8F5E);
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+}
+
+.contact-reference-layout .contact-reference-card h3 {
+  font-family: var(--pt-font-heading);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.contact-reference-layout .contact-reference-card address {
+  color: var(--pt-body, #4A5B72);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+/* Channels Grid */
+.contact-reference-layout .contact-reference-channels {
+  gap: 0.85rem;
+}
+
+.contact-reference-layout .contact-reference-channels .contact-reference-card {
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+  box-shadow: 0 2px 8px rgba(11, 27, 51, 0.03);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.contact-reference-layout .contact-reference-channels .contact-reference-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14, 143, 94, 0.35);
+  box-shadow: 0 8px 20px rgba(11, 27, 51, 0.07);
+  background: #ffffff;
+}
+
+.contact-reference-layout .contact-reference-channels strong {
+  font-family: var(--pt-font-heading);
+  font-size: 0.8125rem;
+  font-weight: 750;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.contact-reference-layout .contact-reference-channels .contact-reference-card span span {
+  color: var(--pt-body, #4A5B72);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* WhatsApp Channel Highlight Card */
+.contact-reference-layout .contact-reference-card.contact-reference-card-whatsapp {
+  border-color: rgba(14, 143, 94, 0.25);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%);
+}
+
+.contact-reference-layout .contact-reference-card.contact-reference-card-whatsapp:hover {
+  border-color: var(--pt-green, #0E8F5E);
+  box-shadow: 0 10px 24px rgba(14, 143, 94, 0.12);
+}
+
+.contact-reference-layout .contact-reference-card.contact-reference-card-whatsapp .contact-reference-icon {
+  background: #D1FAE5;
+  color: #059669;
+}
+
+/* Other Branches / Locations */
+.contact-reference-layout .contact-reference-branches {
+  margin-top: 1.5rem;
+}
+
+.contact-reference-layout .contact-reference-branches-heading {
+  border-bottom: 1px solid var(--pt-card-border, #DDE4EE);
+  padding-bottom: 0.6rem;
+  color: var(--pt-green, #0E8F5E);
+}
+
+.contact-reference-layout .contact-reference-branches-heading h3 {
+  font-family: var(--pt-font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.contact-reference-layout .contact-reference-branch {
+  background: var(--pt-surface-subtle, #F7FAFC);
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: 14px;
+  padding: 0.85rem;
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+
+.contact-reference-layout .contact-reference-branch:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14, 143, 94, 0.3);
+}
+
+.contact-reference-layout .contact-reference-branch-icon {
+  background: var(--pt-vklin-t, #DDF6EA);
+  color: var(--pt-green, #0E8F5E);
+  border-radius: 10px;
+}
+
+.contact-reference-layout .contact-reference-branch strong {
+  font-family: var(--pt-font-heading);
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.contact-reference-layout .contact-reference-branch address {
+  color: var(--pt-body, #4A5B72);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+/* 3. Form Wrap Enhancement */
+.contact-reference-layout .contact-reference-form-wrap {
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: 20px;
+  padding: clamp(1.4rem, 2.8vw, 2.2rem);
+  background: #ffffff;
+  box-shadow: 0 12px 36px rgba(11, 27, 51, 0.06);
+}
+
+.contact-reference-layout .contact-reference-form-heading > p {
+  color: var(--pt-body, #4A5B72);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+}
+
+.contact-reference-layout .contact-reference-form-wrap .contact-field label {
+  font-family: var(--pt-font-heading);
+  font-size: 0.6875rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.contact-reference-layout .contact-reference-form-wrap .contact-field input,
+.contact-reference-layout .contact-reference-form-wrap .contact-field select,
+.contact-reference-layout .contact-reference-form-wrap .contact-field textarea {
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.875rem;
+  color: var(--pt-dark, #0B1B33);
+  background: #ffffff;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.contact-reference-layout .contact-reference-form-wrap .contact-field input:focus,
+.contact-reference-layout .contact-reference-form-wrap .contact-field select:focus,
+.contact-reference-layout .contact-reference-form-wrap .contact-field textarea:focus {
+  border-color: var(--pt-green, #0E8F5E);
+  outline: 2px solid rgba(14, 143, 94, 0.2);
+  box-shadow: 0 0 0 3px rgba(14, 143, 94, 0.1);
+}
+
+.contact-reference-layout .contact-reference-form-wrap .contact-form-actions .btn {
+  background: var(--pt-green, #0E8F5E);
+  border-color: var(--pt-green, #0E8F5E);
+  border-radius: 999px;
+  font-family: var(--pt-font-heading);
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  transition: transform 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 4px 14px rgba(14, 143, 94, 0.25);
+}
+
+.contact-reference-layout .contact-reference-form-wrap .contact-form-actions .btn:hover {
+  background: #047857;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(14, 143, 94, 0.35);
+}
+
+/* 4. Map Section Enhancement */
+.contact-reference-layout .contact-reference-map-section {
+  background: var(--pt-surface-subtle, #F7FAFC);
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+  border-top: 1px solid var(--pt-card-border, #DDE4EE);
+}
+
+.contact-reference-layout .contact-reference-map-options button {
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  background: #ffffff;
+  border-radius: 999px;
+  font-family: var(--pt-font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--pt-body, #4A5B72);
+  padding: 0.5rem 1rem;
+  transition: all 200ms ease;
+}
+
+.contact-reference-layout .contact-reference-map-options button:hover {
+  border-color: #BAC7D5;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.contact-reference-layout .contact-reference-map-options button.is-active {
+  background: var(--pt-vklin-t, #DDF6EA);
+  border-color: var(--pt-green, #0E8F5E);
+  color: var(--pt-green, #0E8F5E);
+  font-weight: 700;
+}
+
+.contact-reference-layout .contact-reference-map-options button.is-active svg {
+  color: var(--pt-green, #0E8F5E);
+}
+
+.contact-reference-layout .contact-reference-map-toolbar > a {
+  font-family: var(--pt-font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--pt-green, #0E8F5E);
+  text-decoration: none;
+}
+
+.contact-reference-layout .contact-reference-map-frame {
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(11, 27, 51, 0.05);
+}

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Building2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import LocationMap from "@/components/LocationMap";
 import { locationSites } from "@/data/locations";
 import { companyInfo } from "@/data/companyInfo";
+import "@/styles/contact-enhance.css";
 
 export const metadata: Metadata = {
   title: "Contact PolyTreat | PolyTreat Chemicals Pvt. Ltd.",
@@ -25,6 +27,11 @@ export default function ContactPage() {
         <div className="contact-reference-orbit contact-reference-orbit-one" aria-hidden="true" />
         <div className="contact-reference-orbit contact-reference-orbit-two" aria-hidden="true" />
         <div className="container contact-reference-hero-inner">
+          <nav className="contact-reference-breadcrumbs" aria-label="Breadcrumbs">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span>Contact PolyTreat</span>
+          </nav>
           <span className="contact-reference-eyebrow">Contact PolyTreat</span>
           <h1 id="contact-title">Let’s talk about your requirement.</h1>
           <p>
@@ -67,7 +74,7 @@ export default function ContactPage() {
                 </span>
               </a>
               <a
-                className="contact-reference-card"
+                className="contact-reference-card contact-reference-card-whatsapp"
                 href={companyInfo.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
