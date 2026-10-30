@@ -55,8 +55,8 @@ export default function VKlinProductsPage() {
                 <Image
                   src="/vklin-logo.webp"
                   alt="V-Klin"
-                  width={150}
-                  height={52}
+                  width={140}
+                  height={89}
                   priority
                   className={styles.heroLogo}
                 />
