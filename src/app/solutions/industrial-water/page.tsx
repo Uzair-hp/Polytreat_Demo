@@ -264,7 +264,7 @@ export default function IndustrialWaterPage() {
         <Container>
           <header className={`${styles.sectionHeading} ${styles.sectionHeadingSplit}`}>
             <div className={styles.headingGroup}>
-              <span className={styles.sectionEyebrow}>Wider industrial range</span>
+              <span className={styles.sectionEyebrow}>Other catalogue families</span>
               <h2 id="other-categories-title" className={styles.sectionTitle}>
                 Also in the industrial catalogue.
               </h2>

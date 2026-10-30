@@ -8,7 +8,10 @@ import {
   Phone,
   type LucideIcon,
 } from "lucide-react";
-import type { IndustrialFamily } from "@/data/industrialFamilies";
+import {
+  industrialFamilies,
+  type IndustrialFamily,
+} from "@/data/industrialFamilies";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import ContactTile from "@/components/ui/ContactTile";
@@ -178,7 +181,9 @@ export default function IndustrialFamilyPage({
                   </div>
 
                   <h3 className={styles.cardTitle}>{category.title}</h3>
-                  <p className={styles.cardDesc}>{category.description}</p>
+                  <p className={`${styles.cardDesc} ${styles.cardDescMinHeight}`}>
+                    {category.description}
+                  </p>
 
                   <ul
                     className={styles.contextPills}
@@ -203,6 +208,25 @@ export default function IndustrialFamilyPage({
                 </article>
               );
             })}
+          </div>
+
+          {/* Sibling Catalogue Families Navigation */}
+          <div className={styles.siblingFamiliesSection} data-reveal>
+            <span className={styles.siblingFamiliesLabel}>Other catalogue families:</span>
+            <div className={styles.siblingFamiliesLinks}>
+              {industrialFamilies
+                .filter((f) => f.id !== family.id)
+                .map((sibling) => (
+                  <Link
+                    key={sibling.id}
+                    className={styles.siblingFamilyChip}
+                    href={`/solutions/${sibling.id}`}
+                  >
+                    <span>{sibling.name}</span>
+                    <ArrowRight size={13} aria-hidden="true" />
+                  </Link>
+                ))}
+            </div>
           </div>
 
           {family.note && (

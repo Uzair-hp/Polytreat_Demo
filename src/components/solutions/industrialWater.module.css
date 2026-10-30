@@ -389,6 +389,10 @@
   flex-grow: 1;
 }
 
+.cardDescMinHeight {
+  min-height: 52px;
+}
+
 .contextPills {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -400,11 +404,11 @@
 
 .contextPill {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   font-size: var(--pt-text-xs, 0.8125rem);
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.4;
   padding: 7px 12px;
   border-radius: var(--pt-radius-sm, 8px);
   background: var(--pt-water-t, #DDF5F3);
@@ -425,6 +429,7 @@
   height: 5px;
   border-radius: 50%;
   background: var(--pt-teal, #0F8F8A);
+  margin-top: 6px;
   flex-shrink: 0;
 }
 
@@ -806,6 +811,56 @@
   display: grid;
   grid-template-columns: minmax(0, 720px);
   justify-content: center;
+}
+
+/* Sibling Catalogue Families Navigation Bar */
+.siblingFamiliesSection {
+  margin-top: 36px;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid var(--pt-card-border, #DDE4EE);
+  border-radius: var(--pt-radius-md, 12px);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(11, 27, 51, 0.03);
+}
+
+.siblingFamiliesLabel {
+  font-size: var(--pt-text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-dark, #0B1B33);
+}
+
+.siblingFamiliesLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.siblingFamilyChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--pt-text-xs, 0.8125rem);
+  font-weight: 600;
+  color: #0B6F6B;
+  background: var(--pt-water-t, #DDF5F3);
+  border: 1px solid rgba(15, 143, 138, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--pt-radius-full, 999px);
+  text-decoration: none;
+  transition: background var(--pt-dur-hover, 200ms) var(--pt-ease),
+    transform var(--pt-dur-hover, 200ms) var(--pt-ease);
+}
+
+.siblingFamilyChip:hover {
+  background: #CFF0EC;
+  transform: translateY(-1px);
 }
 
 /* ================================================================= */
